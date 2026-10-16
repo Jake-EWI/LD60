@@ -1,0 +1,30 @@
+// == section        starts a section (the file begins in "start")
+// Name: text        a line spoken by Name
+// text              narration, no nameplate
+// * choice -> sect  a menu option; consecutive * lines form one menu.
+//                   Leave off "-> sect" to carry on after the menu.
+// -> sect           jump to a section ("-> end" finishes the dialogue)
+// > name args       a command for game code (DialogueRunner.CommandIssued)
+// ; voice           change the typing blip: a file in assets/audio/sfx ("; buh")
+//                   or a res:// path. "; default" goes back to the scene's blip.
+// [b]BBCode[/b] works in text.
+
+; buh
+The room is quiet. Too quiet.
+Character 1: Hey man.
+Charcter 1: How you doing, [b]buddy[/b]?
+* I'm fine. -> fine
+* There is a man in my house. -> chased
+* ...
+
+Character 1: [i]I hate you.[/i].
+-> end
+
+== fine
+Stranger: Me too man.
+-> end
+
+== chased
+> shake 0.5
+Stranger: [b]What?![/b]
+-> end

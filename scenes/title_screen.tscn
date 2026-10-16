@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://buff4nfebw8bt"]
+
+[ext_resource type="Script" uid="uid://cfxhgtki41yox" path="res://scripts/UI/TitleScreen.cs" id="1_fgkus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
+font_size = 100
+
+[node name="TitleScreen" type="Control" unique_id=1940620205]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgkus")
+
+[node name="Title" type="Label" parent="." unique_id=2117870035]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 184.0
+grow_horizontal = 2
+text = "My Amazing Game"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=972238735]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -40.0
+offset_right = 150.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="NewGameButton" type="Button" parent="Buttons" unique_id=443971857]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="Buttons" unique_id=1212903285]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "Load Game"
+
+[node name="SettingsButton" type="Button" parent="Buttons" unique_id=322919497]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "Settings"
+
+[connection signal="pressed" from="Buttons/NewGameButton" to="." method="OnNewGamePressed"]
+[connection signal="pressed" from="Buttons/LoadGameButton" to="." method="OnLoadGamePressed"]
+[connection signal="pressed" from="Buttons/SettingsButton" to="." method="OnSettingsPressed"]

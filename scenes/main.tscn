@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b0pjuqhgi8e6t"]
+
+[ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="1_box"]
+[ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="2_runner"]
+
+[node name="Main" type="Node" unique_id=1059810130]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=990172284]
+
+[node name="DialogueBox" parent="UI" unique_id=2042432276 instance=ExtResource("1_box")]
+BlipEvery = 1
+
+[node name="DialogueRunner" type="Node" parent="." unique_id=1562506669 node_paths=PackedStringArray("Box")]
+script = ExtResource("2_runner")
+Box = NodePath("../UI/DialogueBox")
+ScriptPath = "res://assets/dialogue/intro.txt"
+AutoStart = true
