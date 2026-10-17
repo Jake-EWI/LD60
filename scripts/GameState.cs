@@ -11,6 +11,7 @@ public partial class GameState : Node
     public int Money {get; set;}
     private int startingMoney { get; set; } = 100;
     public int Day {get; set;} = 1;
+    public DateTime CurrentDate {get; set;} = new DateTime(2052, 10, 15);
     public List<ItemInstance> Inventory = new List<ItemInstance>();
 
 
@@ -28,6 +29,12 @@ public partial class GameState : Node
     {
         Money += amount;
         EmitSignal(SignalName.MoneyChanged, Money);
+    }
+
+    public void IncrementDay()
+    {
+        Day++;
+        CurrentDate = CurrentDate.AddDays(1);
     }
     
 

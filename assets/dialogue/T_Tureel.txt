@@ -1,0 +1,38 @@
+; t_tureel
+== start
+T. Tureel: Good to see you're settling in bud.
+T. Tureel: Just having the keys doesn't make you real pawner though. You done this kinda thing before?
+* Can you show me the ropes? -> tutorial
+* I have. (Skip Tutorial) -> skip_tutorial
+
+== skip_tutorial
+T. Tureel: Suit yourself bud. But don't say I didn't warn ya. [shake rate=40 level=20][i]Heh[/i][/shake].
+
+== tutorial
+T. Tureel: No problem bud. 
+T. Tureel: During open hours, [i]customers[/i] will come up to you at this counter. They'll either be [b]buyers[/b] or [b]sellers[/b].
+T. Tureel: Or something else. [shake rate=40 level=20][i]Heh[/i][/shake]. But i'm sure you'll be able to handle yourself.
+T. Tureel: Regardless of if they're buying or selling, these scumbags are gonna try to rip you off bud. So it's best practice to try to [b]haggle[/b] the best deal out of them.
+T. Tureel: To haggle, just raise or lower the price with the haggle menu. 
+>tut_show_haggle
+T. Tureel: This doesn't often make people happy, so they'll try to *counter offer* you until they get a price they like.
+>tut_hide_haggle
+T. Tureel: Don't push them too hard though, they'll either leave. . . Or worse.
+T. Tureel: It's hard times out there, and these scumbags will try to trick you with counterfeit items.
+T. Tureel: Using the actions menu, you can try to determine the authenticity of these items.
+>tut_show_observe
+T. Tureel: You can observe the item's these scumbags are trying to sell ya, if you notice anything off, there's a chance it could be fake.
+T. Tureel: [b]Buying customers[/b] don't take buying fake items too fondly, but if you want to push your luck, sometimes they won't notice.
+>tut_show_coa
+T. Tureel: A [b]Certificate of Authenticity[/b] is another good way to spot a fake. But some legit buyers may not even have one.
+T. Tureel: I've also heard rumors on the streets that some [b]counterfeit[/b] COA's might be in circulation. So make sure all the info checks out.
+>tut_show_expert
+T. Tureel: If you're really strugglin' to figure out a fake. I'll leave you my buddies number. He's an expert at spotting fakes.
+>tut_show_inventory
+T. Tureel: Oh. One last thing. The worst of the worst of these scumbags might try to swipe something as they come in. So keep an eye on your [b]inventory[/b].
+>tut_show_gun
+T. Tureel: If you catch a thief, you can give them a... [i]slap on the wrist[/i]... if you catch my drift.
+T. Tureel: You can keep whatever you find on the suckers body too, just make sure you got the right guy.
+>tut_hide_all
+T. Tureel: That about does it for me bud. That ain't all there is to it though, but I think I'll let you find out on your own.
+>tut_finish

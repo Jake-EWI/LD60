@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://c6jsoslp1nc5d"]
+
+[ext_resource type="Texture2D" uid="uid://7jxpyusny3f6" path="res://assets/art/UI/COA Paper.png" id="1_oqdit"]
+[ext_resource type="FontFile" uid="uid://c2sprpq85tihx" path="res://assets/fonts/ChopinScript.ttf" id="2_c5vec"]
+[ext_resource type="FontFile" uid="uid://bc5nk0336na24" path="res://assets/fonts/Chrysanthemum-Bold.otf" id="3_3gpf4"]
+[ext_resource type="AudioStream" uid="uid://dxjd0k55t8e02" path="res://assets/audio/sfx/coa.wav" id="4_c5vec"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
+font = ExtResource("2_c5vec")
+font_size = 31
+font_color = Color(0, 0, 0, 0.6901961)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfdir"]
+font = ExtResource("3_3gpf4")
+font_color = Color(0, 0, 0, 0.5647059)
+
+[node name="CoaPanel" type="Control" unique_id=1656973042]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=1632656291]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.29411766)
+
+[node name="GoBackButton" type="Button" parent="." unique_id=1842431871]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 120.0
+offset_right = 737.0
+offset_bottom = 151.0
+text = "Go Back"
+
+[node name="CoaTexture" type="TextureRect" parent="." unique_id=1187794728]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48900002
+anchor_top = 0.60400003
+anchor_right = 0.48900002
+anchor_bottom = 0.60400003
+offset_left = -174.328
+offset_top = -234.39203
+offset_right = 172.672
+offset_bottom = 220.60797
+texture = ExtResource("1_oqdit")
+
+[node name="CoaTitle" type="Label" parent="CoaTexture" unique_id=2001134602]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 333.0
+offset_bottom = 63.0
+text = "Certificate of Authentication"
+label_settings = SubResource("LabelSettings_yih1u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CoaTexture" unique_id=590685745]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 68.0
+offset_right = 255.0
+offset_bottom = 108.0
+
+[node name="CoaItem" type="Label" parent="CoaTexture/VBoxContainer" unique_id=1628223909]
+layout_mode = 2
+text = "Item: Old Phone"
+label_settings = SubResource("LabelSettings_bfdir")
+
+[node name="CoaId" type="Label" parent="CoaTexture/VBoxContainer" unique_id=884190599]
+layout_mode = 2
+text = "Manufacturer ID: XJFkdflsFD"
+label_settings = SubResource("LabelSettings_bfdir")
+
+[node name="CoaDate" type="Label" parent="CoaTexture/VBoxContainer" unique_id=1106324719]
+layout_mode = 2
+text = "Date of Authentication: 03/28/48"
+label_settings = SubResource("LabelSettings_bfdir")
+
+[node name="CoaSound" type="AudioStreamPlayer" parent="." unique_id=120091661]
+stream = ExtResource("4_c5vec")

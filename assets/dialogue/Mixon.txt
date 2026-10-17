@@ -135,3 +135,12 @@ Mixon: Will you be willing to purchase?
 == buyer_chat_d
 Mixon: Lots of people heading north these days! I considered heading there myself, but I don't trust anyone except me, myself and I! | People have started skinning animals for clothing! It's like the ice age all over again!
 Mixon: Will you be willing to purchase?
+
+== coa
+Mixon: COA? Yeah I got one. Take a look.
+> shake 0.8
+Mixon: Don't even try to say it ain't real.
+> show_coa
+
+== no_coa
+Mixon: Ain't got one. Guy I swiped this from probably isn't eager to hand it over either. Sorry buddy.

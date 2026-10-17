@@ -3,8 +3,10 @@ using System;
 
 public partial class ObservationPanel : Control
 {
+    [Signal] public delegate void GoBackPressedEventHandler();
     private TextureRect itemText;
     private TextureRect imperfectionText;
+    private Button goBackButton;
     [Export] public Texture2D[] ImperfectionTextures;
     [Export] public Texture2D[] RedHerringTextures;
 
@@ -12,6 +14,8 @@ public partial class ObservationPanel : Control
     {
         itemText = GetNode<TextureRect>("Panel/ItemTexture");
         imperfectionText = GetNode<TextureRect>("Panel/ImperfectionTexture");
+        goBackButton = GetNode<Button>("GoBackButton");
+        goBackButton.Pressed += () => EmitSignal(SignalName.GoBackPressed);
     }
 
     public Texture2D RollImperfection(bool isFake, RandomNumberGenerator rng)

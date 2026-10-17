@@ -134,3 +134,15 @@ Dobby: W-will you buy it?
 == buyer_chat_d
 Dobby: R-refugees are m-meeting north a-at Acre's P-point. There m-must b-be shelter... b-b-b it's n-near the f-front line... | P-people h-have started d-d-digging h-holes in the g-ground for s-shelter... L-like a-animals...
 Dobby: W-will you buy it?
+
+== coa
+> shake 0.8
+Dobby: Y-Yeah, i-its right here.
+> shake 0.8
+Dobby: Sh-should be g-good.
+> show_coa
+
+== no_coa
+> shake 0.8
+Dobby: N-no I-i'm [shake rate=20 level=20]SOOOOORRRRYYYY[/shake].
+Dobby: I-i must've m-misplaced it.

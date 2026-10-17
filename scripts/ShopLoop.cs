@@ -8,6 +8,7 @@ public partial class ShopLoop : Node
 {
     [Export] public CustomerDefinition[] CustomerPool {get; set;} = [];
     [Export] public CustomerDefinition PoliceOfficer { get; set; } = null;
+    [Export] public CustomerDefinition Tutorial { get; set; } = null;
     private List<CustomerDefinition> liveCustomerPool { get; set; } = [];
     [Export] int MaxCustomers {get; set;} = 6;
     [Export] int MinCustomers {get; set;} = 4;
@@ -27,6 +28,7 @@ public partial class ShopLoop : Node
     [Export] public DayScreen DayScreen { get; set; }
     [Export] public GunPOV GunPOV { get; set; }
     [Export] public ObservationPanel ObservationPanel { get; set; }
+    [Export] public CoaPanel CoaPanel { get; set; }
 
     //gamestate
 
@@ -44,6 +46,7 @@ public partial class ShopLoop : Node
     private ItemDefinition itemStolenOnEntrance;
     private bool expertCalling;
     private bool guiltyOfMurder = false;
+    private bool hasCoa = false;
 
     public override void _Ready()
     {
@@ -68,6 +71,11 @@ public partial class ShopLoop : Node
         ActionsMenu.PullGunPressed += OnPullGunPressed;
         ActionsMenu.ExpertButtonPressed += OnExpertPressed;
         ActionsMenu.ObservePressed += OnObservePressed;
+        ActionsMenu.COAButtonPressed += OnCoaPressed;
+
+        CoaPanel.GoBackPressed += CloseAllActionPanels;
+        ObservationPanel.GoBackPressed += CloseAllActionPanels;
+        InventoryPanel.GoBackPressed += CloseAllActionPanels;
 
         DayScreen.DayScreenFinished += () => StartDay();
         
@@ -80,6 +88,9 @@ public partial class ShopLoop : Node
         liveCustomerPool = new List<CustomerDefinition>(CustomerPool);
         int customersPerDay = rng.RandiRange(MinCustomers, MaxCustomers);
         customersPerDay = Math.Min(customersPerDay, liveCustomerPool.Count);
+
+        if (gm.Day == 1)
+            customerQueue.Enqueue(Tutorial);
 
         for (int i = 0; i < customersPerDay; i++)
         {
@@ -98,7 +109,7 @@ public partial class ShopLoop : Node
         int profitLoss = gm.Money - moneyAtStartOfDay;
         gm.AddMoney(-Rent);
         int fromDay = gm.Day;
-        gm.Day += 1;
+        gm.IncrementDay();
         DayScreen.ShowDayScreen(fromDay, gm.Day, profitLoss, Rent, gm.Money);
     }
 
@@ -130,6 +141,9 @@ public partial class ShopLoop : Node
 
         //determine buying or selling
         customerBuying = gm.Inventory.Count > 0 && rng.Randf() < customer.BuyerChance;
+
+        //determine if customer has a coa
+        hasCoa = rng.Randf() < customer.CoaChance && !customerBuying;
 
 
         if(customerBuying)
@@ -213,6 +227,10 @@ public partial class ShopLoop : Node
             case "arrest":
                 customerQueue.Clear();
                 phase = ShopPhase.Closing;
+                break;
+            case "show_coa":
+                HideBarter();
+                CoaPanel.OpenCoa(offeredItem.Item.ItemName, offeredItem.IsFake, rng, gm, this);
                 break;
         }
     }
@@ -368,6 +386,24 @@ public partial class ShopLoop : Node
         ObservationPanel.OpenObservation(offeredItem.Item.Icon, offeredItem.Imperfection);
     }
 
+    public void OnCoaPressed()
+    {
+        if(CoaPanel.Visible)
+        {
+            CoaPanel.Visible = false;
+            ShowBarter();
+            return;
+        }
+        HideBarter();
+        if(hasCoa)
+        {
+            Runner.Play("coa");
+        } else
+        {
+            Runner.Play("no_coa");
+        }
+    }
+
     public async void OnPullGunPressed()
     {
         HideBarter();
@@ -424,5 +460,14 @@ public partial class ShopLoop : Node
             gm.Inventory.Remove(offeredItem);
         else if (gm.Inventory.Count > 0)
             gm.Inventory.RemoveAt(rng.RandiRange(0, gm.Inventory.Count - 1));
+    }
+
+    public void CloseAllActionPanels()
+    {
+        ObservationPanel.Visible = false;
+        CoaPanel.Visible = false;
+        InventoryPanel.Visible = false;
+        ShowBarter();
+        ShowOfferedItem();
     }
 }

@@ -133,3 +133,10 @@ Exton: So, you selling?
 == buyer_chat_d
 Exton: Keep my head down, don't ask questions, and never travel at night. | Odd jobs. Hauling, fixing. A fella who can fix things don't go hungry long.
 Exton: So, you selling?
+
+== coa
+Exton: Sure do bud. Take a look.
+> show_coa
+
+== no_coa
+Exton: 'fraid I don't. Hope that's alright with you.

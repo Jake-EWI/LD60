@@ -3,16 +3,20 @@ using System;
 
 public partial class InventoryPanel : Control
 {
+    [Signal] public delegate void GoBackPressedEventHandler();
     [Export] public Vector2 IconSize { get; set; } = new(64, 64);
 
     private GameState gm;
     private GridContainer grid;
+    private Button goBackButton;
 
     public override void _Ready()
     {
         gm = GetNode<GameState>("/root/GameState");
         grid = GetNode<GridContainer>("%Grid");
+        goBackButton = GetNode<Button>("GoBackButton");
         VisibilityChanged += Refresh;
+        goBackButton.Pressed += () => EmitSignal(SignalName.GoBackPressed);
         Refresh();
     }
 

@@ -110,3 +110,12 @@ Canker: You selling or what?
 == buyer_chat_d
 Canker: Saw a guy trade his boots for a can of beans. Smart guy. Cold feet, though. | Your shop. Kinda interesting. Lots of doors, not many locks.
 Canker: You selling or what?
+
+== coa
+Canker: COA? Yeah I got one. Take a look.
+> shake 0.8
+Canker: Don't even try to say it ain't real.
+> show_coa
+
+== no_coa
+Canker: Ain't got one. Guy I swiped this from probably isn't eager to hand it over either. Sorry buddy.

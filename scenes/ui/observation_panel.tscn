@@ -8,6 +8,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Dimmer" type="ColorRect" parent="." unique_id=1195682391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.29411766)
+
 [node name="Panel" type="Panel" parent="." unique_id=1093170300]
 layout_mode = 1
 anchors_preset = -1
@@ -45,3 +56,11 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="GoBackButton" type="Button" parent="." unique_id=99489758]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 64.0
+offset_right = 806.0
+offset_bottom = 95.0
+text = "Go Back"

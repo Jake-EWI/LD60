@@ -134,3 +134,10 @@ Dyer: Take it, or I'll leave.
 == buyer_chat_d
 Dyer: Saw kids playing in the desert for the first time in months. Shame they'll be nothing but ash and dust when they finally decide to be rid of us. | If you see strange folk in black hooded clothing, keep your distance. Or maybe don't, I mean, I don't know what's beneficial for you.
 Dyer: Take it, or I'll leave.
+
+== coa
+Dyer: No problem. Got it right here.
+> show_coa
+
+== no_coa
+Dyer: I don't. Is that gonna be a problem?

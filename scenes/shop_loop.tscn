@@ -42,8 +42,10 @@
 [ext_resource type="Texture2D" uid="uid://x3v0d6adtaox" path="res://assets/art/UI/Made in China.png" id="37_5pgrl"]
 [ext_resource type="Texture2D" uid="uid://c22gajuhe81op" path="res://assets/art/UI/Manufactured Sticker (Fake).png" id="38_srn1w"]
 [ext_resource type="Texture2D" uid="uid://bpghks7qfy7ho" path="res://assets/art/UI/Manufactured Sticker (Real).png" id="39_c6a8c"]
+[ext_resource type="PackedScene" uid="uid://c6jsoslp1nc5d" path="res://scenes/ui/coa_panel.tscn" id="40_srn1w"]
+[ext_resource type="Script" uid="uid://cvyf6kw6vx1gx" path="res://scripts/UI/CoaPanel.cs" id="41_c6a8c"]
 
-[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel")]
+[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel", "CoaPanel")]
 script = ExtResource("1_cx0yy")
 CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl")]
 PoliceOfficer = ExtResource("5_ewqmb")
@@ -56,6 +58,7 @@ InventoryPanel = NodePath("CanvasLayer/InventoryPanel")
 DayScreen = NodePath("CanvasLayer/EndDayScreen")
 GunPOV = NodePath("CanvasLayer/GunPov")
 ObservationPanel = NodePath("CanvasLayer/ObservationPanel")
+CoaPanel = NodePath("CanvasLayer/CoaPanel")
 ItemPool = [ExtResource("6_ab184"), ExtResource("7_g0mg2"), ExtResource("8_ascam"), ExtResource("9_quegl"), ExtResource("10_m8e4n"), ExtResource("11_slaiq"), ExtResource("12_qpfrs"), ExtResource("13_x7u0g"), ExtResource("14_5pgrl"), ExtResource("15_srn1w"), ExtResource("16_c6a8c"), ExtResource("17_1ups1"), ExtResource("18_eqi3r"), ExtResource("19_lqmhv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
@@ -117,6 +120,11 @@ mouse_filter = 2
 script = ExtResource("33_ascam")
 ImperfectionTextures = Array[Texture2D]([ExtResource("37_5pgrl"), ExtResource("38_srn1w")])
 RedHerringTextures = Array[Texture2D]([ExtResource("39_c6a8c")])
+
+[node name="CoaPanel" parent="CanvasLayer" unique_id=1656973042 instance=ExtResource("40_srn1w")]
+visible = false
+mouse_filter = 2
+script = ExtResource("41_c6a8c")
 
 [node name="EndDayScreen" parent="CanvasLayer" unique_id=2136170922 instance=ExtResource("16_mrmbw")]
 visible = false

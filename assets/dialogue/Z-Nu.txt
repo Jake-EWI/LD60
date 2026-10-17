@@ -131,3 +131,12 @@ Z-Nu: So, Human? Will you part with it?
 == buyer_chat_d
 Z-Nu: Of course it is Earth money. Look, it has a Human face on it. | It was given to me by a very nice Human who asked me to stop following him.
 Z-Nu: So, Human? Will you part with it?
+
+== coa
+Z-Nu: [shake rate=10 level=10]Oh boy do I![/shake]
+Z-Nu: Can you even imagine the thrill of owning a [shake rate=10 level=10]REAL HUMAN CERTIFICATE OF ANALYSIS![/shake] Glorp.
+Z-Nu: Careful with it Human. Glorp. Don't want human juice ruining the ink.
+> show_coa
+
+== no_coa
+Z-Nu: Glorp. I'm afraid I'm not familiar.

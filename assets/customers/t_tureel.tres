@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://binwpyjxstujv"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_jbnug"]
+[ext_resource type="Texture2D" uid="uid://bu1b24uicmdk4" path="res://assets/art/Characters/Guy 5.png" id="1_pga86"]
+
+[resource]
+script = ExtResource("1_jbnug")
+CustomerName = "T. Tureel"
+CharacterImage = ExtResource("1_pga86")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

@@ -1,14 +1,9 @@
 [gd_scene format=3 uid="uid://ka08621mncgp"]
 
 [ext_resource type="Script" uid="uid://q6qdqks1tgbv" path="res://scripts/UI/InventoryPanel.cs" id="1_inv"]
-[ext_resource type="Texture2D" uid="uid://d3focplk5xjom" path="res://assets/art/UI/Inventory.png" id="2_17uwj"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yih1u"]
-texture = ExtResource("2_17uwj")
-expand_margin_left = 271.0
-expand_margin_top = 114.0
-expand_margin_right = 266.0
-expand_margin_bottom = 113.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yit1u"]
+bg_color = Color(0, 0, 0, 0.40392157)
 
 [node name="InventoryPanel" type="Control" unique_id=1418538185]
 layout_mode = 3
@@ -19,6 +14,25 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_inv")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=2112786232]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.29411766)
+
+[node name="GoBackButton" type="Button" parent="." unique_id=841127381]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 86.0
+offset_right = 876.0
+offset_bottom = 121.0
+text = "Go Back"
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=2060784329]
 layout_mode = 1
@@ -33,7 +47,7 @@ offset_right = 300.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_yih1u")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yit1u")
 
 [node name="Margin" type="MarginContainer" parent="Panel" unique_id=1353505019]
 layout_mode = 2
