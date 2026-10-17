@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://cut8l67wru0o0"]
+
+[ext_resource type="Texture2D" uid="uid://ywricyrrofmm" path="res://assets/art/Characters/Dobby.png" id="1_ikc7t"]
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_tvs3m"]
+
+[resource]
+script = ExtResource("1_tvs3m")
+CustomerName = "Dobby"
+DialoguePath = "res://assets/dialogue/Dobby.txt"
+CharacterImage = ExtResource("1_ikc7t")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

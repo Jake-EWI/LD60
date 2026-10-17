@@ -12,10 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://cr6rlq7d8x6ro" path="res://scenes/ui/barter_panel.tscn" id="5_6k040"]
 [ext_resource type="Script" uid="uid://bx6cxoqbol8p5" path="res://scripts/UI/OfferedItem.cs" id="5_47bbb"]
 [ext_resource type="Resource" uid="uid://b5anxcjg00f80" path="res://assets/customers/officer.tres" id="5_ewqmb"]
+[ext_resource type="Resource" uid="uid://c43i5o4okqqwo" path="res://assets/customers/mixon.tres" id="5_g0mg2"]
 [ext_resource type="Texture2D" uid="uid://dpga5okwpq2ma" path="res://assets/art/Environment/Table Overlay.png" id="5_mj4d2"]
 [ext_resource type="Resource" uid="uid://dukldq303mpj3" path="res://assets/items/television.tres" id="6_ab184"]
+[ext_resource type="Resource" uid="uid://cut8l67wru0o0" path="res://assets/customers/dobby.tres" id="6_ascam"]
 [ext_resource type="PackedScene" uid="uid://bdb0v1jr2itvn" path="res://scenes/ui/customer.tscn" id="6_uqfyy"]
 [ext_resource type="Resource" uid="uid://1mymogk8wdsq" path="res://assets/items/floppy_disc.tres" id="7_g0mg2"]
+[ext_resource type="Resource" uid="uid://uclkiua36ab1" path="res://assets/customers/dyer.tres" id="7_quegl"]
 [ext_resource type="Resource" uid="uid://dxxnm0oskeott" path="res://assets/items/computer.tres" id="8_ascam"]
 [ext_resource type="Resource" uid="uid://cooyobmat3bgo" path="res://assets/items/camera.tres" id="9_quegl"]
 [ext_resource type="Resource" uid="uid://cyxk66qno4fyc" path="res://assets/items/radio.tres" id="10_m8e4n"]
@@ -37,7 +40,7 @@
 
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV")]
 script = ExtResource("1_cx0yy")
-CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy")]
+CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl")]
 PoliceOfficer = ExtResource("5_ewqmb")
 Runner = NodePath("DialogueRunner")
 BarterPanel = NodePath("CanvasLayer/BarterPanel")
