@@ -1,7 +1,6 @@
 ; znu
 Z-Nu: Hey there human! I'd like to barter some goods with you on this fine Earth day.
-> shake 0.8 
-Z-Nu: I just love the exchange of goods. Take a look at this, my human mother gave it to me before her untimely demise.
+Z-Nu: [shake rate=10 level=10]I just love the exchange of goods.[/shake] Take a look at this, my human mother gave it to me before her untimely demise.
 * Uh. I'll take a look. -> buy
 * Get out of my store. -> pass
 == buy
@@ -19,7 +18,7 @@ Z-Nu: Glorp... ${price} is perhaps a better deal?
 Z-Nu: I do not wish to partake in this barter, human. Goodbye.
 
 == stole
-Z-Nu: You disrespect my mothers memory. I think I'll take this with me.
+Z-Nu: [shake rate=40 level=20]You disrespect my mothers memory.[/shake] I think I'll take this with me.
 Z-Nu: An ocular for an ocular, as we say.
 
 == pass
