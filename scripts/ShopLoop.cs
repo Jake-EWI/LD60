@@ -7,12 +7,14 @@ public enum ShopPhase { Intro, Barter, Closing, Shot }
 public partial class ShopLoop : Node
 {
     [Export] public CustomerDefinition[] CustomerPool {get; set;} = [];
+    [Export] public CustomerDefinition PoliceOfficer { get; set; } = null;
     private List<CustomerDefinition> liveCustomerPool { get; set; } = [];
     [Export] int MaxCustomers {get; set;} = 6;
     [Export] int MinCustomers {get; set;} = 4;
     [Export] public int Rent {get; set;} = 50;
     [Export] public int RunLength {get; set;} = 7;
     [Export] public int ExpertCost {get; set;} = 10;
+    [Export] public int JailDays {get; set;} = 3;
     [Export(PropertyHint.File, "*.txt")] public string ExpertDialoguePath {get; set;} = "res://assets/dialogue/Expert.txt";
 
     //ui elements
@@ -31,7 +33,7 @@ public partial class ShopLoop : Node
     private Negotiation negotiation;
 
     private GameState gm;
-    private readonly System.Collections.Generic.Queue<CustomerDefinition> customerQueue = new();
+    private System.Collections.Generic.Queue<CustomerDefinition> customerQueue = new();
     private CustomerDefinition customer;
     private bool customerBuying;
     [Export] public ItemDefinition[] ItemPool { get; set; } = [];
@@ -40,6 +42,7 @@ public partial class ShopLoop : Node
     private RandomNumberGenerator rng;
     private ItemDefinition itemStolenOnEntrance;
     private bool expertCalling;
+    private bool guiltyOfMurder = false;
 
     public override void _Ready()
     {
@@ -92,8 +95,9 @@ public partial class ShopLoop : Node
     {
         int profitLoss = gm.Money - moneyAtStartOfDay;
         gm.AddMoney(-Rent);
-        gm.Day++;
-        DayScreen.ShowDayScreen(gm.Day, profitLoss, Rent, gm.Money);
+        int fromDay = gm.Day;
+        gm.Day += 1;
+        DayScreen.ShowDayScreen(fromDay, gm.Day, profitLoss, Rent, gm.Money);
     }
 
     public void NextCustomer()
@@ -101,6 +105,16 @@ public partial class ShopLoop : Node
         if (!customerQueue.TryDequeue(out customer))
         {
             EndDay();
+            return;
+        }
+
+        if (customer == PoliceOfficer)
+        {
+            itemStolenOnEntrance = null;
+            customerBuying = false;
+            phase = ShopPhase.Intro;
+            CustomerImage.Visible = true;
+            CustomerImage.Enter(customer.CharacterImage);
             return;
         }
         itemStolenOnEntrance = null;
@@ -168,6 +182,34 @@ public partial class ShopLoop : Node
                 break;
             case "check_if_fake":
                 Runner.Play(offeredItem.IsFake ? "fake" : "real");
+                break;
+            case "check_if_guilty":
+                if(guiltyOfMurder)
+                {
+                    Runner.Play("guilty");
+                } else
+                {
+                    Runner.Play("innocent");
+                }
+                break;
+            case "check_bribe":
+                if(gm.CanAfford(10))
+                {
+                    Runner.Play("can_bribe");
+                } else
+                {
+                    Runner.Play("cant_bribe");
+                }
+                break;
+            case "bribe":
+                if(gm.CanAfford(10))
+                {
+                    gm.AddMoney(-10);
+                }
+                break;
+            case "arrest":
+                customerQueue.Clear();
+                phase = ShopPhase.Closing;
                 break;
         }
     }
@@ -337,10 +379,19 @@ public partial class ShopLoop : Node
         {
             gm.Inventory.Add(new ItemInstance(itemStolenOnEntrance));
             itemStolenOnEntrance = null;
+            guiltyOfMurder = false;
         } else
         {
-            //TODO: need to set flag for police to arrive next guest
+            guiltyOfMurder = true;
         }
+        Queue<CustomerDefinition> storeQueue = new Queue<CustomerDefinition>();
+        storeQueue.Enqueue(PoliceOfficer);
+        foreach (var c in customerQueue)
+        {
+            storeQueue.Enqueue(c);
+        }
+        customerQueue.Clear();
+        customerQueue = storeQueue;
         NextCustomer();
     }
 

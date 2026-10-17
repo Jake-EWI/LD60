@@ -19,17 +19,17 @@ public partial class DayScreen : Control
         daySound = GetNode<AudioStreamPlayer>("DaySound");
     }
 
-    public async void ShowDayScreen(int day, int profitloss, int rent, int total)
+    public async void ShowDayScreen(int fromDay, int toDay, int profitloss, int rent, int total)
     {
         dayLabel.Visible = true;
         daySound.Play();
         profitLossLabel.Visible = false;
         rentLabel.Visible = false;
         totalLabel.Visible = false;
-        dayLabel.Text = $"Day {day - 1}";
+        dayLabel.Text = $"Day {fromDay}";
         Show();
         await ToSignal(GetTree().CreateTimer(3f), "timeout");
-        dayLabel.Text = $"Day {day}";
+        dayLabel.Text = $"Day {toDay}";
         await ToSignal(GetTree().CreateTimer(2f), "timeout");
         profitLossLabel.Visible = true;
         profitLossLabel.Text = $"Profit/Loss: {Money(profitloss)}";

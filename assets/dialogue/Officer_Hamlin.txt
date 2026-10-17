@@ -2,6 +2,33 @@
 == start
 Officer Hamlin: We've received a report of a murder at this location.
 Officer Hamlin: You wouldn't happen to know anything about that... Would you? | Just because times are tough out there doesn't mean you can just blast whoever you feel like.
+>check_if_guilty
 
 == guilty
-* Maybe you could look the other way? (Bribe: $10)
+* Maybe you could look the other way? (Bribe: $10) -> bribe
+* I'd like to have a lawyer present. (Jail: End Day) -> arrest
+
+== innocent
+* They were a thief. I did what I had to do. -> let_go
+* I'm crazy officer. You're next. (Jail: End Day) -> arrest
+
+== bribe
+>check_bribe
+
+== can_bribe
+Officer Hamlin: Alright. Maybe just this once.
+Officer Hamlin: I've been meaning to try that new grilled iguana place. | Don't let it happen again.
+>bribe
+
+== cant_bribe
+Officer Hamlin: Are you seriously trying to bribe an esteemed officer of the law with money you don't even have? -> arrest
+
+== let_go
+Officer Hamlin: Well. You know what they say. Stand your ground.
+Officer Hamlin: Hey. You do have all of your permits to be running this thing right?
+Officer Hamlin: [shake rate=15 level=15]HAH.[/shake] I'm messing with ya. Good job keeping that varmint off the streets.
+
+== arrest
+Officer Hamlin: You're comin' with me [shake rate=5 level=5]bub[/shake].
+Officer Hamlin: You have the right to remain silent. Resist arrest and face death by firing squad. | You're lucky we don't just send you to the encampent zone.
+>arrest

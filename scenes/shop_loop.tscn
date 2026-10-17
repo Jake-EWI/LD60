@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://curtf7yybuw5l" path="res://scenes/ui/offered_item.tscn" id="4_fj7k4"]
 [ext_resource type="PackedScene" uid="uid://cr6rlq7d8x6ro" path="res://scenes/ui/barter_panel.tscn" id="5_6k040"]
 [ext_resource type="Script" uid="uid://bx6cxoqbol8p5" path="res://scripts/UI/OfferedItem.cs" id="5_47bbb"]
+[ext_resource type="Resource" uid="uid://b5anxcjg00f80" path="res://assets/customers/officer.tres" id="5_ewqmb"]
 [ext_resource type="Texture2D" uid="uid://dpga5okwpq2ma" path="res://assets/art/Environment/Table Overlay.png" id="5_mj4d2"]
 [ext_resource type="PackedScene" uid="uid://bdb0v1jr2itvn" path="res://scenes/ui/customer.tscn" id="6_uqfyy"]
 [ext_resource type="PackedScene" uid="uid://jn50vb275w23" path="res://scenes/ui/gun_pov.tscn" id="11_h1v5x"]
@@ -23,6 +24,7 @@
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV")]
 script = ExtResource("1_cx0yy")
 CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy")]
+PoliceOfficer = ExtResource("5_ewqmb")
 Runner = NodePath("DialogueRunner")
 BarterPanel = NodePath("CanvasLayer/BarterPanel")
 CustomerImage = NodePath("CanvasLayer/Stage/Customer")
