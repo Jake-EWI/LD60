@@ -37,8 +37,10 @@
 [ext_resource type="Script" uid="uid://pydtee0blehl" path="res://scripts/UI/DayScreen.cs" id="17_h1v5x"]
 [ext_resource type="Resource" uid="uid://dpiccq1wyorq3" path="res://assets/items/typewriter.tres" id="18_eqi3r"]
 [ext_resource type="Resource" uid="uid://c1tnlho3xjboq" path="res://assets/items/reel_to_reel.tres" id="19_lqmhv"]
+[ext_resource type="PackedScene" uid="uid://buj1xb6bsoeo3" path="res://scenes/ui/observation_panel.tscn" id="32_g0mg2"]
+[ext_resource type="Script" uid="uid://jtl5awakmn5o" path="res://scripts/UI/ObservationPanel.cs" id="33_ascam"]
 
-[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV")]
+[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel")]
 script = ExtResource("1_cx0yy")
 CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl")]
 PoliceOfficer = ExtResource("5_ewqmb")
@@ -50,6 +52,7 @@ ActionsMenu = NodePath("CanvasLayer/ActionsMenu")
 InventoryPanel = NodePath("CanvasLayer/InventoryPanel")
 DayScreen = NodePath("CanvasLayer/EndDayScreen")
 GunPOV = NodePath("CanvasLayer/GunPov")
+ObservationPanel = NodePath("CanvasLayer/ObservationPanel")
 ItemPool = [ExtResource("6_ab184"), ExtResource("7_g0mg2"), ExtResource("8_ascam"), ExtResource("9_quegl"), ExtResource("10_m8e4n"), ExtResource("11_slaiq"), ExtResource("12_qpfrs"), ExtResource("13_x7u0g"), ExtResource("14_5pgrl"), ExtResource("15_srn1w"), ExtResource("16_c6a8c"), ExtResource("17_1ups1"), ExtResource("18_eqi3r"), ExtResource("19_lqmhv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
@@ -104,6 +107,11 @@ script = ExtResource("12_fnwpa")
 
 [node name="InventoryPanel" parent="CanvasLayer" unique_id=1420500434 instance=ExtResource("13_qv1vi")]
 visible = false
+
+[node name="ObservationPanel" parent="CanvasLayer" unique_id=2074306623 instance=ExtResource("32_g0mg2")]
+visible = false
+mouse_filter = 2
+script = ExtResource("33_ascam")
 
 [node name="EndDayScreen" parent="CanvasLayer" unique_id=2136170922 instance=ExtResource("16_mrmbw")]
 visible = false

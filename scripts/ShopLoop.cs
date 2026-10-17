@@ -26,6 +26,7 @@ public partial class ShopLoop : Node
     [Export] public InventoryPanel InventoryPanel { get; set; }
     [Export] public DayScreen DayScreen { get; set; }
     [Export] public GunPOV GunPOV { get; set; }
+    [Export] public ObservationPanel ObservationPanel { get; set; }
 
     //gamestate
 
@@ -66,6 +67,7 @@ public partial class ShopLoop : Node
         ActionsMenu.TalkButtonPressed += OnTalkPressed;
         ActionsMenu.PullGunPressed += OnPullGunPressed;
         ActionsMenu.ExpertButtonPressed += OnExpertPressed;
+        ActionsMenu.ObservePressed += OnObservePressed;
 
         DayScreen.DayScreenFinished += () => StartDay();
         
@@ -346,6 +348,20 @@ public partial class ShopLoop : Node
         HideBarter();
         ActionsMenu.Visible = false;
         Runner.Play(customerBuying ? "buyer_chat" : "chat");
+    }
+
+    public void OnObservePressed()
+    {
+        HideBarter();
+        ActionsMenu.Visible = false;
+        //close if open
+        if(ObservationPanel.Visible)
+        {
+            ObservationPanel.Visible = false;
+            return;
+        }
+
+        ObservationPanel.OpenObservation(offeredItem.IsFake, offeredItem.Item.Icon, rng);
     }
 
     public async void OnPullGunPressed()
