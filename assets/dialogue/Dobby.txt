@@ -144,5 +144,5 @@ Dobby: Sh-should be g-good.
 
 == no_coa
 > shake 0.8
-Dobby: N-no I-i'm [shake rate=20 level=20]SOOOOORRRRYYYY[/shake].
+Dobby: N-no I-I'm [shake rate=20 level=20]SOOOOORRRRYYYY[/shake].
 Dobby: I-i must've m-misplaced it.

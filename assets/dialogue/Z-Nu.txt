@@ -139,4 +139,4 @@ Z-Nu: Careful with it Human. Glorp. Don't want human juice ruining the ink.
 > show_coa
 
 == no_coa
-Z-Nu: Glorp. I'm afraid I'm not familiar.
+Z-Nu: Glorp. I'm afraid I'm not familiar. Is it tradition for humans to have such things?
