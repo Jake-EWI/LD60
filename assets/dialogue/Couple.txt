@@ -1,0 +1,137 @@
+; Couple
+Couple: Please buy this from us. We need food.
+> shake 0.8 
+Couple: We have other things. too...
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Couple: We were hoping for [b]${price}[/b]!
+> barter
+
+== accepted
+Couple: Bless you! Your good deed won't go unnoticed!.
+
+== countered
+> shake 0.5
+Couple: Please.. the least we can do is {price}.
+
+== left
+> shake 0.8
+Couple: That's okay. It's not your fault. We'll go somewhere else. Thanks. 
+
+== stole
+> shake 0.8
+Couple: Is that a {item} ...?
+Couple: Its like the one Rina had... Quick! Grab it!
+
+== pass
+> shake 0.2
+Couple: Oh.. that's okay. Thanks anyway.
+
+== chat
+Couple: Is there something you want to know?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Couple: We have them on constantly. When I think about the peace we'll find from our country's protectors, it makes this turmoil worth it.  | Yes. We have full faith in our protectors. We are heading North to get shelter and food! 
+Couple: What..? Don't believe everything we hear? What does that mean?
+Couple: Okay... so are you gonna buy it?
+
+== chat_b
+Couple: It's horrid. The stench of death surrounds the air. We're constantly trying to seek cover from the boiling hot sun.
+Couple: I can't wait to be able to sleep in a soft bed again...
+Couple: Okay... so are you gonna buy it?
+
+== chat_c
+Couple: H-how could you!? [shake rate=40 level=20] This is all we have left, and you call it fake?!
+Couple: Who's in charge here? Surely they will see it for what it is!| Though we're struggling, we would never resort to selling a fraudulent item....
+Couple: Okay... so are you gonna buy it?
+
+== chat_d
+Couple: Truth be told, we have been aimlessly wandering for weeks. From one shop to the next. It's our only source of cover, and interaction with another person. | We are doing as the government says, and heading north. There we might have a semblance of a normal life again...
+Couple: You should consider coming, too! It'll be a lot safer than this area.. 
+Couple: Okay... so are you gonna buy it?
+
+== buyer
+Couple: Oh is that a {item}...?
+> show_item
+Couple: It's just like Rina's...!
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Couple: [b]${price}[/b] should be enough, right? 
+> barter
+
+== sold
+Couple: Oh, thank you! Rina is with us once again. | Rina... thank you.
+
+== spotted_fake
+> shake 0.8
+Couple: I'm sorry, we don't mean to be rude but... [shake rate=40 level=20]is this fake? 
+Couple: Please... We won't tell anyone, but we need to get our money's worth...
+
+== buyer_countered
+> shake 0.5
+Couple: Can't you do ${price}? | ${price} is all we can afford.
+
+== buyer_left
+> shake 0.8
+Couple: That's okay, we don't really need it. Sorry... Rina....
+
+== buyer_stole
+> shake 0.8
+Couple: Barlin, grab it! 
+Couple: [shake rate=40 level=20]We're so sorry.[/shake] If there's nothing left in the world, at least Rina can still be with us!
+
+== pull_gun
+> shake 2
+Couple: [shake rate=40 level=20]Why would you...[/shake]
+Couple: Maybe this is for the best, Barlin...
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Couple: [shake rate=40 level=20]Stole...?[/shake]
+Couple: The world has gone to hell, but one thing we will never resort to is stealing or hurting others. 
+Couple: Whether you believe us or not is up to you.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Couple: [shake rate=40 level=20]Rina... is that you?[/shake]
+> shoot
+
+== not_shoot
+Couple: Thank you, for listening to us.
+Couple: We'll get out of your way now. We're sorry.
+> not_shoot
+
+
+== buyer_chat
+Couple: Do you have a question?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Couple: It'll help us find our way home. Wherever it is now...
+Couple: Okay... so are you gonna buy it?
+
+== buyer_chat_b
+Couple: For the past 6 months we have been wandering, trading and talking. We earn everything as we did in the old world; earnestly and honestly. | Believe it or not, there are still kind people in this world. This money is proof of that.
+Couple: Okay... so are you gonna buy it?
+
+== buyer_chat_c
+Couple: [shake rate=40 level=20]We know... [/shake] We know exactly what it is, and what it is worth, but... it just means something to us. 
+Couple: Okay... so are you gonna buy it?
+
+== buyer_chat_d
+Couple: Many small communities are popping up... though some of them are a little scary... have you seen any of them? The ones in black cloaks? | The dust is starting to settle now... but when that happens, it's not for long.
+Couple: Okay... so are you gonna buy it?
