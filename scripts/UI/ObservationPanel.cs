@@ -14,29 +14,20 @@ public partial class ObservationPanel : Control
         imperfectionText = GetNode<TextureRect>("Panel/ImperfectionTexture");
     }
 
-    public void OpenObservation(bool isFake, Texture2D itemTexture, RandomNumberGenerator rng)
+    public Texture2D RollImperfection(bool isFake, RandomNumberGenerator rng)
+    {
+        if(isFake)
+            return ImperfectionTextures[rng.RandiRange(0, ImperfectionTextures.Length - 1)];
+        if(rng.RandiRange(0, 100) < 50)
+            return RedHerringTextures[rng.RandiRange(0, RedHerringTextures.Length - 1)];
+        return null;
+    }
+
+    public void OpenObservation(Texture2D itemTexture, Texture2D imperfection)
     {
         itemText.Texture = itemTexture;
-        if(isFake)
-        {
-            imperfectionText.Texture = ImperfectionTextures[rng.Randi() % ImperfectionTextures.Length];
-            imperfectionText.Visible = true;
-        }
-        else
-        {
-            int redHerringChance = rng.RandiRange(0, 100);
-            if(redHerringChance < 50)
-            {
-                imperfectionText.Texture = RedHerringTextures[rng.Randi() % RedHerringTextures.Length];
-                imperfectionText.Visible = true;
-            }
-            else
-            {
-                imperfectionText.Visible = false;
-            }
-
-            imperfectionText.Visible = false;
-        }
+        imperfectionText.Texture = imperfection;
+        imperfectionText.Visible = imperfection != null;
         this.Visible = true;
     }
 }

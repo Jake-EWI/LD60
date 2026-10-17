@@ -39,6 +39,9 @@
 [ext_resource type="Resource" uid="uid://c1tnlho3xjboq" path="res://assets/items/reel_to_reel.tres" id="19_lqmhv"]
 [ext_resource type="PackedScene" uid="uid://buj1xb6bsoeo3" path="res://scenes/ui/observation_panel.tscn" id="32_g0mg2"]
 [ext_resource type="Script" uid="uid://jtl5awakmn5o" path="res://scripts/UI/ObservationPanel.cs" id="33_ascam"]
+[ext_resource type="Texture2D" uid="uid://x3v0d6adtaox" path="res://assets/art/UI/Made in China.png" id="37_5pgrl"]
+[ext_resource type="Texture2D" uid="uid://c22gajuhe81op" path="res://assets/art/UI/Manufactured Sticker (Fake).png" id="38_srn1w"]
+[ext_resource type="Texture2D" uid="uid://bpghks7qfy7ho" path="res://assets/art/UI/Manufactured Sticker (Real).png" id="39_c6a8c"]
 
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel")]
 script = ExtResource("1_cx0yy")
@@ -112,6 +115,8 @@ visible = false
 visible = false
 mouse_filter = 2
 script = ExtResource("33_ascam")
+ImperfectionTextures = Array[Texture2D]([ExtResource("37_5pgrl"), ExtResource("38_srn1w")])
+RedHerringTextures = Array[Texture2D]([ExtResource("39_c6a8c")])
 
 [node name="EndDayScreen" parent="CanvasLayer" unique_id=2136170922 instance=ExtResource("16_mrmbw")]
 visible = false

@@ -121,15 +121,15 @@ public partial class ShopLoop : Node
         }
         itemStolenOnEntrance = null;
 
-        //determine buying or selling
-        customerBuying = gm.Inventory.Count > 0 && rng.Randf() < customer.BuyerChance;
-
         //determine if customer steals an item on entrance
         if (rng.Randf() < customer.StealChance && gm.Inventory.Count > 0)
         {
             itemStolenOnEntrance = gm.Inventory[rng.RandiRange(0, gm.Inventory.Count - 1)].Item;
             gm.Inventory.RemoveAll(i => i.Item == itemStolenOnEntrance);
         }
+
+        //determine buying or selling
+        customerBuying = gm.Inventory.Count > 0 && rng.Randf() < customer.BuyerChance;
 
 
         if(customerBuying)
@@ -142,6 +142,7 @@ public partial class ShopLoop : Node
             {
                 IsFake = rng.Randf() < customer.FakeChance
             };
+            offeredItem.Imperfection = ObservationPanel.RollImperfection(offeredItem.IsFake, rng);
         }
 
         phase = ShopPhase.Intro;
@@ -353,15 +354,18 @@ public partial class ShopLoop : Node
     public void OnObservePressed()
     {
         HideBarter();
-        ActionsMenu.Visible = false;
+        // ActionsMenu.Visible = false;
+        OfferedItemImage.Visible = false;
         //close if open
         if(ObservationPanel.Visible)
         {
             ObservationPanel.Visible = false;
+            OfferedItemImage.Visible = true;
+            ShowBarter();
             return;
         }
 
-        ObservationPanel.OpenObservation(offeredItem.IsFake, offeredItem.Item.Icon, rng);
+        ObservationPanel.OpenObservation(offeredItem.Item.Icon, offeredItem.Imperfection);
     }
 
     public async void OnPullGunPressed()
