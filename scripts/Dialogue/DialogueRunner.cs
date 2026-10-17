@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Godot;
 
 namespace LD60.Dialogue;
@@ -14,6 +15,11 @@ public partial class DialogueRunner : Node
     [Export] public bool AutoStart { get; set; }
 
     public bool IsRunning => _steps != null;
+
+    public Dictionary<string, string> Variables { get; } = new();
+
+    [GeneratedRegex(@"\{(\w+)\}")]
+    private static partial Regex VariablePattern();
 
     private Dictionary<string, List<DialogueStep>> _sections;
     private List<DialogueStep> _steps;
@@ -41,7 +47,6 @@ public partial class DialogueRunner : Node
 
         _sections = DialogueParser.Parse(file.GetAsText(), path);
 
-        // Catch typo'd voices up front instead of when the line is reached.
         foreach (var step in _sections.Values.SelectMany(s => s).OfType<ChangeVoice>())
         {
             if (!IsDefaultVoice(step.Path) && ResolveVoice(step.Path) == null)
@@ -49,9 +54,25 @@ public partial class DialogueRunner : Node
         }
 
         Box.SetVoice(null);
+        Play(section);
+    }
+
+    public void Play(string section)
+    {
+        if (_sections == null)
+        {
+            GD.PushError($"Can't play '{section}', no dialogue loaded. Call Start first.");
+            return;
+        }
+
+        _choice = null;
         EmitSignal(SignalName.DialogueStarted);
         JumpTo(section);
     }
+
+    public bool HasSection(string section) => _sections?.ContainsKey(section) ?? false;
+
+    public void SetVariable(string name, Variant value) => Variables[name] = value.ToString();
 
     public void Stop()
     {
@@ -93,7 +114,7 @@ public partial class DialogueRunner : Node
                     _choice = _index < steps.Count ? steps[_index] as ChoiceStep : null;
                     if (_choice != null)
                         _index++;
-                    Box.ShowLine(line.Speaker, line.Text);
+                    Box.ShowLine(Fill(line.Speaker), Fill(line.Text));
                     return;
 
                 case ChoiceStep choice:
@@ -123,7 +144,15 @@ public partial class DialogueRunner : Node
         Stop();
     }
 
-    private void ShowChoices() => Box.ShowChoices(_choice.Choices.Select(c => c.Text).ToArray());
+    private void ShowChoices() => Box.ShowChoices(_choice.Choices.Select(c => Fill(c.Text)).ToArray());
+
+    private string Fill(string text) => VariablePattern().Replace(text, match =>
+    {
+        if (Variables.TryGetValue(match.Groups[1].Value, out var value))
+            return value;
+        GD.PushWarning($"Dialogue variable '{match.Groups[1].Value}' isn't set");
+        return match.Value;
+    });
 
     private const string VoiceFolder = "res://assets/audio/sfx/";
     private static readonly string[] VoiceExtensions = { "", ".wav", ".ogg", ".mp3" };

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://cw4kjs4e1mnwu"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_i8mig"]
+[ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/strange_watch.tres" id="1_s8r1l"]
+
+[resource]
+script = ExtResource("1_i8mig")
+CustomerName = "Z_Nu"
+IsSeller = true
+Item = ExtResource("1_s8r1l")
+Greed = 0.3
+StealChance = 0.2
+DialoguePath = "res://assets/dialogue/Z-Nu.txt"
+metadata/_custom_type_script = "uid://di27tjorfh0n3"
