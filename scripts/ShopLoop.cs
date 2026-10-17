@@ -1,11 +1,13 @@
 using Godot;
 using System;
 using LD60.Dialogue;
+using System.Collections.Generic;
 
 public enum ShopPhase { Intro, Barter, Closing }
 public partial class ShopLoop : Node
 {
     [Export] public CustomerDefinition[] CustomerPool {get; set;} = [];
+    private List<CustomerDefinition> liveCustomerPool { get; set; } = [];
     [Export] int MaxCustomers {get; set;} = 6;
     [Export] int MinCustomers {get; set;} = 4;
     [Export] public int Rent {get; set;} = 50;
@@ -57,10 +59,16 @@ public partial class ShopLoop : Node
     public void StartDay()
     {
         customerQueue.Clear();
+        liveCustomerPool = new List<CustomerDefinition>(CustomerPool);
         int customersPerDay = rng.RandiRange(MinCustomers, MaxCustomers);
+        customersPerDay = Math.Min(customersPerDay, liveCustomerPool.Count);
 
         for (int i = 0; i < customersPerDay; i++)
-            customerQueue.Enqueue(CustomerPool[rng.RandiRange(0, CustomerPool.Length - 1)]);
+        {
+            int customerIndex = rng.RandiRange(0, liveCustomerPool.Count - 1);
+            customerQueue.Enqueue(liveCustomerPool[customerIndex]);
+            liveCustomerPool.RemoveAt(customerIndex);
+        }
         
         NextCustomer();
         

@@ -10,23 +10,23 @@ public partial class ActionsMenu : Control
     [Signal] public delegate void ExpertButtonPressedEventHandler();
     [Signal] public delegate void RejectButtonPressedEventHandler();
     [Signal] public delegate void TalkButtonPressedEventHandler();
-    private Button inventoryButton;
-    private Button gunButton;
-    private Button observeButton;
-    private Button coaButton;
-    private Button expertButton;
-    private Button rejectButton;
-    private Button talkButton;
+    private TextureButton inventoryButton;
+    private TextureButton gunButton;
+    private TextureButton observeButton;
+    private TextureButton coaButton;
+    private TextureButton expertButton;
+    private TextureButton rejectButton;
+    private TextureButton talkButton;
 
     public override void _Ready()
     {
-        inventoryButton = GetNode<Button>("HBoxContainer/InventoryButton");
-        gunButton = GetNode<Button>("HBoxContainer/PullGunButton");
-        observeButton = GetNode<Button>("HBoxContainer/ObserveButton");
-        coaButton = GetNode<Button>("HBoxContainer/COAButton");
-        expertButton = GetNode<Button>("HBoxContainer/ExpertButton");
-        rejectButton = GetNode<Button>("HBoxContainer/RejectButton");
-        talkButton = GetNode<Button>("HBoxContainer/TalkButton");
+        inventoryButton = GetNode<TextureButton>("HBoxContainer/InventoryButton");
+        gunButton = GetNode<TextureButton>("HBoxContainer/PullGunButton");
+        observeButton = GetNode<TextureButton>("HBoxContainer/ObserveButton");
+        coaButton = GetNode<TextureButton>("HBoxContainer/COAButton");
+        expertButton = GetNode<TextureButton>("HBoxContainer/ExpertButton");
+        rejectButton = GetNode<TextureButton>("HBoxContainer/RejectButton");
+        talkButton = GetNode<TextureButton>("HBoxContainer/TalkButton");
 
         inventoryButton.Pressed += () => EmitSignal(SignalName.InventoryPressed);
         gunButton.Pressed += () => EmitSignal(SignalName.PullGunPressed);

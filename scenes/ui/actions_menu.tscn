@@ -1,5 +1,18 @@
 [gd_scene format=3 uid="uid://wmnfp1dv1wkh"]
 
+[ext_resource type="Texture2D" uid="uid://c44rb5gefjuw6" path="res://assets/art/UI/Inventory Enter.png" id="1_6k603"]
+[ext_resource type="FontFile" uid="uid://dulayjp6th5fw" path="res://assets/fonts/Chrysanthemum-Regular.otf" id="2_r2ncl"]
+[ext_resource type="Texture2D" uid="uid://v1o85iiwxnn3" path="res://assets/art/UI/Gun.png" id="3_g5hy3"]
+[ext_resource type="Texture2D" uid="uid://gn2ggvv0j5o7" path="res://assets/art/UI/Observe.png" id="4_yy3u2"]
+[ext_resource type="Texture2D" uid="uid://d2wxxdut4hmcj" path="res://assets/art/UI/COA.png" id="5_ixnot"]
+[ext_resource type="Texture2D" uid="uid://croj3sho3cdh5" path="res://assets/art/UI/Call Expert.png" id="6_ifamv"]
+[ext_resource type="Texture2D" uid="uid://rv11j2nqiqo1" path="res://assets/art/UI/Decline Offer.png" id="7_cygoi"]
+[ext_resource type="Texture2D" uid="uid://bkha46q6xxuw5" path="res://assets/art/UI/Talk.png" id="8_vql14"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
+font = ExtResource("2_r2ncl")
+font_size = 24
+
 [node name="ActionsMenu" type="Control" unique_id=297921611]
 layout_mode = 3
 anchors_preset = 15
@@ -19,30 +32,127 @@ offset_right = 1153.0
 grow_vertical = 0
 alignment = 1
 
-[node name="InventoryButton" type="Button" parent="HBoxContainer" unique_id=1313339745]
+[node name="InventoryButton" type="TextureButton" parent="HBoxContainer" unique_id=1199037342]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
-text = "inventory"
+texture_normal = ExtResource("1_6k603")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="PullGunButton" type="Button" parent="HBoxContainer" unique_id=1806751914]
-layout_mode = 2
-text = "pull gun"
+[node name="Label" type="Label" parent="HBoxContainer/InventoryButton" unique_id=1608325333]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 143.0
+offset_bottom = 52.0
+text = "Inventory"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ObserveButton" type="Button" parent="HBoxContainer" unique_id=1707619732]
+[node name="PullGunButton" type="TextureButton" parent="HBoxContainer" unique_id=139710247]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
-text = "observe item"
+texture_normal = ExtResource("3_g5hy3")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="COAButton" type="Button" parent="HBoxContainer" unique_id=1128269090]
-layout_mode = 2
-text = "Ask to see COA"
+[node name="Label" type="Label" parent="HBoxContainer/PullGunButton" unique_id=602809788]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 143.0
+offset_bottom = 51.0
+text = "Pull Gun"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ExpertButton" type="Button" parent="HBoxContainer" unique_id=759864359]
+[node name="ObserveButton" type="TextureButton" parent="HBoxContainer" unique_id=439030288]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
-text = "Phone an Expert $50"
+texture_normal = ExtResource("4_yy3u2")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="RejectButton" type="Button" parent="HBoxContainer" unique_id=751437700]
+[node name="Label" type="Label" parent="HBoxContainer/ObserveButton" unique_id=1517415063]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 144.0
+offset_bottom = 51.0
+text = "Observe"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="COAButton" type="TextureButton" parent="HBoxContainer" unique_id=1789412468]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
+texture_normal = ExtResource("5_ixnot")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/COAButton" unique_id=762386232]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 143.0
+offset_bottom = 52.0
+text = "See COA"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpertButton" type="TextureButton" parent="HBoxContainer" unique_id=932044498]
+custom_minimum_size = Vector2(155, 55)
+layout_mode = 2
+texture_normal = ExtResource("6_ifamv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/ExpertButton" unique_id=29068658]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 143.0
+offset_bottom = 51.0
+text = "Expert"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RejectButton" type="TextureButton" parent="HBoxContainer" unique_id=288037932]
+custom_minimum_size = Vector2(155, 55)
+layout_mode = 2
+texture_normal = ExtResource("7_cygoi")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/RejectButton" unique_id=1370867745]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 144.0
+offset_bottom = 51.0
 text = "Reject Offer"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TalkButton" type="Button" parent="HBoxContainer" unique_id=1637826038]
+[node name="TalkButton" type="TextureButton" parent="HBoxContainer" unique_id=1752522643]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
-text = "Talk"
+texture_normal = ExtResource("8_vql14")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/TalkButton" unique_id=475901588]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 143.0
+offset_bottom = 51.0
+text = "Chat"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
