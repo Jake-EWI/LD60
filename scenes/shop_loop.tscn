@@ -24,40 +24,43 @@ script = ExtResource("1_cx0yy")
 CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy")]
 Runner = NodePath("DialogueRunner")
 BarterPanel = NodePath("CanvasLayer/BarterPanel")
-CustomerImage = NodePath("CanvasLayer/Customer")
-OfferedItemImage = NodePath("CanvasLayer/OfferedItem")
+CustomerImage = NodePath("CanvasLayer/Stage/Customer")
+OfferedItemImage = NodePath("CanvasLayer/Stage/OfferedItem")
 ActionsMenu = NodePath("CanvasLayer/ActionsMenu")
 InventoryPanel = NodePath("CanvasLayer/InventoryPanel")
 DayScreen = NodePath("CanvasLayer/EndDayScreen")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=176870116]
+[node name="Stage" type="AspectRatioContainer" parent="CanvasLayer" unique_id=1394027561]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+ratio = 1.7778
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stage" unique_id=176870116]
+layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_1k1ol")
 expand_mode = 1
 
-[node name="Customer" parent="CanvasLayer" unique_id=1055922720 instance=ExtResource("6_uqfyy")]
+[node name="Customer" parent="CanvasLayer/Stage" unique_id=1055922720 instance=ExtResource("6_uqfyy")]
+layout_mode = 2
 mouse_filter = 2
 
-[node name="CounterText" type="TextureRect" parent="CanvasLayer" unique_id=1196709962]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CounterText" type="TextureRect" parent="CanvasLayer/Stage" unique_id=1196709962]
+layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("5_mj4d2")
 expand_mode = 1
 
-[node name="OfferedItem" parent="CanvasLayer" unique_id=1930621668 instance=ExtResource("4_fj7k4")]
+[node name="OfferedItem" parent="CanvasLayer/Stage" unique_id=1930621668 instance=ExtResource("4_fj7k4")]
 visible = false
+layout_mode = 2
 mouse_filter = 2
 script = ExtResource("5_47bbb")
 
