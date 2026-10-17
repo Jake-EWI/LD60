@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Numerics;
 
 public partial class CustomerImage : Control
 {
@@ -12,14 +13,14 @@ public partial class CustomerImage : Control
     [Export] public float RevealTime { get; set; } = 0.6f;
     private AudioStreamPlayer StepSound;
     private TextureRect CustomerText;
-    private Vector2 RestPosition;
+    private Godot.Vector2 RestPosition;
 
     public override void _Ready()
     {
         CustomerText = GetNode<TextureRect>("CustomerImage");
         StepSound = GetNode<AudioStreamPlayer>("StepSound");
         RestPosition = CustomerText.Position;
-        CustomerText.PivotOffset = new Vector2(CustomerText.Size.X / 2, CustomerText.Size.Y);
+        CustomerText.PivotOffset = new Godot.Vector2(CustomerText.Size.X / 2, CustomerText.Size.Y);
         CustomerText.Modulate = new Color(0, 0, 0, 0);
     }
 
@@ -27,12 +28,12 @@ public partial class CustomerImage : Control
     {
         CustomerText.Texture = texture;
         CustomerText.Modulate = new Color(0, 0, 0, 0);
-        CustomerText.Scale = Vector2.One * 0.85f;
+        CustomerText.Scale = Godot.Vector2.One * 0.85f;
         PlaySteps();
 
         var tween = CreateTween();
         tween.TweenProperty(CustomerText, "modulate", Colors.Black, Steps * StepTime);
-        tween.Parallel().TweenProperty(CustomerText, "scale", Vector2.One, Steps * StepTime);
+        tween.Parallel().TweenProperty(CustomerText, "scale", Godot.Vector2.One, Steps * StepTime);
         tween.TweenProperty(CustomerText, "modulate", Colors.White, RevealTime);
         tween.Finished += () => EmitSignal(SignalName.Entered);
     }
@@ -44,7 +45,7 @@ public partial class CustomerImage : Control
         var tween = CreateTween();
         tween.TweenProperty(CustomerText, "modulate", Colors.Black, RevealTime);
         tween.TweenProperty(CustomerText, "modulate", new Color(0, 0, 0, 0), Steps * StepTime);
-        tween.Parallel().TweenProperty(CustomerText, "scale", Vector2.One * 0.85f, Steps * StepTime);
+        tween.Parallel().TweenProperty(CustomerText, "scale", Godot.Vector2.One * 0.85f, Steps * StepTime);
         tween.Finished += () => EmitSignal(SignalName.Left);
     }
 
@@ -65,4 +66,14 @@ public partial class CustomerImage : Control
         StepSound.Play();
     }
 
+    public void ShakeCharacter(float strength)
+    {
+        var tween = CreateTween();
+        for (int i = 0; i < 6; i++)
+        {
+            var offset = new Godot.Vector2((float)GD.RandRange(-1.0, 1.0), (float)GD.RandRange(-1.0, 1.0)) * strength * 20;
+            tween.TweenProperty(CustomerText, "position", RestPosition + offset, 0.04f);
+        }
+        tween.TweenProperty(CustomerText, "position", RestPosition, 0.04f);
+    }
 }

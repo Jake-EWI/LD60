@@ -14,10 +14,10 @@ script = ExtResource("1_oiwq3")
 
 [node name="CustomerImage" type="TextureRect" parent="." unique_id=224781596]
 layout_mode = 0
-offset_left = 229.0
-offset_top = 19.0
-offset_right = 906.0
-offset_bottom = 611.0
+offset_left = 297.0
+offset_top = 6.0
+offset_right = 861.0
+offset_bottom = 446.0
 expand_mode = 1
 stretch_mode = 4
 

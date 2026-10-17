@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://wmnfp1dv1wkh"]
+
+[node name="ActionsMenu" type="Control" unique_id=297921611]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1878336526]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+offset_right = 1153.0
+grow_vertical = 0
+alignment = 1
+
+[node name="InventoryButton" type="Button" parent="HBoxContainer" unique_id=1313339745]
+layout_mode = 2
+text = "inventory"
+
+[node name="PullGunButton" type="Button" parent="HBoxContainer" unique_id=1806751914]
+layout_mode = 2
+text = "pull gun"
+
+[node name="ObserveButton" type="Button" parent="HBoxContainer" unique_id=1707619732]
+layout_mode = 2
+text = "observe item"
+
+[node name="COAButton" type="Button" parent="HBoxContainer" unique_id=1128269090]
+layout_mode = 2
+text = "Ask to see COA"
+
+[node name="ExpertButton" type="Button" parent="HBoxContainer" unique_id=759864359]
+layout_mode = 2
+text = "Phone an Expert $50"

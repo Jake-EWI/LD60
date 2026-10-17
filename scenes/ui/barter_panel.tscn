@@ -17,22 +17,22 @@ script = ExtResource("1_sg8il")
 
 [node name="Panel" type="Panel" parent="." unique_id=191927000]
 layout_mode = 0
-offset_left = 444.0
-offset_top = 334.0
-offset_right = 666.0
-offset_bottom = 394.0
+offset_left = 434.0
+offset_top = 538.0
+offset_right = 704.0
+offset_bottom = 625.0
 
 [node name="OfferInput" type="SpinBox" parent="Panel" unique_id=1939691965]
 layout_mode = 0
 offset_left = 19.0
-offset_top = 14.0
-offset_right = 105.5
-offset_bottom = 45.0
+offset_top = 12.0
+offset_right = 127.0
+offset_bottom = 71.0
 
 [node name="OfferButton" type="Button" parent="Panel" unique_id=880815842]
 layout_mode = 0
-offset_left = 110.0
-offset_top = 14.0
-offset_right = 204.0
-offset_bottom = 45.0
+offset_left = 138.0
+offset_top = 11.0
+offset_right = 257.0
+offset_bottom = 72.0
 text = "Offer"

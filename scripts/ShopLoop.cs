@@ -96,6 +96,9 @@ public partial class ShopLoop : Node
             case "show_item":
                 ShowOfferedItem();
                 break;
+            case "shake":
+                CustomerImage.ShakeCharacter(float.Parse(args[0]));
+                break;
         }
     }
 
