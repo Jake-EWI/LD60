@@ -15,6 +15,7 @@ public partial class ShopLoop : Node
     [Export] public int Rent {get; set;} = 15;
     [Export] public int RunLength {get; set;} = 7;
     [Export] public int ExpertCost {get; set;} = 15;
+    [Export] public int ExpertPriceCheckCost {get; set;} = 5;
     [Export] public int BribeCost {get; set;} = 40;
     [Export] public int JailDays {get; set;} = 3;
     [Export(PropertyHint.File, "*.txt")] public string ExpertDialoguePath {get; set;} = "res://assets/dialogue/Expert.txt";
@@ -215,6 +216,14 @@ public partial class ShopLoop : Node
                 {
                     Runner.Play("innocent");
                 }
+                break;
+            case "check_price":
+                if (!gm.CanAfford(ExpertPriceCheckCost))
+                {
+                    Runner.Play("broke_price");
+                    break;
+                }
+                Runner.Play("buy_check_price");
                 break;
             case "check_bribe":
                 if(gm.CanAfford(BribeCost))
@@ -475,6 +484,7 @@ public partial class ShopLoop : Node
         expertCalling = true;
         Runner.SetVariable("expertCost", ExpertCost);
         Runner.SetVariable("baseAmount", offeredItem.Item.BaseValue);
+        Runner.SetVariable("priceCheckCost", ExpertPriceCheckCost);
         Runner.Start(ExpertDialoguePath);
     }
 

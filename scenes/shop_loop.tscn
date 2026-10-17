@@ -149,5 +149,5 @@ Box = NodePath("../CanvasLayer/DialogueBox")
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1509162832]
 stream = SubResource("AudioStreamWAV_eqi3r")
-volume_db = -8.661
+volume_db = -19.621
 autoplay = true
