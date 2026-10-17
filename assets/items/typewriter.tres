@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://dpiccq1wyorq3"]
+
+[ext_resource type="Texture2D" uid="uid://d315wh250d8i4" path="res://assets/art/Old Tech/Old Tech Typewriter.png" id="1_h5n3u"]
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="1_t55q6"]
+
+[resource]
+script = ExtResource("1_t55q6")
+ItemName = "Typewriter"
+BaseValue = 35
+Icon = ExtResource("1_h5n3u")
+metadata/_custom_type_script = "uid://cv4540x8541k6"

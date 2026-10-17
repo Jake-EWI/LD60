@@ -2,17 +2,10 @@
 
 [ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_4iej7"]
 [ext_resource type="Texture2D" uid="uid://b4um0ejo1c4gs" path="res://assets/art/Characters/Canker.png" id="1_diev4"]
-[ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/old_phone.tres" id="2_keoa1"]
-[ext_resource type="Resource" uid="uid://cyxk66qno4fyc" path="res://assets/items/radio.tres" id="3_1o0op"]
-[ext_resource type="Resource" uid="uid://cooyobmat3bgo" path="res://assets/items/camera.tres" id="4_l5guj"]
-[ext_resource type="Resource" uid="uid://dxxnm0oskeott" path="res://assets/items/computer.tres" id="5_blko8"]
-[ext_resource type="Resource" uid="uid://dukldq303mpj3" path="res://assets/items/television.tres" id="6_wdqet"]
-[ext_resource type="Resource" uid="uid://1mymogk8wdsq" path="res://assets/items/floppy_disc.tres" id="7_hd21e"]
 
 [resource]
 script = ExtResource("1_4iej7")
 CustomerName = "Canker"
-PossibleItems = [ExtResource("2_keoa1"), ExtResource("3_1o0op"), ExtResource("4_l5guj"), ExtResource("5_blko8"), ExtResource("6_wdqet"), ExtResource("7_hd21e")]
 Greed = 0.9
 Patience = 75.0
 StealChance = 0.7

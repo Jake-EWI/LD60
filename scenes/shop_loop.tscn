@@ -13,13 +13,27 @@
 [ext_resource type="Script" uid="uid://bx6cxoqbol8p5" path="res://scripts/UI/OfferedItem.cs" id="5_47bbb"]
 [ext_resource type="Resource" uid="uid://b5anxcjg00f80" path="res://assets/customers/officer.tres" id="5_ewqmb"]
 [ext_resource type="Texture2D" uid="uid://dpga5okwpq2ma" path="res://assets/art/Environment/Table Overlay.png" id="5_mj4d2"]
+[ext_resource type="Resource" uid="uid://dukldq303mpj3" path="res://assets/items/television.tres" id="6_ab184"]
 [ext_resource type="PackedScene" uid="uid://bdb0v1jr2itvn" path="res://scenes/ui/customer.tscn" id="6_uqfyy"]
+[ext_resource type="Resource" uid="uid://1mymogk8wdsq" path="res://assets/items/floppy_disc.tres" id="7_g0mg2"]
+[ext_resource type="Resource" uid="uid://dxxnm0oskeott" path="res://assets/items/computer.tres" id="8_ascam"]
+[ext_resource type="Resource" uid="uid://cooyobmat3bgo" path="res://assets/items/camera.tres" id="9_quegl"]
+[ext_resource type="Resource" uid="uid://cyxk66qno4fyc" path="res://assets/items/radio.tres" id="10_m8e4n"]
 [ext_resource type="PackedScene" uid="uid://jn50vb275w23" path="res://scenes/ui/gun_pov.tscn" id="11_h1v5x"]
 [ext_resource type="PackedScene" uid="uid://wmnfp1dv1wkh" path="res://scenes/ui/actions_menu.tscn" id="11_mafgv"]
+[ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/old_phone.tres" id="11_slaiq"]
 [ext_resource type="Script" uid="uid://b45hqppess1qn" path="res://scripts/UI/ActionsMenu.cs" id="12_fnwpa"]
+[ext_resource type="Resource" uid="uid://lnh45xlv0183" path="res://assets/items/VHS.tres" id="12_qpfrs"]
 [ext_resource type="PackedScene" uid="uid://ka08621mncgp" path="res://scenes/ui/inventory_panel.tscn" id="13_qv1vi"]
+[ext_resource type="Resource" uid="uid://bpgtl8w25hpmo" path="res://assets/items/vbox1.tres" id="13_x7u0g"]
+[ext_resource type="Resource" uid="uid://dthxo2tnkprf1" path="res://assets/items/zbone1.tres" id="14_5pgrl"]
+[ext_resource type="Resource" uid="uid://cup1ftdam37v0" path="res://assets/items/boom_box.tres" id="15_srn1w"]
+[ext_resource type="Resource" uid="uid://b7frp1kv42rrc" path="res://assets/items/harddrive.tres" id="16_c6a8c"]
 [ext_resource type="PackedScene" uid="uid://baimfom2iekii" path="res://scenes/ui/end_day_screen.tscn" id="16_mrmbw"]
+[ext_resource type="Resource" uid="uid://dasdvldplosov" path="res://assets/items/topload_64.tres" id="17_1ups1"]
 [ext_resource type="Script" uid="uid://pydtee0blehl" path="res://scripts/UI/DayScreen.cs" id="17_h1v5x"]
+[ext_resource type="Resource" uid="uid://dpiccq1wyorq3" path="res://assets/items/typewriter.tres" id="18_eqi3r"]
+[ext_resource type="Resource" uid="uid://c1tnlho3xjboq" path="res://assets/items/reel_to_reel.tres" id="19_lqmhv"]
 
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV")]
 script = ExtResource("1_cx0yy")
@@ -33,6 +47,7 @@ ActionsMenu = NodePath("CanvasLayer/ActionsMenu")
 InventoryPanel = NodePath("CanvasLayer/InventoryPanel")
 DayScreen = NodePath("CanvasLayer/EndDayScreen")
 GunPOV = NodePath("CanvasLayer/GunPov")
+ItemPool = [ExtResource("6_ab184"), ExtResource("7_g0mg2"), ExtResource("8_ascam"), ExtResource("9_quegl"), ExtResource("10_m8e4n"), ExtResource("11_slaiq"), ExtResource("12_qpfrs"), ExtResource("13_x7u0g"), ExtResource("14_5pgrl"), ExtResource("15_srn1w"), ExtResource("16_c6a8c"), ExtResource("17_1ups1"), ExtResource("18_eqi3r"), ExtResource("19_lqmhv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
 
@@ -81,6 +96,7 @@ mouse_filter = 2
 visible = false
 
 [node name="ActionsMenu" parent="CanvasLayer" unique_id=297921611 instance=ExtResource("11_mafgv")]
+visible = false
 script = ExtResource("12_fnwpa")
 
 [node name="InventoryPanel" parent="CanvasLayer" unique_id=1420500434 instance=ExtResource("13_qv1vi")]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://lnh45xlv0183"]
+
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="1_7krkn"]
+[ext_resource type="Texture2D" uid="uid://c0dpa3qno8ljm" path="res://assets/art/Old Tech/Old Tech VHS Player.png" id="1_lqg1o"]
+
+[resource]
+script = ExtResource("1_7krkn")
+ItemName = "VHS Player"
+BaseValue = 22
+Icon = ExtResource("1_lqg1o")
+metadata/_custom_type_script = "uid://cv4540x8541k6"

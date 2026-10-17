@@ -2,18 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://mfrunmwblgfk" path="res://assets/art/Characters/Z-Nu.png" id="1_6g5b6"]
 [ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_i8mig"]
-[ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/old_phone.tres" id="2_6g5b6"]
-[ext_resource type="Resource" uid="uid://cyxk66qno4fyc" path="res://assets/items/radio.tres" id="3_dpv4l"]
-[ext_resource type="Resource" uid="uid://cooyobmat3bgo" path="res://assets/items/camera.tres" id="4_t12xq"]
-[ext_resource type="Resource" uid="uid://dxxnm0oskeott" path="res://assets/items/computer.tres" id="5_nu1r3"]
-[ext_resource type="Resource" uid="uid://1mymogk8wdsq" path="res://assets/items/floppy_disc.tres" id="6_lka8l"]
-[ext_resource type="Resource" uid="uid://dukldq303mpj3" path="res://assets/items/television.tres" id="7_le00e"]
 
 [resource]
 script = ExtResource("1_i8mig")
 CustomerName = "Z_Nu"
-IsSeller = true
-PossibleItems = [ExtResource("2_6g5b6"), ExtResource("3_dpv4l"), ExtResource("4_t12xq"), ExtResource("5_nu1r3"), ExtResource("6_lka8l"), ExtResource("7_le00e")]
 Greed = 0.3
 StealChance = 0.2
 DialoguePath = "res://assets/dialogue/Z-Nu.txt"
