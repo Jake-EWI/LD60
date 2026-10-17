@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bdb0v1jr2itvn"]
+
+[ext_resource type="Script" uid="uid://cqkfm8wwhcvdt" path="res://scripts/UI/CustomerImage.cs" id="1_oiwq3"]
+
+[node name="Customer" type="Control" unique_id=1055922720]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oiwq3")
+
+[node name="CustomerImage" type="TextureRect" parent="." unique_id=224781596]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 19.0
+offset_right = 906.0
+offset_bottom = 611.0
+expand_mode = 1
+stretch_mode = 4

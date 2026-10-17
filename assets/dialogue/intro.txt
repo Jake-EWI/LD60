@@ -9,7 +9,7 @@
 //                   or a res:// path. "; default" goes back to the scene's blip.
 // [b]BBCode[/b] works in text.
 
-; buh
+; znu
 The room is quiet. Too quiet.
 Character 1: Hey man.
 Charcter 1: How you doing, [b]buddy[/b]?

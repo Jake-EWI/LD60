@@ -1,4 +1,4 @@
-; buh
+; znu
 Z-Nu: Hey there human! I'd like to barter some goods with you on this fine Earth day.
 > shake 0.8 
 Z-Nu: I just love the exchange of goods. Take a look at this, my human mother gave it to me before her untimely demise.
@@ -6,6 +6,20 @@ Z-Nu: I just love the exchange of goods. Take a look at this, my human mother ga
 * Get out of my store. -> pass
 == buy
 Z-Nu: Fantastic! Have a look. It could be yours for only [b]${price}[/b] human currency!
+> barter
+
+== accepted
+Z-Nu: Bazinga! What a rush. Thank you human!
+
+== countered
+Z-Nu: Glorp... ${price} is perhaps a better deal?
+
+== left
+Z-Nu: I do not wish to partake in this barter, human. Goodbye.
+
+== stole
+Z-Nu: You disrespect my mothers memory. I think I'll take this with me.
+Z-Nu: An ocular for an ocular, as we say.
 
 == pass
 Z-Nu: Glorp. That's too bad.

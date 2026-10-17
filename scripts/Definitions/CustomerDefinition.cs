@@ -10,4 +10,5 @@ public partial class CustomerDefinition : Resource
     [Export] public float Patience {get; set;} = 100;
     [Export] public float StealChance {get; set;} = .5f;
     [Export(PropertyHint.File, "*.txt")] public string DialoguePath {get; set;} = "";
+    [Export] public Texture2D CharacterImage;
 }

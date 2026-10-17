@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://cw4kjs4e1mnwu"]
 
+[ext_resource type="Texture2D" uid="uid://mfrunmwblgfk" path="res://assets/art/Characters/Z-Nu.png" id="1_6g5b6"]
 [ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_i8mig"]
 [ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/strange_watch.tres" id="1_s8r1l"]
 
@@ -11,4 +12,5 @@ Item = ExtResource("1_s8r1l")
 Greed = 0.3
 StealChance = 0.2
 DialoguePath = "res://assets/dialogue/Z-Nu.txt"
+CharacterImage = ExtResource("1_6g5b6")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"
