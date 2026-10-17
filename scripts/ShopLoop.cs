@@ -10,9 +10,14 @@ public partial class ShopLoop : Node
     [Export] int MinCustomers {get; set;} = 4;
     [Export] public int Rent {get; set;} = 50;
     [Export] public int RunLength {get; set;} = 7;
+
+    //ui elements
     [Export] public DialogueRunner Runner { get; set; }
     [Export] public BarterPanel BarterPanel { get; set; }
     [Export] public CustomerImage CustomerImage { get; set; }
+    [Export] public OfferedItem OfferedItemImage { get; set;}
+
+    //gamestate
 
     private ShopPhase phase;
     private Negotiation negotiation;
@@ -20,6 +25,8 @@ public partial class ShopLoop : Node
     private GameState gm;
     private readonly System.Collections.Generic.Queue<CustomerDefinition> customerQueue = new();
     private CustomerDefinition customer;
+    [Export] public ItemDefinition[] ItemPool { get; set; } = [];
+    private ItemInstance offeredItem;
     private RandomNumberGenerator rng;
 
     public override void _Ready()
@@ -32,6 +39,9 @@ public partial class ShopLoop : Node
         Runner.CommandIssued += OnCommand;
 
         BarterPanel.OfferMade += OnOfferPressed;
+
+        CustomerImage.Entered += () => Runner.Start(customer.DialoguePath);
+        CustomerImage.Left += NextCustomer;
         
         StartDay();
     }
@@ -63,12 +73,17 @@ public partial class ShopLoop : Node
 
         phase = ShopPhase.Intro;
 
-        CustomerImage.ChangeCustomerTexture(customer.CharacterImage);
+        var itemChoices = customer.PossibleItems.Length > 0 ? customer.PossibleItems : ItemPool;
+        offeredItem = new ItemInstance(itemChoices[rng.RandiRange(0, itemChoices.Length - 1)])
+        {
+            IsFake = rng.Randf() < customer.FakeChance
+        };
 
-        negotiation = new Negotiation(customer, rng);
+        negotiation = new Negotiation(customer, offeredItem.Item, rng);
         Runner.SetVariable("price", negotiation.AskingPrice);
-        Runner.SetVariable("item", customer.Item.ItemName);
-        Runner.Start(customer.DialoguePath);
+        Runner.SetVariable("item", offeredItem.Item.ItemName);
+
+        CustomerImage.Enter(customer.CharacterImage);
     }
 
     public void OnCommand(string name, string[] args)
@@ -77,6 +92,9 @@ public partial class ShopLoop : Node
         {
             case "barter":
                 phase = ShopPhase.Barter;
+                break;
+            case "show_item":
+                ShowOfferedItem();
                 break;
         }
     }
@@ -90,7 +108,7 @@ public partial class ShopLoop : Node
                 break;
             case ShopPhase.Intro:
             case ShopPhase.Closing:
-                NextCustomer();
+                CustomerImage.Leave();
                 break;
         }
     }
@@ -106,6 +124,16 @@ public partial class ShopLoop : Node
         BarterPanel.Visible = false;
     }
 
+    private void ShowOfferedItem()
+    {
+        OfferedItemImage.DisplayItem(offeredItem.Item.Icon, offeredItem.Item.ItemName);
+    }
+
+    private void HideOfferedItem()
+    {
+        OfferedItemImage.Visible = false;
+    }
+
     private void OnOfferPressed(int offer)
     {
         HideBarter();
@@ -119,6 +147,8 @@ public partial class ShopLoop : Node
                 phase = ShopPhase.Closing;
                 Runner.Play("accepted");
                 gm.AddMoney(-negotiation.AskingPrice);
+                offeredItem.PricePaid = negotiation.AskingPrice;
+                gm.Inventory.Add(offeredItem);
                 break;
             case HaggleResult.Countered:
                 Runner.Play("countered");
@@ -133,6 +163,16 @@ public partial class ShopLoop : Node
                 Runner.Play("stole");
                 break;
         }
+
+        switch(result)
+        {
+            case HaggleResult.Accepted:
+            case HaggleResult.Left:
+            case HaggleResult.Stole:
+            HideOfferedItem();
+            break;
+        }
+
     }
 
     public void HandleSeller()

@@ -5,20 +5,28 @@
 [ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="2_nwbyj"]
 [ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="3_nwbyj"]
 [ext_resource type="PackedScene" uid="uid://dex18oui7npiw" path="res://scenes/ui/money_panel.tscn" id="4_2ty0w"]
+[ext_resource type="PackedScene" uid="uid://curtf7yybuw5l" path="res://scenes/ui/offered_item.tscn" id="4_fj7k4"]
 [ext_resource type="PackedScene" uid="uid://cr6rlq7d8x6ro" path="res://scenes/ui/barter_panel.tscn" id="5_6k040"]
+[ext_resource type="Script" uid="uid://bx6cxoqbol8p5" path="res://scripts/UI/OfferedItem.cs" id="5_47bbb"]
 [ext_resource type="PackedScene" uid="uid://bdb0v1jr2itvn" path="res://scenes/ui/customer.tscn" id="6_uqfyy"]
 
-[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage")]
+[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage")]
 script = ExtResource("1_cx0yy")
 CustomerPool = [ExtResource("2_e55af")]
 Runner = NodePath("DialogueRunner")
 BarterPanel = NodePath("CanvasLayer/BarterPanel")
 CustomerImage = NodePath("CanvasLayer/Customer")
+OfferedItemImage = NodePath("CanvasLayer/OfferedItem")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
 
 [node name="Customer" parent="CanvasLayer" unique_id=1055922720 instance=ExtResource("6_uqfyy")]
 mouse_filter = 2
+
+[node name="OfferedItem" parent="CanvasLayer" unique_id=1930621668 instance=ExtResource("4_fj7k4")]
+visible = false
+mouse_filter = 2
+script = ExtResource("5_47bbb")
 
 [node name="MoneyPanel" parent="CanvasLayer" unique_id=1852577103 instance=ExtResource("4_2ty0w")]
 mouse_filter = 2

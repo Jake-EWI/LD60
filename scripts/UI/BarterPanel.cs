@@ -17,8 +17,8 @@ public partial class BarterPanel : Control
 
     public void Open(int askingPrice, int money)
     {
-        offerInput.Value = askingPrice;
         offerInput.MaxValue = money;
+        offerInput.Value = askingPrice;
     }
 
 }

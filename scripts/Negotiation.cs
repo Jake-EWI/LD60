@@ -12,11 +12,11 @@ public class Negotiation
     //todo: player stats
     private readonly RandomNumberGenerator rng;
 
-    public Negotiation(CustomerDefinition customer, RandomNumberGenerator rng)
+    public Negotiation(CustomerDefinition customer, ItemDefinition item, RandomNumberGenerator rng)
     {
         this.customer = customer;
         this.rng = rng;
-        int value = customer.Item.BaseValue;
+        int value = item.BaseValue;
         limit = Mathf.RoundToInt(value * rng.RandfRange(0.6f, 0.9f));
         AskingPrice = Mathf.RoundToInt(value * (1 + customer.Greed));
         Patience = customer.Patience;
