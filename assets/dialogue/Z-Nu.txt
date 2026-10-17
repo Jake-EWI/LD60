@@ -1,15 +1,35 @@
 ; znu
+== start
 Z-Nu: Hey there human! I'd like to barter some goods with you on this fine Earth day.
 Z-Nu: [shake rate=10 level=10]I just love the exchange of goods.[/shake] Take a look at this, my human mother gave it to me before her untimely demise.
 * Uh. I'll take a look. -> buy
 * Get out of my store. -> pass
+
+== buyer
+Z-Nu: Hey there human! I'd like to barter some goods with you on this fine Earth day.
+Z-Nu: [shake rate=10 level=10]I just love the exchange of goods.[/shake] I spotted this on your shelf and couldn't help myself. Glorp.
+> show_item
+Z-Nu: I don't suppose we could strike a little deal?
+* Uh. Let's see. -> sell
+* Get out of my store. -> pass
+
 == buy
 > show_item
-Z-Nu: Fantastic! Have a look. It could be yours for only [b]${price}[/b] human currency!
+Z-Nu: Fantastic! Have a look. It could be yours for only [b]${price}[/b] of human currency!
+> barter
+
+== sell
+Z-Nu: Fantastic! I'll take out of your two Human hands for only [b]${price}[/b] of human currency!
 > barter
 
 == accepted
 Z-Nu: Bazinga! What a rush. Thank you human!
+
+== sold
+Z-Nu: Bazinga! What a rush. Thank you human! | Sweet mother of Glorp! Blessed be this day.
+
+== spotted_fake
+Z-Nu: Human. Do you consider me stupid? This is a fake!
 
 == countered
 > shake 0.4
@@ -19,7 +39,7 @@ Z-Nu: Glorp... ${price} is perhaps a better deal?
 Z-Nu: I do not wish to partake in this barter, human. Goodbye.
 
 == stole
-> can shake 0.8
+> shake 0.8
 Z-Nu: [shake rate=40 level=20]You disrespect my mothers memory.[/shake] I think I'll take this with me.
 Z-Nu: An ocular for an ocular, as we say.
 
@@ -52,3 +72,39 @@ Z-Nu: What I think about the feud on this planet? Human matters are of little im
 Z-Nu: It is quite amusing to see you creatures squabble over such trivial topics. Glorp.
 Z-Nu: Perhaps one day you will see unification, like my comrades in the stratosphere! 
 Z-Nu: Well Human? Want it or not?
+
+== buyer_countered
+> shake 0.4
+Z-Nu: Glorp... perhaps ${price} would satisfy you, Human? | ${price}. My comrades in the stratosphere would call me most generous.
+
+== buyer_left
+Z-Nu: Your prices are as cold as your planet, Human. I shall take my business elsewhere. Glorp.
+
+== buyer_stole
+> shake 0.8
+Z-Nu: [shake rate=40 level=20]Enough of this haggling![/shake] I shall be confiscating this {item} for further study.
+Z-Nu: Do not follow me, Human. My vessel is double-parked.
+
+== buyer_chat
+Z-Nu: Yes, Human brother? Speak quickly, my parking meter is ticking.
+* What do you want it for? -> buyer_chat_a
+* Where are you from, exactly? -> buyer_chat_b
+* That's worth a lot more than you think. -> buyer_chat_c
+* Is that even Earth money? -> buyer_chat_d
+
+== buyer_chat_a
+Z-Nu: For my collection of Human artifacts. It will sit beside my Human mother's... other belongings. | Research purposes. Glorp. I am not permitted to say more.
+Z-Nu: So, Human? Will you part with it?
+
+== buyer_chat_b
+Z-Nu: From up there. [shake rate=5 level=5]Way up there.[/shake] Past the smoke. | From Ohio. Glorp.
+Z-Nu: So, Human? Will you part with it?
+
+== buyer_chat_c
+Z-Nu: [shake rate=40 level=20]Do not attempt to deceive me, Human![/shake] I have scanned this object with my third ocular.
+Z-Nu: It is worth exactly what I say it is worth. | Perhaps I could be persuaded. Slightly. Glorp.
+Z-Nu: So, Human? Will you part with it?
+
+== buyer_chat_d
+Z-Nu: Of course it is Earth money. Look, it has a Human face on it. | It was given to me by a very nice Human who asked me to stop following him.
+Z-Nu: So, Human? Will you part with it?

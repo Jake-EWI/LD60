@@ -3,11 +3,16 @@
 [ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_4q878"]
 [ext_resource type="Texture2D" uid="uid://e5kbrkg1wob6" path="res://assets/art/Characters/Exton.png" id="1_pn5b4"]
 [ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/old_phone.tres" id="2_4qsfj"]
+[ext_resource type="Resource" uid="uid://dukldq303mpj3" path="res://assets/items/television.tres" id="3_mg7q5"]
+[ext_resource type="Resource" uid="uid://1mymogk8wdsq" path="res://assets/items/floppy_disc.tres" id="4_cyw7j"]
+[ext_resource type="Resource" uid="uid://dxxnm0oskeott" path="res://assets/items/computer.tres" id="5_fjwq8"]
+[ext_resource type="Resource" uid="uid://cooyobmat3bgo" path="res://assets/items/camera.tres" id="6_ypgda"]
+[ext_resource type="Resource" uid="uid://cyxk66qno4fyc" path="res://assets/items/radio.tres" id="7_da7gi"]
 
 [resource]
 script = ExtResource("1_4q878")
 CustomerName = "Exton"
-PossibleItems = [ExtResource("2_4qsfj")]
+PossibleItems = [ExtResource("2_4qsfj"), ExtResource("3_mg7q5"), ExtResource("4_cyw7j"), ExtResource("5_fjwq8"), ExtResource("6_ypgda"), ExtResource("7_da7gi"), ExtResource("2_4qsfj")]
 Greed = 0.39
 Patience = 90.0
 StealChance = 0.3

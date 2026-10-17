@@ -42,7 +42,7 @@ Exton: So, you buyin?
 
 == chat_b
 Exton: Sun's been coming out more. Still can't stay out for too long though. Bad for your lungs... | Can barely get a night's rest with all those jets blasting through the sky at night.
-Exton: Hey, just a piece of advice. Don't go asking too many questions, some quirky characters out there. [/shake]Especially at night.
+Exton: Hey, just a piece of advice. Don't go asking too many questions, some quirky characters out there. Especially at night.
 Exton: So, you buyin?
 
 == chat_c
@@ -54,3 +54,58 @@ Exton: So, you buyin?
 Exton: Me? Don't worry about me, my friend. But I appreciate you trying get to know me... | I'm no one special, just another wanderer in the hellscape that our planet has become.
 Exton: You probably won't see me around here again. You should take what I got, ya know, something to remember me by.
 Exton: So, you buyin?
+
+== buyer
+Exton: How goes it, pal? Mind if I take a look at that {item}?
+> show_item
+Exton: Reminds me of one my old man had. Before all this.
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Exton: I can spare [b]${price}[/b] for it. Times being what they are.
+> barter
+
+== sold
+Exton: Appreciate it, friend. Take care of yourself out here. | Good doing business. Might even hang this on a wall, if I find a wall.
+
+== spotted_fake
+> shake 0.4
+Exton: Hold on now. This ain't the real thing, is it?
+Exton: I'll pretend I didn't see that. Don't try it on the wrong fella.
+
+== buyer_countered
+> shake 0.2
+Exton: That's steep, pal. How about ${price}? | ${price}. That's about all I've got on me.
+
+== buyer_left
+> shake 0.6
+Exton: Can't stretch that far, friend. I'll be on my way.
+
+== buyer_stole
+> shake 0.4
+Exton: Sorry, pal. I tried doing this the honest way.
+Exton: Times are tough. I'll be taking this.
+
+== buyer_chat
+Exton: Something on your mind, friend?
+* What do you want it for? -> buyer_chat_a
+* Where are you headed? -> buyer_chat_b
+* This one's worth more than that. -> buyer_chat_c
+* How do you get by out there? -> buyer_chat_d
+
+== buyer_chat_a
+Exton: Something to remember the old days by. Ain't much left of 'em. | Trade bait, honestly. Never know what folks'll want down the road.
+Exton: So, you selling?
+
+== buyer_chat_b
+Exton: Wherever the air's a little cleaner. Heard there's a place up north. | Wherever those jets ain't flying. Haven't found it yet.
+Exton: So, you selling?
+
+== buyer_chat_c
+Exton: Maybe it is. But a thing's only worth what someone'll pay, and I'm the only someone here. | I'm not trying to cheat you, pal. Just stretching what little I got.
+Exton: So, you selling?
+
+== buyer_chat_d
+Exton: Keep my head down, don't ask questions, and never travel at night. | Odd jobs. Hauling, fixing. A fella who can fix things don't go hungry long.
+Exton: So, you selling?

@@ -15,6 +15,7 @@ public partial class OfferedItem : Control
     public void DisplayItem(Texture2D texture, string itemName)
     {
         itemTexture.Texture = texture;
+        itemLabel.Text = itemName;
         this.Visible = true;
     }
 }

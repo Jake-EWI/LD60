@@ -37,9 +37,9 @@ Canker: What? Your staring a hole into me.
 * What brings you here? -> chat_d
 
 == chat_a
-Exton: From the gov? Couldn't care less buddy. They think they can order me around like cattle? No chance in hell. | They're trying to round us up, right? Enlist the fit and do away with the fodder. What the hell have we come to...
-Exton: Least we still got some shops like this around. Almost feels like we aren't in the apocalypse, you get me?
-Exton: You gonna buy it or what?
+Canker: From the gov? Couldn't care less buddy. They think they can order me around like cattle? No chance in hell. | They're trying to round us up, right? Enlist the fit and do away with the fodder. What the hell have we come to...
+Canker: Least we still got some shops like this around. Almost feels like we aren't in the apocalypse, you get me?
+Canker: You gonna buy it or what?
 
 == chat_b
 Canker: What do you think? Still just smoke clouds, sirens and noise. The simple pleasures are the only reason to keep it pushing.
@@ -55,3 +55,58 @@ Canker: You gonna buy it or what?
 Canker: I need some money to fill up on, you know. The good stuff.
 Canker: Cut me a good deal here... You know that there's nothing left besides getting cooked anyway. 
 Canker: You gonna buy it or what?
+
+== buyer
+Canker: Yo. That {item} back there. Hand it over.
+> show_item
+Canker: Relax, I'm paying this time. Probably.
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Canker: I'll give you [b]${price}[/b] for it. Take it before I change my mind.
+> barter
+
+== sold
+Canker: Pleasure. Don't ask where the cash came from. | Sweet. This'll fetch double down the road.
+
+== spotted_fake
+> shake 0.8
+Canker: [shake rate=40 level=20]You trying to scam a scammer?[/shake] This thing's a knockoff, loser.
+Canker: Keep it. I've got standards. Barely.
+
+== buyer_countered
+> shake 0.5
+Canker: Ha. ${price}, and that's me being nice. | ${price}. Don't push it.
+
+== buyer_left
+> shake 0.8
+Canker: Overpriced junk. I'll just take it off the next guy.
+
+== buyer_stole
+> shake 0.8
+Canker: You know what? I'm done paying for stuff.
+Canker: [shake rate=40 level=20]Thanks for the freebie![/shake] Cya, loser.
+
+== buyer_chat
+Canker: What now? I'm literally trying to give you money.
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Canker: Flip it, obviously. Then flip the money into something that makes the sirens quieter. | None of your business. You want the sale or not?
+Canker: You selling or what?
+
+== buyer_chat_b
+Canker: Found it. In a guy's pocket. While he was still wearing the pants. | Earned it. Honest work. [shake rate=10 level=5]Don't laugh.[/shake]
+Canker: You selling or what?
+
+== buyer_chat_c
+Canker: [shake rate=40 level=20]HA![/shake] Says who? Your little price tag? | Everything's worth nothing now, buddy. I'm doing you a favor.
+Canker: You selling or what?
+
+== buyer_chat_d
+Canker: Saw a guy trade his boots for a can of beans. Smart guy. Cold feet, though. | Your shop. Kinda interesting. Lots of doors, not many locks.
+Canker: You selling or what?

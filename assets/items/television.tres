@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://dukldq303mpj3"]
+
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="1_doo05"]
+[ext_resource type="Texture2D" uid="uid://w5ykm7pa21ss" path="res://assets/art/Old Tech/Old Tech TV.png" id="1_tpksm"]
+
+[resource]
+script = ExtResource("1_doo05")
+ItemName = "EWI Labs Television"
+BaseValue = 20
+Icon = ExtResource("1_tpksm")
+metadata/_custom_type_script = "uid://cv4540x8541k6"
