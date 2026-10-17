@@ -73,7 +73,7 @@ Mixon: My 6th successful business deal! And with someone alive this time! | An h
 == spotted_fake
 > shake 0.8
 Mixon: [shake rate=40 level=20]Wait a minute....[/shake] Hey, is this real?
-Mixon: You aren't trying to scam me here, right? You should now how cruel of a world it is out there...
+Mixon: You aren't trying to scam me here, right? You should know how cruel of a world it is out there...
 
 == buyer_countered
 > shake 0.5
@@ -125,7 +125,7 @@ Mixon: Quite a silly question, is it not!? Food! Clothing! Women! Many things to
 Mixon: Will you be willing to purchase?
 
 == buyer_chat_b
-Mixon: As a man of ethics, I am also a man of nature! Many little animals bring me monetary compensation for my kindness! | Through varies methods! Both legal and illegal! But I guess those words have no meaning now!
+Mixon: As a man of ethics, I am also a man of nature! Many little animals bring me monetary compensation for my kindness! | Through various methods! Both legal and illegal! But I guess those words have no meaning now!
 Mixon: Will you be willing to purchase?
 
 == buyer_chat_c

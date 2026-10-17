@@ -1,0 +1,136 @@
+; Dyer
+Dyer: Hey.
+> shake 0.8 
+Dyer: Take this stuff off my hands. I can't bare to look at it anymore.
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Dyer: Take [b]${price}[/b]. No more, no less.
+> barter
+
+== accepted
+Dyer: You've done me a great deed. Take care. [/shake].
+
+== countered
+> shake 0.5
+Dyer: Hey now... do {price}. Don't be cheap.
+
+== left
+> shake 0.8
+Dyer: Should've known. Watch yourself. 
+
+== stole
+> shake 0.8
+Dyer: Hand me that {item}.
+Dyer: How much for you to part with it? Actually, I'll just take it.
+
+== pass
+> shake 0.2
+Dyer: Quit wasting my time.
+
+== chat
+Dyer: What may be on your mind?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Dyer: I don't waste my radio's battery on that slop. I'm a lone wolf, don't need support from a person or government. | You'd be a fool to take any of that slop at face value. They just want us for our labor, or whatever else they see fit.
+Dyer: Billions of years of evolution leads us to this. I wonder if this is the "reckoning" my father used to blab about.
+Dyer: Take it. Or I'll leave.
+
+== chat_b
+Dyer: Passed a couple bodies on the way here. People dropping left and right. No food, water, shelter, or company.  Makes for free loot, though.
+Dyer: I wouldn't mind living like this if we weren't at risked of being blown to bits. Or being executed for saying anything against our so called "leaders".
+Dyer: Take it. Or I'll leave.
+
+== chat_c
+Dyer: Sigh [shake rate=40 level=20] Don't give me this bull.
+Dyer: I know you have your buddy on speed dial. Feel free to check. It's as real as the man standing in front of you.| You know what, I get it. It's tough times. You're trying to get your coin. Do what you have to do to verify it.
+Dyer: Take it. Or I'll leave.
+
+== chat_d
+Dyer: Not much of a conversationalist. I'm just trying to get by like everyone else. Taking apart old tech, taking what's important and leaving the rest. | I'm on the trail of the government. Been taking out higher-ups for the last couple months. 
+Dyer: Now that I mention it, do me a favor and forget we ever interacted after I leave.
+Dyer: Take it. Or I'll leave.
+
+== buyer
+Dyer: Hey... let me look at that {item}.
+> show_item
+Dyer: Hmph. Could be useful. How much?
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Dyer: [b]${price}[/b] is fair. 
+> barter
+
+== sold
+Dyer: Forget I was ever here.| Appreciated. Keep your eyes peeled. Heard there's been some strange hooded individuals going around.
+
+== spotted_fake
+> shake 0.8
+Dyer: [shake rate=40 level=20]You think this is funny?[/shake]
+Dyer: I'm not here to play games. If it were another day, I'd put one between your eyes.
+
+== buyer_countered
+> shake 0.5
+Dyer: ${price} is the lowest I'm going. | ${price}, or else.
+
+== buyer_left
+> shake 0.8
+Dyer: Buzz off. I'm leaving.
+
+== buyer_stole
+> shake 0.8
+Dyer: I'm taking this.
+Dyer: [shake rate=40 level=20]Don't follow me.[/shake] Tell anyone of me and your shop is ash.
+
+== pull_gun
+> shake 2
+Dyer: [shake rate=40 level=20]This is fun.[/shake]
+Dyer: My trigger finger is faster than yours. Promise.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Dyer: [shake rate=40 level=20]Something go missing?[/shake]
+Dyer: I've got not obligation to tell you. It's a dog eat dog world, you should know that better than anyone.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Dyer: [shake rate=40 level=20]A blank.. at this time...[/shake]
+> shoot
+
+== not_shoot
+Dyer: Smart choice.
+Dyer: Listening a valuable trait these days.
+> not_shoot
+
+
+== buyer_chat
+Dyer: O-oh. Do you n-n-need something?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Dyer: Buying gear. Lots of uprising movements sprouting up these days. Make sure you align yourself with the right one.
+Dyer: Take it, or I'll leave.
+
+== buyer_chat_b
+Dyer: Killing, stealing, looting, the usual affair. Lots of it comes from those pig officers. | Just falls out of the sky and into my hands. I'm quite blessed, you know? [shake rate=40 level=20]ha.
+Dyer: Take it, or I'll leave.
+
+== buyer_chat_c
+Dyer: [shake rate=40 level=20]Watch your tone.[/shake] I know exactly how much this is worth. I'm not playing into your scheme. | Obviously. Did you really think I was going to give you a fair deal?
+Dyer: Take it, or I'll leave.
+
+== buyer_chat_d
+Dyer: Saw kids playing in the desert for the first time in months. Shame they'll be nothing but ash and dust when they finally decide to be rid of us. | If you see strange folk in black hooded clothing, keep your distance. Or maybe don't, I mean, I don't know what's beneficial for you.
+Dyer: Take it, or I'll leave.
