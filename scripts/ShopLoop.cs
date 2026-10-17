@@ -143,6 +143,7 @@ public partial class ShopLoop : Node
             case "shake":
                 CustomerImage.ShakeCharacter(float.Parse(args[0], System.Globalization.CultureInfo.InvariantCulture));
                 break;
+            case ""
         }
     }
 
