@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bdb0v1jr2itvn" path="res://scenes/ui/customer.tscn" id="6_uqfyy"]
 [ext_resource type="PackedScene" uid="uid://wmnfp1dv1wkh" path="res://scenes/ui/actions_menu.tscn" id="11_mafgv"]
 [ext_resource type="Script" uid="uid://b45hqppess1qn" path="res://scripts/UI/ActionsMenu.cs" id="12_fnwpa"]
-[ext_resource type="PackedScene" path="res://scenes/ui/inventory_panel.tscn" id="13_qv1vi"]
+[ext_resource type="PackedScene" uid="uid://ka08621mncgp" path="res://scenes/ui/inventory_panel.tscn" id="13_qv1vi"]
 
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel")]
 script = ExtResource("1_cx0yy")

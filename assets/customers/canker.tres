@@ -11,6 +11,6 @@ PossibleItems = [ExtResource("2_keoa1")]
 Greed = 0.9
 Patience = 75.0
 StealChance = 0.7
-DialoguePath = "res://assets/dialogue/Sage.txt"
+DialoguePath = "res://assets/dialogue/Canker.txt"
 CharacterImage = ExtResource("1_diev4")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"
