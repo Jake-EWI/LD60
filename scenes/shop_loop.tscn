@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bac5tf8hcsq6w" path="res://scripts/ShopLoop.cs" id="1_cx0yy"]
 [ext_resource type="Resource" uid="uid://cw4kjs4e1mnwu" path="res://assets/customers/z_nu.tres" id="2_e55af"]
 [ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="2_nwbyj"]
+[ext_resource type="Texture2D" uid="uid://yhenahbwn5ds" path="res://assets/art/Environment/Background.png" id="3_1k1ol"]
 [ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="3_nwbyj"]
 [ext_resource type="PackedScene" uid="uid://dex18oui7npiw" path="res://scenes/ui/money_panel.tscn" id="4_2ty0w"]
 [ext_resource type="PackedScene" uid="uid://curtf7yybuw5l" path="res://scenes/ui/offered_item.tscn" id="4_fj7k4"]
@@ -19,6 +20,17 @@ CustomerImage = NodePath("CanvasLayer/Customer")
 OfferedItemImage = NodePath("CanvasLayer/OfferedItem")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=176870116]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1k1ol")
+expand_mode = 1
 
 [node name="Customer" parent="CanvasLayer" unique_id=1055922720 instance=ExtResource("6_uqfyy")]
 mouse_filter = 2
