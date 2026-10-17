@@ -1,0 +1,25 @@
+; sage
+Sage: Quaint little shop you have here. Willing to buy?
+> shake 0.8 
+Sage: Stole it off some guy couple days ago. What? Don't give me that look.
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+Sage: Not sure what it is, but I know its worth at least [b]${price}[/b]. I mean, look at it!
+> barter
+
+== accepted
+Sage: Nice. I'll have some fun tonight.
+
+== countered
+Sage: Not so fast. The least I'll go is ${price}.
+
+== left
+Sage: Guess I'll find another loser to sell it to.
+
+== stole
+Sage: Cool trinket you have. Mind if I take it?
+Sage: I won't be the last person to steal your stock. Cruel world. Cya.
+
+== pass
+Sage: What's with everyone passing? Maybe I should steal something shinier next time...
