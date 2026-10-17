@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://cup1ftdam37v0"]
+
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="1_afugu"]
+[ext_resource type="Texture2D" uid="uid://vyw8sjs5beye" path="res://assets/art/Old Tech/Old Tech Boom Box.png" id="1_mwteu"]
+
+[resource]
+script = ExtResource("1_afugu")
+ItemName = "Boom Box"
+BaseValue = 25
+Icon = ExtResource("1_mwteu")
+metadata/_custom_type_script = "uid://cv4540x8541k6"

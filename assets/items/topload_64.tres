@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://dasdvldplosov"]
+
+[ext_resource type="Texture2D" uid="uid://bcw5frtgfrxyr" path="res://assets/art/Old Tech/Old Tech N64.png" id="1_c6opp"]
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="1_i3a01"]
+
+[resource]
+script = ExtResource("1_i3a01")
+ItemName = "Topload64"
+BaseValue = 85
+Icon = ExtResource("1_c6opp")
+metadata/_custom_type_script = "uid://cv4540x8541k6"

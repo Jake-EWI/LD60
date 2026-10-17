@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://dthxo2tnkprf1"]
+
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="1_bfxc1"]
+[ext_resource type="Texture2D" uid="uid://g73fna5nxq4v" path="res://assets/art/Old Tech/Old Tech XBox.png" id="1_h0xf0"]
+
+[resource]
+script = ExtResource("1_bfxc1")
+ItemName = "Z-Bone 1"
+BaseValue = 46
+Icon = ExtResource("1_h0xf0")
+metadata/_custom_type_script = "uid://cv4540x8541k6"

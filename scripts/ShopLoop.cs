@@ -392,6 +392,9 @@ public partial class ShopLoop : Node
         }
         customerQueue.Clear();
         customerQueue = storeQueue;
+        //remove customer from pool after killing them
+        CustomerPool = Array.FindAll(CustomerPool, c => c != customer);
+
         NextCustomer();
     }
 
