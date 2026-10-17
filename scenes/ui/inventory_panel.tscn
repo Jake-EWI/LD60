@@ -1,15 +1,16 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ka08621mncgp"]
 
-[ext_resource type="Script" path="res://scripts/UI/InventoryPanel.cs" id="1_inv"]
+[ext_resource type="Script" uid="uid://q6qdqks1tgbv" path="res://scripts/UI/InventoryPanel.cs" id="1_inv"]
+[ext_resource type="Texture2D" uid="uid://d3focplk5xjom" path="res://assets/art/UI/Inventory.png" id="2_17uwj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inv"]
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yih1u"]
+texture = ExtResource("2_17uwj")
+expand_margin_left = 271.0
+expand_margin_top = 114.0
+expand_margin_right = 266.0
+expand_margin_bottom = 113.0
 
-[node name="InventoryPanel" type="Control"]
+[node name="InventoryPanel" type="Control" unique_id=1418538185]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +20,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_inv")
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="." unique_id=2060784329]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,16 +33,16 @@ offset_right = 300.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_inv")
+theme_override_styles/panel = SubResource("StyleBoxTexture_yih1u")
 
-[node name="Margin" type="MarginContainer" parent="Panel"]
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=1353505019]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Grid" type="GridContainer" parent="Panel/Margin"]
+[node name="Grid" type="GridContainer" parent="Panel/Margin" unique_id=670456217]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 8

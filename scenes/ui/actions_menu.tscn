@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://croj3sho3cdh5" path="res://assets/art/UI/Call Expert.png" id="6_ifamv"]
 [ext_resource type="Texture2D" uid="uid://rv11j2nqiqo1" path="res://assets/art/UI/Decline Offer.png" id="7_cygoi"]
 [ext_resource type="Texture2D" uid="uid://bkha46q6xxuw5" path="res://assets/art/UI/Talk.png" id="8_vql14"]
+[ext_resource type="Script" path="res://scripts/UI/HoverTint.cs" id="9_hover"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
 font = ExtResource("2_r2ncl")
@@ -33,6 +34,7 @@ grow_vertical = 0
 alignment = 1
 
 [node name="InventoryButton" type="TextureButton" parent="HBoxContainer" unique_id=1199037342]
+script = ExtResource("9_hover")
 custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
 texture_normal = ExtResource("1_6k603")
@@ -51,6 +53,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PullGunButton" type="TextureButton" parent="HBoxContainer" unique_id=139710247]
+script = ExtResource("9_hover")
 custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
 texture_normal = ExtResource("3_g5hy3")
@@ -69,6 +72,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ObserveButton" type="TextureButton" parent="HBoxContainer" unique_id=439030288]
+script = ExtResource("9_hover")
 custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
 texture_normal = ExtResource("4_yy3u2")
@@ -87,6 +91,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="COAButton" type="TextureButton" parent="HBoxContainer" unique_id=1789412468]
+script = ExtResource("9_hover")
 custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
 texture_normal = ExtResource("5_ixnot")
@@ -105,6 +110,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExpertButton" type="TextureButton" parent="HBoxContainer" unique_id=932044498]
+script = ExtResource("9_hover")
 custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
 texture_normal = ExtResource("6_ifamv")
@@ -123,6 +129,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RejectButton" type="TextureButton" parent="HBoxContainer" unique_id=288037932]
+script = ExtResource("9_hover")
 custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
 texture_normal = ExtResource("7_cygoi")
@@ -141,6 +148,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TalkButton" type="TextureButton" parent="HBoxContainer" unique_id=1752522643]
+script = ExtResource("9_hover")
 custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
 texture_normal = ExtResource("8_vql14")
