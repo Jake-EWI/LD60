@@ -135,3 +135,12 @@ Couple: Okay... so are you gonna buy it?
 == buyer_chat_d
 Couple: Many small communities are popping up... though some of them are a little scary... have you seen any of them? The ones in black cloaks? | The dust is starting to settle now... but when that happens, it's not for long.
 Couple: Okay... so are you gonna buy it?
+
+== coa
+Cyron: A COA? Yes, we do have one...
+> shake 0.8
+> show_coa
+
+== no_coa
+Cyron: I'm sorry. we.. we don't have one. We promise that it is real, if our words mean anything to you. 
+

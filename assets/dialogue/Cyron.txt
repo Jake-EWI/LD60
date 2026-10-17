@@ -1,0 +1,146 @@
+; Cyron
+Cyron: What a BLESSED day it is! Would not agree? It would be even more blessed if you took some of this off my hands!
+> shake 0.8 
+Cyron: I am agent of the Lord, so don't even try it with me!
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Cyron: The Lord requires [b]${price}[/b] for this item!
+> barter
+
+== accepted
+Cyron: The Lord shall look down fondly on you!
+
+== countered
+> shake 0.5
+Cyron: You dare argue with the Lord? {price} it will be.
+
+== left
+> shake 0.8
+Cyron: The Lord shall smite you for this. 
+
+== stole
+> shake 0.8
+Cyron: The Lord is most interested in your {item}.
+Cyron: It's divine will! I will be taking this!
+
+== pass
+> shake 0.2
+Cyron: The Lord scoffs at your greed...
+
+== chat
+Cyron: Is there something you want to know?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Cyron: The only frequency I tune into is the one of the Lord! Any other broadcast holds no meaning to me.  | These foolhardy men thinking they can play God! It makes one laugh. Their will is no will of the Lord. 
+Cyron: I can show the teachings of the Lord, if you so desire!
+Cyron: The Lord asks if you will be purchasing this item?
+
+== chat_b
+Cyron: The Earth is entering its final stages. This is the rapture that the Lord spoke of! Scorched Earth, blood red skies! We will soon reach salvation!
+Cyron: Fear not friend, all you have to do is believe, and you will be saved. The first step to believing is purchasing my items!
+Cyron: The Lord asks if you will be purchasing this item?
+
+== chat_c
+Cyron: Gnahh!! [shake rate=40 level=20] FAKE? You dare insinuate that an item from the LORD is a fake?
+Cyron: Ahem! Excuse me! Of course, this item has been procured by me, with oversight from the Lord! There is no fake here.
+Cyron: The Lord asks if you will be purchasing this item?
+
+== chat_d
+Cyron: I am on a sacred pilgrimage, led by our Lord! At the ends of the Earth, the Lord guides his devout followers to their final resting place, where we may earn eternal peace! | The Lord told me to arrive at your establishment. You must have something I need, or do you need something from me!? The Lord works in mysterious ways!
+Cyron: You must have something I need, or do you need something from me!? The Lord works in mysterious ways!
+Cyron: The Lord asks if you will be purchasing this item?
+
+== buyer
+Cyron: You have piqued the Lord's interest with your {item}...?
+> show_item
+Cyron: Hmm, yes, yes. The Lord is quite fond of this!
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Cyron: [b]${price}[/b] Is more than sufficient for this sacred item? 
+> barter
+
+== sold
+Cyron: The Lord is pleased with this. Blessing upon you!
+
+== spotted_fake
+> shake 0.8
+Cyron: I can... [shake rate=40 level=20]SEE THROUGH YOUR PLOY! 
+Cyron: Did you think dishonesty work would on an agent of the LORD? You sad, sad fool.
+
+== buyer_countered
+> shake 0.5
+Cyron: The Lord claims ${price}? is far more suitable. | ${price} is the Lord's will.
+
+== buyer_left
+> shake 0.8
+Cyron: A shame. The Lord would have liked this item!
+
+== buyer_stole
+> shake 0.8
+Cyron: The Lord requires this item. 
+Cyron: [shake rate=40 level=20]We'll be taking it now.
+
+== pull_gun
+> shake 2
+Cyron: [shake rate=40 level=20]A threat on an agent of the Lord is a threat to the Lord himself...
+Cyron: There's still time to repent. 
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Cyron: [shake rate=40 level=20]An agent of the Lord? Stealing? Preposterous.
+Cyron: If there is one thing you can count on, it is that I am a honest, ethical, moral and Godly man!
+Cyron: Do you really believe such a man would steal?
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Cyron: [shake rate=40 level=20]My Lord... was this... your will?
+> shoot
+
+== not_shoot
+Cyron: I knew you would see the light. The Lord is always right!
+Cyron: Sadly, the Lord no longer has interest in your business. Fare thee well!
+> not_shoot
+
+
+== buyer_chat
+Cyron: Do you have a question for the Lord?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Cyron: This is a sacred item needed for my pilgrimage! It will serve a holy purpose, very, very soon...
+Cyron: The Lord asks if you will be purchasing this item?
+
+== buyer_chat_b
+Cyron: All my material gatherings have been given to me directly from the Lord! If another does not need it, it will end up with me! Although, some non believers rebuke that notion! It makes it hard to.. procure.. funding. | My being is funded, fed, and ran directly through the Lord! Anything I would ever need is always placed directly in my path, thanks to the Lord!
+Cyron: The Lord asks if you will be purchasing this item?
+
+== buyer_chat_c
+Cyron: [shake rate=40 level=20]You.. [/shake] You would question the wisdom of the Lord? It is priced perfectly, no more, no less.
+Cyron: The Lord asks if you will be purchasing this item?
+
+== buyer_chat_d
+Cyron: Outside? You may see some of my people in our attire! As an agent of the Lord, I need not wear the attire of lower beings. I was never one to wear black anyway! | You should be afraid. There are many things out there. Animals, people, and some things that you may have a hard time labeling. Just know, it is all apart of the Lord's plan.
+Cyron: The Lord asks if you will be purchasing this item?
+
+== coa
+Cyron: A certificate? Of course!
+> shake 0.8
+Mixon: It has been provided to me by the Lord.
+> show_coa
+
+== no_coa
+Cyron: A certificate? Nonsense! An agent of the Lord need not such things. All you must do is believe in the words of the Lord, there is no misguided truths here!

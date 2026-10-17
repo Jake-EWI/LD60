@@ -116,7 +116,7 @@ Mixon: I will move along now! Places to be, dumpsters to dive!
 
 
 == buyer_chat
-Mixon: O-oh. Do you n-n-need something?
+Mixon: Do you need something of me?
 * What do you need it for? -> buyer_chat_a
 * Where'd you get that cash? -> buyer_chat_b
 * That's worth way more than that. -> buyer_chat_c
@@ -139,10 +139,10 @@ Mixon: Lots of people heading north these days! I considered heading there mysel
 Mixon: Will you be willing to purchase?
 
 == coa
-Mixon: COA? Yeah I got one. Take a look.
+Mixon: A COA? Well, of course that would be in my possession!
 > shake 0.8
-Mixon: Don't even try to say it ain't real.
+Mixon: Careful! 
 > show_coa
 
 == no_coa
-Mixon: Ain't got one. Guy I swiped this from probably isn't eager to hand it over either. Sorry buddy.
+Mixon: A COA?! I do not need that to validate my inventory! Listen to the chimes of the birds.... they speak certainly of its authenticity!
