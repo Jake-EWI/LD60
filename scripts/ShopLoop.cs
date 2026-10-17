@@ -101,6 +101,7 @@ public partial class ShopLoop : Node
 
         if(customerBuying)
         {
+            //pick random item from inventory to sell
             offeredItem = gm.Inventory[rng.RandiRange(0, gm.Inventory.Count - 1)];
         } else {
             var itemChoices = customer.PossibleItems.Length > 0 ? customer.PossibleItems : ItemPool;
@@ -149,6 +150,7 @@ public partial class ShopLoop : Node
                 CustomerImage.Leave();
                 ActionsMenu.ShowRejectButton(false);
                 ActionsMenu.Visible = false;
+                HideOfferedItem();
                 break;
         }
     }

@@ -16,21 +16,23 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ItemTexture" type="TextureRect" parent="." unique_id=1141684717]
-layout_mode = 0
-offset_left = 422.0
-offset_top = 383.0
-offset_right = 683.0
-offset_bottom = 566.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3663
+anchor_top = 0.591
+anchor_right = 0.5929
+anchor_bottom = 0.8735
 texture = ExtResource("1_8lkoa")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="ItemLabel" type="Label" parent="." unique_id=252106992]
-layout_mode = 0
-offset_left = 452.0
-offset_top = 380.0
-offset_right = 636.0
-offset_bottom = 419.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3924
+anchor_top = 0.5864
+anchor_right = 0.5521
+anchor_bottom = 0.6466
 text = "Old Phone"
 label_settings = SubResource("LabelSettings_yih1u")
 horizontal_alignment = 1
