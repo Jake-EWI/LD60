@@ -42,4 +42,15 @@ public partial class ActionsMenu : Control
         rejectButton.Visible = show;
     }
 
+    public void SetAllButtonsVisible(bool visible)
+    {
+        foreach (var button in new[] { inventoryButton, gunButton, observeButton, coaButton, expertButton, rejectButton, talkButton })
+            button.Visible = visible;
+    }
+
+    public void ShowButton(string buttonName)
+    {
+        GetNode<TextureButton>($"HBoxContainer/{buttonName}").Visible = true;
+    }
+
 }

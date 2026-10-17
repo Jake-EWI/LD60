@@ -228,6 +228,36 @@ public partial class ShopLoop : Node
                 customerQueue.Clear();
                 phase = ShopPhase.Closing;
                 break;
+            case "tut_show_haggle":
+                ShowBarter();
+                BarterPanel.MouseBehaviorRecursive = Control.MouseBehaviorRecursiveEnum.Disabled;
+                break;
+            case "tut_hide_haggle":
+                HideBarter();
+                BarterPanel.MouseBehaviorRecursive = Control.MouseBehaviorRecursiveEnum.Inherited;
+                break;
+            case "tut_show_observe":
+                TutorialShowButton("ObserveButton");
+                break;
+            case "tut_show_coa":
+                TutorialShowButton("COAButton");
+                break;
+            case "tut_show_expert":
+                TutorialShowButton("ExpertButton");
+                break;
+            case "tut_show_inventory":
+                TutorialShowButton("InventoryButton");
+                break;
+            case "tut_show_gun":
+                TutorialShowButton("PullGunButton");
+                break;
+            case "tut_hide_all":
+                TutorialHideAll();
+                break;
+            case "tut_finish":
+                TutorialHideAll();
+                phase = ShopPhase.Closing;
+                break;
             case "show_coa":
                 HideBarter();
                 CoaPanel.OpenCoa(offeredItem.Item.ItemName, offeredItem.IsFake, rng, gm, this);
@@ -242,6 +272,26 @@ public partial class ShopLoop : Node
         Runner.Hold();
         await GunPOV.HideGun();
         Runner.Resume();
+    }
+
+    private void TutorialShowButton(string buttonName)
+    {
+        if (!ActionsMenu.Visible)
+        {
+            ActionsMenu.SetAllButtonsVisible(false);
+            ActionsMenu.MouseBehaviorRecursive = Control.MouseBehaviorRecursiveEnum.Disabled;
+            ActionsMenu.Visible = true;
+        }
+        ActionsMenu.ShowButton(buttonName);
+    }
+
+    private void TutorialHideAll()
+    {
+        HideBarter();
+        BarterPanel.MouseBehaviorRecursive = Control.MouseBehaviorRecursiveEnum.Inherited;
+        ActionsMenu.Visible = false;
+        ActionsMenu.SetAllButtonsVisible(true);
+        ActionsMenu.MouseBehaviorRecursive = Control.MouseBehaviorRecursiveEnum.Inherited;
     }
 
     public void OnDialogueEnded()
