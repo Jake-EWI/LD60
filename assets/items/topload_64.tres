@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_i3a01")
 ItemName = "Topload64"
-BaseValue = 85
+BaseValue = 170
 Icon = ExtResource("1_c6opp")
 metadata/_custom_type_script = "uid://cv4540x8541k6"

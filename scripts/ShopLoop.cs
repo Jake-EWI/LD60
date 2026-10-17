@@ -12,9 +12,11 @@ public partial class ShopLoop : Node
     private List<CustomerDefinition> liveCustomerPool { get; set; } = [];
     [Export] int MaxCustomers {get; set;} = 6;
     [Export] int MinCustomers {get; set;} = 4;
-    [Export] public int Rent {get; set;} = 50;
+    [Export] public int Rent {get; set;} = 15;
     [Export] public int RunLength {get; set;} = 7;
-    [Export] public int ExpertCost {get; set;} = 10;
+    [Export] public int ExpertCost {get; set;} = 15;
+    [Export] public int ExpertPriceCheckCost {get; set;} = 5;
+    [Export] public int BribeCost {get; set;} = 40;
     [Export] public int JailDays {get; set;} = 3;
     [Export(PropertyHint.File, "*.txt")] public string ExpertDialoguePath {get; set;} = "res://assets/dialogue/Expert.txt";
 
@@ -38,6 +40,7 @@ public partial class ShopLoop : Node
     private GameState gm;
     private System.Collections.Generic.Queue<CustomerDefinition> customerQueue = new();
     private CustomerDefinition customer;
+    private AudioStreamPlayer bgmPlayer;
     private bool customerBuying;
     [Export] public ItemDefinition[] ItemPool { get; set; } = [];
     private ItemInstance offeredItem;
@@ -55,6 +58,9 @@ public partial class ShopLoop : Node
         rng = new RandomNumberGenerator();
         rng.Randomize();
         Runner.Rng = rng;
+        Runner.SetVariable("bribeCost", BribeCost);
+
+        bgmPlayer = GetNode<AudioStreamPlayer>("BGM");
         //signal binding
         Runner.DialogueEnded += OnDialogueEnded;
         Runner.CommandIssued += OnCommand;
@@ -100,6 +106,7 @@ public partial class ShopLoop : Node
         }
         
         moneyAtStartOfDay = gm.Money;
+        bgmPlayer.Play();
         NextCustomer();
         
     }
@@ -111,6 +118,7 @@ public partial class ShopLoop : Node
         int fromDay = gm.Day;
         gm.IncrementDay();
         DayScreen.ShowDayScreen(fromDay, gm.Day, profitLoss, Rent, gm.Money);
+        bgmPlayer.Stop();
     }
 
     public void NextCustomer()
@@ -209,8 +217,16 @@ public partial class ShopLoop : Node
                     Runner.Play("innocent");
                 }
                 break;
+            case "check_price":
+                if (!gm.CanAfford(ExpertPriceCheckCost))
+                {
+                    Runner.Play("broke_price");
+                    break;
+                }
+                Runner.Play("buy_check_price");
+                break;
             case "check_bribe":
-                if(gm.CanAfford(10))
+                if(gm.CanAfford(BribeCost))
                 {
                     Runner.Play("can_bribe");
                 } else
@@ -219,9 +235,9 @@ public partial class ShopLoop : Node
                 }
                 break;
             case "bribe":
-                if(gm.CanAfford(10))
+                if(gm.CanAfford(BribeCost))
                 {
-                    gm.AddMoney(-10);
+                    gm.AddMoney(-BribeCost);
                 }
                 break;
             case "arrest":
@@ -468,6 +484,7 @@ public partial class ShopLoop : Node
         expertCalling = true;
         Runner.SetVariable("expertCost", ExpertCost);
         Runner.SetVariable("baseAmount", offeredItem.Item.BaseValue);
+        Runner.SetVariable("priceCheckCost", ExpertPriceCheckCost);
         Runner.Start(ExpertDialoguePath);
     }
 

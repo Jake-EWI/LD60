@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_t55q6")
 ItemName = "Typewriter"
-BaseValue = 35
+BaseValue = 70
 Icon = ExtResource("1_h5n3u")
 metadata/_custom_type_script = "uid://cv4540x8541k6"

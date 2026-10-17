@@ -22,7 +22,7 @@ public partial class ObservationPanel : Control
     {
         if(isFake)
             return ImperfectionTextures[rng.RandiRange(0, ImperfectionTextures.Length - 1)];
-        if(rng.RandiRange(0, 100) < 50)
+        if(rng.RandiRange(0, 100) < 35)
             return RedHerringTextures[rng.RandiRange(0, RedHerringTextures.Length - 1)];
         return null;
     }

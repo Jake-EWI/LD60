@@ -21,12 +21,12 @@ public class Negotiation
         int value = item.BaseValue;
         if (buying)
         {
-            limit = Mathf.RoundToInt(value * rng.RandfRange(1.1f, 1.4f));
+            limit = Mathf.RoundToInt(value * rng.RandfRange(1.25f, 1.6f));
             AskingPrice = Mathf.RoundToInt(value * (1 - customer.Greed));
         }
         else
         {
-            limit = Mathf.RoundToInt(value * rng.RandfRange(0.6f, 0.9f));
+            limit = Mathf.RoundToInt(value * rng.RandfRange(0.5f, 0.8f));
             AskingPrice = Mathf.RoundToInt(value * (1 + customer.Greed));
         }
         Patience = customer.Patience;
@@ -45,7 +45,7 @@ public class Negotiation
             return HaggleResult.Accepted;
         }
 
-        float insult = Mathf.Abs(offer - AskingPrice) / (float)AskingPrice;
+        float insult = Mathf.Abs(offer - AskingPrice) / (float)Mathf.Max(offer, AskingPrice);
         Patience -= Mathf.RoundToInt(insult * 100);
         if (Patience <= 0)
         {

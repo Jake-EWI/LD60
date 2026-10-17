@@ -6,8 +6,13 @@
 [resource]
 script = ExtResource("1_i8mig")
 CustomerName = "Z_Nu"
-Greed = 0.3
-StealChance = 0.2
+BuyerChance = 0.75
+FakeChance = 0.3
+Greed = 0.2
+Savvy = 0.75
+Patience = 80.0
+StealChance = 0.04
+CoaChance = 0.6
 DialoguePath = "res://assets/dialogue/Z-Nu.txt"
 CharacterImage = ExtResource("1_6g5b6")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"
