@@ -1,0 +1,136 @@
+; Dobby
+Dobby: H-hey, I've some s-stuff with me.
+> shake 0.8 
+Dobby: I-think it's p-pretty  valuable...
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Dobby: It's w-worth at least [b]${price}[/b]. D-don't you t-think so?
+> barter
+
+== accepted
+Dobby: T-thank you. [shake rate=40 level=20]I'll b-be able to e-eat tonight.[/shake].
+
+== countered
+> shake 0.5
+Dobby: C-can you do {price}? P-please...
+
+== left
+> shake 0.8
+Dobby: S-sorry... I just r-remembered I-I have somewhere to b-be
+
+== stole
+> shake 0.8
+Dobby: T-that {item} y-you have is p-p-pretty...
+Dobby: I'm s-s-sorry! I-I-I have to t-take it!
+
+== pass
+> shake 0.2
+Dobby: O-oh. T-that's o-okay. I can g-go another n-night w-without f-f-food.
+
+== chat
+Dobby: Is there s-s-something you n-need?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Dobby: Y-yes! T-they want us to come t-t-together so t-they can give us f-f-food and s-s-shelter. | It-it doesn't s-sit right with m-me. They're u-up-up to s-something...
+Dobby: They must w-w-w-want the b-best for u-us. R-right?
+Dobby: W-will you buy it?
+
+== chat_b
+Dobby: I-I can barely b-breathe without my m-m-mask. It's become a-a-a-a harsh w-w-world.
+Dobby: T-t-these trinkets b-b-bring me back t-to happier t-t-times.
+Dobby: W-will you buy it?
+
+== chat_c
+Dobby: W-W-WHAT???. [shake rate=40 level=20] O-of-of course not...
+Dobby: There m-m-must be a w-w-way for you to c-c-check, r-right?| I-I promise it's t-t-the real t-thing...
+Dobby: W-will you buy it?
+
+== chat_d
+Dobby: J-just scrounging for s-some s-scraps. I-I haven't eaten in a-a-a couple days, y-you know?
+Dobby: M-maybe you'd be willing to s-s-spare some extra c-c-change. O-oh! No p-p-pressure, of c-c-course. 
+Dobby: W-will you buy it?
+
+== buyer
+Dobby: C-can I see t-that {item}?
+> show_item
+Dobby: T-this is so p-p-pretty. My m-m-mom h-h-had something like t-t-this.
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Dobby: H-h-how about [b]${price}[/b]? I think t-t-that's f-f-fair.
+> barter
+
+== sold
+Dobby: O-oh! G-great!. T-thank you s-s-so m-much!. | W-wow! I h-h-haven't had t-this much i-in m-months!
+
+== spotted_fake
+> shake 0.8
+Dobby: [shake rate=40 level=20]H-hey[/shake] A-are you sure t-t-this is r-real?
+Dobby: O-oh! I'm n-no expert. J-just s-seems off i-is all.
+
+== buyer_countered
+> shake 0.5
+Dobby: T-thats a l-little l-low i-isn't it? H-how about ${price}? | ${price} s-sounds m-more f-fair to m-me...
+
+== buyer_left
+> shake 0.8
+Dobby: That's o-okay. I'll just f-find s-something b-b-better n-next time.
+
+== buyer_stole
+> shake 0.8
+Dobby: I'm s-sorry!! 
+Dobby: [shake rate=40 level=20]The world is c-c-cold n-now![/shake] I won't m-make it w-w-without t-this!
+
+== pull_gun
+> shake 2
+Dobby: [shake rate=40 level=20]AHHH! W-why??[/shake]
+Dobby: D-don't s-shoot! P-please!
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Dobby: [shake rate=40 level=20]S-stole...?[/shake]
+Dobby: I w-w-would never d-do such a t-thing. I have m-m-morals you k-k-know. Even in t-t-this w-world....
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Dobby: [shake rate=40 level=20]M-mom... I'll b-b-be with you s-soon...[/shake]
+> shoot
+
+== not_shoot
+Dobby: O-oh! T-thank you...
+Dobby: I'll t-take m-my leave n-now! S-sorry f-for the b-b-bother.
+> not_shoot
+
+
+== buyer_chat
+Dobby: O-oh. Do you n-n-need something?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Dobby: I'm g-going to t-trade for f-food. I-i can get a w-whole slice of b-b-bread! | I'm g-going to buy a c-coat w-with the m-money. It's gotten c-cold since the f-fall.
+Dobby: W-will you buy it?
+
+== buyer_chat_b
+Dobby: O-oh, y-you know j-just a-around... | I've j-j-just been t-trading up f-for a while. M-maybe one d-d-day I'll t-trade up to s-shelter! Ha-h-ha.
+Dobby: W-will you buy it?
+
+== buyer_chat_c
+Dobby: [shake rate=40 level=20]O-oh[/shake] R-r-really? A-are you s-s-sure? | B-b-but you c-c-can't e-even really u-use it a-anymore...
+Dobby: W-will you buy it?
+
+== buyer_chat_d
+Dobby: R-refugees are m-meeting north a-at Acre's P-point. There m-must b-be shelter... b-b-b it's n-near the f-front line... | P-people h-have started d-d-digging h-holes in the g-ground for s-shelter... L-like a-animals...
+Dobby: W-will you buy it?

@@ -87,6 +87,30 @@ Exton: Can't stretch that far, friend. I'll be on my way.
 Exton: Sorry, pal. I tried doing this the honest way.
 Exton: Times are tough. I'll be taking this.
 
+== pull_gun
+> shake 2
+Exton: [shake rate=40 level=20]Damn.....[/shake]
+Exton: Why the rush? Do something you didn't like?
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Exton: [shake rate=40 level=20]Ha...[/shake]
+Exton: I haven't taken anything that I didn't walk in here with.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Exton: [shake rate=40 level=20]I'll be sure to curse you from the afterlife...[/shake]
+> shoot
+
+== not_shoot
+Exton: Way to kill my mood there, pal.
+Exton: I see I'm not welcome here. Whatever. Try not to shoot anyone else ya don't like. See ya.
+> not_shoot
+
+
 == buyer_chat
 Exton: Something on your mind, friend?
 * What do you want it for? -> buyer_chat_a
