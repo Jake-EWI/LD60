@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cd68id684mvic"]
+
+[ext_resource type="Script" uid="uid://bac5tf8hcsq6w" path="res://scripts/ShopLoop.cs" id="1_cx0yy"]
+[ext_resource type="Resource" uid="uid://cw4kjs4e1mnwu" path="res://assets/customers/z_nu.tres" id="2_e55af"]
+[ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="2_nwbyj"]
+[ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="3_nwbyj"]
+[ext_resource type="PackedScene" uid="uid://dex18oui7npiw" path="res://scenes/ui/money_panel.tscn" id="4_2ty0w"]
+
+[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner")]
+script = ExtResource("1_cx0yy")
+CustomerPool = [ExtResource("2_e55af")]
+Runner = NodePath("DialogueRunner")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
+
+[node name="MoneyPanel" parent="CanvasLayer" unique_id=1852577103 instance=ExtResource("4_2ty0w")]
+
+[node name="DialogueBox" parent="CanvasLayer" unique_id=1885510638 instance=ExtResource("2_nwbyj")]
+
+[node name="DialogueRunner" type="Node" parent="." unique_id=1022815821 node_paths=PackedStringArray("Box")]
+script = ExtResource("3_nwbyj")
+Box = NodePath("../CanvasLayer/DialogueBox")

@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cvbhyq84lfp6d" path="res://scripts/Dialogue/DialogueBox.cs" id="1_box"]
 [ext_resource type="AudioStream" uid="uid://dpuu8m3i04xam" path="res://assets/audio/sfx/buh.wav" id="2_6iboe"]
+[ext_resource type="FontFile" uid="uid://bc5nk0336na24" path="res://assets/fonts/Chrysanthemum-Bold.otf" id="2_h44io"]
+[ext_resource type="FontFile" uid="uid://dulayjp6th5fw" path="res://assets/fonts/Chrysanthemum-Regular.otf" id="3_pyby6"]
+[ext_resource type="FontFile" uid="uid://pcraqtppop0h" path="res://assets/fonts/Chrysanthemum-Italic.otf" id="4_w1v8g"]
 
 [node name="DialogueBox" type="Control" unique_id=1885510638]
 layout_mode = 3
@@ -62,6 +65,7 @@ mouse_filter = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_h44io")
 theme_override_font_sizes/font_size = 20
 text = "Name"
 
@@ -70,6 +74,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_pyby6")
+theme_override_fonts/bold_font = ExtResource("2_h44io")
+theme_override_fonts/bold_italics_font = ExtResource("4_w1v8g")
 theme_override_font_sizes/normal_font_size = 22
 theme_override_font_sizes/bold_font_size = 22
 theme_override_font_sizes/italics_font_size = 22

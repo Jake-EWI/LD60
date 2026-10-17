@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dex18oui7npiw"]
+
+[ext_resource type="FontFile" uid="uid://dulayjp6th5fw" path="res://assets/fonts/Chrysanthemum-Regular.otf" id="1_2exj6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
+font = ExtResource("1_2exj6")
+font_size = 26
+
+[node name="MoneyPanel" type="Control" unique_id=1852577103]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=1437134323]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036000002
+anchor_top = 0.076000005
+anchor_right = 0.036000002
+anchor_bottom = 0.076000005
+offset_left = -0.47200394
+offset_top = -0.24800491
+offset_right = 170.528
+offset_bottom = 33.751995
+text = "$-1"
+label_settings = SubResource("LabelSettings_yih1u")
