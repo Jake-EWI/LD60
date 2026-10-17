@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_jbnug")
 CustomerName = "T. Tureel"
-StealChance = 0.0
-FakeChance = 0.0
 BuyerChance = 0.0
+FakeChance = 0.0
+StealChance = 0.0
 DialoguePath = "res://assets/dialogue/T_Tureel.txt"
 CharacterImage = ExtResource("1_pga86")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"

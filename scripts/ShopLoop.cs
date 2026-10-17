@@ -39,6 +39,7 @@ public partial class ShopLoop : Node
     private GameState gm;
     private System.Collections.Generic.Queue<CustomerDefinition> customerQueue = new();
     private CustomerDefinition customer;
+    private AudioStreamPlayer bgmPlayer;
     private bool customerBuying;
     [Export] public ItemDefinition[] ItemPool { get; set; } = [];
     private ItemInstance offeredItem;
@@ -57,6 +58,8 @@ public partial class ShopLoop : Node
         rng.Randomize();
         Runner.Rng = rng;
         Runner.SetVariable("bribeCost", BribeCost);
+
+        bgmPlayer = GetNode<AudioStreamPlayer>("BGM");
         //signal binding
         Runner.DialogueEnded += OnDialogueEnded;
         Runner.CommandIssued += OnCommand;
@@ -102,6 +105,7 @@ public partial class ShopLoop : Node
         }
         
         moneyAtStartOfDay = gm.Money;
+        bgmPlayer.Play();
         NextCustomer();
         
     }
@@ -113,6 +117,7 @@ public partial class ShopLoop : Node
         int fromDay = gm.Day;
         gm.IncrementDay();
         DayScreen.ShowDayScreen(fromDay, gm.Day, profitLoss, Rent, gm.Money);
+        bgmPlayer.Stop();
     }
 
     public void NextCustomer()
