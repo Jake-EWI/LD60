@@ -25,3 +25,21 @@ Z-Nu: An ocular for an ocular, as we say.
 
 == pass
 Z-Nu: Glorp. That's too bad.
+
+== chat
+Z-Nu: Yes Human brother?
+* Why are you talking like that? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+
+== chat_a
+Z-Nu: Talking in what way Human? Glorp. | [shake rate=5 level=5]Nonne Anglice loqueris? Glorp.
+Z-Nu: Well Human? Want it or not?
+
+== chat_b
+Z-Nu: The weather is great. There is a chance of precipitation today.
+Z-Nu: Well Human? Want it or not?
+
+== chat_c
+Z-Nu: [shake rate=40 level=20] How dare you?!?![/shake] This is my Human mothers prized posession.
+Z-Nu: Well Human? Want it or not?

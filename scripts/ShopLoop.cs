@@ -16,6 +16,8 @@ public partial class ShopLoop : Node
     [Export] public BarterPanel BarterPanel { get; set; }
     [Export] public CustomerImage CustomerImage { get; set; }
     [Export] public OfferedItem OfferedItemImage { get; set;}
+    [Export] public ActionsMenu ActionsMenu { get; set; }
+    [Export] public InventoryPanel InventoryPanel { get; set; }
 
     //gamestate
 
@@ -35,6 +37,8 @@ public partial class ShopLoop : Node
         gm.Reset();
         rng = new RandomNumberGenerator();
         rng.Randomize();
+        Runner.Rng = rng;
+        //signal binding
         Runner.DialogueEnded += OnDialogueEnded;
         Runner.CommandIssued += OnCommand;
 
@@ -42,6 +46,10 @@ public partial class ShopLoop : Node
 
         CustomerImage.Entered += () => Runner.Start(customer.DialoguePath);
         CustomerImage.Left += NextCustomer;
+
+        ActionsMenu.RejectButtonPressed += OnRejectPressed;
+        ActionsMenu.InventoryPressed += OnInventoryPressed;
+        ActionsMenu.TalkButtonPressed += OnTalkPressed;
         
         StartDay();
     }
@@ -108,10 +116,14 @@ public partial class ShopLoop : Node
         {
             case ShopPhase.Barter:
                 ShowBarter();
+                ActionsMenu.Visible = true;
+                ActionsMenu.ShowRejectButton(true);
                 break;
             case ShopPhase.Intro:
             case ShopPhase.Closing:
                 CustomerImage.Leave();
+                ActionsMenu.ShowRejectButton(false);
+                ActionsMenu.Visible = false;
                 break;
         }
     }
@@ -176,6 +188,30 @@ public partial class ShopLoop : Node
             break;
         }
 
+    }
+
+    public void OnInventoryPressed()
+    {
+        if(InventoryPanel.Visible)
+        {
+            InventoryPanel.Visible = false;
+            return;
+        }
+        InventoryPanel.Visible = true;
+    }
+
+    public void OnRejectPressed()
+    {
+        HideBarter();
+        phase = ShopPhase.Closing;
+        Runner.Play("pass");
+        HideOfferedItem();
+    }
+
+    public void OnTalkPressed()
+    {
+        HideBarter();
+        Runner.Play("chat");
     }
 
     public void HandleSeller()

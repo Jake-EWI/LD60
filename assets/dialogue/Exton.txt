@@ -1,10 +1,11 @@
-; exton
+; buh
 Exton: How goes it? Looking for some goods?
 > shake 0.8 
 Exton: Had it since I was a kid. Don't serve me any good no more, though.
 * I'll take a look. -> buy
 * Get out of my store. -> pass
 == buy
+> show_item
 Exton: I hear ya. I'm willing to cut [b]${price}[/b] for it.
 > barter
 
@@ -12,14 +13,17 @@ Exton: I hear ya. I'm willing to cut [b]${price}[/b] for it.
 Exton: Been a pleasure.
 
 == countered
+> shake 0.2
 Exton: Trying to low ball me? It's worth at least ${price}.
 
 == left
+> shake 0.6
 Exton: Should've known you wouldn't see the value in it. I'll head out.
 
 == stole
+> shake 0.4
 Exton: It's tough times. I was trying to be civil, but I'll be taking this.
-Exton: No more Mr. Nice Guy. I'm taking this.
 
 == pass
+> shake 0.2
 Exton: Keep up with that attitude and you won't sell a thing.

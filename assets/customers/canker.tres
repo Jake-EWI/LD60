@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://cs4tnwcu2g34d"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_4iej7"]
+[ext_resource type="Texture2D" uid="uid://b4um0ejo1c4gs" path="res://assets/art/Characters/Canker.png" id="1_diev4"]
+[ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/old_phone.tres" id="2_keoa1"]
+
+[resource]
+script = ExtResource("1_4iej7")
+CustomerName = "Canker"
+PossibleItems = [ExtResource("2_keoa1")]
+Greed = 0.9
+Patience = 75.0
+StealChance = 0.7
+DialoguePath = "res://assets/dialogue/Sage.txt"
+CharacterImage = ExtResource("1_diev4")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

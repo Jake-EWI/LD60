@@ -6,7 +6,7 @@ using System.Threading;
 namespace LD60.Dialogue;
 
 public abstract record DialogueStep;
-public sealed record LineStep(string Speaker, string Text) : DialogueStep;
+public sealed record LineStep(string Speaker, string[] Texts) : DialogueStep;
 public sealed record ChoiceStep(List<DialogueChoice> Choices) : DialogueStep;
 public sealed record JumpStep(string Target) : DialogueStep;
 public sealed record CommandStep(string Name, string[] Args) : DialogueStep;
@@ -71,7 +71,7 @@ public static partial class DialogueParser
             else
             {
                 var match = SpeakerLine().Match(line);
-                current.Add(match.Success ? new LineStep(match.Groups["speaker"].Value.Trim(), match.Groups["text"].Value) : new LineStep("", line));
+                current.Add(match.Success ? new LineStep(match.Groups["speaker"].Value.Trim(), SplitAlternatives(match.Groups["text"].Value)) : new LineStep("", SplitAlternatives(line)));
             }
         }
 
@@ -83,6 +83,9 @@ public static partial class DialogueParser
 
         return sections;
     }
+
+    private static string[] SplitAlternatives(string s) =>
+        s.Split('|', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
 
     private static (string Text, string Target) SplitArrow(string s)
     {

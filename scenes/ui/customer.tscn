@@ -13,13 +13,16 @@ grow_vertical = 2
 script = ExtResource("1_oiwq3")
 
 [node name="CustomerImage" type="TextureRect" parent="." unique_id=224781596]
-layout_mode = 0
-offset_left = 297.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
 offset_top = 6.0
-offset_right = 861.0
-offset_bottom = 446.0
+offset_right = -2.0
+offset_bottom = -16.0
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="StepSound" type="AudioStreamPlayer" parent="." unique_id=708367075]
 stream = ExtResource("2_kwapk")

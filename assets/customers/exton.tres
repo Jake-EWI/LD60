@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://dlx386c7s38eu"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_4q878"]
+[ext_resource type="Texture2D" uid="uid://e5kbrkg1wob6" path="res://assets/art/Characters/Exton.png" id="1_pn5b4"]
+[ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/old_phone.tres" id="2_4qsfj"]
+
+[resource]
+script = ExtResource("1_4q878")
+CustomerName = "Exton"
+PossibleItems = [ExtResource("2_4qsfj")]
+Greed = 0.39
+Patience = 90.0
+StealChance = 0.3
+DialoguePath = "res://assets/dialogue/Exton.txt"
+CharacterImage = ExtResource("1_pn5b4")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

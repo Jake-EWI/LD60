@@ -18,6 +18,8 @@ public partial class DialogueRunner : Node
 
     public Dictionary<string, string> Variables { get; } = new();
 
+    public RandomNumberGenerator Rng { get; set; } = new();
+
     [GeneratedRegex(@"\{(\w+)\}")]
     private static partial Regex VariablePattern();
 
@@ -28,6 +30,7 @@ public partial class DialogueRunner : Node
 
     public override void _Ready()
     {
+        Rng.Randomize();
         Box.Advanced += Continue;
         Box.LineFinished += OnLineFinished;
         Box.ChoiceSelected += OnChoiceSelected;
@@ -114,7 +117,7 @@ public partial class DialogueRunner : Node
                     _choice = _index < steps.Count ? steps[_index] as ChoiceStep : null;
                     if (_choice != null)
                         _index++;
-                    Box.ShowLine(Fill(line.Speaker), Fill(line.Text));
+                    Box.ShowLine(Fill(line.Speaker), Fill(line.Texts[Rng.RandiRange(0, line.Texts.Length - 1)]));
                     return;
 
                 case ChoiceStep choice:
