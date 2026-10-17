@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_ojdrd")
 ItemName = "80KB Floppy Disc"
-BaseValue = 6
+BaseValue = 12
 Icon = ExtResource("1_e8w4v")
 metadata/_custom_type_script = "uid://cv4540x8541k6"

@@ -12,9 +12,10 @@ public partial class ShopLoop : Node
     private List<CustomerDefinition> liveCustomerPool { get; set; } = [];
     [Export] int MaxCustomers {get; set;} = 6;
     [Export] int MinCustomers {get; set;} = 4;
-    [Export] public int Rent {get; set;} = 50;
+    [Export] public int Rent {get; set;} = 15;
     [Export] public int RunLength {get; set;} = 7;
-    [Export] public int ExpertCost {get; set;} = 10;
+    [Export] public int ExpertCost {get; set;} = 15;
+    [Export] public int BribeCost {get; set;} = 40;
     [Export] public int JailDays {get; set;} = 3;
     [Export(PropertyHint.File, "*.txt")] public string ExpertDialoguePath {get; set;} = "res://assets/dialogue/Expert.txt";
 
@@ -55,6 +56,7 @@ public partial class ShopLoop : Node
         rng = new RandomNumberGenerator();
         rng.Randomize();
         Runner.Rng = rng;
+        Runner.SetVariable("bribeCost", BribeCost);
         //signal binding
         Runner.DialogueEnded += OnDialogueEnded;
         Runner.CommandIssued += OnCommand;
@@ -210,7 +212,7 @@ public partial class ShopLoop : Node
                 }
                 break;
             case "check_bribe":
-                if(gm.CanAfford(10))
+                if(gm.CanAfford(BribeCost))
                 {
                     Runner.Play("can_bribe");
                 } else
@@ -219,9 +221,9 @@ public partial class ShopLoop : Node
                 }
                 break;
             case "bribe":
-                if(gm.CanAfford(10))
+                if(gm.CanAfford(BribeCost))
                 {
-                    gm.AddMoney(-10);
+                    gm.AddMoney(-BribeCost);
                 }
                 break;
             case "arrest":

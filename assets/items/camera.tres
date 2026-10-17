@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_btmgi")
 ItemName = "Old Camera"
-BaseValue = 30
+BaseValue = 60
 Icon = ExtResource("1_7osf7")
 metadata/_custom_type_script = "uid://cv4540x8541k6"

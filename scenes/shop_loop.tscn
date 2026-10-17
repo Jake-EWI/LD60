@@ -45,10 +45,11 @@
 [ext_resource type="Texture2D" uid="uid://bpghks7qfy7ho" path="res://assets/art/UI/Manufactured Sticker (Real).png" id="39_c6a8c"]
 [ext_resource type="PackedScene" uid="uid://c6jsoslp1nc5d" path="res://scenes/ui/coa_panel.tscn" id="40_srn1w"]
 [ext_resource type="Script" uid="uid://cvyf6kw6vx1gx" path="res://scripts/UI/CoaPanel.cs" id="41_c6a8c"]
+[ext_resource type="Resource" uid="uid://3nmycpbii146" path="res://assets/customers/couple.tres" id="42_couple"]
 
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel", "CoaPanel")]
 script = ExtResource("1_cx0yy")
-CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl")]
+CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple")]
 PoliceOfficer = ExtResource("5_ewqmb")
 Tutorial = ExtResource("9_1ups1")
 Runner = NodePath("DialogueRunner")

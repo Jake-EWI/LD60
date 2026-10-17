@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_bfxc1")
 ItemName = "Z-Bone 1"
-BaseValue = 46
+BaseValue = 92
 Icon = ExtResource("1_h0xf0")
 metadata/_custom_type_script = "uid://cv4540x8541k6"

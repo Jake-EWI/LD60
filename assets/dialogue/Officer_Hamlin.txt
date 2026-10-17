@@ -5,7 +5,7 @@ Officer Hamlin: You wouldn't happen to know anything about that... Would you? | 
 >check_if_guilty
 
 == guilty
-* Maybe you could look the other way? (Bribe: $10) -> bribe
+* Maybe you could look the other way? (Bribe: ${bribeCost}) -> bribe
 * I'd like to have a lawyer present. (Jail: End Day) -> arrest
 
 == innocent

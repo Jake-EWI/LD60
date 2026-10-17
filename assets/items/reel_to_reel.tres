@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_2ivw4")
 ItemName = "Reel to Reel"
-BaseValue = 18
+BaseValue = 36
 Icon = ExtResource("1_wb4hp")
 metadata/_custom_type_script = "uid://cv4540x8541k6"
