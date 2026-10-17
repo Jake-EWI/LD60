@@ -1,0 +1,137 @@
+; Mixon
+Mixon: Salutations! Mind If indulge in your business endeavors?
+> shake 0.8 
+Mixon: I've got quite the array of items...
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Mixon: I was thinking [b]${price}[/b]!
+> barter
+
+== accepted
+Mixon: Well bend me over and call me a horse! I'll be comfortable tonight! [/shake].
+
+== countered
+> shake 0.5
+Mixon: Hmph! how about {price}?
+
+== left
+> shake 0.8
+Mixon: No can do! No worries! I will take my business elsewhere! Sayonara! 
+
+== stole
+> shake 0.8
+Mixon: Quite a fine {item} you have acquired there...
+Mixon: I will take it off your hands! By force!
+
+== pass
+> shake 0.2
+Mixon: What a shame! Oh well! Back to scrounging the trash bins!
+
+== chat
+Mixon: What may be on your mind?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Mixon: Ahhhhh, yes! They put us in this situation, then want us to turn around and bend the knee! Well, not me! Not today! | I'll admit, the food offerings are enticing! But I know what they're up to! Those scoundrels!
+Mixon: I honestly don't think we'll be around much longer! Might as well keep a smile on your face!
+Mixon: Will you be willing to purchase?
+
+== chat_b
+Mixon: The heat melts you in the day, and the cold freezes you at night! I'm not sure how I survived this long! Also, toes have become black! Must be because of the weather!
+Mixon: In a way, living like this is quite freeing! The potential of getting blown to smithereens every moment is quite the adrenaline rush!
+Mixon: Will you be willing to purchase?
+
+== chat_c
+Mixon: What are you implying!? [shake rate=40 level=20] This is of course, the real deal!
+Mixon: There are many experts in regards to this item! Check your sources!| I am a man of ethics! I would never do such a thing as sell counterfeit items that I procured from a dumpster!
+Mixon: Will you be willing to purchase?
+
+== chat_d
+Mixon: Refuge, my friend, refuge! And money! The body needs gas! Like cars! Oh! Do you remember cars!? | I go wherever the wind may take me, my friend. Right now, they lead north! Towards Acre Point!
+Mixon: M-maybe you'd be willing to s-s-spare some extra c-c-change. O-oh! No p-p-pressure, of c-c-course. 
+Mixon: Will you be willing to purchase?
+
+== buyer
+Mixon: May I take a glance at that {item}?
+> show_item
+Mixon: How bedazzling. I wouldn't mind taking this off your hands!
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Mixon: [b]${price}[/b] Sounds like a fair amount for this! 
+> barter
+
+== sold
+Mixon: My 6th successful business deal! And with someone alive this time! | An honor, my friend! I will be sure to spend this carefully!
+
+== spotted_fake
+> shake 0.8
+Mixon: [shake rate=40 level=20]Wait a minute....[/shake] Hey, is this real?
+Mixon: You aren't trying to scam me here, right? You should now how cruel of a world it is out there...
+
+== buyer_countered
+> shake 0.5
+Mixon: A tough bargain you sell! How about ${price}? | ${price} sounds like a more just and fair value!
+
+== buyer_left
+> shake 0.8
+Mixon: I will be taking my business elsewhere then! Be careful! Or don't!
+
+== buyer_stole
+> shake 0.8
+Mixon: I will be forcefully procuring this item from you! 
+Mixon: [shake rate=40 level=20]Don't move.[/shake] Any sudden movements and you'll be seeing God.
+
+== pull_gun
+> shake 2
+Mixon: [shake rate=40 level=20]I see how it is.[/shake]
+Mixon: Do it then. This whole happy go-lucky thing is a bad farce, anyway.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Mixon: [shake rate=40 level=20]Ha...[/shake]
+Mixon: [shake rate=40 level=20]HA HA HA HA HA....[/shake]
+Mixon: And if what if I did? Does that affect your bottom line here? Your shop is running on hopes and dreams. You won't make it another week. 
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Mixon: [shake rate=40 level=20]Thank you...[/shake]
+> shoot
+
+== not_shoot
+Mixon: Well I'll be! Apologies! I'm not sure what came over me there!
+Mixon: I will move along now! Places to be, dumpsters to dive!
+> not_shoot
+
+
+== buyer_chat
+Mixon: O-oh. Do you n-n-need something?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Mixon: Quite a silly question, is it not!? Food! Clothing! Women! Many things to spend money on these days my friend! Especially without rent!
+Mixon: Will you be willing to purchase?
+
+== buyer_chat_b
+Mixon: As a man of ethics, I am also a man of nature! Many little animals bring me monetary compensation for my kindness! | Through varies methods! Both legal and illegal! But I guess those words have no meaning now!
+Mixon: Will you be willing to purchase?
+
+== buyer_chat_c
+Mixon: [shake rate=40 level=20]Don't toy with me. [/shake] I know what it is, and what it's worth. Take it, or I'm leaving. | You're perceptive, guy. But what it's really worth is irrelevant. Tell me, is it worth more than your life?
+Mixon: Will you be willing to purchase?
+
+== buyer_chat_d
+Mixon: Lots of people heading north these days! I considered heading there myself, but I don't trust anyone except me, myself and I! | People have started skinning animals for clothing! It's like the ice age all over again!
+Mixon: Will you be willing to purchase?
