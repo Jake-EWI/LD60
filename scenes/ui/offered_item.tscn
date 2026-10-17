@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://curtf7yybuw5l"]
+
+[ext_resource type="Texture2D" uid="uid://d111xrjvq7uk8" path="res://assets/art/Old Tech/Old Tech Phone.png" id="1_8lkoa"]
+[ext_resource type="FontFile" uid="uid://dulayjp6th5fw" path="res://assets/fonts/Chrysanthemum-Regular.otf" id="2_5h8gp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
+font = ExtResource("2_5h8gp")
+font_size = 30
+
+[node name="OfferedItem" type="Control" unique_id=1930621668]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemTexture" type="TextureRect" parent="." unique_id=1141684717]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 383.0
+offset_right = 683.0
+offset_bottom = 566.0
+texture = ExtResource("1_8lkoa")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemLabel" type="Label" parent="." unique_id=252106992]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 380.0
+offset_right = 636.0
+offset_bottom = 419.0
+text = "Old Phone"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1

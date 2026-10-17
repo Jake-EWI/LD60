@@ -8,14 +8,15 @@ public enum MoneyResponse { Success, OutOfMoney}
 
 public partial class GameState : Node
 {
-    public int Money {get; set;} = 100;
+    public int Money {get; set;}
+    private int startingMoney { get; set; } = 100;
     public int Day {get; set;} = 1;
     public List<ItemInstance> Inventory = new List<ItemInstance>();
 
 
     public void Reset()
     {
-        Money = 0;
+        Money = startingMoney;
         Day = 1;
         EmitSignal(SignalName.MoneyChanged, Money);
     }

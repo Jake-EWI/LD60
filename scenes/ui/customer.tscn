@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdb0v1jr2itvn"]
 
 [ext_resource type="Script" uid="uid://cqkfm8wwhcvdt" path="res://scripts/UI/CustomerImage.cs" id="1_oiwq3"]
+[ext_resource type="AudioStream" uid="uid://db1mlenlocsf7" path="res://assets/audio/sfx/footstep.wav" id="2_kwapk"]
 
 [node name="Customer" type="Control" unique_id=1055922720]
 layout_mode = 3
@@ -19,3 +20,6 @@ offset_right = 906.0
 offset_bottom = 611.0
 expand_mode = 1
 stretch_mode = 4
+
+[node name="StepSound" type="AudioStreamPlayer" parent="." unique_id=708367075]
+stream = ExtResource("2_kwapk")
