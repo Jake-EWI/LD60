@@ -12,7 +12,7 @@ public partial class CustomerImage : Control
     [Export] public float StepHeight { get; set; } = 10f;
     [Export] public float RevealTime { get; set; } = 0.6f;
     private AudioStreamPlayer StepSound;
-    private TextureRect CustomerText;
+    public TextureRect CustomerText;
     private Godot.Vector2 RestPosition;
 
     public override void _Ready()

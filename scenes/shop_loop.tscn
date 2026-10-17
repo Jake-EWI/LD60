@@ -79,7 +79,6 @@ mouse_filter = 2
 visible = false
 
 [node name="ActionsMenu" parent="CanvasLayer" unique_id=297921611 instance=ExtResource("11_mafgv")]
-visible = false
 script = ExtResource("12_fnwpa")
 
 [node name="InventoryPanel" parent="CanvasLayer" unique_id=1420500434 instance=ExtResource("13_qv1vi")]

@@ -3,7 +3,7 @@ using System;
 using LD60.Dialogue;
 using System.Collections.Generic;
 
-public enum ShopPhase { Intro, Barter, Closing }
+public enum ShopPhase { Intro, Barter, Closing, Shot }
 public partial class ShopLoop : Node
 {
     [Export] public CustomerDefinition[] CustomerPool {get; set;} = [];
@@ -134,6 +134,7 @@ public partial class ShopLoop : Node
         Runner.SetVariable("price", negotiation.AskingPrice);
         Runner.SetVariable("item", offeredItem.Item.ItemName);
 
+        CustomerImage.Visible = true;
         CustomerImage.Enter(customer.CharacterImage);
     }
 
@@ -322,8 +323,16 @@ public partial class ShopLoop : Node
         Runner.Start(ExpertDialoguePath);
     }
 
-    public void OnShootPressed()
+    public async void OnShootPressed()
     {
+        phase = ShopPhase.Shot;
+        ActionsMenu.Visible = false;
+        ActionsMenu.ShowRejectButton(false);
+        await GunPOV.ShootGun(() =>
+        {
+            CustomerImage.CustomerText.Modulate = new Color(0, 0, 0, 0);
+            HideOfferedItem();
+        });
         if(itemStolenOnEntrance != null)
         {
             gm.Inventory.Add(new ItemInstance(itemStolenOnEntrance));
@@ -332,6 +341,7 @@ public partial class ShopLoop : Node
         {
             //TODO: need to set flag for police to arrive next guest
         }
+        NextCustomer();
     }
 
     public void HandleSteal()

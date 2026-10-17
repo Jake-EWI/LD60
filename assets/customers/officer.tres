@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://b5anxcjg00f80"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_0euf5"]
+[ext_resource type="Texture2D" uid="uid://c1se63agyp7vk" path="res://assets/art/Characters/Police.png" id="1_hfwx7"]
+
+[resource]
+script = ExtResource("1_0euf5")
+CustomerName = "Officer Hamlin"
+CharacterImage = ExtResource("1_hfwx7")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

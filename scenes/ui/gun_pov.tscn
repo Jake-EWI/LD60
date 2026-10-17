@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cqjntti43seag" path="res://scripts/UI/GunPOV.cs" id="1_irja1"]
 [ext_resource type="Texture2D" uid="uid://u6fr78pnc6vc" path="res://assets/art/UI/Gun POV.png" id="1_wh0pt"]
 [ext_resource type="AudioStream" uid="uid://d0k3sx1grbt3t" path="res://assets/audio/sfx/shotgun_cock.wav" id="3_mr2m5"]
+[ext_resource type="AudioStream" uid="uid://bbl2jcxe7d47k" path="res://assets/audio/sfx/shotgun_shoot.wav" id="4_mj8cw"]
 
 [node name="GunPov" type="Control" unique_id=879599584]
 layout_mode = 3
@@ -30,6 +31,7 @@ expand_mode = 1
 stream = ExtResource("3_mr2m5")
 
 [node name="GunShoot" type="AudioStreamPlayer" parent="." unique_id=2121225610]
+stream = ExtResource("4_mj8cw")
 
 [node name="FadeToBlackLayer" type="CanvasLayer" parent="." unique_id=1150331655]
 layer = 100
@@ -43,3 +45,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.051970966, 0.05197096, 0.05197095, 1)
+
+[node name="FlashRect" type="ColorRect" parent="FadeToBlackLayer" unique_id=1005899768]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.531871, 0, 0.05015125, 1)

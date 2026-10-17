@@ -1,0 +1,7 @@
+; officer
+== start
+Officer Hamlin: We've received a report of a murder at this location.
+Officer Hamlin: You wouldn't happen to know anything about that... Would you? | Just because times are tough out there doesn't mean you can just blast whoever you feel like.
+
+== guilty
+* Maybe you could look the other way? (Bribe: $10)
