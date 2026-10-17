@@ -27,4 +27,31 @@ Canker: I won't be the last person to steal your stock. Cruel world. Cya.
 
 == pass
 > shake 0.2
-Canker: What's with everyone passing? Maybe I should steal something shinier next time...
+Canker: What's with everyone passing? Maybe I should steal something shinier next time... Or should I not mention the stealing part?
+
+== chat
+Canker: What? Your staring a hole into me.
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Exton: From the gov? Couldn't care less buddy. They think they can order me around like cattle? No chance in hell. | They're trying to round us up, right? Enlist the fit and do away with the fodder. What the hell have we come to...
+Exton: Least we still got some shops like this around. Almost feels like we aren't in the apocalypse, you get me?
+Exton: You gonna buy it or what?
+
+== chat_b
+Canker: What do you think? Still just smoke clouds, sirens and noise. The simple pleasures are the only reason to keep it pushing.
+Canker: Don't agree? I don't remember asking you.
+Canker: You gonna buy it or what?
+
+== chat_c
+Canker: HA! You're funny. [shake rate=40 level=20] Keep toying with me and you wont be able to find out if its fake or not.
+Canker: Who's the loser that verifies this stuff? Isn't he nearby? Call him. Now. | I'm feeling generous. It's a good day! I'll brush that one off. For both of our sakes.
+Canker: You gonna buy it or what?
+
+== chat_d
+Canker: I need some money to fill up on, you know. The good stuff.
+Canker: Cut me a good deal here... You know that there's nothing left besides getting cooked anyway. 
+Canker: You gonna buy it or what?

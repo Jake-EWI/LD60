@@ -10,7 +10,7 @@ Exton: I hear ya. I'm willing to cut [b]${price}[/b] for it.
 > barter
 
 == accepted
-Exton: Been a pleasure.
+Exton: Been a pleasure. Take care, pal.
 
 == countered
 > shake 0.2
@@ -27,3 +27,30 @@ Exton: It's tough times. I was trying to be civil, but I'll be taking this.
 == pass
 > shake 0.2
 Exton: Keep up with that attitude and you won't sell a thing.
+
+== chat
+Exton: Looks like ya got something on your mind.
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Exton: What? From the government? I couldn't give less of a care about it.
+Exton: For all I know, they're the ones that put us in this mess in the first place!
+Exton: So, you buyin?
+
+== chat_b
+Exton: Sun's been coming out more. Still can't stay out for too long though. Bad for your lungs... | Can barely get a night's rest with all those jets blasting through the sky at night.
+Exton: Hey, just a piece of advice. Don't go asking too many questions, some quirky characters out there. [/shake]Especially at night.
+Exton: So, you buyin?
+
+== chat_c
+Exton: [shake rate=40 level=20] You messin with me?[/shake] This meant more to me than anything. Watch yourself.
+Exton: Call that friend of yours if you want to verify it. I've nothing to hide. | Passing this up would be a pretty stupid for your little shop here. And for you.
+Exton: So, you buyin?
+
+== chat_d
+Exton: Me? Don't worry about me, my friend. But I appreciate you trying get to know me... | I'm no one special, just another wanderer in the hellscape that our planet has become.
+Exton: You probably won't see me around here again. You should take what I got, ya know, something to remember me by.
+Exton: So, you buyin?
