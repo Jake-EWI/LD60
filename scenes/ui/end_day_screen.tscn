@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://baimfom2iekii"]
+
+[ext_resource type="FontFile" uid="uid://bc5nk0336na24" path="res://assets/fonts/Chrysanthemum-Bold.otf" id="1_n3cq8"]
+[ext_resource type="FontFile" uid="uid://dulayjp6th5fw" path="res://assets/fonts/Chrysanthemum-Regular.otf" id="2_q8hp0"]
+[ext_resource type="AudioStream" uid="uid://qywrne5vs5sv" path="res://assets/audio/sfx/dayend.wav" id="3_q8hp0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yih1u"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
+font = ExtResource("1_n3cq8")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfdir"]
+font = ExtResource("2_q8hp0")
+font_size = 20
+
+[node name="EndDayScreen" type="Control" unique_id=2136170922]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=811963421]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = -1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yih1u")
+
+[node name="DayLabel" type="Label" parent="Panel" unique_id=820550429]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.39800003
+anchor_right = 0.5
+anchor_bottom = 0.39800003
+offset_left = -574.5
+offset_top = -233.50601
+offset_right = 573.5
+offset_bottom = 233.49399
+text = "Day 1"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1707540991]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.5
+offset_top = 10.5
+offset_right = 93.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProfitLossLabel" type="Label" parent="Panel/VBoxContainer" unique_id=727525828]
+layout_mode = 2
+text = "Todays Income: -$20"
+label_settings = SubResource("LabelSettings_bfdir")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RentLabel" type="Label" parent="Panel/VBoxContainer" unique_id=19996446]
+layout_mode = 2
+text = "Rent: -$50"
+label_settings = SubResource("LabelSettings_bfdir")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1859154692]
+layout_mode = 2
+text = "Total: $5"
+label_settings = SubResource("LabelSettings_bfdir")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DaySound" type="AudioStreamPlayer" parent="." unique_id=1815207115]
+stream = ExtResource("3_q8hp0")

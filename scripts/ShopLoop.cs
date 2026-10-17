@@ -20,6 +20,7 @@ public partial class ShopLoop : Node
     [Export] public OfferedItem OfferedItemImage { get; set;}
     [Export] public ActionsMenu ActionsMenu { get; set; }
     [Export] public InventoryPanel InventoryPanel { get; set; }
+    [Export] public DayScreen DayScreen { get; set; }
 
     //gamestate
 
@@ -31,6 +32,7 @@ public partial class ShopLoop : Node
     private CustomerDefinition customer;
     [Export] public ItemDefinition[] ItemPool { get; set; } = [];
     private ItemInstance offeredItem;
+    private int moneyAtStartOfDay;
     private RandomNumberGenerator rng;
 
     public override void _Ready()
@@ -52,6 +54,8 @@ public partial class ShopLoop : Node
         ActionsMenu.RejectButtonPressed += OnRejectPressed;
         ActionsMenu.InventoryPressed += OnInventoryPressed;
         ActionsMenu.TalkButtonPressed += OnTalkPressed;
+
+        DayScreen.DayScreenFinished += () => StartDay();
         
         StartDay();
     }
@@ -70,13 +74,17 @@ public partial class ShopLoop : Node
             liveCustomerPool.RemoveAt(customerIndex);
         }
         
+        moneyAtStartOfDay = gm.Money;
         NextCustomer();
         
     }
 
     public void EndDay()
     {
-    
+        int profitLoss = gm.Money - moneyAtStartOfDay;
+        gm.AddMoney(-Rent);
+        gm.Day++;
+        DayScreen.ShowDayScreen(gm.Day, profitLoss, Rent, gm.Money);
     }
 
     public void NextCustomer()
