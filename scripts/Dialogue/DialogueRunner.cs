@@ -10,6 +10,7 @@ public partial class DialogueRunner : Node
     [Signal] public delegate void DialogueStartedEventHandler();
     [Signal] public delegate void DialogueEndedEventHandler();
     [Signal] public delegate void CommandIssuedEventHandler(string name, string[] args);
+    [Signal] public delegate void SectionEnteredEventHandler(string section);
     [Export] public DialogueBox Box { get; set; }
     [Export(PropertyHint.File, "*.txt")] public string ScriptPath { get; set; } = "";
     [Export] public bool AutoStart { get; set; }
@@ -27,6 +28,7 @@ public partial class DialogueRunner : Node
     private List<DialogueStep> _steps;
     private int _index;
     private ChoiceStep _choice;
+    private bool _held;
 
     public override void _Ready()
     {
@@ -40,6 +42,12 @@ public partial class DialogueRunner : Node
     }
 
     public void Start(string path, string section = DialogueParser.StartSection)
+    {
+        Load(path);
+        Play(section);
+    }
+
+    public void Load(string path)
     {
         using var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
         if (file == null)
@@ -57,7 +65,8 @@ public partial class DialogueRunner : Node
         }
 
         Box.SetVoice(null);
-        Play(section);
+        if (_sections[DialogueParser.StartSection].FirstOrDefault() is ChangeVoice fileVoice)
+            ApplyVoice(fileVoice.Path);
     }
 
     public void Play(string section)
@@ -71,6 +80,14 @@ public partial class DialogueRunner : Node
         _choice = null;
         EmitSignal(SignalName.DialogueStarted);
         JumpTo(section);
+    }
+
+    public void Hold() => _held = true;
+
+    public void Resume()
+    {
+        _held = false;
+        Continue();
     }
 
     public bool HasSection(string section) => _sections?.ContainsKey(section) ?? false;
@@ -103,6 +120,9 @@ public partial class DialogueRunner : Node
 
         _steps = steps;
         _index = 0;
+        EmitSignal(SignalName.SectionEntered, section);
+        if (_held)
+            return;
         Continue();
     }
 
@@ -130,10 +150,7 @@ public partial class DialogueRunner : Node
                     return;
 
                 case ChangeVoice voice:
-                    if (IsDefaultVoice(voice.Path))
-                        Box.SetVoice(null);
-                    else if (ResolveVoice(voice.Path) is { } path)
-                        Box.SetVoice(GD.Load<AudioStream>(path));
+                    ApplyVoice(voice.Path);
                     break;
 
                 case CommandStep command:
@@ -159,6 +176,14 @@ public partial class DialogueRunner : Node
 
     private const string VoiceFolder = "res://assets/audio/sfx/";
     private static readonly string[] VoiceExtensions = { "", ".wav", ".ogg", ".mp3" };
+
+    private void ApplyVoice(string voice)
+    {
+        if (IsDefaultVoice(voice))
+            Box.SetVoice(null);
+        else if (ResolveVoice(voice) is { } path)
+            Box.SetVoice(GD.Load<AudioStream>(path));
+    }
 
     private static bool IsDefaultVoice(string voice) => voice is "" or "default";
 

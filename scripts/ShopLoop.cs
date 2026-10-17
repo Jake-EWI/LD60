@@ -12,6 +12,8 @@ public partial class ShopLoop : Node
     [Export] int MinCustomers {get; set;} = 4;
     [Export] public int Rent {get; set;} = 50;
     [Export] public int RunLength {get; set;} = 7;
+    [Export] public int ExpertCost {get; set;} = 10;
+    [Export(PropertyHint.File, "*.txt")] public string ExpertDialoguePath {get; set;} = "res://assets/dialogue/Expert.txt";
 
     //ui elements
     [Export] public DialogueRunner Runner { get; set; }
@@ -21,6 +23,7 @@ public partial class ShopLoop : Node
     [Export] public ActionsMenu ActionsMenu { get; set; }
     [Export] public InventoryPanel InventoryPanel { get; set; }
     [Export] public DayScreen DayScreen { get; set; }
+    [Export] public GunPOV GunPOV { get; set; }
 
     //gamestate
 
@@ -36,6 +39,7 @@ public partial class ShopLoop : Node
     private int moneyAtStartOfDay;
     private RandomNumberGenerator rng;
     private ItemDefinition itemStolenOnEntrance;
+    private bool expertCalling;
 
     public override void _Ready()
     {
@@ -47,6 +51,7 @@ public partial class ShopLoop : Node
         //signal binding
         Runner.DialogueEnded += OnDialogueEnded;
         Runner.CommandIssued += OnCommand;
+        Runner.SectionEntered += OnSectionEntered;
 
         BarterPanel.OfferMade += OnOfferPressed;
 
@@ -56,6 +61,8 @@ public partial class ShopLoop : Node
         ActionsMenu.RejectButtonPressed += OnRejectPressed;
         ActionsMenu.InventoryPressed += OnInventoryPressed;
         ActionsMenu.TalkButtonPressed += OnTalkPressed;
+        ActionsMenu.PullGunPressed += OnPullGunPressed;
+        ActionsMenu.ExpertButtonPressed += OnExpertPressed;
 
         DayScreen.DayScreenFinished += () => StartDay();
         
@@ -143,12 +150,44 @@ public partial class ShopLoop : Node
             case "shake":
                 CustomerImage.ShakeCharacter(float.Parse(args[0], System.Globalization.CultureInfo.InvariantCulture));
                 break;
-            case ""
+            case "shoot":
+                OnShootPressed();
+                break;
+            case "not_shoot":
+                phase = ShopPhase.Closing;
+                break;
+            case "check_buy":
+                if (!gm.CanAfford(ExpertCost))
+                {
+                    Runner.Play("broke");
+                    break;
+                }
+                gm.AddMoney(-ExpertCost);
+                Runner.Play("buy");
+                break;
+            case "check_if_fake":
+                Runner.Play(offeredItem.IsFake ? "fake" : "real");
+                break;
         }
+    }
+
+    private async void OnSectionEntered(string section)
+    {
+        if (section != "not_shoot")
+            return;
+        Runner.Hold();
+        await GunPOV.HideGun();
+        Runner.Resume();
     }
 
     public void OnDialogueEnded()
     {
+        if (expertCalling)
+        {
+            expertCalling = false;
+            Runner.Load(customer.DialoguePath);
+        }
+
         switch(phase)
         {
             case ShopPhase.Barter:
@@ -262,13 +301,25 @@ public partial class ShopLoop : Node
     public void OnTalkPressed()
     {
         HideBarter();
+        ActionsMenu.Visible = false;
         Runner.Play(customerBuying ? "buyer_chat" : "chat");
     }
 
-    public void OnPullGunPressed()
+    public async void OnPullGunPressed()
     {
         HideBarter();
+        ActionsMenu.Visible = false;
+        await GunPOV.ShowGun();
         Runner.Play("pull_gun");
+    }
+
+    public void OnExpertPressed()
+    {
+        HideBarter();
+        expertCalling = true;
+        Runner.SetVariable("expertCost", ExpertCost);
+        Runner.SetVariable("baseAmount", offeredItem.Item.BaseValue);
+        Runner.Start(ExpertDialoguePath);
     }
 
     public void OnShootPressed()

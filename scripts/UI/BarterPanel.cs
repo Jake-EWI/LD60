@@ -5,7 +5,7 @@ public partial class BarterPanel : Control
 {
     [Signal] public delegate void OfferMadeEventHandler(int offer);
 
-    private SpinBox offerInput;
+    private SpinBox offerInput; 
     private Button offerButton;
 
     public override void _Ready()

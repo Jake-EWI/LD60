@@ -1,0 +1,38 @@
+; expert
+== start
+Expert: [shake rate=8 level=8] Hey there buddy! [/shake]
+Expert: You need something verified, huh? Well you know the drill, that'll cost you ${expertCost}.
+* Alright. (Pay ${expertCost}) -> check_buy
+* Hangup. -> pass
+
+== check_buy
+>check_buy
+
+== broke
+Expert: Are you [shake rate=8 level=8]KIDDING[/shake] me?
+Expert: You don't even have ${expertCost}? 
+Expert: [shake rate=10 level=10]HAR.[/shake] [shake rate=10 level=10]HAR.[/shake] [shake rate=10 level=10]HAR.[/shake]
+
+== pass
+Expert: Your loss buddy.
+
+== buy
+Expert: Ahh. An {item}, huh? I know these {item}s like my wife knows my behind. [shake rate=10 level=10]HAR.[/shake] [shake rate=10 level=10]HAR.[/shake] [shake rate=10 level=10]HAR.[/shake]
+Expert: Let's see here....
+Expert: Hmm.
+Expert: Hmmmmmmmmmmmm.
+Expert: [shake rate=10 level=10]HMMMMMMMMMMMMM.........[/shake]
+>check_if_fake
+
+== real
+Expert: Yep. That's a genuine {item}. You can tell from the flop. Going rate these days is about ${baseAmount}. | Oh yeah. That {item} is real. I'd say it's worth around ${baseAmount}.
+* Thanks. -> thanks
+
+== fake
+Expert: Are you [shake rate=10 level=10]KIDDING [/shake] me? That's gotta be the fakest {item} I've ever seen.
+Expert: In my life.
+Expert: Not joking.
+* Thanks. -> thanks
+
+== thanks
+Expert: No problem buddy. Cya. | Anytime bud. Bye. | Let me know next time you're out in the desert. Drinks on you. [shake rate=10 level=10]HAR.[/shake] [shake rate=10 level=10]HAR.[/shake] [shake rate=10 level=10]HAR.[/shake]

@@ -13,13 +13,14 @@
 [ext_resource type="Script" uid="uid://bx6cxoqbol8p5" path="res://scripts/UI/OfferedItem.cs" id="5_47bbb"]
 [ext_resource type="Texture2D" uid="uid://dpga5okwpq2ma" path="res://assets/art/Environment/Table Overlay.png" id="5_mj4d2"]
 [ext_resource type="PackedScene" uid="uid://bdb0v1jr2itvn" path="res://scenes/ui/customer.tscn" id="6_uqfyy"]
+[ext_resource type="PackedScene" uid="uid://jn50vb275w23" path="res://scenes/ui/gun_pov.tscn" id="11_h1v5x"]
 [ext_resource type="PackedScene" uid="uid://wmnfp1dv1wkh" path="res://scenes/ui/actions_menu.tscn" id="11_mafgv"]
 [ext_resource type="Script" uid="uid://b45hqppess1qn" path="res://scripts/UI/ActionsMenu.cs" id="12_fnwpa"]
 [ext_resource type="PackedScene" uid="uid://ka08621mncgp" path="res://scenes/ui/inventory_panel.tscn" id="13_qv1vi"]
 [ext_resource type="PackedScene" uid="uid://baimfom2iekii" path="res://scenes/ui/end_day_screen.tscn" id="16_mrmbw"]
 [ext_resource type="Script" uid="uid://pydtee0blehl" path="res://scripts/UI/DayScreen.cs" id="17_h1v5x"]
 
-[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen")]
+[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV")]
 script = ExtResource("1_cx0yy")
 CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy")]
 Runner = NodePath("DialogueRunner")
@@ -29,6 +30,7 @@ OfferedItemImage = NodePath("CanvasLayer/Stage/OfferedItem")
 ActionsMenu = NodePath("CanvasLayer/ActionsMenu")
 InventoryPanel = NodePath("CanvasLayer/InventoryPanel")
 DayScreen = NodePath("CanvasLayer/EndDayScreen")
+GunPOV = NodePath("CanvasLayer/GunPov")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
 
@@ -65,6 +67,10 @@ mouse_filter = 2
 script = ExtResource("5_47bbb")
 
 [node name="MoneyPanel" parent="CanvasLayer" unique_id=1852577103 instance=ExtResource("4_2ty0w")]
+mouse_filter = 2
+
+[node name="GunPov" parent="CanvasLayer" unique_id=879599584 instance=ExtResource("11_h1v5x")]
+visible = false
 mouse_filter = 2
 
 [node name="DialogueBox" parent="CanvasLayer" unique_id=1885510638 instance=ExtResource("2_nwbyj")]
