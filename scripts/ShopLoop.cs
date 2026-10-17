@@ -35,6 +35,7 @@ public partial class ShopLoop : Node
     private ItemInstance offeredItem;
     private int moneyAtStartOfDay;
     private RandomNumberGenerator rng;
+    private ItemDefinition itemStolenOnEntrance;
 
     public override void _Ready()
     {
@@ -95,9 +96,18 @@ public partial class ShopLoop : Node
             EndDay();
             return;
         }
+        itemStolenOnEntrance = null;
 
         //determine buying or selling
         customerBuying = gm.Inventory.Count > 0 && rng.Randf() < customer.BuyerChance;
+
+        //determine if customer steals an item on entrance
+        if (rng.Randf() < customer.StealChance && gm.Inventory.Count > 0)
+        {
+            itemStolenOnEntrance = gm.Inventory[rng.RandiRange(0, gm.Inventory.Count - 1)].Item;
+            gm.Inventory.RemoveAll(i => i.Item == itemStolenOnEntrance);
+        }
+
 
         if(customerBuying)
         {
@@ -252,6 +262,24 @@ public partial class ShopLoop : Node
     {
         HideBarter();
         Runner.Play(customerBuying ? "buyer_chat" : "chat");
+    }
+
+    public void OnPullGunPressed()
+    {
+        HideBarter();
+        Runner.Play("pull_gun");
+    }
+
+    public void OnShootPressed()
+    {
+        if(itemStolenOnEntrance != null)
+        {
+            gm.Inventory.Add(new ItemInstance(itemStolenOnEntrance));
+            itemStolenOnEntrance = null;
+        } else
+        {
+            //TODO: need to set flag for police to arrive next guest
+        }
     }
 
     public void HandleSteal()

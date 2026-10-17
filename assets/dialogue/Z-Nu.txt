@@ -85,6 +85,27 @@ Z-Nu: Your prices are as cold as your planet, Human. I shall take my business el
 Z-Nu: [shake rate=40 level=20]Enough of this haggling![/shake] I shall be confiscating this {item} for further study.
 Z-Nu: Do not follow me, Human. My vessel is double-parked.
 
+== pull_gun
+> shake 2
+Z-Nu: [shake rate=40 level=20]GLORP.....[/shake]
+Z-Nu: Please do not shoot me Human. This meat fortress is squishy.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+
+== ask_if_stole
+Z-Nu: [shake rate=40 level=20]GLORP.....[/shake]
+Z-Nu: I plead my 5th Human Amendment right to not speak.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Z-Nu: [shake rate=40 level=20]✋︎🕯︎💣︎ 💧︎⚐︎☼︎☼︎✡︎ ☟︎🕆︎💣︎✌︎☠︎📬︎ ✋︎🕯︎💣︎ 💧︎⚐︎☼︎☼︎✡︎📬︎ ❄︎☟︎☜︎ 💣︎⚐︎❄︎☟︎☜︎☼︎💧︎☟︎✋︎🏱︎ 🕈︎✋︎☹︎☹︎ 💣︎✋︎💧︎💧︎ 💣︎☜︎ 👎︎☜︎✌︎☼︎☹︎✡︎📬︎[/shake]
+> shoot
+
+== not_shoot
+Z-Nu: You had me [shake rate=8 level=5]scared[/shake] for a second there Human.
+Z-Nu: This is not the human hospitality I've heard so much about. I'm out of here! Glorp.
+
 == buyer_chat
 Z-Nu: Yes, Human brother? Speak quickly, my parking meter is ticking.
 * What do you want it for? -> buyer_chat_a
