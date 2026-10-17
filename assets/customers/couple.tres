@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://3nmycpbii146"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_48twv"]
+[ext_resource type="Texture2D" uid="uid://bmlv8j2lejhu4" path="res://assets/art/Characters/Family.png" id="1_tk2si"]
+
+[resource]
+script = ExtResource("1_48twv")
+CustomerName = "Couple"
+DialoguePath = "res://assets/dialogue/Couple.txt"
+CharacterImage = ExtResource("1_tk2si")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

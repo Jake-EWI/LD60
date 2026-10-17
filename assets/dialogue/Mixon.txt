@@ -53,7 +53,9 @@ Mixon: Will you be willing to purchase?
 
 == chat_d
 Mixon: Refuge, my friend, refuge! And money! The body needs gas! Like cars! Oh! Do you remember cars!? | I go wherever the wind may take me, my friend. Right now, they lead north! Towards Acre Point!
-Mixon: M-maybe you'd be willing to s-s-spare some extra c-c-change. O-oh! No p-p-pressure, of c-c-course. 
+Mixon: What's at Acre Point you ask? I hear the government is rallying up stragglers there with promises of food and peace! A glimpse into the life we had before, mayhaps?
+Mixon: But I don't trust them!
+Mixon: I will have to go see for myself! 
 Mixon: Will you be willing to purchase?
 
 == buyer
