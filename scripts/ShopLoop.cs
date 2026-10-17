@@ -181,9 +181,9 @@ public partial class ShopLoop : Node
                 Runner.Play("left");
                 break;
             case HaggleResult.Stole:
-                //todo: steal code
                 phase = ShopPhase.Closing;
                 Runner.Play("stole");
+                HandleSteal();
                 break;
         }
 
@@ -222,13 +222,9 @@ public partial class ShopLoop : Node
         Runner.Play("chat");
     }
 
-    public void HandleSeller()
+    public void HandleSteal()
     {
-
-    }
-
-    public void HandleBuyer()
-    {
-
+        int randomInventoryIndex = rng.RandiRange(0, gm.Inventory.Count - 1);
+        gm.Inventory.RemoveAt(randomInventoryIndex);
     }
 }
