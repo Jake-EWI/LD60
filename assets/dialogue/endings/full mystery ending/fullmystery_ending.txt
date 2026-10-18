@@ -36,7 +36,7 @@ Why do I...
 ???: You cannot come back here.
 ???: Farewell for now.
 
->changebg_black
+>changebg_Black
 ; player?
 I turned into those things...?
 

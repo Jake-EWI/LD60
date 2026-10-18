@@ -167,6 +167,7 @@ public partial class ShopLoop : Node
         gm.IncrementDay();
         DayScreen.ShowDayScreen(fromDay, gm.Day, profitLoss, Rent, gm.Money);
         bgmPlayer.Stop();
+        CheckForEndings();
     }
 
     public void NextCustomer()
@@ -224,10 +225,10 @@ public partial class ShopLoop : Node
         itemStolenOnEntrance = null;
 
         //determine if customer steals an item on entrance
-        if (rng.Randf() < customer.StealChance - (gm.GetKarma() * 0.01f) - gm.GetBonus(UpgradeType.StealProtection) && gm.Inventory.Count > 0)
+        if (rng.Randf() < customer.StealChance * 0.5f - (gm.GetKarma() * 0.01f) - gm.GetBonus(UpgradeType.StealProtection) && gm.Inventory.Count > 0)
         {
             itemStolenOnEntrance = gm.Inventory[rng.RandiRange(0, gm.Inventory.Count - 1)].Item;
-            gm.Inventory.RemoveAll(i => i.Item == itemStolenOnEntrance);
+            gm.Inventory.Remove(gm.Inventory.Find(i => i.Item == itemStolenOnEntrance));
         }
 
         //determine buying or selling
@@ -719,7 +720,7 @@ public partial class ShopLoop : Node
     {
         if(rauzTookItem && gm.Day == RunLength)
         {
-            //rauz ending
+            PlayEnding(Ending.Rauz);
         } else if(gm.Day == RunLength)
         {
             //determine end game endings
@@ -737,7 +738,7 @@ public partial class ShopLoop : Node
                 GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/endings/broke_ending.tscn");
                 break;
             case Ending.Rauz:
-                // Handle rauz ending
+                GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/endings/rauz_ending.tscn");
                 break;
             case Ending.MurderEnd:
                 // Handle murder ending

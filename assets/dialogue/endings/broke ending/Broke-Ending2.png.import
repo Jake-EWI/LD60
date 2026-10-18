@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c30wm30qktu7g"
-path="res://.godot/imported/Broke-Ending2.png-b9dbad9ce6d1d8ee13f0ebcf12c1e72e.ctex"
+uid="uid://cdxn8ikwkfsdd"
+path="res://.godot/imported/Broke-Ending2.png-dd291ab1216b69894b29f4c6cc054fd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dialogue/endings/Broke-Ending2.png"
-dest_files=["res://.godot/imported/Broke-Ending2.png-b9dbad9ce6d1d8ee13f0ebcf12c1e72e.ctex"]
+source_file="res://assets/dialogue/endings/broke ending/Broke-Ending2.png"
+dest_files=["res://.godot/imported/Broke-Ending2.png-dd291ab1216b69894b29f4c6cc054fd8.ctex"]
 
 [params]
 

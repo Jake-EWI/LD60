@@ -34,5 +34,6 @@ T. Tureel: Oh. One last thing. The worst of the worst of these scumbags might tr
 T. Tureel: If you catch a thief, you can give them a... [i]slap on the wrist[/i]... if you catch my drift.
 T. Tureel: You can keep whatever you find on the suckers body too, just make sure you got the right guy.
 >tut_hide_all
+T. Tureel: Rent is $15, due at the end of each day. Make sure you're holding on to enough liquid, or I'll have no choice but to evict you from the store.
 T. Tureel: That about does it for me bud. That ain't all there is to it though, but I think I'll let you find out on your own.
 >tut_finish

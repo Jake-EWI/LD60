@@ -23,7 +23,7 @@ public class Negotiation
         if (buying)
         {
             limit = Mathf.RoundToInt(value * rng.RandfRange(1.25f, 1.6f) * (1 + haggleRoom));
-            AskingPrice = Mathf.RoundToInt(value * (1 - customer.Greed));
+            AskingPrice = Mathf.RoundToInt(value * (1 - customer.Greed * 0.5f));
         }
         else
         {
@@ -41,7 +41,7 @@ public class Negotiation
             return HaggleResult.Accepted;
 
         bool withinLimit = buying ? offer <= limit : offer >= limit;
-        if (withinLimit && rng.Randf() < 0.5f)
+        if (withinLimit && rng.Randf() < 0.75f)
         {
             AskingPrice = offer;
             return HaggleResult.Accepted;

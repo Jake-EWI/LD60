@@ -9,7 +9,7 @@ public enum MoneyResponse { Success, OutOfMoney}
 public partial class GameState : Node
 {
     public int Money {get; set;}
-    private int startingMoney { get; set; } = 150;
+    private int startingMoney { get; set; } = 200;
     public int Day {get; set;} = 1;
     public DateTime CurrentDate {get; set;} = new DateTime(2052, 10, 15);
     public List<ItemInstance> Inventory = new List<ItemInstance>();

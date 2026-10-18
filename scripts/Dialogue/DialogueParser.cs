@@ -85,7 +85,7 @@ public static partial class DialogueParser
     }
 
     private static string[] SplitAlternatives(string s) =>
-        s.Split('|', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+        Regex.Replace(s, @"\s*\\n\s*", "\n").Split('|', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
 
     private static (string Text, string Target) SplitArrow(string s)
     {
