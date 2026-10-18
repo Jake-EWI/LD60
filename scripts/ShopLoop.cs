@@ -564,7 +564,7 @@ public partial class ShopLoop : Node
             return;
         }
 
-        ObservationPanel.OpenObservation(offeredItem.Item.Icon, offeredItem.Imperfection);
+        ObservationPanel.OpenObservation(offeredItem.Item.Icon, offeredItem.Imperfection, offeredItem.IsFake);
     }
 
     public void OnCoaPressed()

@@ -1,4 +1,4 @@
-; Dobby
+; dobby
 Dobby: H-hey, I've some s-stuff with me.
 > shake 0.8 
 Dobby: I-think it's p-pretty  valuable...
