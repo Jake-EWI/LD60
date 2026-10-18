@@ -1,5 +1,5 @@
 ; Dolly
-Dolly: Hiya hiya? I saw your shop from back there, got anything cool?
+Dolly: Hiya hiya! I saw your shop from back there, got anything cool?
 > shake 0.8 
 Dolly: Oh! I've got a couple cool things too.
 * I'll take a look. -> buy
@@ -52,7 +52,7 @@ Dolly: Is there any way for us to check if it's real or not? Now I'm curious... 
 Dolly: So, ya interested in it??
 
 == chat_d
-Dolly: Just going about my day! Everyone's so doom and gloom, you know. It wouldn't hurt to get and live once in a while.
+Dolly: Just going about my day! Everyone's so doom and gloom, you know. It wouldn't hurt to get out and live once in a while.
 Dolly: The apocalypse? Well if you just ignore all that stuff, life is still fun! 
 Dolly: So, ya interested in it??
 

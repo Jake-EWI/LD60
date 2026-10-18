@@ -1,0 +1,156 @@
+; R.E.M
+R.E.M: How's the new world treating you?
+> shake 0.8 
+R.E.M: Here's some stuff I've found scavenging..
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+R.E.M: Can you do [b]${price}[/b]?
+> barter
+
+== accepted
+R.E.M: Good stuff. [/shake].
+
+== countered
+> shake 0.5
+R.E.M: {price}.
+
+== left
+> shake 0.8
+R.E.M:  I think I'm gonna head out... 
+
+== stole
+> shake 0.8
+R.E.M: Cool {item}.
+R.E.M: Yeah... super cool...
+
+== pass
+> shake 0.2
+R.E.M: Meh.
+
+== chat
+R.E.M: Looks like you've got a question?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+R.E.M: Like once a week. Just vaguely trying to keep with everything. My superior isn't a big fan of it, so I only listen in secret.
+R.E.M: You should start like a broadcast.
+R.E.M: "New Pawn Shop south of Braus..." Or something
+R.E.M: Could bring in more business.
+
+== chat_b
+R.E.M: I feel like it's watching people live in pre-historic times. 
+R.E.M: Shoddy mud huts, clothes made of wool and straw when our old clothes tear or rip.
+R.E.M: Idea: Start selling clothes in here. You'd basically monopolize the whole market!
+
+== chat_c
+R.E.M: I'm like 95% sure it's authentic.
+R.E.M: Got it from a house that burnt down, this was the only thing that made it under some rubble.
+R.E.M: No promises on the other 5%.
+
+== chat_d
+R.E.M: My superior needs some more goods.
+R.E.M: I'm just a lackey right now, playing fetch for the top dogs so I can get promoted.
+R.E.M: It's pretty lame, actually. But at least I get a place to sleep.
+
+== buyer
+R.E.M: Oh shoot.. a {item}...
+> show_item
+R.E.M: Price?
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+R.E.M: [b]${price}[/b]. 
+> barter
+
+== sold
+R.E.M: Good stuff. Take care.
+
+== spotted_fake
+> shake 0.8
+R.E.M: A fake? Seriously?
+R.E.M: I mean, I don't care. But my superiors... yeah, not gonna work.
+
+== buyer_countered
+> shake 0.5
+R.E.M: ${price}.
+
+== buyer_left
+> shake 0.8
+R.E.M: I'm heading out.
+
+== buyer_stole
+> shake 0.8
+R.E.M: Hey, so like I really need that what you've got there.
+R.E.M: [shake rate=40 level=20]Sorry about this. Blame my superior.
+
+== pull_gun
+> shake 2
+R.E.M: [shake rate=40 level=20]Woah, okay. Let's calm down for a second.
+R.E.M: Its the mask right? I can take it off if you'd like.
+R.E.M: Won't promise that what's underneath is any better though.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+R.E.M: [shake rate=40 level=20]Oh... stole?[/shake]
+R.E.M: Never done such a thing in my life. Even in the old world.
+R.E.M: They always say no time like the present though!
+R.E.M: That was a bad thing to say...
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+R.E.M: [shake rate=40 level=20]No promotion...[/shake]
+> shoot
+
+== not_shoot
+R.E.M: Sigh..
+R.E.M: Wasn't prepared for that adrenaline rush.
+R.E.M: Now I'm lightheaded. Thanks!
+> not_shoot
+
+== buyer_chat
+R.E.M: Hm?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+R.E.M: I don't need it. But my superiors do. They're creating like a super technology or something.
+R.E.M: Like if I do enough stuff, I'll be assimilated or something. Hope that means I get to eat actual food.
+R.E.M: What'll it be?
+
+== buyer_chat_b
+R.E.M: Straight from my superiors. 
+R.E.M: Don't ask me where they got it from.
+R.E.M: Also, ignore the red marks on the 5, it's not blood.
+R.E.M: Probably not blood.
+R.E.M: What'll it be?
+
+== buyer_chat_c
+R.E.M: I'm stupid but not that stupid.
+R.E.M: Give some credit...
+R.E.M: What'll it be?
+
+== buyer_chat_d
+R.E.M: Not much honestly, but I saw a military solider passed out in the middle of no where against an abandoned house.
+R.E.M: I woke him and we talked for a bit.
+R.E.M: I tried to ask what the government is doing about the whole war situation.
+R.E.M: We barely even know who we're fighting...
+R.E.M: But when he tried to speak about it... he just... died?
+R.E.M: What'll it be?
+
+== coa
+R.E.M: Oh yeah. They mentioned you'd ask for one of those.
+> show_coa
+
+== no_coa
+R.E.M: Oh... they did say to bring with that me, didn't they...

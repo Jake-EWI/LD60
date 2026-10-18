@@ -1,0 +1,148 @@
+; Indra
+Indra: Hello.
+> shake 0.8 
+Indra: I have an assortment for you to look at.
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Indra: [b]${price}[/b] should be sufficient...
+> barter
+
+== accepted
+Indra: Excellent. [/shake].
+
+== countered
+> shake 0.5
+Indra: {price}. No less.
+
+== left
+> shake 0.8
+Indra: I thought you'd be worthy... 
+
+== stole
+> shake 0.8
+Indra: Show me your {item}.
+Indra: The value?
+
+== pass
+> shake 0.2
+Indra: I thought you'd be worthy...
+
+== chat
+Indra: What may be on your mind?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Indra: The words of beasts do not concern my people.
+Indra: You'd be wise to heed my words.
+Indra: Our so called protectors know only how to protect themselves.
+Indra: It is human nature.
+Indra: So, we will assimilate into the new order.
+
+== chat_b
+Indra: It is only worth looking when what you see is the whole unadulterated truth.
+
+== chat_c
+Indra: ...
+
+== chat_d
+Indra: You.
+Indra: Tell me, have you ever felt trapped in your body?
+Indra: Limited by the cage of flesh, withered away by age?
+Indra: Does the slow stretch of your skin not make you wish for so much more?
+Indra: You. You can be the start of something new.
+
+== buyer
+Indra: Your {item}...
+> show_item
+Indra: Part with it.
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Indra: [b]${price}[/b]. 
+> barter
+
+== sold
+Indra: Don't forget my words.
+
+== spotted_fake
+> shake 0.8
+Indra: [shake rate=40 level=20]A ruse...[/shake]
+Indra: No matter. Your materialistic offerings ultimately mean nothing.
+
+== buyer_countered
+> shake 0.5
+Indra: ${price}.
+
+== buyer_left
+> shake 0.8
+Indra: I'm off.
+
+== buyer_stole
+> shake 0.8
+Indra: I will need this for my assimilation.
+Indra: [shake rate=40 level=20]Your items will be useful to me.[/shake]
+
+== pull_gun
+> shake 2
+Indra: [shake rate=40 level=20]No matter.
+Indra: Life or death is not the concern. It is a matter of metamorphosis. The last stages of evolution! 
+Indra: SOON WE WILL BE MORE THAN THIS EARTHLY HOLLOW WE ARE CONTAINED IN.
+Indra: [shake rate=40 level=20]YOU'RE DOING ME A GREAT FAVOR.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Indra: [shake rate=40 level=20]...?[/shake]
+Indra: Are you perceptive enough to tell? Test your senses.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Indra: [shake rate=40 level=20]And... I am free...[/shake]
+> shoot
+
+== not_shoot
+Indra: ....
+Indra: How pitiful.
+> not_shoot
+
+
+== buyer_chat
+Indra: What do you want?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Indra: I will soon be leaving this body, this is another step towards that.
+Indra: Selling?
+
+== buyer_chat_b
+Indra: Anything and everything I need I have always had. If I don't have it now, It will be given to me in the near future.
+Indra: Selling?
+
+== buyer_chat_c
+Indra: Astute.
+Indra: You'd make for a good Apostle.
+Indra: Selling?
+
+== buyer_chat_d
+Indra: We are growing. Soon, this world will run overtaken by our new creators. 
+Indra: Then, what comes next?
+Indra: Well? What do you think...?
+Indra: Selling?
+
+== coa
+Indra: ...
+> show_coa
+
+== no_coa
+Indra: ...
