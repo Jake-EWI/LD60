@@ -1,0 +1,146 @@
+; Dolly
+Dolly: Hiya hiya? I saw your shop from back there, got anything cool?
+> shake 0.8 
+Dolly: Oh! I've got a couple cool things too.
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Dolly: This is my prized possession! What do you think about [b]${price}[/b]? 
+> barter
+
+== accepted
+Dolly: Awesome!! I'll be on my way now.
+
+== countered
+> shake 0.5
+Dolly: What?? It's gotta be at least ${price}!
+
+== left
+> shake 0.8
+Dolly: I think I'm good. I mean, it's my prized possession after all.
+
+== stole
+> shake 0.8
+Dolly: You've got a lot of cool stuff in here!
+Dolly: You wouldn't mind if I, borrowed some of this, right?
+
+== pass
+> shake 0.2
+Dolly: Awh, oh well. Be careful out here!
+
+== chat
+Dolly: Got a question for me?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Dolly: I don't listen to the radio a lot. Why? Is something important happening? | I don't have a radio. Not like much news can be important these days anyway! 
+Dolly: I'm just trying to live life like it was before, you know, all the war stuff.
+Dolly: So, ya interested in it??
+
+== chat_b
+Dolly: If you ignore the smell of blood, the constant raid sirens and the constant jets blasting over you, it's been a blast!
+Dolly: Sometimes it's hard to sleep at night though...
+Dolly: So, ya interested in it??
+
+== chat_c
+Dolly: A fake!? I mean, if it is, I have no idea! I got it from some guy in a moving stall a couple days ago. Do you think I got scammed?
+Dolly: Is there any way for us to check if it's real or not? Now I'm curious... | Can you check if it's real? You're good at this stuff? Right?
+Dolly: So, ya interested in it??
+
+== chat_d
+Dolly: Just going about my day! Everyone's so doom and gloom, you know. It wouldn't hurt to get and live once in a while.
+Dolly: The apocalypse? Well if you just ignore all that stuff, life is still fun! 
+Dolly: So, ya interested in it??
+
+== buyer
+Dolly: Oh hey!! Is that a {item} back there?
+> show_item
+Dolly: How much would you want for it? If I was gonna buy it, hypothetically speaking.
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Dolly: I'll give ya [b]${price}[/b] for it!
+> barter
+
+== sold
+Dolly: Nice! Another one for the collection. | Great! Now I just need to find someone's electricity to leech off.
+
+== spotted_fake
+> shake 0.8
+Dolly: [shake rate=40 level=20]Oh my... oh my god[/shake] Did you know this was a fake?
+Dolly: I mean, look at the logo on it! It says "manufractured"! 
+Dolly: That's okay! I know an honest person like you wouldn't try to jip me out of money, right? Honest mistake.
+
+== buyer_countered
+> shake 0.5
+Dolly: I was leaning towards ${price}.| ${price}, deal or no deal!
+
+== buyer_left
+> shake 0.8
+Dolly: Awh, well I tried. My haggling skills were never great. Take care!
+
+== buyer_stole
+> shake 0.8
+Dolly: Do you think I should be rebellious today? My intrusive thoughts are telling me to leave without paying!
+Dolly: [shake rate=20 level=10]Argh, they win today! Sorry.
+
+== pull_gun
+> shake 2
+Dolly: [shake rate=10 level=5]Is that real? I've never seen one of those before![/shake]
+Dolly: Hey, it's not real right? You had me there for a sec!
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Dolly: [shake rate=20 level=5]Steal? I've done it before, from a Galmart when I was younger.[/shake]
+Dolly: But I didn't take anything from you! At least I think I didn't...
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Dolly: [shake rate=40 level=20]Oh... it was.... real....[/shake]
+> shoot
+
+== not_shoot
+Dolly: It was written all over your face! I knew it wasn't real. You need some acting classes.
+Dolly: Oh, I'm late for my Pilates session! Yes, they still exist. Cya!
+> not_shoot
+
+
+== buyer_chat
+Dolly: Got a question?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Dolly: Nothing in particular, I just like buying and selling. Ooh, maybe I should a shop like you! | It's all apart of my super secret evil plan... you don't get to know yet...
+Dolly: How much for it then?
+
+== buyer_chat_b
+Dolly: Some leftovers from before my house caught fire! Safe's are really useful, they actually don't let fire through! [/shake]
+Dolly: How much for it then?
+
+== buyer_chat_c
+Dolly: Do you think?? I have no idea how to gauge the prices of things...  
+Dolly: How much for it then?
+
+== buyer_chat_d
+Dolly: I saw a bunch of people in black cloaks moving in a triangular formation. It was actually pretty cool! I didn't know groups were that coordinated... | There's so much out there! Like the sky, the ground, the ruins! it's all so amazing...
+Dolly: How much for it then?
+
+== coa
+Dolly: COA? Oh! I think I have one of those.
+> shake 0.8
+Dolly: This is it, right?
+> show_coa
+
+== no_coa
+Dolly: COA? Don't have one I don't think. Sorry!

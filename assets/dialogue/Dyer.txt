@@ -113,7 +113,7 @@ Dyer: Listening a valuable trait these days.
 
 
 == buyer_chat
-Dyer: O-oh. Do you n-n-need something?
+Dyer: What do you want?
 * What do you need it for? -> buyer_chat_a
 * Where'd you get that cash? -> buyer_chat_b
 * That's worth way more than that. -> buyer_chat_c
@@ -121,22 +121,22 @@ Dyer: O-oh. Do you n-n-need something?
 
 == buyer_chat_a
 Dyer: Buying gear. Lots of uprising movements sprouting up these days. Make sure you align yourself with the right one.
-Dyer: Take it, or I'll leave.
+Dyer: Sell it, or I'll leave.
 
 == buyer_chat_b
 Dyer: Killing, stealing, looting, the usual affair. Lots of it comes from those pig officers. | Just falls out of the sky and into my hands. I'm quite blessed, you know? [shake rate=40 level=20]ha.
-Dyer: Take it, or I'll leave.
+Dyer: Sell it, or I'll leave.
 
 == buyer_chat_c
 Dyer: [shake rate=40 level=20]Watch your tone.[/shake] I know exactly how much this is worth. I'm not playing into your scheme. | Obviously. Did you really think I was going to give you a fair deal?
-Dyer: Take it, or I'll leave.
+Dyer: Sell it, or I'll leave.
 
 == buyer_chat_d
 Dyer: Saw kids playing in the desert for the first time in months. Shame they'll be nothing but ash and dust when they finally decide to be rid of us. | If you see strange folk in black hooded clothing, keep your distance. Or maybe don't, I mean, I don't know what's beneficial for you.
-Dyer: Take it, or I'll leave.
+Dyer: Sell it, or I'll leave.
 
 == coa
-Dyer: No problem. Got it right here.
+Dyer: Yeah, I've got one.
 > show_coa
 
 == no_coa

@@ -6,13 +6,10 @@
 [resource]
 script = ExtResource("2_7dvwo")
 CustomerName = "Mixon"
-CoaChance = 0.8
-StealChance = 0.08
-Patience = 100.0
-Savvy = 0.7
-Greed = 0.5
-FakeChance = 0.5
 BuyerChance = 0.6
+FakeChance = 0.5
+Savvy = 0.7
+StealChance = 0.08
 DialoguePath = "res://assets/dialogue/Mixon.txt"
 CharacterImage = ExtResource("1_nk6t4")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"

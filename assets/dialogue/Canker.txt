@@ -88,6 +88,30 @@ Canker: Overpriced junk. I'll just take it off the next guy.
 Canker: You know what? I'm done paying for stuff.
 Canker: [shake rate=40 level=20]Thanks for the freebie![/shake] Cya, loser.
 
+== pull_gun
+> shake 2
+Canker: [shake rate=40 level=20]Is this a game to you?[/shake]
+Canker: If you put it down now, I'll forget this ever happened.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Canker: [shake rate=40 level=20]This is what this is about?[/shake]
+Canker: I may have, I mean I walked in here saying I'm selling stolen goods. Pretty dumb question, loser.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Canker: [shake rate=40 level=20]Damn you to.. hell...[/shake]
+> shoot
+
+== not_shoot
+Canker: So you do have common sense!
+Canker: This place sucks. Hey, next time, maybe don't point 12 gauges at innocent people. Prick.
+> not_shoot
+
+
 == buyer_chat
 Canker: What now? I'm literally trying to give you money.
 * What do you need it for? -> buyer_chat_a

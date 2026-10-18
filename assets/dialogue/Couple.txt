@@ -122,19 +122,19 @@ Couple: Do you have a question?
 
 == buyer_chat_a
 Couple: It'll help us find our way home. Wherever it is now...
-Couple: Okay... so are you gonna buy it?
+Couple: Okay... so are you gonna sell it?
 
 == buyer_chat_b
 Couple: For the past 6 months we have been wandering, trading and talking. We earn everything as we did in the old world; earnestly and honestly. | Believe it or not, there are still kind people in this world. This money is proof of that.
-Couple: Okay... so are you gonna buy it?
+Couple: Okay... so are you gonna sell it?
 
 == buyer_chat_c
 Couple: [shake rate=40 level=20]We know... [/shake] We know exactly what it is, and what it is worth, but... it just means something to us. 
-Couple: Okay... so are you gonna buy it?
+Couple: Okay... so are you gonna sell it?
 
 == buyer_chat_d
 Couple: Many small communities are popping up... though some of them are a little scary... have you seen any of them? The ones in black cloaks? | The dust is starting to settle now... but when that happens, it's not for long.
-Couple: Okay... so are you gonna buy it?
+Couple: Okay... so are you gonna sell it?
 
 == coa
 Cyron: A COA? Yes, we do have one...
