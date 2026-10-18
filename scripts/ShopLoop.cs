@@ -709,21 +709,15 @@ public partial class ShopLoop : Node
 
     private void CheckForEndings()
     {
-        if(gm.Day == RunLength)
+        if(rauzTookItem && gm.Day == RunLength)
+        {
+            //rauz ending
+        } else if(gm.Day == RunLength)
         {
             //determine end game endings
-        }
-
-        if(gm.Money <= 0)
+        } else if(gm.Money <= 0)
         {
             //out of money ending
         }
-
-        if(rauzTookItem)
-        {
-            //rauz ending
-        }
-
-
     }
 }
