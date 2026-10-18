@@ -28,6 +28,7 @@ Why do I...
 ???: I ferry the boundary between life and death.
 ???: But you remain neither.
 ???: You have been transformed.
+???: It is the cycle of life. The old is replaced with the new.
 ???: You will now roam the Earth for eternity. Caught between world of the living, and the realm of the dead.
 ???: An apostle.
 ???: A blessing, or a curse?
@@ -37,7 +38,7 @@ Why do I...
 ???: Farewell for now.
 
 >changebg_black
-; player?
+; player
 I turned into those things...?
 
 ; radio

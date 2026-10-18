@@ -1,0 +1,53 @@
+; player
+I have enough to leave...
+I can see her again..
+**knock**
+?
+???:...
+???:...
+???: [shake rate=40 level=20]You have failed the task.
+???: [shake rate=40 level=20]For this, you will be punished.
+
+; player
+...
+...
+...
+
+> change_bgCrucified
+
+; player
+...
+What have you done?
+Agh!
+
+> change_bgMysteriousMan
+; ???
+???: You have failed our people. For that, you must be sacrificed.
+???: Worry not. This is the most sacred of rituals.
+???: You will not become one of us, but your blood will serve well.
+
+; player
+Why are you doing this!?
+
+;???
+???: Why?
+???: It is necessary, for our survival. 
+???: No, not our survival.
+???: For our evolution.
+???: WE ARE IN THE FINAL STAGES OF HUMAN EXISTENCE! DO YOU NOT SEE?
+???: OUR GOD WILL BRING US SALVATION.
+???: YOU ARE A STEPPING STONE INTO THE NEXT STAGES OF EXISTENCE.
+???: BE PROUD. YOU. ARE. THE. SACRIFICE.
+???:
+???: Goodbye.
+
+; player
+Please... don't...
+
+> change_bgForestFire
+
+
+; radio
+Radio: .....fi...re.....Pris...b...e.....area.....cloa...k....ed........fi..gu..r.....near....
+
+
