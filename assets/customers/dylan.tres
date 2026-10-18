@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://dki1ejxrqkjrm"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_gp12u"]
+
+[resource]
+script = ExtResource("1_gp12u")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

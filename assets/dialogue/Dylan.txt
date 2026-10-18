@@ -1,0 +1,152 @@
+; Dylan
+Dylan: [shake rate=40 level=20]Hey...
+> shake 0.8 
+Dylan: [shake rate=40 level=20]...
+Dylan: [shake rate=40 level=20]...
+Dylan: What's up bro!
+Dylan: Sorry, hard to breathe under this damn mask.
+Dylan: Mind taking a look at some of my stuff?
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Dylan: What d'ya think about[b]${price}[/b]?
+> barter
+
+== accepted
+Dylan: Dope dude! Thanks!
+
+== countered
+> shake 0.5
+Dylan: What d'ya think about ${price}?
+
+
+== left
+> shake 0.8
+Dylan: Damn man... bummer...
+
+== stole
+> shake 0.8
+Dylan: I wouldn't usually do this... but...
+Dylan: Sorry man, {item} is just too cool!
+
+== pass
+> shake 0.2
+Dylan: Ahhh shoot. Well, see you man.
+
+== chat
+Dylan: What?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* Wat's with the mask? -> chat_d
+
+== chat_a
+Dylan: My attention span is fried dude, all those books I used to read. What did they say? Go North? Or was it south.... | Yeah, something about cloaked people? Freaky stuff dude... Keep weird people out of your store...
+Dylan: What's with the look?
+Dylan: Buying anything off me?
+
+== chat_b
+Dylan: It's hot as balls out there bro. Can't get the UV rays on me though, gotta stay looking crisp and young!
+Dylan: Trust me, I'm looking pristine under here.
+Dylan: Buying anything off me?
+
+== chat_c
+Dylan: A fake?? Dunno dude, could be. I bought it off some random preaching dude a while back. He seemed pretty legit to me.
+Dylan: He seemed pretty legit to me.
+Dylan: Buying anything off me?
+
+== chat_d
+Dylan: Oh this? Bro, the air out there is not safe to breathe, but I couldn't find any masks.... this was all I had left...
+Dylan: What do you mean it won't make a difference? 
+Dylan: Buying anything off me?
+
+== buyer
+Dylan: Dude, wicked {item}!
+> show_item
+Dylan: How much for it??
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Dylan: I'd be down for [b]${price}[/b].
+> barter
+
+== sold
+Dylan: Dope. Preesh.
+
+== spotted_fake
+> shake 0.8
+Dylan: [shake rate=40 level=20]bro...[/shake] This might be counterfeit!
+Dylan: I dunno man, the vibes with it are just off. I've got a pretty good feeling about this stuff.
+
+== buyer_countered
+> shake 0.5
+Dylan: A hard bargain, how bout ${price}?
+
+== buyer_left
+> shake 0.8
+Dylan: Oh shoot, I'm actually broke so... uh...
+
+== buyer_stole
+> shake 0.8
+Dylan: Dude... mind if I just...
+Dylan: Yoink!
+Dylan: My bad bro! It's just way too good to not snatch up!
+
+== pull_gun
+> shake 2
+Dylan: [shake rate=10 level=5]Woah dude...[/shake] Take a chill pill...
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Dylan: [shake rate=20 level=5] Stole....?[/shake] Bro, look at me. I'm like 6 foot 3, do you really think I'd be able to slip past you unnoticed? I mean, I CAN be pretty stealthy...
+Dylan: But it wasn't me!
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Dylan: [shake rate=40 level=20]Dude.. so not cool..[/shake]
+> shoot
+
+== not_shoot
+Dylan: Phew....
+Dylan: Had me worried for a sec bro. I get it, you've gotta run a tough ship here.
+> not_shoot
+
+
+== buyer_chat
+Dylan: What's up?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Dylan: There's a dude down the road with a totally sick hat. I mean come on, you get it right? 
+Dylan: How much for it?
+
+== buyer_chat_b
+Dylan: Look at where you keep your change...[/shake]
+Dylan: Just kiddin!
+Dylan: It's left overs from when I sold my wedding band for a copy of Rii Sports. Totally worth.
+Dylan: How much for it?
+
+== buyer_chat_c
+Dylan: I'm a broke college kid man... even though college doesn't exist anymore... 
+Dylan: How much for it?
+
+== buyer_chat_d
+Dylan: Saw a dude just get all up in this other guy's guts man, and not in a good way. He was drinking his blood and chanting some weird hymn... 
+Dylan: How much for it?
+
+== coa
+Dylan: A CO... oh! Yeah man, I've got one of those.
+> shake 0.8
+Dylan: I even made sure it wasn't wrinkled.
+> show_coa
+
+== no_coa
+Dylan: Listen bro, if that's a new slang or something, you lost me...
