@@ -9,6 +9,13 @@ public partial class Ending_Rauz : Node
     public override void _Ready()
     {
         Runner.CommandIssued += OnCommand;
+        Runner.DialogueEnded += OnDialogueEnded;
+    }
+
+    private async void OnDialogueEnded()
+    {
+        await ToSignal(GetTree().CreateTimer(2), SceneTreeTimer.SignalName.Timeout);
+        GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/title_screen.tscn");
     }
 
     private void OnCommand(string name, string[] args)

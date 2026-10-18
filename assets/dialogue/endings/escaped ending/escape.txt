@@ -29,7 +29,7 @@ I'm only buying some temporary peace.
 But if that means I get to spend just one more moment with Tresha.
 I would never regret it.
 
-> changeBg_Sunlight
+> changebg_Sunrise
 ; player
 Tresha... Moona...
 Wake up guys...
@@ -41,7 +41,7 @@ We'll make it there today. I promise.
 Here, take this. It's a GameDude, something I used to play on when I was bored. It's nothing crazy, but old stuff like this still has a place too.
 Are you ready?
 
-> changeBg_Ruined
+> changebg_Ruined
 
 
 ; Old radio

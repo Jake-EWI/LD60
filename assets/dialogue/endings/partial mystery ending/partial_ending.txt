@@ -13,14 +13,14 @@ I can see her again..
 ...
 ...
 
-> change_bgCrucified
+> changebg_Crucified
 
 ; player
 ...
 What have you done?
 Agh!
 
-> change_bgMysteriousMan
+> changebg_MysteriousMan
 ; ???
 ???: You have failed our people. For that, you must be sacrificed.
 ???: Worry not. This is the most sacred of rituals.
@@ -44,7 +44,7 @@ Why are you doing this!?
 ; player
 Please... don't...
 
-> change_bgForestFire
+> changebg_ForestFire
 
 
 ; radio

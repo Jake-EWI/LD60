@@ -17,6 +17,7 @@ public partial class ShopLoop : Node
     [Export] int MinCustomers {get; set;} = 4;
     [Export] public int Rent {get; set;} = 15;
     [Export] public int RunLength {get; set;} = 7;
+    [Export] public int EscapeCost {get; set;} = 300;
     [Export] public int MinStartingItems {get; set;} = 1;
     [Export] public int MaxStartingItems {get; set;} = 4;
     [Export] public int ExpertCost {get; set;} = 15;
@@ -739,12 +740,18 @@ public partial class ShopLoop : Node
 
     private void CheckForEndings()
     {
-        if(rauzTookItem && gm.Day == RunLength)
+        if(gm.Day == RunLength && gm.Money < EscapeCost)
+        {
+            PlayEnding(Ending.Broke);
+        } else if(rauzTookItem && gm.Day == RunLength)
         {
             PlayEnding(Ending.Rauz);
+        } else if(rauzItem != null && gm.Day == RunLength)
+        {
+            PlayEnding(Ending.Mystery);
         } else if(gm.Day == RunLength)
         {
-            //determine end game endings
+            PlayEnding(Ending.NormalEnd);
         } else if(gm.Money <= 0)
         {
             PlayEnding(Ending.Broke);
@@ -762,13 +769,13 @@ public partial class ShopLoop : Node
                 GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/endings/rauz_ending.tscn");
                 break;
             case Ending.MurderEnd:
-                // Handle murder ending
+                //handle murder ending
                 break;
             case Ending.Mystery:
-                // Handle mystery ending
+                GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/endings/mystery_ending.tscn");
                 break;
             case Ending.NormalEnd:
-                // Handle normal ending
+                GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/endings/escape_ending.tscn");
                 break;
         }
     }
