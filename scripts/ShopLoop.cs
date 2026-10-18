@@ -3,11 +3,12 @@ using System;
 using LD60.Dialogue;
 using System.Collections.Generic;
 
-public enum ShopPhase { Intro, Barter, Closing, Shot }
+public enum ShopPhase { Intro, Barter, Closing, Shot, Mystery }
 public partial class ShopLoop : Node
 {
     [Export] public CustomerDefinition[] CustomerPool {get; set;} = [];
     [Export] public CustomerDefinition PoliceOfficer { get; set; } = null;
+    [Export] public CustomerDefinition MysteryCustomer { get; set; } = null;
     [Export] public CustomerDefinition Tutorial { get; set; } = null;
     private List<CustomerDefinition> liveCustomerPool { get; set; } = [];
     [Export] int MaxCustomers {get; set;} = 6;
@@ -31,6 +32,9 @@ public partial class ShopLoop : Node
     [Export] public GunPOV GunPOV { get; set; }
     [Export] public ObservationPanel ObservationPanel { get; set; }
     [Export] public CoaPanel CoaPanel { get; set; }
+    [Export] public Color LightsOffColor { get; set; } = new(0.12f, 0.12f, 0.16f);
+    [Export] public float MysteryRiseTime { get; set; } = 4f;
+    [Export] public float MysteryPauseTime { get; set; } = 2f;
 
     //gamestate
 
@@ -40,7 +44,9 @@ public partial class ShopLoop : Node
     private GameState gm;
     private System.Collections.Generic.Queue<CustomerDefinition> customerQueue = new();
     private CustomerDefinition customer;
+    private Control stage;
     private AudioStreamPlayer bgmPlayer;
+    private AudioStreamPlayer mysteryPlayer;
     private bool customerBuying;
     [Export] public ItemDefinition[] ItemPool { get; set; } = [];
     private ItemInstance offeredItem;
@@ -50,6 +56,7 @@ public partial class ShopLoop : Node
     private bool expertCalling;
     private bool guiltyOfMurder = false;
     private bool hasCoa = false;
+    private int mysteryDay;
 
     public override void _Ready()
     {
@@ -61,6 +68,8 @@ public partial class ShopLoop : Node
         Runner.SetVariable("bribeCost", BribeCost);
 
         bgmPlayer = GetNode<AudioStreamPlayer>("BGM");
+        mysteryPlayer = GetNode<AudioStreamPlayer>("MysteryAmbience");
+        stage = GetNode<Control>("CanvasLayer/Stage");
         //signal binding
         Runner.DialogueEnded += OnDialogueEnded;
         Runner.CommandIssued += OnCommand;
@@ -84,6 +93,9 @@ public partial class ShopLoop : Node
         InventoryPanel.GoBackPressed += CloseAllActionPanels;
 
         DayScreen.DayScreenFinished += () => StartDay();
+
+        //in game event init
+        mysteryDay = rng.RandiRange(5, 7);
         
         StartDay();
     }
@@ -97,11 +109,17 @@ public partial class ShopLoop : Node
 
         if (gm.Day == 1)
             customerQueue.Enqueue(Tutorial);
+        int mysteryCustomerIndex = -1;
+        if (gm.Day == mysteryDay)
+            mysteryCustomerIndex = customersPerDay - 1;
 
         for (int i = 0; i < customersPerDay; i++)
         {
             int customerIndex = rng.RandiRange(0, liveCustomerPool.Count - 1);
-            customerQueue.Enqueue(liveCustomerPool[customerIndex]);
+            if (gm.Day == mysteryDay && i == mysteryCustomerIndex)
+                customerQueue.Enqueue(MysteryCustomer);
+            else
+                customerQueue.Enqueue(liveCustomerPool[customerIndex]);
             liveCustomerPool.RemoveAt(customerIndex);
         }
         
@@ -136,6 +154,17 @@ public partial class ShopLoop : Node
             phase = ShopPhase.Intro;
             CustomerImage.Visible = true;
             CustomerImage.Enter(customer.CharacterImage);
+            return;
+        }
+
+        if (customer == MysteryCustomer)
+        {
+            customerBuying = false;
+            phase = ShopPhase.Mystery;
+            itemStolenOnEntrance = null;
+            offeredItem = new ItemInstance(MysteryCustomer.PossibleItems[0]);
+            offeredItem.IsFake = true;
+            MysteryCustomerEvent();
             return;
         }
         itemStolenOnEntrance = null;
@@ -275,6 +304,15 @@ public partial class ShopLoop : Node
                 TutorialHideAll();
                 phase = ShopPhase.Closing;
                 break;
+            case "turnoff_light_fx":
+                TurnOffLights();
+                break;
+            case "mystery_enter_scene":
+                MysteryEnter();
+                break;
+            case "close_game":
+                GetTree().Quit();
+                break;
             case "show_coa":
                 HideBarter();
                 CoaPanel.OpenCoa(offeredItem.Item.ItemName, offeredItem.IsFake, rng, gm, this);
@@ -326,6 +364,13 @@ public partial class ShopLoop : Node
                 ActionsMenu.Visible = true;
                 ActionsMenu.ShowRejectButton(true);
                 break;
+            case ShopPhase.Mystery:
+                ShowBarter();
+                ShowMysteryActions();
+                break;
+            case ShopPhase.Closing when customer == MysteryCustomer:
+                MysteryLeave();
+                break;
             case ShopPhase.Intro:
             case ShopPhase.Closing:
                 CustomerImage.Leave();
@@ -361,6 +406,8 @@ public partial class ShopLoop : Node
     {
         HideBarter();
 
+        if (customer == MysteryCustomer)
+            negotiation.AskingPrice = offer;
         var result = negotiation.Offer(offer);
         Runner.SetVariable("price", negotiation.AskingPrice);
 
@@ -545,5 +592,51 @@ public partial class ShopLoop : Node
         InventoryPanel.Visible = false;
         ShowBarter();
         ShowOfferedItem();
+    }
+
+    public void MysteryCustomerEvent()
+    {
+        bgmPlayer.StreamPaused = true;
+        negotiation = new Negotiation(customer, offeredItem.Item, false, rng) { AskingPrice = 0 };
+        Runner.SetVariable("item", offeredItem.Item.ItemName);
+        Runner.Start(customer.DialoguePath);
+    }
+
+    private async void TurnOffLights()
+    {
+        Runner.Hold();
+        stage.Modulate = LightsOffColor;
+        mysteryPlayer.Play();
+        await ToSignal(GetTree().CreateTimer(MysteryPauseTime), SceneTreeTimer.SignalName.Timeout);
+        Runner.Resume();
+    }
+
+    private async void MysteryEnter()
+    {
+        Runner.Hold();
+        CustomerImage.Visible = true;
+        await ToSignal(CustomerImage.RiseFromCounter(customer.CharacterImage, MysteryRiseTime), Tween.SignalName.Finished);
+        Runner.Resume();
+    }
+
+    private void ShowMysteryActions()
+    {
+        ActionsMenu.SetAllButtonsVisible(false);
+        ActionsMenu.ShowButton("TalkButton");
+        ActionsMenu.ShowButton("PullGunButton");
+        ActionsMenu.ShowButton("RejectButton");
+        ActionsMenu.Visible = true;
+    }
+
+    private void MysteryLeave()
+    {
+        ActionsMenu.Visible = false;
+        ActionsMenu.SetAllButtonsVisible(true);
+        ActionsMenu.ShowRejectButton(false);
+        HideOfferedItem();
+        CustomerImage.SinkBelowCounter(MysteryRiseTime / 2);
+        mysteryPlayer.Stop();
+        CreateTween().TweenProperty(stage, "modulate", Colors.White, MysteryRiseTime / 2);
+        bgmPlayer.StreamPaused = false;
     }
 }

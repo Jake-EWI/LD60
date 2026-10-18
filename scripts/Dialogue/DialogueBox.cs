@@ -8,6 +8,7 @@ public partial class DialogueBox : Control
     [Signal] public delegate void AdvancedEventHandler();
     [Signal] public delegate void ChoiceSelectedEventHandler(int index);
     [Export] public float CharactersPerSecond { get; set; } = 40f;
+    [Export] public float SlowCharactersPerSecond { get; set; } = 12f;
     [Export] public float PunctuationPause { get; set; } = 0.2f;
     [Export(PropertyHint.Range, "1,10")] public int BlipEvery { get; set; } = 2;
     [Export] public Vector2 BlipPitchRange { get; set; } = new(0.82f, 1.28f);
@@ -26,6 +27,7 @@ public partial class DialogueBox : Control
     private double _delay;
     private int _blipCounter;
     private double _time;
+    private float _defaultSpeed;
 
     public bool IsTyping => _state == State.Typing;
 
@@ -37,8 +39,11 @@ public partial class DialogueBox : Control
         _choices = GetNode<VBoxContainer>("%Choices");
         blip = GetNode<AudioStreamPlayer>("%Blip");
         _defaultVoice = blip.Stream;
+        _defaultSpeed = CharactersPerSecond;
         Close();
     }
+
+    public void SetSlow(bool slow) => CharactersPerSecond = slow ? SlowCharactersPerSecond : _defaultSpeed;
 
     public void SetVoice(AudioStream voice)
     {

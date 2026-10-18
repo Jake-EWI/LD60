@@ -1,0 +1,35 @@
+; player
+Weird... Normally we'd have more customers...
+> turnoff_light_fx
+; mystery
+> slow
+== start
+???: [shake rate=1 level=30]Hello there.[/shake]
+> mystery_enter_scene
+???: [shake rate=1 level=30]If you pull that gun you have under this counter on me....[/shake]
+???: [shake rate=40 level=20]You're Dead.[/shake]
+> show_item
+???: [shake rate=40 level=20]You're going to keep this here.[/shake]
+???: [shake rate=40 level=20]Someone will pick it up soon [/shake]
+
+== chat
+...
+* What are you? -> no_response
+* Get out of here! -> no_response
+* What does this person look like? -> chat_a
+
+== no_response
+???: [shake rate=40 level=20]...[/shake]
+
+== chat_a
+???: [shake rate=40 level=20]You will know.[/shake]
+
+== accepted
+???: [shake rate=40 level=20]Goodbye. For now.[/shake]
+
+== pull_gun
+???: [shake rate=40 level=100]Big. Mistake.[/shake]
+> close_game
+
+== pass
+???: ...

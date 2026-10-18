@@ -4,7 +4,7 @@ using System;
 public enum HaggleResult { Accepted, Countered, Left, Stole }
 public class Negotiation
 {
-    public int AskingPrice {get; private set;}
+    public int AskingPrice {get; set;}
     public float Patience {get; private set;}
 
     private readonly int limit;

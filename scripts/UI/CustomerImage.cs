@@ -49,6 +49,30 @@ public partial class CustomerImage : Control
         tween.Finished += () => EmitSignal(SignalName.Left);
     }
 
+    public Tween RiseFromCounter(Texture2D texture, float duration)
+    {
+        CustomerText.Texture = texture;
+        CustomerText.Modulate = Colors.White;
+        CustomerText.Scale = Godot.Vector2.One;
+        CustomerText.Position = RestPosition + new Godot.Vector2(0, CustomerText.Size.Y);
+
+        var tween = CreateTween();
+        tween.TweenProperty(CustomerText, "position", RestPosition, duration).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Sine);
+        return tween;
+    }
+
+    public void SinkBelowCounter(float duration)
+    {
+        var tween = CreateTween();
+        tween.TweenProperty(CustomerText, "position", RestPosition + new Godot.Vector2(0, CustomerText.Size.Y), duration).SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Sine);
+        tween.TweenCallback(Callable.From(() =>
+        {
+            CustomerText.Modulate = new Color(0, 0, 0, 0);
+            CustomerText.Position = RestPosition;
+        }));
+        tween.Finished += () => EmitSignal(SignalName.Left);
+    }
+
     public void PlaySteps()
     {
         var tween = CreateTween();

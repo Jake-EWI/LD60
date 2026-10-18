@@ -65,6 +65,7 @@ public partial class DialogueRunner : Node
         }
 
         Box.SetVoice(null);
+        Box.SetSlow(false);
         if (_sections[DialogueParser.StartSection].FirstOrDefault() is ChangeVoice fileVoice)
             ApplyVoice(fileVoice.Path);
     }
@@ -153,9 +154,17 @@ public partial class DialogueRunner : Node
                     ApplyVoice(voice.Path);
                     break;
 
+                case CommandStep { Name: "slow" }:
+                    Box.SetSlow(true);
+                    break;
+
+                case CommandStep { Name: "normal" }:
+                    Box.SetSlow(false);
+                    break;
+
                 case CommandStep command:
                     EmitSignal(SignalName.CommandIssued, command.Name, command.Args);
-                    if (_steps != steps)
+                    if (_steps != steps || _held)
                         return;
                     break;
             }
