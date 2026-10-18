@@ -1,0 +1,46 @@
+; player
+I have enough to leave...
+Oh, yeah. This tape.
+
+>changebg_VHSTape
+Some entertainment to wind down before I leave...
+Sounds good.
+>changebg_BlankTV
+
+...
+...
+What is this?
+Why do I...
+[shake rate=5 level=5]My head..
+[shake rate=10 level=10]Wait...
+[shake rate=20 level=20]What's wrong with my-
+[shake rate=40 level=20]AGHHHHHHH
+
+>changebg_Pain
+[shake rate=40 level=20]Hah...
+[shake rate=40 level=20]Hah...
+[shake rate=40 level=20]AHHHHHHHHHHHHHHHHHHHHHHHHHHHGGGGGGHHHHHHHHHHHH. 
+
+>changebg_Black
+>changebg_Entity
+
+???: Welcome. 
+???: I ferry the boundary between life and death.
+???: But you remain neither.
+???: You have been transformed.
+???: You will now roam the Earth for eternity. Caught between world of the living, and the realm of the dead.
+???: An apostle.
+???: A blessing, or a curse?
+???: ...
+???: You decide.
+???: You cannot come back here.
+???: Farewell for now.
+
+>changebg_black
+; player?
+I turned into those things...?
+
+; radio
+Radio: .....at....ack...on..a...re...po...int....civi..ian.....ca...sua..l....y.....
+
+

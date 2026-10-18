@@ -21,9 +21,9 @@ As much peace as the world we live in now can offer.
 Take care of our little girl. She is our only hope.
 I'm always thinking of you.
 
-All my love
+All my love.
 
 ; radio
-Radio: .....fa.al stri..ke......inbou....nd..for.... Prisbine....area......
+Radio: .....fa....al......stri..ke......in...ou....nd..f......Prisb...e....are.........
 
->changebg_destroyedcity
+>changebg_bgexplosion
