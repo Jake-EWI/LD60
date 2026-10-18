@@ -37,6 +37,7 @@ public partial class ObservationPanel : Control
         goBackButton = GetNode<Button>("GoBackButton");
         goBackButton.Pressed += () => EmitSignal(SignalName.GoBackPressed);
         weighButton = GetNode<TextureButton>("VBoxContainer/WeighButton");
+        scaleValue = GetNode<Label>("Panel/ScaleRect/ScaleValueLabel");
         uvButton = GetNode<TextureButton>("VBoxContainer/UVButton");
         thermalButton = GetNode<TextureButton>("VBoxContainer/ThermalButton");
         thumpButton = GetNode<TextureButton>("VBoxContainer/ThumpButton");
@@ -80,14 +81,24 @@ public partial class ObservationPanel : Control
     private void ApplyCheck()
     {
         scaleImage.Visible = activeCheck == ObservationCheck.Weigh;
-        itemText.Material = activeCheck switch
+        itemText.Material = null;
+        if (activeCheck == ObservationCheck.UV)
         {
-            ObservationCheck.UV => UVMaterial,
-            ObservationCheck.Thermal => ThermalMaterial,
-            _ => null
-        };
-        if (itemText.Material is ShaderMaterial material)
-            material.SetShaderParameter("suspicious", item.FailedChecks.Contains(activeCheck.Value));
+            itemText.Material = UVMaterial;
+        }
+        else if (activeCheck == ObservationCheck.Thermal)
+        {
+            itemText.Material = ThermalMaterial;
+            ThermalMaterial.SetShaderParameter("heat", GetHeat());
+        }
+    }
+
+    private float GetHeat()
+    {
+        int thermal = (int)item.Item.Thermal;
+        if (item.FailedChecks.Contains(ObservationCheck.Thermal))
+            thermal = (thermal + 1) % 3;
+        return thermal / 2f;
     }
 
     public void PlayThump()
@@ -95,12 +106,11 @@ public partial class ObservationPanel : Control
         var material = item.Item.Material;
         if (item.FailedChecks.Contains(ObservationCheck.Thump))
             material = material == MaterialType.Plastic ? MaterialType.Ceramic : MaterialType.Plastic;
-        thumpAudio.Stream = material switch
-        {
-            MaterialType.Metal => ThumpMetal,
-            MaterialType.Plastic => ThumpPlastic,
-            _ => ThumpCeramic
-        };
+        thumpAudio.Stream = ThumpCeramic;
+        if (material == MaterialType.Metal)
+            thumpAudio.Stream = ThumpMetal;
+        else if (material == MaterialType.Plastic)
+            thumpAudio.Stream = ThumpPlastic;
         thumpAudio.PitchScale = (float)GD.RandRange(0.95, 1.05);
         thumpAudio.Play();
         thumpTween?.Kill();

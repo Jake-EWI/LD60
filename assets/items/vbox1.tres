@@ -8,4 +8,5 @@ script = ExtResource("1_c87fi")
 ItemName = "VBox 1"
 BaseValue = 20
 Icon = ExtResource("1_ygqkh")
+Thermal = 1
 metadata/_custom_type_script = "uid://cv4540x8541k6"

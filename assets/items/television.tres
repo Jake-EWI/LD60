@@ -8,4 +8,6 @@ script = ExtResource("1_doo05")
 ItemName = "EWI Labs Television"
 BaseValue = 40
 Icon = ExtResource("1_tpksm")
+Thermal = 2
+Material = 2
 metadata/_custom_type_script = "uid://cv4540x8541k6"

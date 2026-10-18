@@ -8,4 +8,5 @@ script = ExtResource("1_yfieg")
 ItemName = "Walkman"
 BaseValue = 20
 Icon = ExtResource("1_qstix")
+Material = 2
 metadata/_custom_type_script = "uid://cv4540x8541k6"

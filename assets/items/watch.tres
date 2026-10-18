@@ -8,4 +8,6 @@ script = ExtResource("1_j8shx")
 ItemName = "Watch"
 BaseValue = 65
 Icon = ExtResource("1_0lef6")
+Thermal = 1
+Material = 3
 metadata/_custom_type_script = "uid://cv4540x8541k6"

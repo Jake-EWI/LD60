@@ -8,4 +8,5 @@ script = ExtResource("1_sfbhk")
 ItemName = "500GB Blueridge Harddrive"
 BaseValue = 30
 Icon = ExtResource("1_qh5ek")
+Material = 1
 metadata/_custom_type_script = "uid://cv4540x8541k6"
