@@ -5,45 +5,54 @@ using System.Collections.Generic;
 public partial class UpgradePanel : Control
 {
     [Signal] public delegate void FinishedEventHandler();
-    [Export] public int RandomOffers { get; set; } = 3;
+    [Export] public int MaxOffers { get; set; } = 3;
     private HBoxContainer cards;
     private Button continueButton;
     private GameState gm;
     private List<UpgradeDefinition> offers = [];
+    private bool purchasedFreeUpgradeThisDay;
 
     public override void _Ready()
     {
         gm = GetNode<GameState>("/root/GameState");
-        cards = GetNode<HBoxContainer>("Panel/Cards");
-        continueButton = GetNode<Button>("Panel/ContinueButton");
+        cards = GetNode<HBoxContainer>("Cards");
+        continueButton = GetNode<Button>("ContinueButton");
         continueButton.Pressed += () =>
         {
             Hide();
             EmitSignal(SignalName.Finished);
         };
+        purchasedFreeUpgradeThisDay = false;
     }
 
     public void Open(UpgradeDefinition[] pool, RandomNumberGenerator rng)
     {
         offers.Clear();
+        var alwaysPool = new List<UpgradeDefinition>();
         var randomPool = new List<UpgradeDefinition>();
         foreach (var upgrade in pool)
         {
             if (gm.GetUpgradeLevel(upgrade) >= upgrade.MaxLevel)
                 continue;
             if (upgrade.AlwaysOffered)
-                offers.Add(upgrade);
+                alwaysPool.Add(upgrade);
             else
                 randomPool.Add(upgrade);
         }
-        for (int i = 0; i < RandomOffers && randomPool.Count > 0; i++)
-        {
-            int index = rng.RandiRange(0, randomPool.Count - 1);
-            offers.Add(randomPool[index]);
-            randomPool.RemoveAt(index);
-        }
+        PickOffers(alwaysPool, rng);
+        PickOffers(randomPool, rng);
         BuildCards();
         Show();
+    }
+
+    private void PickOffers(List<UpgradeDefinition> source, RandomNumberGenerator rng)
+    {
+        while (offers.Count < MaxOffers && source.Count > 0)
+        {
+            int index = rng.RandiRange(0, source.Count - 1);
+            offers.Add(source[index]);
+            source.RemoveAt(index);
+        }
     }
 
     private void BuildCards()
@@ -53,6 +62,9 @@ public partial class UpgradePanel : Control
 
         foreach (var upgrade in offers)
         {
+            if (upgrade.IsFree && purchasedFreeUpgradeThisDay)
+                continue;
+
             int level = gm.GetUpgradeLevel(upgrade);
             int cost = upgrade.GetCost(level);
             bool maxed = level >= upgrade.MaxLevel;
@@ -74,7 +86,7 @@ public partial class UpgradePanel : Control
                 SizeFlagsVertical = SizeFlags.ExpandFill
             });
             if (upgrade.MaxLevel > 1)
-                card.AddChild(new Label { Text = $"Level {level}/{upgrade.MaxLevel}", HorizontalAlignment = HorizontalAlignment.Center });
+                card.AddChild(new Label { Text = $"Current Level {level}", HorizontalAlignment = HorizontalAlignment.Center });
 
             var buyButton = new Button
             {
@@ -84,6 +96,10 @@ public partial class UpgradePanel : Control
             buyButton.Pressed += () =>
             {
                 gm.BuyUpgrade(upgrade);
+                if (upgrade.IsFree)
+                {
+                    purchasedFreeUpgradeThisDay = true;
+                }
                 BuildCards();
             };
             card.AddChild(buyButton);

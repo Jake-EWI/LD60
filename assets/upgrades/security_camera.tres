@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://frswux3sifvw"]
+
+[ext_resource type="Script" uid="uid://bfr3rwjwfsx2b" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+UpgradeName = "Security Camera"
+Description = "Customers are less likely to steal from you."
+Type = 5
+Amount = 0.1
+Cost = 25
+CostPerLevel = 10
+MaxLevel = 10
+IsFree = true

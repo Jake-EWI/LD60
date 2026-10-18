@@ -11,7 +11,8 @@ public enum UpgradeType
     StealProtection,
     ExpertDiscount,
     BribeDiscount,
-    Charity
+    Charity,
+    ExtraCustomers
 }
 
 [GlobalClass]
@@ -26,6 +27,7 @@ public partial class UpgradeDefinition : Resource
     [Export] public int CostPerLevel;
     [Export] public int MaxLevel = 1;
     [Export] public bool AlwaysOffered;
+    [Export] public bool IsFree;
 
     public int GetCost(int level) => Cost + CostPerLevel * level;
 }

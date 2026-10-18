@@ -10,26 +10,28 @@ public class Negotiation
     private readonly int limit;
     private readonly bool buying;
     private readonly CustomerDefinition customer;
-    //todo: player stats
+    private readonly float stealProtection;
     private readonly RandomNumberGenerator rng;
 
-    public Negotiation(CustomerDefinition customer, ItemDefinition item, bool buying, RandomNumberGenerator rng)
+    public Negotiation(CustomerDefinition customer, ItemDefinition item, bool buying, RandomNumberGenerator rng, GameState gm)
     {
         this.customer = customer;
         this.buying = buying;
         this.rng = rng;
         int value = item.BaseValue;
+        float haggleRoom = gm.GetBonus(UpgradeType.HaggleRoom);
         if (buying)
         {
-            limit = Mathf.RoundToInt(value * rng.RandfRange(1.25f, 1.6f));
+            limit = Mathf.RoundToInt(value * rng.RandfRange(1.25f, 1.6f) * (1 + haggleRoom));
             AskingPrice = Mathf.RoundToInt(value * (1 - customer.Greed));
         }
         else
         {
-            limit = Mathf.RoundToInt(value * rng.RandfRange(0.5f, 0.8f));
+            limit = Mathf.RoundToInt(value * rng.RandfRange(0.5f, 0.8f) * (1 - haggleRoom));
             AskingPrice = Mathf.RoundToInt(value * (1 + customer.Greed));
         }
-        Patience = customer.Patience;
+        Patience = customer.Patience + gm.GetBonus(UpgradeType.Patience);
+        stealProtection = gm.GetBonus(UpgradeType.StealProtection);
     }
 
     public HaggleResult Offer(int offer)
@@ -51,7 +53,7 @@ public class Negotiation
         {
             float badRoll = rng.RandfRange(0, 1);
 
-            if (badRoll <= customer.StealChance)
+            if (badRoll <= customer.StealChance - stealProtection)
             {
                 return HaggleResult.Stole;
             } else

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://jmue7x3gytpx"]
+
+[ext_resource type="Script" uid="uid://bfr3rwjwfsx2b" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+UpgradeName = "Bigger Storefront"
+Description = "One more customer walks in each day."
+Type = 9
+Amount = 1.0
+Cost = 20
+CostPerLevel = 5
+MaxLevel = 2
+IsFree = true
