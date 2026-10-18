@@ -122,19 +122,19 @@ Cyron: Do you have a question for the Lord?
 
 == buyer_chat_a
 Cyron: This is a sacred item needed for my pilgrimage! It will serve a holy purpose, very, very soon...
-Cyron: The Lord asks if you will be purchasing this item?
+Cyron: The Lord asks if you will be selling this item?
 
 == buyer_chat_b
 Cyron: All my material gatherings have been given to me directly from the Lord! If another does not need it, it will end up with me! Although, some non believers rebuke that notion! It makes it hard to.. procure.. funding. | My being is funded, fed, and ran directly through the Lord! Anything I would ever need is always placed directly in my path, thanks to the Lord!
-Cyron: The Lord asks if you will be purchasing this item?
+Cyron: The Lord asks if you will be selling this item?
 
 == buyer_chat_c
 Cyron: [shake rate=40 level=20]You.. [/shake] You would question the wisdom of the Lord? It is priced perfectly, no more, no less.
-Cyron: The Lord asks if you will be purchasing this item?
+Cyron: The Lord asks if you will be selling this item?
 
 == buyer_chat_d
 Cyron: Outside? You may see some of my people in our attire! As an agent of the Lord, I need not wear the attire of lower beings. I was never one to wear black anyway! | You should be afraid. There are many things out there. Animals, people, and some things that you may have a hard time labeling. Just know, it is all apart of the Lord's plan.
-Cyron: The Lord asks if you will be purchasing this item?
+Cyron: The Lord asks if you will be selling this item?
 
 == coa
 Cyron: A certificate? Of course!

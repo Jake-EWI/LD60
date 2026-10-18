@@ -124,19 +124,19 @@ Mixon: Do you need something of me?
 
 == buyer_chat_a
 Mixon: Quite a silly question, is it not!? Food! Clothing! Women! Many things to spend money on these days my friend! Especially without rent!
-Mixon: Will you be willing to purchase?
+Mixon: Will you be willing to sell?
 
 == buyer_chat_b
 Mixon: As a man of ethics, I am also a man of nature! Many little animals bring me monetary compensation for my kindness! | Through various methods! Both legal and illegal! But I guess those words have no meaning now!
-Mixon: Will you be willing to purchase?
+Mixon: Will you be willing to sell?
 
 == buyer_chat_c
 Mixon: [shake rate=40 level=20]Don't toy with me. [/shake] I know what it is, and what it's worth. Take it, or I'm leaving. | You're perceptive, guy. But what it's really worth is irrelevant. Tell me, is it worth more than your life?
-Mixon: Will you be willing to purchase?
+Mixon: Will you be willing to sell?
 
 == buyer_chat_d
 Mixon: Lots of people heading north these days! I considered heading there myself, but I don't trust anyone except me, myself and I! | People have started skinning animals for clothing! It's like the ice age all over again!
-Mixon: Will you be willing to purchase?
+Mixon: Will you be willing to sell?
 
 == coa
 Mixon: A COA? Well, of course that would be in my possession!

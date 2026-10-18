@@ -20,9 +20,10 @@
 [ext_resource type="Resource" uid="uid://1mymogk8wdsq" path="res://assets/items/floppy_disc.tres" id="7_g0mg2"]
 [ext_resource type="Resource" uid="uid://uclkiua36ab1" path="res://assets/customers/dyer.tres" id="7_quegl"]
 [ext_resource type="Resource" uid="uid://dxxnm0oskeott" path="res://assets/items/computer.tres" id="8_ascam"]
-[ext_resource type="Resource" uid="uid://binwpyjxstujv" path="res://assets/customers/t_tureel.tres" id="9_1ups1"]
+[ext_resource type="Resource" uid="uid://s4mvqtm1ooi8" path="res://assets/customers/dolly.tres" id="9_lqmhv"]
 [ext_resource type="Resource" uid="uid://cooyobmat3bgo" path="res://assets/items/camera.tres" id="9_quegl"]
 [ext_resource type="Resource" uid="uid://cyxk66qno4fyc" path="res://assets/items/radio.tres" id="10_m8e4n"]
+[ext_resource type="Resource" uid="uid://bfvrbx68wvey8" path="res://assets/customers/cyron.tres" id="10_w2lu8"]
 [ext_resource type="PackedScene" uid="uid://jn50vb275w23" path="res://scenes/ui/gun_pov.tscn" id="11_h1v5x"]
 [ext_resource type="PackedScene" uid="uid://wmnfp1dv1wkh" path="res://scenes/ui/actions_menu.tscn" id="11_mafgv"]
 [ext_resource type="Resource" uid="uid://cituskpom5jej" path="res://assets/items/old_phone.tres" id="11_slaiq"]
@@ -57,11 +58,10 @@ tags = {
 "encoder": "FL Studio 2024"
 }
 
-[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel", "CoaPanel")]
+[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV")]
 script = ExtResource("1_cx0yy")
-CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple")]
+CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple"), ExtResource("9_lqmhv"), ExtResource("10_w2lu8")]
 PoliceOfficer = ExtResource("5_ewqmb")
-Tutorial = ExtResource("9_1ups1")
 Runner = NodePath("DialogueRunner")
 BarterPanel = NodePath("CanvasLayer/BarterPanel")
 CustomerImage = NodePath("CanvasLayer/Stage/Customer")
@@ -70,8 +70,6 @@ ActionsMenu = NodePath("CanvasLayer/ActionsMenu")
 InventoryPanel = NodePath("CanvasLayer/InventoryPanel")
 DayScreen = NodePath("CanvasLayer/EndDayScreen")
 GunPOV = NodePath("CanvasLayer/GunPov")
-ObservationPanel = NodePath("CanvasLayer/ObservationPanel")
-CoaPanel = NodePath("CanvasLayer/CoaPanel")
 ItemPool = [ExtResource("6_ab184"), ExtResource("7_g0mg2"), ExtResource("8_ascam"), ExtResource("9_quegl"), ExtResource("10_m8e4n"), ExtResource("11_slaiq"), ExtResource("12_qpfrs"), ExtResource("13_x7u0g"), ExtResource("14_5pgrl"), ExtResource("15_srn1w"), ExtResource("16_c6a8c"), ExtResource("17_1ups1"), ExtResource("18_eqi3r"), ExtResource("19_lqmhv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
