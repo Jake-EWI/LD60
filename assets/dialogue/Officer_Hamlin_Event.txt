@@ -1,0 +1,40 @@
+; officer
+== start
+Officer Hamlin: Hey [shake rate=5 level=5]bub[/shake]. We're cracking down on counterfeit items.
+Officer Hamlin: We're going to be conducting a random search of your shop. Hope you've done a good job of authentication.
+* Why? -> why
+* Whatever. -> whatever
+
+== why
+Officer Hamlin: I don't have to explain myself. Let me have a look around
+> check_for_stolen_items
+
+== whatever
+Officer Hamlin: Stay tight [shake rate=5 level=5]bub[/shake]. Let me have a look around.
+> check_for_stolen_items
+
+== guilty
+Officer Hamlin: Well. Well. [shake rate=5 level=5]Well[/shake]. I'll be confiscating these. Anything to say for yourself?
+* Maybe you could look the other way? (Bribe: ${bribeCost}) -> bribe
+* I'd like to have a lawyer present. (Jail: End Day) -> arrest
+
+== innocent
+Officer Hamlin: Alright [shake rate=5 level=5]bub[/shake]. Things seem up to code. I'll be back.
+
+== bribe
+>check_bribe
+
+== can_bribe
+Officer Hamlin: Alright. Maybe just this once.
+Officer Hamlin: I've been meaning to try that new grilled iguana place. | Don't let it happen again.
+Officer Hamlin: I still have to confiscate your counterfeits though. Don't let anymore show up.
+>bribe
+
+== cant_bribe
+Officer Hamlin: Are you seriously trying to bribe an esteemed officer of the law with money you don't even have?
+-> arrest
+
+== arrest
+Officer Hamlin: You're comin' with me [shake rate=5 level=5]bub[/shake].
+Officer Hamlin: You have the right to remain silent. Resist arrest and face death by firing squad. | You're lucky we don't just send you to the encampent zone.
+>arrest

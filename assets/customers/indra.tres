@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_ydwod")
 CustomerName = "Indra"
+FakeChance = 0.495
+Patience = 69.744
 DialoguePath = "res://assets/dialogue/Indra.txt"
 CharacterImage = ExtResource("1_v7cbj")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"

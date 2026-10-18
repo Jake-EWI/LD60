@@ -48,6 +48,7 @@
 [ext_resource type="Script" uid="uid://pydtee0blehl" path="res://scripts/UI/DayScreen.cs" id="17_h1v5x"]
 [ext_resource type="Resource" uid="uid://b50qfw6lw62l8" path="res://assets/customers/bale.tres" id="17_kfu7c"]
 [ext_resource type="Resource" uid="uid://dpiccq1wyorq3" path="res://assets/items/typewriter.tres" id="18_eqi3r"]
+[ext_resource type="Resource" uid="uid://byplt5stn2rch" path="res://assets/customers/officer_event.tres" id="18_kfu7c"]
 [ext_resource type="Resource" uid="uid://c1tnlho3xjboq" path="res://assets/items/reel_to_reel.tres" id="19_lqmhv"]
 [ext_resource type="PackedScene" uid="uid://buj1xb6bsoeo3" path="res://scenes/ui/observation_panel.tscn" id="32_g0mg2"]
 [ext_resource type="Script" uid="uid://jtl5awakmn5o" path="res://scripts/UI/ObservationPanel.cs" id="33_ascam"]
@@ -75,8 +76,9 @@ stereo = true
 
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel", "CoaPanel", "UpgradePanel")]
 script = ExtResource("1_cx0yy")
-CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple"), ExtResource("9_lqmhv"), ExtResource("10_w2lu8"), ExtResource("12_ci2oq"), ExtResource("12_4am4y"), ExtResource("13_nyrg5"), ExtResource("14_nyrg5"), ExtResource("15_1ektr"), ExtResource("16_s73c7"), ExtResource("17_kfu7c")]
+CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple"), ExtResource("9_lqmhv"), ExtResource("10_w2lu8"), ExtResource("12_ci2oq"), ExtResource("12_4am4y"), ExtResource("13_nyrg5"), ExtResource("14_nyrg5"), ExtResource("15_1ektr"), ExtResource("16_s73c7"), ExtResource("17_kfu7c"), ExtResource("18_kfu7c")]
 PoliceOfficer = ExtResource("5_ewqmb")
+OfficerEvent = ExtResource("18_kfu7c")
 MysteryCustomer = ExtResource("14_cl03r")
 Rauz = ExtResource("11_w2lu8")
 Tutorial = ExtResource("9_1ups1")

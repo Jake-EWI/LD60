@@ -6,6 +6,10 @@
 [resource]
 script = ExtResource("1_gj4t1")
 CustomerName = "Cyron"
+Greed = 0.213
+Savvy = 0.633
+Patience = 51.49
+CoaChance = 0.705
 DialoguePath = "res://assets/dialogue/Cyron.txt"
 CharacterImage = ExtResource("1_5rveu")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"

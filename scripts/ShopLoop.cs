@@ -9,6 +9,7 @@ public partial class ShopLoop : Node
 {
     [Export] public CustomerDefinition[] CustomerPool {get; set;} = [];
     [Export] public CustomerDefinition PoliceOfficer { get; set; } = null;
+    [Export] public CustomerDefinition OfficerEvent { get; set; } = null;
     [Export] public CustomerDefinition MysteryCustomer { get; set; } = null;
     [Export] public CustomerDefinition Rauz { get; set; } = null;
     [Export] public CustomerDefinition Tutorial { get; set; } = null;
@@ -193,7 +194,7 @@ public partial class ShopLoop : Node
             return;
         }
 
-        if (customer == PoliceOfficer)
+        if (customer == PoliceOfficer || customer == OfficerEvent)
         {
             itemStolenOnEntrance = null;
             customerBuying = false;
@@ -313,6 +314,16 @@ public partial class ShopLoop : Node
             case "check_if_guilty":
                 if(guiltyOfMurder)
                 {
+                    Runner.Play("guilty");
+                } else
+                {
+                    Runner.Play("innocent");
+                }
+                break;
+            case "check_for_stolen_items":
+                if(gm.Inventory.Exists(i => i.IsFake))
+                {
+                    gm.Inventory.RemoveAll(i => i.IsFake);
                     Runner.Play("guilty");
                 } else
                 {

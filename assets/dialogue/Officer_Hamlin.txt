@@ -21,7 +21,8 @@ Officer Hamlin: I've been meaning to try that new grilled iguana place. | Don't 
 >bribe
 
 == cant_bribe
-Officer Hamlin: Are you seriously trying to bribe an esteemed officer of the law with money you don't even have? -> arrest
+Officer Hamlin: Are you seriously trying to bribe an esteemed officer of the law with money you don't even have?
+-> arrest
 
 == let_go
 Officer Hamlin: Well. You know what they say. Stand your ground.

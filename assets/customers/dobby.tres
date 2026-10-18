@@ -11,6 +11,7 @@ Greed = 0.15
 Savvy = 0.15
 Patience = 95.0
 StealChance = 0.04
+CoaChance = 0.71
 DialoguePath = "res://assets/dialogue/Dobby.txt"
 CharacterImage = ExtResource("1_ikc7t")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"

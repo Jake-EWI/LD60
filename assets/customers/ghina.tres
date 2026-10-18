@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_mwvvu")
 CustomerName = "Ghina"
+Patience = 69.097
+CoaChance = 0.597
 DialoguePath = "res://assets/dialogue/Ghina.txt"
 CharacterImage = ExtResource("1_uynim")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"
