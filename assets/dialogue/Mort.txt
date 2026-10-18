@@ -1,0 +1,157 @@
+; Mort
+Mort: Hey.
+> shake 0.8 
+Mort: Buy my shit.
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Mort: It's [b]${price}[/b].
+> barter
+
+== accepted
+Mort: Good shit. [/shake].
+
+== countered
+> shake 0.5
+Mort: {price}.
+
+== left
+> shake 0.8
+Mort:  Fuck off. 
+
+== stole
+> shake 0.8
+Mort: Damn, badass {item}.
+Mort: I'll make note of that one.
+
+== pass
+> shake 0.2
+Mort: Fuck off.
+
+== chat
+Mort: Looks like you've got a question?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Mort: It's all just slop. "Acre Point", "We're filling up! Come now!" Meanwhile every who goes there gets their shit pushed in, and they're forced to do whatever it is the gov wants.
+Mort: Bunch of bull dude.
+Mort: Keep heading south. That's where the will of the people is.
+
+== chat_b
+Mort: I keep to myself. Don't look around much. 
+Mort: One thing you can't get rid of is stench of blood though. God, I hate that smell. 
+Mort: The bodies rotting the sun also smell like shit.
+
+== chat_c
+Mort: Fuck off, dude.
+Mort: This is an old world item. I bought it from Galmart before the world went to shit.
+Mort: Say some stupid shit again. I dare you.
+
+== chat_d
+Mort: Stocking up for the trek south.
+Mort: This will probably be the last supply for dozens of miles.
+
+== buyer
+Mort: Oh hey... that {item}...
+> show_item
+Mort: Price?
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Mort: [b]${price}[/b]. 
+> barter
+
+== sold
+Mort: Good shit. See you.
+
+== spotted_fake
+> shake 0.8
+Mort: [shake rate=40 level=20]You fucking with me?
+Mort: [shake rate=40 level=20]The shit you're selling here has to be legit.
+Mort: [shake rate=40 level=20]Some people livelihood's will be this shop, dick. That includes me.
+
+== buyer_countered
+> shake 0.5
+Mort: ${price}.
+
+== buyer_left
+> shake 0.8
+Mort: See you.
+
+== buyer_stole
+> shake 0.8
+Mort: So, where'd YOU get all this stuff.
+Mort: [shake rate=40 level=20]With all this, you wouldn't mind if I grabbed a couple things right?
+
+== pull_gun
+> shake 2
+Mort: [shake rate=40 level=20] You fucker.
+Mort: You've got the audacity to pull this shit on me?
+Mort: [shake rate=40 level=20] You've got 5 seconds put that shit down..
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Mort: [shake rate=40 level=20]Oh boy...[/shake]
+Mort: I didn't steal shit.
+Mort: Even if I did, it's not like it'd be any better rotting away in here with you.
+Mort: So, what's it gonna be. Feeling froggy? Then leap.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Mort: [shake rate=40 level=20]You son of a bi..[/shake]
+> shoot
+
+== not_shoot
+Mort: ...
+Mort: Good choice.
+Mort: Might benefit you to work on your judgement skills. They're shit.
+> not_shoot
+
+== buyer_chat
+Mort: What?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Mort: I'm heading south. The rebels are posted up there, and I plan on joining them.
+Mort: Won't be any easy trek. You feeling generous?
+Mort: Maybe you can spare a dollar or two...
+Mort: So.. quit staring.
+
+== buyer_chat_b
+Mort: It fell out of the sky! Oh boy, aren't I so lucky! 
+Mort: Fuck off. Don't worry about where it's from.
+Mort: It's real. But I have some fake 5's if you want to scam some people.
+Mort: Quit staring.
+
+== buyer_chat_c
+Mort: Duh, dipshit.
+Mort: You're seriously delusional if you think that ANYONE is going to pay full price for that shit.
+Mort: It costs almost 10 dollars for a slice of fucking bread. This buying/selling scheme is risky business. 
+Mort: I'm loss mitigating.
+
+== buyer_chat_d
+Mort: I'm starting to see more people go south rather than North.
+Mort: Glad we're not all fucking idiots!
+Mort: You head to Acre Point and never get heard from again. That's no concidence.
+Mort: People are starting to catch on.
+Mort: This area won't be safe for long. Hope you don't plan to keep up shop.
+Mort: Quit staring.
+
+== coa
+Mort: Here..
+> show_coa
+
+== no_coa
+Mort: Oh yeah! Here it is!
+Mort: Fuck you.

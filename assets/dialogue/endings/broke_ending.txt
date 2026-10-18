@@ -1,6 +1,29 @@
 ; player
-It's frightening to think about how fast things change.
+I... couldn't make enough..
+What do I do now?
+The last smuggle ship leaves today...
+...
+I'll have to become like everyone else...
+
+>changebg_BrokeEnding2
+
+...
+Tresha, my love.
+I'm sorry I couldn't make it to you.
+This message will be the last you hear of me.
+As I write this, the sound of sirens and distant rumbling keep me awake.
+
+To these people, I was just another victim.
+But you are my living proof. 
+There once was a world with a semblance of normalcy.
+Wherever you are, I hope you have found peace.
+As much peace as the world we live in now can offer.
+Take care of our little girl. She is our only hope.
+I'm always thinking of you.
+
+All my love
+
 ; radio
-Radio: .....able-bodied citize....eport to...enlistment station...non-essential pers...be relocated...
+Radio: .....fa.al stri..ke......inbou....nd..for.... Prisbine....area......
 
 >changebg_destroyedcity
