@@ -211,7 +211,7 @@ public partial class ShopLoop : Node
             phase = ShopPhase.Mystery;
             itemStolenOnEntrance = null;
             offeredItem = new ItemInstance(MysteryCustomer.PossibleItems[0]);
-            offeredItem.IsFake = true;
+            offeredItem.IsFake = false;
             MysteryCustomerEvent();
             return;
         }
