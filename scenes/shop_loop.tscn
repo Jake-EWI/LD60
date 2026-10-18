@@ -73,13 +73,17 @@ loop_end = 2281920
 mix_rate = 48000
 stereo = true
 
-[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel", "CoaPanel")]
+[node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel", "CoaPanel", "UpgradePanel")]
 script = ExtResource("1_cx0yy")
 CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple"), ExtResource("9_lqmhv"), ExtResource("10_w2lu8"), ExtResource("12_ci2oq"), ExtResource("12_4am4y"), ExtResource("13_nyrg5"), ExtResource("14_nyrg5"), ExtResource("15_1ektr"), ExtResource("16_s73c7"), ExtResource("17_kfu7c")]
 PoliceOfficer = ExtResource("5_ewqmb")
 MysteryCustomer = ExtResource("14_cl03r")
 Rauz = ExtResource("11_w2lu8")
 Tutorial = ExtResource("9_1ups1")
+Rent = 10
+RunLength = 14
+BribeCost = 25
+CaughtForMurderChance = 0.7
 Runner = NodePath("DialogueRunner")
 BarterPanel = NodePath("CanvasLayer/BarterPanel")
 CustomerImage = NodePath("CanvasLayer/Stage/Customer")
@@ -90,6 +94,7 @@ DayScreen = NodePath("CanvasLayer/EndDayScreen")
 GunPOV = NodePath("CanvasLayer/GunPov")
 ObservationPanel = NodePath("CanvasLayer/ObservationPanel")
 CoaPanel = NodePath("CanvasLayer/CoaPanel")
+UpgradePanel = NodePath("CanvasLayer/UpgradePanel")
 ItemPool = [ExtResource("6_ab184"), ExtResource("7_g0mg2"), ExtResource("8_ascam"), ExtResource("9_quegl"), ExtResource("10_m8e4n"), ExtResource("11_slaiq"), ExtResource("12_qpfrs"), ExtResource("13_x7u0g"), ExtResource("14_5pgrl"), ExtResource("15_srn1w"), ExtResource("16_c6a8c"), ExtResource("17_1ups1"), ExtResource("18_eqi3r"), ExtResource("19_lqmhv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
