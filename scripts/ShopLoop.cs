@@ -64,6 +64,8 @@ public partial class ShopLoop : Node
     private int rauzEncounterDay;
     private ItemInstance rauzItem;
     private string startSection;
+    private bool rauzTookItem;
+    private int secretSteps = 0;
 
     public override void _Ready()
     {
@@ -196,7 +198,8 @@ public partial class ShopLoop : Node
                 phase = ShopPhase.Intro;
                 if(gm.Inventory.Contains(rauzItem))
                     offeredItem = rauzItem;
-
+                
+                secretSteps++;
             }
             negotiation = new Negotiation(customer, offeredItem.Item, customerBuying, rng);
             Runner.SetVariable("price", negotiation.AskingPrice);
@@ -472,6 +475,8 @@ public partial class ShopLoop : Node
                     if(customerGoodDeal)
                         gm.GoodKarma++;
                 }
+                if(customer == Rauz && secretSteps == 1)
+                    rauzTookItem = true;
                 else if (offeredItem.IsFake && rng.Randf() < customer.Savvy + (gm.BadKarma / 100))
                 {
                     Runner.Play("spotted_fake");
@@ -688,5 +693,20 @@ public partial class ShopLoop : Node
         mysteryPlayer.Stop();
         CreateTween().TweenProperty(stage, "modulate", Colors.White, MysteryRiseTime / 2);
         bgmPlayer.StreamPaused = false;
+    }
+
+    private void CheckForEndings()
+    {
+        if(gm.Day == RunLength)
+        {
+            //determine end game endings
+        }
+
+        if(gm.Money <= 0)
+        {
+            //out of money ending
+        }
+
+
     }
 }
