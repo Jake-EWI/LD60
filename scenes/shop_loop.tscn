@@ -50,6 +50,20 @@
 [ext_resource type="Resource" uid="uid://dpiccq1wyorq3" path="res://assets/items/typewriter.tres" id="18_eqi3r"]
 [ext_resource type="Resource" uid="uid://byplt5stn2rch" path="res://assets/customers/officer_event.tres" id="18_kfu7c"]
 [ext_resource type="Resource" uid="uid://c1tnlho3xjboq" path="res://assets/items/reel_to_reel.tres" id="19_lqmhv"]
+[ext_resource type="Resource" uid="uid://b1yqsnl51cg3n" path="res://assets/upgrades/scale.tres" id="23_f6eaq"]
+[ext_resource type="Resource" uid="uid://c1mordlguuddr" path="res://assets/upgrades/charity.tres" id="24_pr6d4"]
+[ext_resource type="Resource" uid="uid://cj0v6jxjlnpxg" path="res://assets/upgrades/crooked_cop.tres" id="25_gtss7"]
+[ext_resource type="Resource" uid="uid://byg8y1gkyutb" path="res://assets/upgrades/silver_tongue.tres" id="26_swymc"]
+[ext_resource type="Resource" uid="uid://d28lub2uc26um" path="res://assets/upgrades/hard_bargainer.tres" id="27_ag453"]
+[ext_resource type="Resource" uid="uid://b1ukck05225dk" path="res://assets/upgrades/thermal_camera.tres" id="28_2ocq5"]
+[ext_resource type="Resource" uid="uid://b4w5boixoboro" path="res://assets/upgrades/expert_retainer.tres" id="29_4oqdr"]
+[ext_resource type="Resource" uid="uid://frswux3sifvw" path="res://assets/upgrades/security_camera.tres" id="30_6i52f"]
+[ext_resource type="Resource" uid="uid://jmue7x3gytpx" path="res://assets/upgrades/bigger_storefront.tres" id="31_wfjj6"]
+[ext_resource type="Resource" path="res://assets/upgrades/uv_light.tres" id="50_uv"]
+[ext_resource type="AudioStream" uid="uid://dcl5agfrtpbxl" path="res://assets/audio/sfx/thump_ceramic.wav" id="43_thumpc"]
+[ext_resource type="AudioStream" uid="uid://ctf1lprgbc8a2" path="res://assets/audio/sfx/thump_metal.wav" id="44_thumpm"]
+[ext_resource type="AudioStream" uid="uid://dt45cnco7odmr" path="res://assets/audio/sfx/thump_plastic.wav" id="45_thumpp"]
+[ext_resource type="Material" uid="uid://dpbtr50ecbsoq" path="res://assets/shaders/thermal.tres" id="46_thermal"]
 [ext_resource type="PackedScene" uid="uid://buj1xb6bsoeo3" path="res://scenes/ui/observation_panel.tscn" id="32_g0mg2"]
 [ext_resource type="Script" uid="uid://jtl5awakmn5o" path="res://scripts/UI/ObservationPanel.cs" id="33_ascam"]
 [ext_resource type="PackedScene" uid="uid://c6jsoslp1nc5d" path="res://scenes/ui/coa_panel.tscn" id="40_srn1w"]
@@ -97,6 +111,7 @@ GunPOV = NodePath("CanvasLayer/GunPov")
 ObservationPanel = NodePath("CanvasLayer/ObservationPanel")
 CoaPanel = NodePath("CanvasLayer/CoaPanel")
 UpgradePanel = NodePath("CanvasLayer/UpgradePanel")
+UpgradePool = [ExtResource("23_f6eaq"), ExtResource("50_uv"), ExtResource("24_pr6d4"), ExtResource("25_gtss7"), ExtResource("26_swymc"), ExtResource("27_ag453"), ExtResource("28_2ocq5"), ExtResource("29_4oqdr"), ExtResource("30_6i52f"), ExtResource("31_wfjj6")]
 ItemPool = [ExtResource("6_ab184"), ExtResource("7_g0mg2"), ExtResource("8_ascam"), ExtResource("9_quegl"), ExtResource("10_m8e4n"), ExtResource("11_slaiq"), ExtResource("12_qpfrs"), ExtResource("13_x7u0g"), ExtResource("14_5pgrl"), ExtResource("15_srn1w"), ExtResource("16_c6a8c"), ExtResource("17_1ups1"), ExtResource("18_eqi3r"), ExtResource("19_lqmhv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73610992]
@@ -156,6 +171,10 @@ visible = false
 visible = false
 mouse_filter = 2
 script = ExtResource("33_ascam")
+ThermalMaterial = ExtResource("46_thermal")
+ThumpCeramic = ExtResource("43_thumpc")
+ThumpMetal = ExtResource("44_thumpm")
+ThumpPlastic = ExtResource("45_thumpp")
 
 [node name="CoaPanel" parent="CanvasLayer" unique_id=1656973042 instance=ExtResource("40_srn1w")]
 visible = false
