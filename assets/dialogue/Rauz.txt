@@ -1,0 +1,154 @@
+; Rauz
+Rauz: Hey.
+> shake 0.8 
+Rauz: I'm selling.
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Rauz: I'll do [b]${price}[/b].
+> barter
+
+
+== secret
+Rauz: I know you have it.
+Rauz: Give it here.
+> show_item
+
+== countersecret
+Rauz: I'm not paying.
+Rauz: Give it to me. Now.
+
+
+== accepted
+Rauz: Thanks.
+
+== countered
+> shake 0.5
+Rauz: ${price}.
+
+== left
+> shake 0.8
+Rauz: I'm leaving.
+
+== stole
+> shake 0.8
+Rauz: I'm going to take this.
+Rauz: I'm not paying.
+
+== pass
+> shake 0.2
+Rauz: Goodbye.
+
+== chat
+Rauz: What?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Rauz: No. I don't listen. | No. Waste of time. 
+Rauz: They're not on our side.
+Rauz: Buying?
+
+== chat_b
+Rauz: Screaming, death, grief.
+Rauz: A normal person if you're lucky.
+Rauz: Buying?
+
+== chat_c
+Rauz: Could be. Don't know.
+Rauz: No guarantees from me.
+Rauz: Buying?
+
+== chat_d
+Rauz: None of your business. 
+Rauz: Buying?
+
+== buyer
+Rauz: Your {item}.
+> show_item
+Rauz: How much.
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Rauz: [b]${price}[/b]
+> barter
+
+== sold
+Rauz: Thanks.
+
+== spotted_fake
+> shake 0.8
+Rauz: [shake rate=40 level=20]A fake.[/shake]
+Rauz: I don't need fakes.
+
+== buyer_countered
+> shake 0.5
+Rauz: ${price}.
+
+== buyer_left
+> shake 0.8
+Rauz: Goodbye.
+
+== buyer_stole
+> shake 0.8
+Rauz: I will take this.
+Rauz: [shake rate=40 level=20]Don't move.
+
+== pull_gun
+> shake 2
+Rauz: [shake rate=10 level=5]Do it.[/shake]
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Rauz: [shake rate=20 level=5]...[/shake]
+Rauz: Well?
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Rauz: [shake rate=40 level=20]You will be hunted.[/shake]
+> shoot
+
+== not_shoot
+Rauz: ...
+Rauz: Pity.
+> not_shoot
+
+
+== buyer_chat
+Rauz: What?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Rauz: Metamorphosis 
+Rauz: How much?
+
+== buyer_chat_b
+Rauz: Selling.[/shake]
+Rauz: How much?
+
+== buyer_chat_c
+Rauz: Fool...  
+Rauz: How much?
+
+== buyer_chat_d
+Rauz: They're overtaking the humans. | Soon, we will not be the master race.
+Rauz: How much?
+
+== coa
+Rauz: ...
+> shake 0.8
+Rauz: Look.
+> show_coa
+
+== no_coa
+Rauz: ...
