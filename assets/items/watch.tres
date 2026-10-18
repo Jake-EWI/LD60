@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://hbyniglmspf6"]
+
+[ext_resource type="Texture2D" uid="uid://bn48nr2uv3ovt" path="res://assets/art/Old Tech/Old Tech Watch.png" id="1_0lef6"]
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="1_j8shx"]
+
+[resource]
+script = ExtResource("1_j8shx")
+ItemName = "Watch"
+BaseValue = 65
+Icon = ExtResource("1_0lef6")
+metadata/_custom_type_script = "uid://cv4540x8541k6"

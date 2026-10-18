@@ -16,6 +16,8 @@ public partial class ShopLoop : Node
     [Export] int MinCustomers {get; set;} = 4;
     [Export] public int Rent {get; set;} = 15;
     [Export] public int RunLength {get; set;} = 7;
+    [Export] public int MinStartingItems {get; set;} = 1;
+    [Export] public int MaxStartingItems {get; set;} = 4;
     [Export] public int ExpertCost {get; set;} = 15;
     [Export] public int ExpertPriceCheckCost {get; set;} = 5;
     [Export] public int BribeCost {get; set;} = 40;
@@ -102,6 +104,13 @@ public partial class ShopLoop : Node
         mysteryDay = rng.RandiRange(5, 7);
         rauzEncounterDay = rng.RandiRange(9, 11);
         
+        //run init
+        int startingItemAmount = rng.RandiRange(MinStartingItems, MaxStartingItems);
+        for (int i = 0; i < startingItemAmount; i++)
+        {
+            gm.Inventory.Add(new ItemInstance(ItemPool[rng.RandiRange(0, ItemPool.Length - 1)]));
+        }
+        
         StartDay();
     }
 
@@ -149,8 +158,6 @@ public partial class ShopLoop : Node
 
     public void NextCustomer()
     {
-        //setup dialogue pathing
-        startSection = customerBuying ? "buyer" : "start";
         if (!customerQueue.TryDequeue(out customer))
         {
             EndDay();
@@ -161,6 +168,7 @@ public partial class ShopLoop : Node
         {
             itemStolenOnEntrance = null;
             customerBuying = false;
+            startSection = "start";
             phase = ShopPhase.Intro;
             CustomerImage.Visible = true;
             CustomerImage.Enter(customer.CharacterImage);
@@ -210,6 +218,7 @@ public partial class ShopLoop : Node
 
         //determine buying or selling
         customerBuying = gm.Inventory.Count > 0 && rng.Randf() < customer.BuyerChance;
+        startSection = customerBuying ? "buyer" : "start";
 
         //determine if customer has a coa
         hasCoa = rng.Randf() < customer.CoaChance && !customerBuying;
