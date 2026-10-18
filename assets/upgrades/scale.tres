@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="UpgradeDefinition" format=3]
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://b1yqsnl51cg3n"]
 
-[ext_resource type="Script" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
+[ext_resource type="Script" uid="uid://bfr3rwjwfsx2b" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
 
 [resource]
 script = ExtResource("1_upgrade")
 UpgradeName = "Scale"
-Description = "Weigh items and compare them to the reference sheet."
-Type = 0
+Description = "Weigh items to check their validity."
 Cost = 25
 AlwaysOffered = true

@@ -72,6 +72,8 @@ public partial class GameState : Node
         int level = GetUpgradeLevel(upgrade);
         AddMoney(-upgrade.GetCost(level));
         Upgrades[upgrade] = level + 1;
+        if (upgrade.Type == UpgradeType.Charity)
+            GoodKarma += (int)upgrade.Amount;
     }
     
 

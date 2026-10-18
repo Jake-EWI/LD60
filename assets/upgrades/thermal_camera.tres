@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeDefinition" format=3]
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://b1ukck05225dk"]
 
-[ext_resource type="Script" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
+[ext_resource type="Script" uid="uid://bfr3rwjwfsx2b" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
 
 [resource]
 script = ExtResource("1_upgrade")
 UpgradeName = "Thermal Camera"
-Description = "See the heat signature of an item's power source."
+Description = "See the heat signature of an item's power source to check it's validity."
 Type = 2
 Cost = 60
 AlwaysOffered = true

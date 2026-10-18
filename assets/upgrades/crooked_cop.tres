@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://cj0v6jxjlnpxg"]
+
+[ext_resource type="Script" uid="uid://bfr3rwjwfsx2b" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+UpgradeName = "Crooked Cop"
+Description = "Cheaper bribes, and the police are less likely to show up after a shooting."
+Type = 7
+Amount = 0.15
+Cost = 20
+CostPerLevel = 5
+MaxLevel = 3
+IsFree = true

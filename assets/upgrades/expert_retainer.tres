@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://b4w5boixoboro"]
+
+[ext_resource type="Script" uid="uid://bfr3rwjwfsx2b" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+UpgradeName = "Expert on Retainer"
+Description = "The expert charges 25% less."
+Type = 6
+Amount = 0.25
+Cost = 25
+CostPerLevel = 15
+MaxLevel = 2
+IsFree = true

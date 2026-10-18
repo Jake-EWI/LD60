@@ -22,6 +22,9 @@ public partial class ShopLoop : Node
     [Export] public int ExpertCost {get; set;} = 15;
     [Export] public int ExpertPriceCheckCost {get; set;} = 5;
     [Export] public int BribeCost {get; set;} = 40;
+    private int ExpertPrice => Mathf.RoundToInt(ExpertCost * (1 - gm.GetBonus(UpgradeType.ExpertDiscount)));
+    private int PriceCheckPrice => Mathf.RoundToInt(ExpertPriceCheckCost * (1 - gm.GetBonus(UpgradeType.ExpertDiscount)));
+    private int BribePrice => Mathf.RoundToInt(BribeCost * (1 - gm.GetBonus(UpgradeType.BribeDiscount)));
     [Export] public int JailDays {get; set;} = 3;
     [Export] public float CaughtForMurderChance { get; set; } = 0.75f;
     [Export(PropertyHint.File, "*.txt")] public string ExpertDialoguePath {get; set;} = "res://assets/dialogue/Expert.txt";
@@ -77,7 +80,6 @@ public partial class ShopLoop : Node
         rng = new RandomNumberGenerator();
         rng.Randomize();
         Runner.Rng = rng;
-        Runner.SetVariable("bribeCost", BribeCost);
 
         bgmPlayer = GetNode<AudioStreamPlayer>("BGM");
         mysteryPlayer = GetNode<AudioStreamPlayer>("MysteryAmbience");
@@ -127,8 +129,9 @@ public partial class ShopLoop : Node
     public void StartDay()
     {
         customerQueue.Clear();
+        Runner.SetVariable("bribeCost", BribePrice);
         liveCustomerPool = new List<CustomerDefinition>(CustomerPool);
-        int customersPerDay = rng.RandiRange(MinCustomers, MaxCustomers);
+        int customersPerDay = rng.RandiRange(MinCustomers, MaxCustomers) + (int)gm.GetBonus(UpgradeType.ExtraCustomers);
         customersPerDay = Math.Min(customersPerDay, liveCustomerPool.Count);
 
         if (gm.Day == 1)
@@ -208,7 +211,7 @@ public partial class ShopLoop : Node
                 
                 secretSteps++;
             }
-            negotiation = new Negotiation(customer, offeredItem.Item, customerBuying, rng);
+            negotiation = new Negotiation(customer, offeredItem.Item, customerBuying, rng, gm);
             Runner.SetVariable("price", negotiation.AskingPrice);
             Runner.SetVariable("item", offeredItem.Item.ItemName);
 
@@ -221,7 +224,7 @@ public partial class ShopLoop : Node
         itemStolenOnEntrance = null;
 
         //determine if customer steals an item on entrance
-        if (rng.Randf() < customer.StealChance - (gm.GetKarma() * 0.01f) && gm.Inventory.Count > 0)
+        if (rng.Randf() < customer.StealChance - (gm.GetKarma() * 0.01f) - gm.GetBonus(UpgradeType.StealProtection) && gm.Inventory.Count > 0)
         {
             itemStolenOnEntrance = gm.Inventory[rng.RandiRange(0, gm.Inventory.Count - 1)].Item;
             gm.Inventory.RemoveAll(i => i.Item == itemStolenOnEntrance);
@@ -252,7 +255,7 @@ public partial class ShopLoop : Node
 
         phase = ShopPhase.Intro;
 
-        negotiation = new Negotiation(customer, offeredItem.Item, customerBuying, rng);
+        negotiation = new Negotiation(customer, offeredItem.Item, customerBuying, rng, gm);
         Runner.SetVariable("price", negotiation.AskingPrice);
         Runner.SetVariable("item", offeredItem.Item.ItemName);
 
@@ -280,12 +283,12 @@ public partial class ShopLoop : Node
                 phase = ShopPhase.Closing;
                 break;
             case "check_buy":
-                if (!gm.CanAfford(ExpertCost))
+                if (!gm.CanAfford(ExpertPrice))
                 {
                     Runner.Play("broke");
                     break;
                 }
-                gm.AddMoney(-ExpertCost);
+                gm.AddMoney(-ExpertPrice);
                 Runner.Play("buy");
                 break;
             case "check_if_fake":
@@ -301,7 +304,7 @@ public partial class ShopLoop : Node
                 }
                 break;
             case "check_price":
-                if (!gm.CanAfford(ExpertPriceCheckCost))
+                if (!gm.CanAfford(PriceCheckPrice))
                 {
                     Runner.Play("broke_price");
                     break;
@@ -309,7 +312,7 @@ public partial class ShopLoop : Node
                 Runner.Play("buy_check_price");
                 break;
             case "check_bribe":
-                if(gm.CanAfford(BribeCost))
+                if(gm.CanAfford(BribePrice))
                 {
                     Runner.Play("can_bribe");
                 } else
@@ -318,9 +321,9 @@ public partial class ShopLoop : Node
                 }
                 break;
             case "bribe":
-                if(gm.CanAfford(BribeCost))
+                if(gm.CanAfford(BribePrice))
                 {
-                    gm.AddMoney(-BribeCost);
+                    gm.AddMoney(-BribePrice);
                 }
                 gm.BadKarma++;
                 break;
@@ -606,9 +609,9 @@ public partial class ShopLoop : Node
     {
         HideBarter();
         expertCalling = true;
-        Runner.SetVariable("expertCost", ExpertCost);
+        Runner.SetVariable("expertCost", ExpertPrice);
         Runner.SetVariable("baseAmount", offeredItem.Item.BaseValue);
-        Runner.SetVariable("priceCheckCost", ExpertPriceCheckCost);
+        Runner.SetVariable("priceCheckCost", PriceCheckPrice);
         Runner.Start(ExpertDialoguePath);
     }
 
@@ -632,7 +635,7 @@ public partial class ShopLoop : Node
             guiltyOfMurder = true;
             gm.BadKarma++;
         }
-        if(rng.Randf() < CaughtForMurderChance - (gm.GetKarma() * 0.01f))
+        if(rng.Randf() < CaughtForMurderChance - (gm.GetKarma() * 0.01f) - gm.GetBonus(UpgradeType.BribeDiscount))
         {
             Queue<CustomerDefinition> storeQueue = new Queue<CustomerDefinition>();
             storeQueue.Enqueue(PoliceOfficer);
@@ -669,7 +672,7 @@ public partial class ShopLoop : Node
     public void MysteryCustomerEvent()
     {
         bgmPlayer.StreamPaused = true;
-        negotiation = new Negotiation(customer, offeredItem.Item, false, rng) { AskingPrice = 0 };
+        negotiation = new Negotiation(customer, offeredItem.Item, false, rng, gm) { AskingPrice = 0 };
         Runner.SetVariable("item", offeredItem.Item.ItemName);
         Runner.Start(customer.DialoguePath);
     }

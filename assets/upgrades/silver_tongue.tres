@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://byg8y1gkyutb"]
+
+[ext_resource type="Script" uid="uid://bfr3rwjwfsx2b" path="res://scripts/Definitions/UpgradeDefinition.cs" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+UpgradeName = "Silver Tongue"
+Description = "Customers put up with more haggling."
+Type = 3
+Amount = 15.0
+Cost = 10
+CostPerLevel = 15
+MaxLevel = 5
+IsFree = true
