@@ -22,6 +22,7 @@ public partial class ShopLoop : Node
     [Export] public int ExpertPriceCheckCost {get; set;} = 5;
     [Export] public int BribeCost {get; set;} = 40;
     [Export] public int JailDays {get; set;} = 3;
+    [Export] public float CaughtForMurderChance { get; set; } = 0.75f;
     [Export(PropertyHint.File, "*.txt")] public string ExpertDialoguePath {get; set;} = "res://assets/dialogue/Expert.txt";
 
     //ui elements
@@ -609,14 +610,17 @@ public partial class ShopLoop : Node
         {
             guiltyOfMurder = true;
         }
-        Queue<CustomerDefinition> storeQueue = new Queue<CustomerDefinition>();
-        storeQueue.Enqueue(PoliceOfficer);
-        foreach (var c in customerQueue)
+        if(rng.Randf() < CaughtForMurderChance)
         {
-            storeQueue.Enqueue(c);
+            Queue<CustomerDefinition> storeQueue = new Queue<CustomerDefinition>();
+            storeQueue.Enqueue(PoliceOfficer);
+            foreach (var c in customerQueue)
+            {
+                storeQueue.Enqueue(c);
+            }
+            customerQueue.Clear();
+            customerQueue = storeQueue;
         }
-        customerQueue.Clear();
-        customerQueue = storeQueue;
         //remove customer from pool after killing them
         CustomerPool = Array.FindAll(CustomerPool, c => c != customer);
 
