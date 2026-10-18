@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://dpwbx4qlcnxwo"]
+
+[ext_resource type="Texture2D" uid="uid://dfks4tsagnj57" path="res://assets/art/Characters/Indra.png" id="1_v7cbj"]
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_ydwod"]
+
+[resource]
+script = ExtResource("1_ydwod")
+CustomerName = "Indra"
+DialoguePath = "res://assets/dialogue/Indra.txt"
+CharacterImage = ExtResource("1_v7cbj")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"
