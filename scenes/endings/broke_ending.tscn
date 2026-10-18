@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b5gxk7a2njgnf"]
+
+[ext_resource type="Script" uid="uid://cxavlldittv73" path="res://scripts/Intro.cs" id="1_4l2j3"]
+[ext_resource type="Texture2D" uid="uid://dany38hqsgiwm" path="res://assets/art/UI/Broke Ending.png" id="2_wwalm"]
+[ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="3_jqv44"]
+[ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="4_cws7n"]
+
+[node name="Intro" type="Node" unique_id=628339096 node_paths=PackedStringArray("Runner")]
+script = ExtResource("1_4l2j3")
+Runner = NodePath("DialogueRunner")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1576970420]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=919923001]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wwalm")
+expand_mode = 1
+
+[node name="DialogueBox" parent="CanvasLayer" unique_id=1885510638 instance=ExtResource("3_jqv44")]
+
+[node name="DialogueRunner" type="Node" parent="." unique_id=1164848717 node_paths=PackedStringArray("Box")]
+script = ExtResource("4_cws7n")
+Box = NodePath("../CanvasLayer/DialogueBox")
+ScriptPath = "res://assets/dialogue/intro.txt"
+AutoStart = true
