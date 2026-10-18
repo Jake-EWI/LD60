@@ -91,7 +91,7 @@ Exton: Times are tough. I'll be taking this.
 > shake 2
 Exton: [shake rate=40 level=20]Damn.....[/shake]
 Exton: Why the rush? Do something you didn't like?
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -105,7 +105,13 @@ Exton: Inventory day, huh? Always hated inventory day.
 
 == ask_if_stole
 Exton: [shake rate=40 level=20]Ha...[/shake]
-Exton: I haven't taken anything that I didn't walk in here with.
+Exton: Define "take". I'd call it borrowing. Indefinitely.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Exton: [shake rate=40 level=20]Seriously?[/shake]
+Exton: Count your shelves, pal. Everything I've got, I walked in here with.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

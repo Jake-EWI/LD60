@@ -94,7 +94,7 @@ Indra: [shake rate=40 level=20]No matter.
 Indra: Life or death is not the concern. It is a matter of metamorphosis. The last stages of evolution! 
 Indra: SOON WE WILL BE MORE THAN THIS EARTHLY HOLLOW WE ARE CONTAINED IN.
 Indra: [shake rate=40 level=20]YOU'RE DOING ME A GREAT FAVOR.
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -109,6 +109,12 @@ Indra: It does not matter. The vessel has already been taken. It belongs to the 
 == ask_if_stole
 Indra: [shake rate=40 level=20]...?[/shake]
 Indra: Are you perceptive enough to tell? Test your senses.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Indra: [shake rate=40 level=20]Take?[/shake]
+Indra: I have no need for your earthly trinkets. They will all be dust when the metamorphosis comes.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

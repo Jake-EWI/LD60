@@ -93,7 +93,7 @@ Mort: [shake rate=40 level=20]With all this, you wouldn't mind if I grabbed a co
 Mort: [shake rate=40 level=20] You fucker.
 Mort: You've got the audacity to pull this shit on me?
 Mort: [shake rate=40 level=20] You've got 5 seconds put that shit down..
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -110,6 +110,13 @@ Mort: [shake rate=40 level=20]Oh boy...[/shake]
 Mort: I didn't steal shit.
 Mort: Even if I did, it's not like it'd be any better rotting away in here with you.
 Mort: So, what's it gonna be. Feeling froggy? Then leap.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Mort: [shake rate=40 level=20]The fuck?[/shake]
+Mort: I didn't take shit from you. Wouldn't want any of it anyway.
+Mort: Put that thing down before you do something stupid.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

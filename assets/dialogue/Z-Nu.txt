@@ -89,7 +89,7 @@ Z-Nu: Do not follow me, Human. My vessel is double-parked.
 > shake 2
 Z-Nu: [shake rate=40 level=20]GLORP.....[/shake]
 Z-Nu: Please do not shoot me Human. This meat fortress is squishy.
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -104,6 +104,12 @@ Z-Nu: The object inside this meat fortress was... already inside. It was born th
 == ask_if_stole
 Z-Nu: [shake rate=40 level=20]GLORP.....[/shake]
 Z-Nu: I plead my 5th Human Amendment right to not speak.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Z-Nu: [shake rate=40 level=20]GLORP?[/shake]
+Z-Nu: Z-Nu has taken nothing, Human. This meat fortress contains only Z-Nu.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

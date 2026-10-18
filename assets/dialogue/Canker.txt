@@ -92,7 +92,7 @@ Canker: [shake rate=40 level=20]Thanks for the freebie![/shake] Cya, loser.
 > shake 2
 Canker: [shake rate=40 level=20]Is this a game to you?[/shake]
 Canker: If you put it down now, I'll forget this ever happened.
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -107,6 +107,12 @@ Canker: Look, whatever you think I did, we can work something out. Business is b
 == ask_if_stole
 Canker: [shake rate=40 level=20]This is what this is about?[/shake]
 Canker: I may have, I mean I walked in here saying I'm selling stolen goods. Pretty dumb question, loser.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Canker: [shake rate=40 level=20]Steal? From YOU?[/shake]
+Canker: I wouldn't touch your junk with a ten foot pole, loser. Count your shelves before you start waving that thing around.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

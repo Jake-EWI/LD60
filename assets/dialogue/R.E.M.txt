@@ -94,7 +94,7 @@ R.E.M: [shake rate=40 level=20]Sorry about this. Blame my superior.
 R.E.M: [shake rate=40 level=20]Woah, okay. Let's calm down for a second.
 R.E.M: Its the mask right? I can take it off if you'd like.
 R.E.M: Won't promise that what's underneath is any better though.
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -111,6 +111,13 @@ R.E.M: [shake rate=40 level=20]Oh... stole?[/shake]
 R.E.M: Never done such a thing in my life. Even in the old world.
 R.E.M: They always say no time like the present though!
 R.E.M: That was a bad thing to say...
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+R.E.M: [shake rate=40 level=20]Stole? Me?[/shake]
+R.E.M: No, no. They'd never let me hear the end of it.
+R.E.M: Check my pockets. Just paperwork in there. Lots of paperwork.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

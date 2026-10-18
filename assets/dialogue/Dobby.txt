@@ -92,7 +92,7 @@ Dobby: [shake rate=40 level=20]The world is c-c-cold n-now![/shake] I won't m-ma
 > shake 2
 Dobby: [shake rate=40 level=20]AHHH! W-why??[/shake]
 Dobby: D-don't s-shoot! P-please!
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -107,6 +107,12 @@ Dobby: W-wait, n-no, I m-mean... s-sorry for c-coming in! Y-yeah!
 == ask_if_stole
 Dobby: [shake rate=40 level=20]S-stole...?[/shake]
 Dobby: I w-w-would never d-do such a t-thing. I have m-m-morals you k-k-know. Even in t-t-this w-world....
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Dobby: [shake rate=40 level=20]N-n-no! N-nothing![/shake]
+Dobby: Y-you c-can check my p-p-pockets! T-there's n-nothing in t-there but l-lint!
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

@@ -92,7 +92,7 @@ Cyron: [shake rate=40 level=20]We'll be taking it now.
 > shake 2
 Cyron: [shake rate=40 level=20]A threat on an agent of the Lord is a threat to the Lord himself...
 Cyron: There's still time to repent. 
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -108,6 +108,12 @@ Cyron: And sometimes He provides through others. Unknowingly.
 Cyron: [shake rate=40 level=20]An agent of the Lord? Stealing? Preposterous.
 Cyron: If there is one thing you can count on, it is that I am a honest, ethical, moral and Godly man!
 Cyron: Do you really believe such a man would steal?
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Cyron: [shake rate=40 level=20]Thou shalt not steal![/shake]
+Cyron: I keep His commandments. All of them. Search me if you must, you will find nothing but my faith.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

@@ -92,7 +92,7 @@ Couple: [shake rate=40 level=20]We're so sorry.[/shake] If there's nothing left 
 > shake 2
 Couple: [shake rate=40 level=20]Why would you...[/shake]
 Couple: Maybe this is for the best, Barlin...
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -105,9 +105,15 @@ Couple: Please... we have nothing left. Nothing but what's in this bag.
 * Put gun down -> not_shoot
 
 == ask_if_stole
-Couple: [shake rate=40 level=20]Stole...?[/shake]
-Couple: The world has gone to hell, but one thing we will never resort to is stealing or hurting others. 
-Couple: Whether you believe us or not is up to you.
+Couple: [shake rate=40 level=20]...[/shake]
+Couple: Yes. We took it. We're not proud of it.
+Couple: The world has gone to hell, and we did what we had to. Whatever you decide, we won't fight you.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Couple: [shake rate=40 level=20]No... no, we didn't take anything.[/shake]
+Couple: Barlin, show them the bag. ...See? Only what we came in with. Please.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

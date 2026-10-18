@@ -93,7 +93,7 @@ Wren: [shake rate=20 level=10]Good, cause I'll be taking this! Cya!
 > shake 2
 Wren: [shake rate=10 level=5]Okay, let's talk about this...[/shake]
 Wren: What did I do? Something I said? I'll leave right now!
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -108,6 +108,12 @@ Wren: Actually, no, I can't. Can we pretend I didn't say that?
 == ask_if_stole
 Wren: [shake rate=20 level=5]Steal?[/shake]
 Wren: You've got a pretty sweet collection here, but nothing I think is worth stealing... no offense...
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Wren: [shake rate=20 level=5]What? No![/shake]
+Wren: I swear, I didn't touch anything. I'm just trying to get to the Braus Settlement, I don't need trouble.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

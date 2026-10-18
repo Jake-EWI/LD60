@@ -99,7 +99,7 @@ Ghina: [shake rate=20 level=10]Cause if you don't, you won't be seeing this agai
 > shake 2
 Ghina: [shake rate=10 level=5]Oooooh, quite a beauty you got there.[/shake]
 Ghina: Yep, one blast at this range and I'm toast. You'll have to deal with the guts, though.
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -112,10 +112,15 @@ Ghina: Still a beauty, that gun. Shame about the timing.
 * Put gun down -> not_shoot
 
 == ask_if_stole
-Ghina: [shake rate=20 level=5]What a waste...[/shake]
+Ghina: [shake rate=20 level=5]Busted...[/shake]
 Ghina: I'll give it to you, your sense for this stuff is pretty good.
-Ghina: I considered stealing, but nope, never actually took anything.
-Ghina: Feel free to check my body after you shoot, the guilt will be my payment.
+Ghina: Yeah, I took it. Feel free to check my body after you shoot, it's all in there.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Ghina: [shake rate=10 level=5]Nope! Clean as a whistle.[/shake]
+Ghina: Your instincts are off today, dude. But hey, if you shoot me anyway, you'll find out the hard way.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

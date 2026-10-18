@@ -98,7 +98,7 @@ Dylan: My bad bro! It's just way too good to not snatch up!
 == pull_gun
 > shake 2
 Dylan: [shake rate=10 level=5]Woah dude...[/shake] Take a chill pill...
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -113,6 +113,12 @@ Dylan: Hypothetically, if something fell into my pocket. Would that be a shootin
 == ask_if_stole
 Dylan: [shake rate=20 level=5] Stole....?[/shake] Bro, look at me. I'm like 6 foot 3, do you really think I'd be able to slip past you unnoticed? I mean, I CAN be pretty stealthy...
 Dylan: But it wasn't me!
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Dylan: [shake rate=20 level=5]Bro, what?[/shake] No way dude. I'm like, super honest.
+Dylan: You can pat me down if you want. Just... not too rough.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

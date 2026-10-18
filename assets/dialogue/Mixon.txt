@@ -94,7 +94,7 @@ Mixon: [shake rate=40 level=20]Don't move.[/shake] Any sudden movements and you'
 > shake 2
 Mixon: [shake rate=40 level=20]I see how it is.[/shake]
 Mixon: Do it then. This whole happy go-lucky thing is a bad farce, anyway.
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -110,6 +110,13 @@ Mixon: I was starting to think nobody actually counts their shelves around here.
 Mixon: [shake rate=40 level=20]Ha...[/shake]
 Mixon: [shake rate=40 level=20]HA HA HA HA HA....[/shake]
 Mixon: And if what if I did? Does that affect your bottom line here? Your shop is running on hopes and dreams. You won't make it another week. 
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Mixon: [shake rate=40 level=20]Ha...[/shake]
+Mixon: Steal from you? I dive in dumpsters, friend. I don't rob them.
+Mixon: Go ahead and check. You'll find nothing on me but bad luck.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 

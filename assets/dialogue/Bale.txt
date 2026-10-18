@@ -99,7 +99,7 @@ Bale: [shake rate=40 level=20]You've got some balls.
 Bale: Hmm. I think I'd like to go on living for a little longer.
 Bale: I'd like to see where we end up.
 Bale: [shake rate=40 level=20]But I guess that's not up to me.
-* Did you take something? -> ask_if_stole
+* Did you take something? -> innocent
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
@@ -115,6 +115,12 @@ Bale: Go on then. Make it worth it.
 Bale: [shake rate=40 level=20]...?[/shake]
 Bale: Yeah.
 Bale: Care enough to have blood on your hands for it?
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== innocent
+Bale: [shake rate=40 level=20]...No.[/shake]
+Bale: Didn't need to. Nothing in here is worth more than the time I've got left.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
