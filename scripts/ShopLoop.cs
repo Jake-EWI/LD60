@@ -707,6 +707,11 @@ public partial class ShopLoop : Node
             //out of money ending
         }
 
+        if(rauzTookItem)
+        {
+            //rauz ending
+        }
+
 
     }
 }
