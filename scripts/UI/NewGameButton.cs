@@ -10,6 +10,6 @@ public partial class NewGameButton : Button
 
     private void OnNewGamePressed()
     {
-        GetTree().ChangeSceneToFile("res://scenes/shop_loop.tscn");
+        GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/intro.tscn");
     }
 }

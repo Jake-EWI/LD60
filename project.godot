@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameState="*uid://cje3wdr04k0f5"
+SceneTransition="*res://scripts/SceneTransition.cs"
 
 [display]
 

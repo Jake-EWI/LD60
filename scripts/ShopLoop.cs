@@ -162,7 +162,7 @@ public partial class ShopLoop : Node
             var itemChoices = customer.PossibleItems.Length > 0 ? customer.PossibleItems : ItemPool;
             offeredItem = new ItemInstance(itemChoices[rng.RandiRange(0, itemChoices.Length - 1)])
             {
-                IsFake = rng.Randf() < customer.FakeChance
+                IsFake = rng.Randf() < customer.FakeChance + (gm.GetKarma() * 0.01)
             };
             offeredItem.Imperfection = ObservationPanel.RollImperfection(offeredItem.IsFake, rng);
         }
@@ -239,6 +239,7 @@ public partial class ShopLoop : Node
                 {
                     gm.AddMoney(-BribeCost);
                 }
+                gm.BadKarma++;
                 break;
             case "arrest":
                 customerQueue.Clear();
@@ -373,10 +374,17 @@ public partial class ShopLoop : Node
                     offeredItem.PricePaid = negotiation.AskingPrice;
                     gm.Inventory.Add(offeredItem);
                     Runner.Play("accepted");
+                    bool customerRippedOff = negotiation.AskingPrice > offeredItem.Item.BaseValue + (offeredItem.Item.BaseValue * 0.5);
+                    if(customerRippedOff)
+                        gm.BadKarma++;
+                    bool customerGoodDeal = negotiation.AskingPrice < offeredItem.Item.BaseValue + (offeredItem.Item.BaseValue * 0.25);
+                    if(customerGoodDeal)
+                        gm.GoodKarma++;
                 }
-                else if (offeredItem.IsFake && rng.Randf() < customer.Savvy)
+                else if (offeredItem.IsFake && rng.Randf() < customer.Savvy + (gm.BadKarma / 100))
                 {
                     Runner.Play("spotted_fake");
+                    gm.BadKarma++;
                 }
                 else
                 {
@@ -503,6 +511,7 @@ public partial class ShopLoop : Node
             gm.Inventory.Add(new ItemInstance(itemStolenOnEntrance));
             itemStolenOnEntrance = null;
             guiltyOfMurder = false;
+            gm.BadKarma++;
         } else
         {
             guiltyOfMurder = true;

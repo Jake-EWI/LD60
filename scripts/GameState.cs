@@ -13,6 +13,8 @@ public partial class GameState : Node
     public int Day {get; set;} = 1;
     public DateTime CurrentDate {get; set;} = new DateTime(2052, 10, 15);
     public List<ItemInstance> Inventory = new List<ItemInstance>();
+    public int GoodKarma { get; set; } = 0;
+    public int BadKarma { get; set; } = 0;
 
 
     public void Reset()
@@ -35,6 +37,11 @@ public partial class GameState : Node
     {
         Day++;
         CurrentDate = CurrentDate.AddDays(1);
+    }
+
+    public int GetKarma()
+    {
+        return GoodKarma - BadKarma;
     }
     
 
