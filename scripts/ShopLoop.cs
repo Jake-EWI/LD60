@@ -214,7 +214,7 @@ public partial class ShopLoop : Node
         itemStolenOnEntrance = null;
 
         //determine if customer steals an item on entrance
-        if (rng.Randf() < customer.StealChance && gm.Inventory.Count > 0)
+        if (rng.Randf() < customer.StealChance - (gm.GetKarma() * 0.01f) && gm.Inventory.Count > 0)
         {
             itemStolenOnEntrance = gm.Inventory[rng.RandiRange(0, gm.Inventory.Count - 1)].Item;
             gm.Inventory.RemoveAll(i => i.Item == itemStolenOnEntrance);
@@ -236,7 +236,7 @@ public partial class ShopLoop : Node
             var itemChoices = customer.PossibleItems.Length > 0 ? customer.PossibleItems : ItemPool;
             offeredItem = new ItemInstance(itemChoices[rng.RandiRange(0, itemChoices.Length - 1)])
             {
-                IsFake = rng.Randf() < customer.FakeChance + (gm.GetKarma() * 0.01)
+                IsFake = rng.Randf() < customer.FakeChance - (gm.GetKarma() * 0.01f)
             };
             offeredItem.Imperfection = ObservationPanel.RollImperfection(offeredItem.IsFake, rng);
         }
@@ -468,16 +468,16 @@ public partial class ShopLoop : Node
                     offeredItem.PricePaid = negotiation.AskingPrice;
                     gm.Inventory.Add(offeredItem);
                     Runner.Play("accepted");
-                    bool customerRippedOff = negotiation.AskingPrice > offeredItem.Item.BaseValue + (offeredItem.Item.BaseValue * 0.5);
-                    if(customerRippedOff)
-                        gm.BadKarma++;
-                    bool customerGoodDeal = negotiation.AskingPrice < offeredItem.Item.BaseValue + (offeredItem.Item.BaseValue * 0.25);
+                    bool customerGoodDeal = negotiation.AskingPrice >= offeredItem.Item.BaseValue;
                     if(customerGoodDeal)
                         gm.GoodKarma++;
+                    bool customerRippedOff = negotiation.AskingPrice < offeredItem.Item.BaseValue * 0.75;
+                    if(customerRippedOff)
+                        gm.BadKarma++;
                 }
-                if(customer == Rauz && secretSteps == 1)
+                else if(customer == Rauz && secretSteps == 1)
                     rauzTookItem = true;
-                else if (offeredItem.IsFake && rng.Randf() < customer.Savvy + (gm.BadKarma / 100))
+                else if (offeredItem.IsFake && rng.Randf() < customer.Savvy + (gm.BadKarma / 100f))
                 {
                     Runner.Play("spotted_fake");
                     gm.BadKarma++;
@@ -487,6 +487,14 @@ public partial class ShopLoop : Node
                     gm.Inventory.Remove(offeredItem);
                     gm.AddMoney(negotiation.AskingPrice);
                     Runner.Play("sold");
+                    if(offeredItem.IsFake)
+                        gm.BadKarma++;
+                    bool customerOvercharged = negotiation.AskingPrice > offeredItem.Item.BaseValue * 1.25;
+                    if(customerOvercharged)
+                        gm.BadKarma++;
+                    bool customerFairPrice = negotiation.AskingPrice <= offeredItem.Item.BaseValue;
+                    if(customerFairPrice)
+                        gm.GoodKarma++;
                 }
                 break;
             case HaggleResult.Countered:
@@ -609,13 +617,13 @@ public partial class ShopLoop : Node
         {
             gm.Inventory.Add(new ItemInstance(itemStolenOnEntrance));
             itemStolenOnEntrance = null;
-            guiltyOfMurder = false;
             gm.BadKarma++;
         } else
         {
             guiltyOfMurder = true;
+            gm.BadKarma++;
         }
-        if(rng.Randf() < CaughtForMurderChance)
+        if(rng.Randf() < CaughtForMurderChance - (gm.GetKarma() * 0.01f))
         {
             Queue<CustomerDefinition> storeQueue = new Queue<CustomerDefinition>();
             storeQueue.Enqueue(PoliceOfficer);
@@ -705,6 +713,11 @@ public partial class ShopLoop : Node
         if(gm.Money <= 0)
         {
             //out of money ending
+        }
+
+        if(rauzTookItem)
+        {
+            //rauz ending
         }
 
 
