@@ -89,7 +89,7 @@ public partial class ObservationPanel : Control
 
     public void RollChecks(ItemInstance item, RandomNumberGenerator rng)
     {
-        var checks = new List<ObservationCheck>(Enum.GetValues<ObservationCheck>());
+        var checks = item.IsFake ? new List<ObservationCheck>(Enum.GetValues<ObservationCheck>()) : [ObservationCheck.Weigh, ObservationCheck.UV];
         int failCount = item.IsFake ? rng.RandiRange(MinFakeFails, MaxFakeFails) : (rng.Randf() < RealFailChance ? 1 : 0);
         for (int i = 0; i < failCount; i++)
         {
