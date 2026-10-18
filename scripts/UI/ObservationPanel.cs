@@ -1,76 +1,115 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
+public enum ObservationCheck { Weigh, UV, Thermal, Thump }
 public partial class ObservationPanel : Control
 {
     [Signal] public delegate void GoBackPressedEventHandler();
     private TextureRect itemText;
-    private TextureRect imperfectionText;
     private Button goBackButton;
     private TextureButton weighButton;
     private TextureButton uvButton;
     private TextureButton thermalButton;
     private TextureButton thumpButton;
+    private TextureRect scaleImage;
+    private Label scaleValue;
     private AudioStreamPlayer thumpAudio;
-    private bool isFake;
+    private ItemInstance item;
+    private ObservationCheck? activeCheck;
 
-    [Export] public Texture2D[] ImperfectionTextures;
-    [Export] public Texture2D[] RedHerringTextures;
+    [Export] public int MinFakeFails { get; set; } = 1;
+    [Export] public int MaxFakeFails { get; set; } = 3;
+    [Export] public float RealFailChance { get; set; } = 0.35f;
+    [Export] public ShaderMaterial UVMaterial { get; set; }
+    [Export] public ShaderMaterial ThermalMaterial { get; set; }
+    [Export] public float ThumpShakeStrength { get; set; } = 10f;
+    [Export] public AudioStream ThumpCeramic { get; set; }
+    [Export] public AudioStream ThumpMetal { get; set; }
+    [Export] public AudioStream ThumpPlastic { get; set; }
+    private Vector2 itemRestPosition;
+    private Tween thumpTween;
 
     public override void _Ready()
     {
         itemText = GetNode<TextureRect>("Panel/ItemTexture");
-        imperfectionText = GetNode<TextureRect>("Panel/ImperfectionTexture");
+        itemRestPosition = itemText.Position;
         goBackButton = GetNode<Button>("GoBackButton");
         goBackButton.Pressed += () => EmitSignal(SignalName.GoBackPressed);
-        weighButton = GetNode<TextureButton>("WeighButton");
-        uvButton = GetNode<TextureButton>("UVButton");
-        thermalButton = GetNode<TextureButton>("ThermalButton");
-        thumpButton = GetNode<TextureButton>("ThumpButton");
+        weighButton = GetNode<TextureButton>("VBoxContainer/WeighButton");
+        uvButton = GetNode<TextureButton>("VBoxContainer/UVButton");
+        thermalButton = GetNode<TextureButton>("VBoxContainer/ThermalButton");
+        thumpButton = GetNode<TextureButton>("VBoxContainer/ThumpButton");
+        thumpAudio = GetNode<AudioStreamPlayer>("ThumpSFX");
 
-        weighButton.Pressed += () => ToggleWeight();
-        uvButton.Pressed += () => ToggleUV();
-        thermalButton.Pressed += () => ToggleThermal();
+        weighButton.Pressed += () => ToggleCheck(ObservationCheck.Weigh);
+        scaleImage = GetNode<TextureRect>("Panel/ScaleRect");
+        scaleValue = GetNode<Label>("Panel/ScaleValueLabel");
+        uvButton.Pressed += () => ToggleCheck(ObservationCheck.UV);
+        thermalButton.Pressed += () => ToggleCheck(ObservationCheck.Thermal);
         thumpButton.Pressed += () => PlayThump();
     }
 
-    public Texture2D RollImperfection(bool isFake, RandomNumberGenerator rng)
+    public void RollChecks(ItemInstance item, RandomNumberGenerator rng)
     {
-        if(isFake)
-            return ImperfectionTextures[rng.RandiRange(0, ImperfectionTextures.Length - 1)];
-        if(rng.RandiRange(0, 100) < 35)
-            return RedHerringTextures[rng.RandiRange(0, RedHerringTextures.Length - 1)];
-        return null;
+        var checks = new List<ObservationCheck>(Enum.GetValues<ObservationCheck>());
+        int failCount = item.IsFake ? rng.RandiRange(MinFakeFails, MaxFakeFails) : (rng.Randf() < RealFailChance ? 1 : 0);
+        for (int i = 0; i < failCount; i++)
+        {
+            int index = rng.RandiRange(0, checks.Count - 1);
+            item.FailedChecks.Add(checks[index]);
+            checks.RemoveAt(index);
+        }
     }
 
-    public void OpenObservation(Texture2D itemTexture, Texture2D imperfection, bool isFake)
+    public void OpenObservation(ItemInstance item)
     {
-        itemText.Texture = itemTexture;
-        imperfectionText.Texture = imperfection;
-        imperfectionText.Visible = imperfection != null;
-        this.isFake = isFake;
+        this.item = item;
+        itemText.Texture = item.Item.Icon;
+        activeCheck = null;
+        ApplyCheck();
         this.Visible = true;
     }
 
-    public void ToggleWeight()
+    public void ToggleCheck(ObservationCheck check)
     {
-
+        activeCheck = activeCheck == check ? null : check;
+        ApplyCheck();
     }
 
-    public void ToggleUV()
+    private void ApplyCheck()
     {
-        
-    }
-
-    public void ToggleThermal()
-    {
-        
+        scaleImage.Visible = activeCheck == ObservationCheck.Weigh;
+        itemText.Material = activeCheck switch
+        {
+            ObservationCheck.UV => UVMaterial,
+            ObservationCheck.Thermal => ThermalMaterial,
+            _ => null
+        };
+        if (itemText.Material is ShaderMaterial material)
+            material.SetShaderParameter("suspicious", item.FailedChecks.Contains(activeCheck.Value));
     }
 
     public void PlayThump()
     {
+        var material = item.Item.Material;
+        if (item.FailedChecks.Contains(ObservationCheck.Thump))
+            material = material == MaterialType.Plastic ? MaterialType.Ceramic : MaterialType.Plastic;
+        thumpAudio.Stream = material switch
+        {
+            MaterialType.Metal => ThumpMetal,
+            MaterialType.Plastic => ThumpPlastic,
+            _ => ThumpCeramic
+        };
+        thumpAudio.PitchScale = (float)GD.RandRange(0.95, 1.05);
         thumpAudio.Play();
-        //shake the object image
-
+        thumpTween?.Kill();
+        thumpTween = CreateTween();
+        for (int i = 0; i < 6; i++)
+        {
+            var offset = new Vector2((float)GD.RandRange(-1.0, 1.0), (float)GD.RandRange(-1.0, 1.0)) * ThumpShakeStrength;
+            thumpTween.TweenProperty(itemText, "position", itemRestPosition + offset, 0.04f);
+        }
+        thumpTween.TweenProperty(itemText, "position", itemRestPosition, 0.04f);
     }
 }

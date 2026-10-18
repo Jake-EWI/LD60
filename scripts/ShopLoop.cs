@@ -238,7 +238,7 @@ public partial class ShopLoop : Node
             {
                 IsFake = rng.Randf() < customer.FakeChance - (gm.GetKarma() * 0.01f)
             };
-            offeredItem.Imperfection = ObservationPanel.RollImperfection(offeredItem.IsFake, rng);
+            ObservationPanel.RollChecks(offeredItem, rng);
         }
 
         phase = ShopPhase.Intro;
@@ -564,7 +564,7 @@ public partial class ShopLoop : Node
             return;
         }
 
-        ObservationPanel.OpenObservation(offeredItem.Item.Icon, offeredItem.Imperfection, offeredItem.IsFake);
+        ObservationPanel.OpenObservation(offeredItem);
     }
 
     public void OnCoaPressed()

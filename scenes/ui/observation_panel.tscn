@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://buj1xb6bsoeo3"]
 
+[ext_resource type="Texture2D" uid="uid://pa3tkuc2mp0r" path="res://assets/art/UI/Scale.png" id="1_87pn7"]
+[ext_resource type="Texture2D" uid="uid://b80347ctklydw" path="res://assets/art/UI/Scale Button.png" id="1_utd3m"]
+[ext_resource type="FontFile" uid="uid://dkepblfe1l2kx" path="res://assets/fonts/Digital Display.ttf" id="2_7iqua"]
+[ext_resource type="FontFile" uid="uid://dulayjp6th5fw" path="res://assets/fonts/Chrysanthemum-Regular.otf" id="2_um7wa"]
+[ext_resource type="Texture2D" uid="uid://cr64exqe1pmkj" path="res://assets/art/UI/UV Button.png" id="3_47fyj"]
+[ext_resource type="Texture2D" uid="uid://djy8pbep25pnw" path="res://assets/art/UI/Thermal Button.png" id="4_87pn7"]
+[ext_resource type="Texture2D" uid="uid://dyikjhg43iywb" path="res://assets/art/UI/Thump Button.png" id="5_7iqua"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
+font = ExtResource("2_7iqua")
+font_size = 25
+font_color = Color(0.20392157, 1, 0.21568628, 1)
+shadow_color = Color(0, 0, 0, 0.6784314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yit1u"]
+font = ExtResource("2_um7wa")
+font_size = 23
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="ObservationPanel" type="Control" unique_id=2074306623]
 layout_mode = 3
 anchors_preset = 15
@@ -31,36 +51,38 @@ offset_top = -221.0
 offset_right = 229.0
 offset_bottom = 228.0
 
+[node name="ScaleRect" type="TextureRect" parent="Panel" unique_id=1577900592]
+visible = false
+layout_mode = 0
+offset_top = 193.0
+offset_right = 449.0
+offset_bottom = 506.0
+texture = ExtResource("1_87pn7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScaleValueLabel" type="Label" parent="Panel/ScaleRect" unique_id=1101677566]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 169.0
+offset_right = 308.0
+offset_bottom = 195.0
+text = "test"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ItemTexture" type="TextureRect" parent="Panel" unique_id=838109364]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1.0
-offset_bottom = -1.0
+offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
-
-[node name="ImperfectionTexture" type="TextureRect" parent="Panel" unique_id=73934238]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 156.0
-offset_top = 164.0
-offset_right = -174.0
-offset_bottom = -172.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="ScaleRect" type="TextureRect" parent="Panel" unique_id=1577900592]
-layout_mode = 0
-offset_right = 447.0
-offset_bottom = 446.0
 
 [node name="GoBackButton" type="Button" parent="." unique_id=99489758]
 layout_mode = 0
@@ -72,43 +94,81 @@ text = "Go Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=770603159]
 layout_mode = 0
-offset_left = 222.0
+offset_left = 199.0
 offset_top = 107.0
-offset_right = 348.0
+offset_right = 354.0
 offset_bottom = 287.0
 
 [node name="WeighButton" type="TextureButton" parent="VBoxContainer" unique_id=1627729044]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
+texture_normal = ExtResource("1_utd3m")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/WeighButton" unique_id=1659167047]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 58.0
+offset_top = 2.0
+offset_right = 142.0
+offset_bottom = 50.0
 text = "Weigh"
+label_settings = SubResource("LabelSettings_yit1u")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="UVButton" type="TextureButton" parent="VBoxContainer" unique_id=1439229715]
+[node name="UVButton" type="TextureButton" parent="VBoxContainer" unique_id=1327585335]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
+texture_normal = ExtResource("3_47fyj")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/UVButton" unique_id=254550004]
+[node name="Label" type="Label" parent="VBoxContainer/UVButton" unique_id=1819341085]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 41.0
+offset_top = 2.0
+offset_right = 143.0
+offset_bottom = 50.0
 text = "UV Light"
+label_settings = SubResource("LabelSettings_yit1u")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ThermalButton" type="TextureButton" parent="VBoxContainer" unique_id=1338921030]
+[node name="ThermalButton" type="TextureButton" parent="VBoxContainer" unique_id=684309543]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
+texture_normal = ExtResource("4_87pn7")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/ThermalButton" unique_id=495787152]
+[node name="Label" type="Label" parent="VBoxContainer/ThermalButton" unique_id=190263767]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Thermal View"
+offset_left = 41.0
+offset_top = 2.0
+offset_right = 143.0
+offset_bottom = 50.0
+text = "Thermal"
+label_settings = SubResource("LabelSettings_yit1u")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ThumpButton" type="TextureButton" parent="VBoxContainer" unique_id=581732629]
+[node name="ThumpButton" type="TextureButton" parent="VBoxContainer" unique_id=299708695]
+custom_minimum_size = Vector2(155, 55)
 layout_mode = 2
+texture_normal = ExtResource("5_7iqua")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/ThumpButton" unique_id=401053559]
+[node name="Label" type="Label" parent="VBoxContainer/ThumpButton" unique_id=1905495143]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 41.0
+offset_top = 2.0
+offset_right = 143.0
+offset_bottom = 50.0
 text = "Thump"
+label_settings = SubResource("LabelSettings_yit1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThumpSFX" type="AudioStreamPlayer" parent="." unique_id=524116815]
