@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://yn20d5ge2ayv"]
 
 [ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_caseg"]
+[ext_resource type="Resource" uid="uid://x2age3btf58v" path="res://assets/items/mysterious_vhs.tres" id="2_r0x36"]
 [ext_resource type="Texture2D" uid="uid://bvthhnodgsonk" path="res://assets/art/Characters/scary guy.png" id="2_scary"]
 
 [resource]
 script = ExtResource("1_caseg")
 CustomerName = "???"
+PossibleItems = [ExtResource("2_r0x36")]
 DialoguePath = "res://assets/dialogue/Mysterious_Man.txt"
 CharacterImage = ExtResource("2_scary")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"
