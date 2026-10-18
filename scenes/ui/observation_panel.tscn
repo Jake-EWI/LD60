@@ -57,6 +57,11 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ScaleRect" type="TextureRect" parent="Panel" unique_id=1577900592]
+layout_mode = 0
+offset_right = 447.0
+offset_bottom = 446.0
+
 [node name="GoBackButton" type="Button" parent="." unique_id=99489758]
 layout_mode = 0
 offset_left = 735.0
@@ -64,3 +69,46 @@ offset_top = 64.0
 offset_right = 806.0
 offset_bottom = 95.0
 text = "Go Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=770603159]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 107.0
+offset_right = 348.0
+offset_bottom = 287.0
+
+[node name="WeighButton" type="TextureButton" parent="VBoxContainer" unique_id=1627729044]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WeighButton" unique_id=1659167047]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Weigh"
+
+[node name="UVButton" type="TextureButton" parent="VBoxContainer" unique_id=1439229715]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UVButton" unique_id=254550004]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "UV Light"
+
+[node name="ThermalButton" type="TextureButton" parent="VBoxContainer" unique_id=1338921030]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ThermalButton" unique_id=495787152]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Thermal View"
+
+[node name="ThumpButton" type="TextureButton" parent="VBoxContainer" unique_id=581732629]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ThumpButton" unique_id=401053559]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Thump"

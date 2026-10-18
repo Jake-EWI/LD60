@@ -7,6 +7,13 @@ public partial class ObservationPanel : Control
     private TextureRect itemText;
     private TextureRect imperfectionText;
     private Button goBackButton;
+    private TextureButton weighButton;
+    private TextureButton uvButton;
+    private TextureButton thermalButton;
+    private TextureButton thumpButton;
+    private AudioStreamPlayer thumpAudio;
+    private bool isFake;
+
     [Export] public Texture2D[] ImperfectionTextures;
     [Export] public Texture2D[] RedHerringTextures;
 
@@ -16,6 +23,15 @@ public partial class ObservationPanel : Control
         imperfectionText = GetNode<TextureRect>("Panel/ImperfectionTexture");
         goBackButton = GetNode<Button>("GoBackButton");
         goBackButton.Pressed += () => EmitSignal(SignalName.GoBackPressed);
+        weighButton = GetNode<TextureButton>("WeighButton");
+        uvButton = GetNode<TextureButton>("UVButton");
+        thermalButton = GetNode<TextureButton>("ThermalButton");
+        thumpButton = GetNode<TextureButton>("ThumpButton");
+
+        weighButton.Pressed += () => ToggleWeight();
+        uvButton.Pressed += () => ToggleUV();
+        thermalButton.Pressed += () => ToggleThermal();
+        thumpButton.Pressed += () => PlayThump();
     }
 
     public Texture2D RollImperfection(bool isFake, RandomNumberGenerator rng)
@@ -27,11 +43,34 @@ public partial class ObservationPanel : Control
         return null;
     }
 
-    public void OpenObservation(Texture2D itemTexture, Texture2D imperfection)
+    public void OpenObservation(Texture2D itemTexture, Texture2D imperfection, bool isFake)
     {
         itemText.Texture = itemTexture;
         imperfectionText.Texture = imperfection;
         imperfectionText.Visible = imperfection != null;
+        this.isFake = isFake;
         this.Visible = true;
+    }
+
+    public void ToggleWeight()
+    {
+
+    }
+
+    public void ToggleUV()
+    {
+        
+    }
+
+    public void ToggleThermal()
+    {
+        
+    }
+
+    public void PlayThump()
+    {
+        thumpAudio.Play();
+        //shake the object image
+
     }
 }

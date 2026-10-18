@@ -1,8 +1,9 @@
-; Dylan
+; dylan_evil
 Dylan: [shake rate=40 level=20]Hey...
 > shake 0.8 
 Dylan: [shake rate=40 level=20]...
 Dylan: [shake rate=40 level=20]...
+; dylan
 Dylan: What's up bro!
 Dylan: Sorry, hard to breathe under this damn mask.
 Dylan: Mind taking a look at some of my stuff?
