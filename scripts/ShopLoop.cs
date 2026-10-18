@@ -9,6 +9,7 @@ public partial class ShopLoop : Node
     [Export] public CustomerDefinition[] CustomerPool {get; set;} = [];
     [Export] public CustomerDefinition PoliceOfficer { get; set; } = null;
     [Export] public CustomerDefinition MysteryCustomer { get; set; } = null;
+    [Export] public CustomerDefinition Rauz { get; set; } = null;
     [Export] public CustomerDefinition Tutorial { get; set; } = null;
     private List<CustomerDefinition> liveCustomerPool { get; set; } = [];
     [Export] int MaxCustomers {get; set;} = 6;
@@ -57,6 +58,9 @@ public partial class ShopLoop : Node
     private bool guiltyOfMurder = false;
     private bool hasCoa = false;
     private int mysteryDay;
+    private int rauzEncounterDay;
+    private ItemInstance rauzItem;
+    private string startSection;
 
     public override void _Ready()
     {
@@ -77,7 +81,7 @@ public partial class ShopLoop : Node
 
         BarterPanel.OfferMade += OnOfferPressed;
 
-        CustomerImage.Entered += () => Runner.Start(customer.DialoguePath, customerBuying ? "buyer" : "start");
+        CustomerImage.Entered += () => Runner.Start(customer.DialoguePath, startSection);
         CustomerImage.Left += NextCustomer;
 
         ActionsMenu.RejectButtonPressed += OnRejectPressed;
@@ -96,6 +100,7 @@ public partial class ShopLoop : Node
 
         //in game event init
         mysteryDay = rng.RandiRange(5, 7);
+        rauzEncounterDay = rng.RandiRange(9, 11);
         
         StartDay();
     }
@@ -122,6 +127,9 @@ public partial class ShopLoop : Node
                 customerQueue.Enqueue(liveCustomerPool[customerIndex]);
             liveCustomerPool.RemoveAt(customerIndex);
         }
+
+        if (gm.Day == rauzEncounterDay)
+            customerQueue.Enqueue(Rauz);
         
         moneyAtStartOfDay = gm.Money;
         bgmPlayer.Play();
@@ -141,6 +149,8 @@ public partial class ShopLoop : Node
 
     public void NextCustomer()
     {
+        //setup dialogue pathing
+        startSection = customerBuying ? "buyer" : "start";
         if (!customerQueue.TryDequeue(out customer))
         {
             EndDay();
@@ -166,6 +176,28 @@ public partial class ShopLoop : Node
             offeredItem.IsFake = true;
             MysteryCustomerEvent();
             return;
+        }
+
+        if (customer == Rauz)
+        {
+            customerBuying = true;
+            if(rauzItem != null)
+            {
+                startSection = "secret";
+                phase = ShopPhase.Intro;
+                if(gm.Inventory.Contains(rauzItem))
+                    offeredItem = rauzItem;
+
+            }
+            negotiation = new Negotiation(customer, offeredItem.Item, customerBuying, rng);
+            Runner.SetVariable("price", negotiation.AskingPrice);
+            Runner.SetVariable("item", offeredItem.Item.ItemName);
+
+            CustomerImage.Visible = true;
+            CustomerImage.Enter(customer.CharacterImage);
+
+            if(rauzItem != null)
+                return;
         }
         itemStolenOnEntrance = null;
 
@@ -415,6 +447,8 @@ public partial class ShopLoop : Node
         {
             case HaggleResult.Accepted:
                 phase = ShopPhase.Closing;
+                if(customer == MysteryCustomer)
+                    rauzItem = offeredItem;
                 if (!customerBuying)
                 {
                     gm.AddMoney(-negotiation.AskingPrice);
@@ -441,7 +475,10 @@ public partial class ShopLoop : Node
                 }
                 break;
             case HaggleResult.Countered:
-                Runner.Play(customerBuying ? "buyer_countered" : "countered");
+                if (startSection == "secret")
+                    Runner.Play("countersecret");
+                else
+                    Runner.Play(customerBuying ? "buyer_countered" : "countered");
                 break;
             case HaggleResult.Left:
                 phase = ShopPhase.Closing;

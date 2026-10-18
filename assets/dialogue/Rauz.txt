@@ -12,8 +12,9 @@ Rauz: I'll do [b]${price}[/b].
 
 == secret
 Rauz: I know you have it.
-Rauz: Give it here.
 > show_item
+Rauz: Give it to me.
+> barter
 
 == countersecret
 Rauz: I'm not paying.

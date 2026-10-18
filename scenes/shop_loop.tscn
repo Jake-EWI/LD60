@@ -71,9 +71,10 @@ stereo = true
 
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel", "CoaPanel")]
 script = ExtResource("1_cx0yy")
-CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple"), ExtResource("9_lqmhv"), ExtResource("10_w2lu8"), ExtResource("11_w2lu8"), ExtResource("12_ci2oq")]
+CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple"), ExtResource("9_lqmhv"), ExtResource("10_w2lu8"), ExtResource("12_ci2oq")]
 PoliceOfficer = ExtResource("5_ewqmb")
 MysteryCustomer = ExtResource("14_cl03r")
+Rauz = ExtResource("11_w2lu8")
 Tutorial = ExtResource("9_1ups1")
 Runner = NodePath("DialogueRunner")
 BarterPanel = NodePath("CanvasLayer/BarterPanel")
