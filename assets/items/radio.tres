@@ -8,5 +8,7 @@ script = ExtResource("1_rp4t7")
 ItemName = "Radio"
 BaseValue = 16
 Icon = ExtResource("1_cv7lk")
+Weight = 1.4
 Thermal = 1
+SerialPrefix = "RD"
 metadata/_custom_type_script = "uid://cv4540x8541k6"

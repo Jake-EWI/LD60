@@ -35,8 +35,7 @@ public partial class ShopLoop : Node
     [Export] public DayScreen DayScreen { get; set; }
     [Export] public GunPOV GunPOV { get; set; }
     [Export] public ObservationPanel ObservationPanel { get; set; }
-    [Export] public CoaPanel CoaPanel { get; set; }
-    [Export] public Color LightsOffColor { get; set; } = new(0.12f, 0.12f, 0.16f);
+    [Export] public CoaPanel CoaPanel { get; set; }    [Export] public Color LightsOffColor { get; set; } = new(0.12f, 0.12f, 0.16f);
     [Export] public float MysteryRiseTime { get; set; } = 4f;
     [Export] public float MysteryPauseTime { get; set; } = 2f;
 
@@ -111,7 +110,10 @@ public partial class ShopLoop : Node
         int startingItemAmount = rng.RandiRange(MinStartingItems, MaxStartingItems);
         for (int i = 0; i < startingItemAmount; i++)
         {
-            gm.Inventory.Add(new ItemInstance(ItemPool[rng.RandiRange(0, ItemPool.Length - 1)]));
+            var item = new ItemInstance(ItemPool[rng.RandiRange(0, ItemPool.Length - 1)]);
+            item.Serial = item.Item.GenerateSerial(rng);
+            ObservationPanel.RollChecks(item, rng);
+            gm.Inventory.Add(item);
         }
         
         StartDay();
@@ -238,6 +240,8 @@ public partial class ShopLoop : Node
             {
                 IsFake = rng.Randf() < customer.FakeChance - (gm.GetKarma() * 0.01f)
             };
+            offeredItem.Serial = offeredItem.Item.GenerateSerial(rng);
+            offeredItem.Coa = CoaPanel.GenerateCoa(offeredItem, rng, gm.CurrentDate, ItemPool);
             ObservationPanel.RollChecks(offeredItem, rng);
         }
 
@@ -360,7 +364,7 @@ public partial class ShopLoop : Node
                 break;
             case "show_coa":
                 HideBarter();
-                CoaPanel.OpenCoa(offeredItem.Item.ItemName, offeredItem.IsFake, rng, gm, this);
+                CoaPanel.OpenCoa(offeredItem.Coa);
                 break;
         }
     }

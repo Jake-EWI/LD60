@@ -8,5 +8,7 @@ script = ExtResource("1_btmgi")
 ItemName = "Old Camera"
 BaseValue = 60
 Icon = ExtResource("1_7osf7")
+Weight = 0.65
 Material = 1
+SerialPrefix = "CM"
 metadata/_custom_type_script = "uid://cv4540x8541k6"

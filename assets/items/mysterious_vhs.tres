@@ -7,4 +7,6 @@
 script = ExtResource("1_3svoi")
 ItemName = "Mysterious VHS Tape"
 Icon = ExtResource("1_sslbe")
+Weight = 0.25
+SerialPrefix = "MV"
 metadata/_custom_type_script = "uid://cv4540x8541k6"

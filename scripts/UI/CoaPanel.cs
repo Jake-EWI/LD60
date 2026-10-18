@@ -27,9 +27,8 @@ public partial class CoaPanel : Control
         goBackButton.Pressed += () => EmitSignal(SignalName.GoBackPressed);
     }
 
-    public void OpenCoa(string itemName, bool isFake, RandomNumberGenerator rng, GameState gm, ShopLoop shop)
+    public void OpenCoa(Coa coa)
     {
-        var coa = GenerateCoa(itemName, isFake, rng, gm.CurrentDate, shop.ItemPool);
         coaTitle.Text = coa.Title;
         coaItem.Text = $"Item: {coa.ItemName}";
         coaId.Text = $"Manufacturer ID: {coa.Id}";
@@ -38,8 +37,9 @@ public partial class CoaPanel : Control
         coaSound.Play();
     }
 
-    public Coa GenerateCoa(string itemName, bool isFake, RandomNumberGenerator rng, DateTime today, ItemDefinition[] itemPool)
+    public Coa GenerateCoa(ItemInstance item, RandomNumberGenerator rng, DateTime today, ItemDefinition[] itemPool)
     {
+        bool isFake = item.IsFake;
         bool misspell = isFake && rng.Randf() < MisspellingChance;
         bool wrongItem = isFake && rng.Randf() < WrongItemChance;
         bool fakeId = isFake && rng.Randf() < FakeIdChance;
@@ -50,8 +50,8 @@ public partial class CoaPanel : Control
         return new Coa
         {
             Title = misspell ? MisspellWordInSentence(Title, rng) : Title,
-            ItemName = GetItemName(itemName, wrongItem, itemPool, rng),
-            Id = GenerateRandomId(rng, fakeId),
+            ItemName = GetItemName(item.Item.ItemName, wrongItem, itemPool, rng),
+            Id = fakeId ? GenerateFakeId(item, itemPool, rng) : item.Serial,
             Date = GenerateDate(rng, fakeDate, today)
         };
     }
@@ -71,18 +71,12 @@ public partial class CoaPanel : Control
         return string.Join(" ", words);
     }  
 
-    private string GenerateRandomId(RandomNumberGenerator rng, bool isFake)
+    private string GenerateFakeId(ItemInstance item, ItemDefinition[] itemPool, RandomNumberGenerator rng)
     {
-        int idLength = isFake ? 6 : rng.RandiRange(7, 8);
-        string id = "";
-        for(int i = 0; i < idLength; i++)
-        {
-            if(rng.RandiRange(0, 1) == 0)
-                id += (char)rng.RandiRange(65, 90);
-            else
-                id += rng.RandiRange(0, 9).ToString();
-        }
-        return id;
+        if(rng.Randf() < 0.5f)
+            return item.Item.GenerateSerial(rng);
+        var otherItems = Array.FindAll(itemPool, i => i.SerialPrefix != item.Item.SerialPrefix);
+        return otherItems[rng.RandiRange(0, otherItems.Length - 1)].GenerateSerial(rng);
     }
 
     private DateTime GenerateDate(RandomNumberGenerator rng, bool isFake, DateTime today)

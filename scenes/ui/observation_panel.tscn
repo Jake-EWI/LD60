@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cr64exqe1pmkj" path="res://assets/art/UI/UV Button.png" id="3_47fyj"]
 [ext_resource type="Texture2D" uid="uid://djy8pbep25pnw" path="res://assets/art/UI/Thermal Button.png" id="4_87pn7"]
 [ext_resource type="Texture2D" uid="uid://dyikjhg43iywb" path="res://assets/art/UI/Thump Button.png" id="5_7iqua"]
+[ext_resource type="Texture2D" uid="uid://7jxpyusny3f6" path="res://assets/art/UI/COA Paper.png" id="8_7iqua"]
+[ext_resource type="FontFile" uid="uid://c2sprpq85tihx" path="res://assets/fonts/ChopinScript.ttf" id="9_ltdjy"]
+[ext_resource type="AudioStream" uid="uid://dxjd0k55t8e02" path="res://assets/audio/sfx/coa.wav" id="10_paper"]
+[ext_resource type="AudioStream" uid="uid://cv00nmp1p6irh" path="res://assets/audio/sfx/uv sfx.wav" id="11_shxim"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
 font = ExtResource("2_7iqua")
@@ -14,11 +18,30 @@ font_size = 25
 font_color = Color(0.20392157, 1, 0.21568628, 1)
 shadow_color = Color(0, 0, 0, 0.6784314)
 
+[sub_resource type="LabelSettings" id="LabelSettings_uv"]
+font = ExtResource("2_7iqua")
+font_size = 40
+font_color = Color(1, 1, 1, 0)
+outline_size = 6
+outline_color = Color(0.7490196, 0.34901962, 1, 0.34901962)
+shadow_size = 18
+shadow_color = Color(0.69803923, 0.3019608, 1, 0.22352941)
+shadow_offset = Vector2(0, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_yit1u"]
 font = ExtResource("2_um7wa")
 font_size = 23
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfdir"]
+font = ExtResource("9_ltdjy")
+font_size = 26
+font_color = Color(0, 0, 0, 0.6745098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2h2w"]
+font = ExtResource("2_um7wa")
+font_color = Color(0, 0, 0, 0.6666667)
 
 [node name="ObservationPanel" type="Control" unique_id=2074306623]
 layout_mode = 3
@@ -83,6 +106,39 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="UVView" type="ColorRect" parent="Panel" unique_id=673180494]
+clip_contents = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 343.0
+offset_right = 439.0
+offset_bottom = 444.0
+mouse_filter = 2
+color = Color(0.08, 0.02, 0.15, 1)
+
+[node name="UVZoom" type="TextureRect" parent="Panel/UVView" unique_id=680727891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="UVSerialLabel" type="Label" parent="Panel/UVView" unique_id=1058607431]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "vgdf-5448"
+label_settings = SubResource("LabelSettings_uv")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GoBackButton" type="Button" parent="." unique_id=99489758]
 layout_mode = 0
@@ -172,3 +228,63 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ThumpSFX" type="AudioStreamPlayer" parent="." unique_id=524116815]
+
+[node name="ReferenceSheet" type="TextureRect" parent="." unique_id=1027560716]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 392.0
+offset_right = 1105.0
+offset_bottom = 744.0
+texture = ExtResource("8_7iqua")
+flip_v = true
+
+[node name="Label" type="Label" parent="ReferenceSheet" unique_id=1334310571]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 246.0
+offset_bottom = 30.0
+text = "Reference Sheet"
+label_settings = SubResource("LabelSettings_bfdir")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ReferenceSheet" unique_id=24897346]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 52.0
+offset_right = 246.0
+offset_bottom = 92.0
+mouse_filter = 2
+
+[node name="RefNameLabel" type="Label" parent="ReferenceSheet/VBoxContainer" unique_id=1448825244]
+layout_mode = 2
+text = "Name: "
+label_settings = SubResource("LabelSettings_b2h2w")
+
+[node name="RefContainsLabel2" type="Label" parent="ReferenceSheet/VBoxContainer" unique_id=108806487]
+layout_mode = 2
+text = "ID:"
+label_settings = SubResource("LabelSettings_b2h2w")
+
+[node name="RefWeightLabel" type="Label" parent="ReferenceSheet/VBoxContainer" unique_id=571514977]
+layout_mode = 2
+text = "Average Weight:"
+label_settings = SubResource("LabelSettings_b2h2w")
+
+[node name="RefMaterialLabel" type="Label" parent="ReferenceSheet/VBoxContainer" unique_id=1725522572]
+layout_mode = 2
+text = "Material:"
+label_settings = SubResource("LabelSettings_b2h2w")
+
+[node name="RefContainsLabel" type="Label" parent="ReferenceSheet/VBoxContainer" unique_id=218889166]
+layout_mode = 2
+text = "Contains:"
+label_settings = SubResource("LabelSettings_b2h2w")
+
+[node name="PaperSFX" type="AudioStreamPlayer" parent="." unique_id=1070675385]
+stream = ExtResource("10_paper")
+
+[node name="UVSFX" type="AudioStreamPlayer" parent="." unique_id=357689219]
+stream = ExtResource("11_shxim")
+volume_db = -3.85

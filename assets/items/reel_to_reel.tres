@@ -8,5 +8,7 @@ script = ExtResource("1_2ivw4")
 ItemName = "Reel to Reel"
 BaseValue = 36
 Icon = ExtResource("1_wb4hp")
+Weight = 12.0
 Material = 1
+SerialPrefix = "RR"
 metadata/_custom_type_script = "uid://cv4540x8541k6"

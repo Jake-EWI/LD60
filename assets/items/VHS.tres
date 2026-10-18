@@ -8,5 +8,7 @@ script = ExtResource("1_7krkn")
 ItemName = "VHS Player"
 BaseValue = 44
 Icon = ExtResource("1_lqg1o")
+Weight = 4.5
 Thermal = 1
+SerialPrefix = "VP"
 metadata/_custom_type_script = "uid://cv4540x8541k6"

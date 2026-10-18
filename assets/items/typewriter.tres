@@ -8,5 +8,7 @@ script = ExtResource("1_t55q6")
 ItemName = "Typewriter"
 BaseValue = 70
 Icon = ExtResource("1_h5n3u")
+Weight = 5.5
 Material = 2
+SerialPrefix = "TW"
 metadata/_custom_type_script = "uid://cv4540x8541k6"

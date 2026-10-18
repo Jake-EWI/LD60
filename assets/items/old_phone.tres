@@ -8,5 +8,7 @@ script = ExtResource("2_8tq3n")
 ItemName = "Old Phone"
 BaseValue = 40
 Icon = ExtResource("1_ld8vx")
+Weight = 1.1
 Thermal = 1
+SerialPrefix = "PH"
 metadata/_custom_type_script = "uid://cv4540x8541k6"

@@ -8,6 +8,9 @@ public partial class ItemInstance
     public bool IsFake { get; set; } = false;
     public int PricePaid { get; set; }
     public HashSet<ObservationCheck> FailedChecks { get; } = [];
+    public string Serial { get; set; }
+    public string UVSerial { get; set; }
+    public float MeasuredWeight { get; set; }
     public Coa Coa { get; set; }
 
     public ItemInstance(ItemDefinition item)
