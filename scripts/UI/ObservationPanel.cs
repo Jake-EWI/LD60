@@ -28,6 +28,7 @@ public partial class ObservationPanel : Control
     private static readonly string[] ContainsText = ["No Power Source", "Battery", "Power Supply"];
     private ItemInstance item;
     private ObservationCheck? activeCheck;
+    private GameState gm;
 
     [Export] public int MinFakeFails { get; set; } = 1;
     [Export] public int MaxFakeFails { get; set; } = 3;
@@ -50,6 +51,7 @@ public partial class ObservationPanel : Control
 
     public override void _Ready()
     {
+        gm = GetNode<GameState>("/root/GameState");
         itemText = GetNode<TextureRect>("Panel/ItemTexture");
         itemRestPosition = itemText.Position;
         goBackButton = GetNode<Button>("GoBackButton");
@@ -136,6 +138,9 @@ public partial class ObservationPanel : Control
     {
         this.item = item;
         itemText.Texture = item.Item.Icon;
+        weighButton.Visible = gm.HasUpgrade(UpgradeType.Scale);
+        uvButton.Visible = gm.HasUpgrade(UpgradeType.UVLight);
+        thermalButton.Visible = gm.HasUpgrade(UpgradeType.Thermal);
         refName.Text = $"Name: {item.Item.ItemName}";
         refId.Text = $"ID: {item.Item.SerialPrefix}-######";
         refWeight.Text = $"Average Weight: {item.Item.Weight * 1000:0}g";

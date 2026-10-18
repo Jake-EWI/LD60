@@ -4,6 +4,7 @@ using LD60.Dialogue;
 using System.Collections.Generic;
 
 public enum ShopPhase { Intro, Barter, Closing, Shot, Mystery }
+public enum Ending { Broke, Rauz, MurderEnd, Mystery, NormalEnd }
 public partial class ShopLoop : Node
 {
     [Export] public CustomerDefinition[] CustomerPool {get; set;} = [];
@@ -35,7 +36,10 @@ public partial class ShopLoop : Node
     [Export] public DayScreen DayScreen { get; set; }
     [Export] public GunPOV GunPOV { get; set; }
     [Export] public ObservationPanel ObservationPanel { get; set; }
-    [Export] public CoaPanel CoaPanel { get; set; }    [Export] public Color LightsOffColor { get; set; } = new(0.12f, 0.12f, 0.16f);
+    [Export] public CoaPanel CoaPanel { get; set; }
+    [Export] public UpgradePanel UpgradePanel { get; set; }
+    [Export] public UpgradeDefinition[] UpgradePool { get; set; } = [];
+    [Export] public Color LightsOffColor { get; set; } = new(0.12f, 0.12f, 0.16f);
     [Export] public float MysteryRiseTime { get; set; } = 4f;
     [Export] public float MysteryPauseTime { get; set; } = 2f;
 
@@ -100,7 +104,8 @@ public partial class ShopLoop : Node
         ObservationPanel.GoBackPressed += CloseAllActionPanels;
         InventoryPanel.GoBackPressed += CloseAllActionPanels;
 
-        DayScreen.DayScreenFinished += () => StartDay();
+        DayScreen.DayScreenFinished += () => UpgradePanel.Open(UpgradePool, rng);
+        UpgradePanel.Finished += StartDay;
 
         //in game event init
         mysteryDay = rng.RandiRange(5, 7);
@@ -717,7 +722,29 @@ public partial class ShopLoop : Node
             //determine end game endings
         } else if(gm.Money <= 0)
         {
-            //out of money ending
+            PlayEnding(Ending.Broke);
+        }
+    }
+
+    private void PlayEnding(Ending ending)
+    {
+        switch (ending)
+        {
+            case Ending.Broke:
+                GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/endings/broke_ending.tscn");
+                break;
+            case Ending.Rauz:
+                // Handle rauz ending
+                break;
+            case Ending.MurderEnd:
+                // Handle murder ending
+                break;
+            case Ending.Mystery:
+                // Handle mystery ending
+                break;
+            case Ending.NormalEnd:
+                // Handle normal ending
+                break;
         }
     }
 }

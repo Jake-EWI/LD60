@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dvs3pge4faflq"]
+
+[ext_resource type="Script" uid="uid://3p5ut7wiw1ye" path="res://scripts/UI/UpgradePanel.cs" id="1_upgrade"]
+[ext_resource type="Texture2D" uid="uid://df1mr23rsknnn" path="res://assets/art/UI/BlankPC.png" id="2_jgoho"]
+[ext_resource type="FontFile" uid="uid://dq3tthd11gt6a" path="res://assets/fonts/Ac437_ATT_PC6300.ttf" id="3_naqhr"]
+[ext_resource type="FontFile" uid="uid://dulayjp6th5fw" path="res://assets/fonts/Chrysanthemum-Regular.otf" id="4_naqhr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfdir"]
+texture = ExtResource("2_jgoho")
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("3_naqhr")
+font_size = 50
+
+[sub_resource type="Theme" id="Theme_epw2j"]
+default_font = ExtResource("3_naqhr")
+
+[sub_resource type="Theme" id="Theme_lcbry"]
+default_font = ExtResource("4_naqhr")
+default_font_size = 34
+
+[node name="UpgradePanel" type="Control" unique_id=226063589]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_upgrade")
+
+[node name="Panel" type="Panel" parent="." unique_id=2025497453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bfdir")
+
+[node name="Title" type="Label" parent="Panel" unique_id=542254524]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -106.0
+offset_top = 84.0
+offset_right = 69.0
+offset_bottom = 154.0
+grow_horizontal = 2
+text = "Upgrades"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="Panel" unique_id=1984861914]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -179.0
+offset_right = 334.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_epw2j")
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Panel" unique_id=1889398471]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 398.0
+offset_top = -635.0
+offset_right = 558.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_lcbry")
+text = "Start Day"

@@ -15,6 +15,7 @@ public partial class GameState : Node
     public List<ItemInstance> Inventory = new List<ItemInstance>();
     public int GoodKarma { get; set; } = 0;
     public int BadKarma { get; set; } = 0;
+    public Dictionary<UpgradeDefinition, int> Upgrades = new();
 
 
     public void Reset()
@@ -23,6 +24,7 @@ public partial class GameState : Node
         Day = 1;
         GoodKarma = 0;
         BadKarma = 0;
+        Upgrades.Clear();
         EmitSignal(SignalName.MoneyChanged, Money);
     }
 
@@ -44,6 +46,32 @@ public partial class GameState : Node
     public int GetKarma()
     {
         return GoodKarma - BadKarma;
+    }
+
+    public int GetUpgradeLevel(UpgradeDefinition upgrade) => Upgrades.GetValueOrDefault(upgrade);
+
+    public bool HasUpgrade(UpgradeType type)
+    {
+        foreach (var upgrade in Upgrades.Keys)
+            if (upgrade.Type == type)
+                return true;
+        return false;
+    }
+
+    public float GetBonus(UpgradeType type)
+    {
+        float bonus = 0;
+        foreach (var (upgrade, level) in Upgrades)
+            if (upgrade.Type == type)
+                bonus += upgrade.Amount * level;
+        return bonus;
+    }
+
+    public void BuyUpgrade(UpgradeDefinition upgrade)
+    {
+        int level = GetUpgradeLevel(upgrade);
+        AddMoney(-upgrade.GetCost(level));
+        Upgrades[upgrade] = level + 1;
     }
     
 
