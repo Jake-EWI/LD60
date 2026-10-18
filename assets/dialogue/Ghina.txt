@@ -1,0 +1,159 @@
+; Ghina
+Ghina: Howdy. 
+> shake 0.8 
+Ghina: Got some goods you might like...
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Ghina: [b]${price}[/b]. No lowballs, I know what I got.
+> barter
+
+== accepted
+Ghina: Good deal.
+
+== countered
+> shake 0.5
+Ghina: No lowballs. ${price}, or I leave.
+
+== left
+> shake 0.8
+Ghina: You'll regret this one...
+
+== stole
+> shake 0.8
+Ghina: Oh...!
+Ghina: Quite the interesting stock you have here, sir...
+
+== pass
+> shake 0.2
+Ghina: You wouldn't know a good deal if it smacked yous across the face!
+
+== chat
+Ghina: Ugh, ask away I guess...
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Ghina: They're sending out that new task force to "help" civilains. What're they called? The "Anti-Rebel Unit"? Some corny stuff dude. Like just say you don't want people overthrowing your little power hierarchy. | I tune once in a while, it's always the same stuff. "The war is going great" or "Come to Acre Point". Just covering for how badly we're getting our asses handed to us.
+Ghina: Shame it took the literal end of the world for people to see our government was a sham.
+Ghina: Enough talk, we doing business?
+
+== chat_b
+Ghina: Pretty dumb question. I mean, just step outside and you'll see what what we've all been seeing for the past 6 months. | Stay inside if you don't like blood, or scavengers, like human scavengers too, those freaks have been making the rounds.
+Ghina: You ever wonder what human tastes like?
+Ghina: Enough talk, we doing business?
+
+== chat_c
+Ghina: Listen dude...
+Ghina: Are you seriously pulling this bull right now? It's the literal end of the world, who cares about authenticity? Leave your morals back in the old world.
+Ghina: Feel free to check if you want to, I couldn't care less.
+Ghina: Enough talk, we doing business?
+
+== chat_d
+Ghina: I'm making things. Tech, clothes, other stuff...
+Ghina: Anyone ever tell you you ask too many questions?
+Ghina: But if your ever interested in some... firepower... let me know. I know a person. 
+Ghina: It's not me, by the way.
+Ghina: Enough talk, we doing business?
+
+== buyer
+Ghina: A {item}...?
+> show_item
+Ghina: How much? Don't high ball.
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Ghina: I like[b]${price}[/b].
+> barter
+
+== sold
+Ghina: I'll be make quick use of this. | Neat, now I can finish my bomb.
+Ghina: Oh... slip of the tongue. I meant... actually, whatever.
+
+== spotted_fake
+> shake 0.8
+Ghina: [shake rate=40 level=20]Do you think I'm stupid?[/shake] A fake, really?
+Ghina: Listen, I've been doing this trading tech thing even before the world went to hell. I'm not a spring chicken. 
+Ghina: For the record, I don't blame you. Any other fool would've bought that without a second thought, but today you got me.
+Ghina: So don't bother with the formalities, let's just move on.
+Ghina: You DO have authentic stuff in here, right?
+
+== buyer_countered
+> shake 0.5
+Ghina: ${price} is a good number.| ${price}, that's it.
+
+== buyer_left
+> shake 0.8
+Ghina: Fun chatting, but you should work on your haggling a bit more.
+
+== buyer_stole
+> shake 0.8
+Ghina: Tell me, do you have good aim?
+Ghina: [shake rate=20 level=10]Cause if you don't, you won't be seeing this again.
+
+== pull_gun
+> shake 2
+Ghina: [shake rate=10 level=5]Oooooh, quite a beauty you got there.[/shake]
+Ghina: Yep, one blast at this range and I'm toast. You'll have to deal with the guts, though.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Ghina: [shake rate=20 level=5]What a waste...[/shake]
+Ghina: I'll give it to you, your sense for this stuff is pretty good.
+Ghina: I considered stealing, but nope, never actually took anything.
+Ghina: Feel free to check my body after you shoot, the guilt will be my payment.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Ghina: [shake rate=40 level=20]Straight to the heart...[/shake]
+> shoot
+
+== not_shoot
+Ghina: Chickened out? Aw man, I really thought you'd do it!
+Ghina: You're fun, dude! That's the first time someone has actually had the balls to pull out a gun on me, a shotgun no less!
+Ghina: Credit where credit is due. You got me there for a moment, just a moment though.
+> not_shoot
+
+
+== buyer_chat
+Ghina: Got a question?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Ghina: I'm what you would've called a "vigilante" not too long ago, or a criminal depending on who you ask. I salvage this stuff, taking the good and throwing out the useless junk. | I'm building various things, weapons you might say. I mean, can trust no one but yourself right?
+Ghina: You should look into repurposing some of this stuff too. Your shop has 3 entrances and they're all unlocked? Playing it risky, dude.
+Ghina: Now then, down to business.
+
+== buyer_chat_b
+Ghina: I'd say 60% is from killing, but the other 40% is usually business. 20% of that business didn't involve a threat![/shake]
+Ghina: Which side of the coin are you gonna fall on, sir?
+Ghina: Now then, down to business.
+
+== buyer_chat_c
+Ghina: Yeah, duh. You think I'd buy it at full price? 
+Ghina: It's the end of the world dude, make your bank I guess, but seriously, that much? Get a grip.  
+Ghina: Now then, down to business.
+
+== buyer_chat_d
+Ghina: I've been hearing some strange stories of what those cloaked freaks have been doing. Eating people, sending them off caskets. Last I heard they even considered becoming Apostles themselves. | You should keep your eyes peeled at night, you've got some stuff in here that a cloaked guy would kill for. I mean, I guess they will kill you. Not like they care.
+Ghina: Do you see yourself joining those guys? I'd consider it if they weren't all into that freaky stuff...
+Ghina: Now then, down to business.
+
+== coa
+Ghina: COA? Ugh, I keep it on me for this item specifically.
+> shake 0.8
+Ghina: Here's it.
+> show_coa
+
+== no_coa
+Ghina: Dude... seriously. A village got blown to bits the other day and you're seriously yacking me over a COA? It's the end of the world, man.

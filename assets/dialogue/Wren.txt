@@ -1,0 +1,146 @@
+; Wren
+Wren: How're you hanging? Bad, I know. 
+> shake 0.8 
+Wren: How much for this stuff?
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Wren: I was feeling [b]${price}[/b]. Seems good to me.
+> barter
+
+== accepted
+Wren: That was easy. Thanks.
+
+== countered
+> shake 0.5
+Wren: C'mon man, it's like ${price} minimum...
+
+== left
+> shake 0.8
+Wren: Well I tried. I'll sleep and try again tomorrow or something.
+
+== stole
+> shake 0.8
+Wren: Is that a...!
+Wren: Oh nothing.. Just taking a look at your stock...
+
+== pass
+> shake 0.2
+Wren: That stinks. Meh, I'll try what that preacher guy is on about.
+
+== chat
+Wren: I'm not big on questions...
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Wren: Only every now and again. You can only tune into the government station, that stuff is always just bad news. | Yeah, I actually had an encounter with one of those cloaked guys! She told me I could "become a new ruler" or something ... 
+Wren: Now that I think about it, isn't it a bit strange that only the government has a working frequency?
+Wren: So, you feeling it?
+
+== chat_b
+Wren: I was going to Hock Village, but luckily, or unluckily, it was blown to bits before I got there. It was them... the Apostles. | It's hard to go a mile without seeing a body now. I've gotten used to the site. Is that a bad thing?
+Wren: Maybe this is just what it was like to live millions of years ago...
+Wren: So, you feeling it?
+
+== chat_c
+Wren: I'm going to be honest with you, I have no idea.
+Wren: They're always saying be on the lookout for the counterfeit stuff, but I don't know the eye for it! Is there a way to check? | Can you check right quick? I mean, you're a pro, right?
+Wren: So, you feeling it?
+
+== chat_d
+Wren: Looking for a place to call home. I lost my family back in the initial strikes. It's just been me since then..
+Wren: You know, sometimes I think... actually, never mind. 
+Wren: So, you feeling it?
+
+== buyer
+Wren: Oh my.. you have the {item} ?
+> show_item
+Wren: How much would you want for it? 
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Wren: [b]${price}[/b] is more than fair!
+> barter
+
+== sold
+Wren: A memento of happier times. Thank you, stranger. | Takes me back to when the air was still clean. Well, as a clean as it can get anyway.
+
+== spotted_fake
+> shake 0.8
+Wren: [shake rate=40 level=20]...[/shake] Hey, I'm not trying to imply anything but... is this fake?
+Wren: I'm pretty familiar with this item, and I know for a fact that the manufacturing window is incorrect... 
+Wren: There's no way for you to know that. It's pretty niche after all, just keep it in mind for the next customer.
+
+== buyer_countered
+> shake 0.5
+Wren: I was feeling ${price}.| ${price}, final offer.
+
+== buyer_left
+> shake 0.8
+Wren: Was worth a shot. Have a good one.
+
+== buyer_stole
+> shake 0.8
+Wren: Are you a fast runner?
+Wren: [shake rate=20 level=10]Good, cause I'll be taking this! Cya!
+
+== pull_gun
+> shake 2
+Wren: [shake rate=10 level=5]Okay, let's talk about this...[/shake]
+Wren: What did I do? Something I said? I'll leave right now!
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Wren: [shake rate=20 level=5]Steal?[/shake]
+Wren: You've got a pretty sweet collection here, but nothing I think is worth stealing... no offense...
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Wren: [shake rate=40 level=20]Please, you don't have to do this-[/shake]
+> shoot
+
+== not_shoot
+Wren: Whew. Thanks for hearing me out.
+Wren: I get it, bottom line is rough. I'm sure the person you're paying for this place is no angel either.
+> not_shoot
+
+
+== buyer_chat
+Wren: Got a question?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Wren: I'm day trading to get to the Braus Settlement, it's east of Acre Point. | I'm heading to the Braus settlement, it's where the refugees who refuse to go to Acre Point live.
+Wren: Sooo.. how much?
+
+== buyer_chat_b
+Wren: Sold my husband and I's wedding bands for it... It's okay. He would've understood. [/shake]
+Wren: Sooo.. how much?
+
+== buyer_chat_c
+Wren: You're smarter than you look dude...  
+Wren: Sooo.. how much?
+
+== buyer_chat_d
+Wren: Near the Livera Ocean, I saw people in cloaks incase something in a casket, then push it off into the ocean... | On the outskirts of Hock, before it was blown to smithereens. I saw them...  they had something to do with it.
+Wren: How much for it then?
+
+== coa
+Wren: COA? Luckily, I keep it on my person.
+> shake 0.8
+Wren: Here's it.
+> show_coa
+
+== no_coa
+Wren: COA? I don't have the space to fit that anywhere... Cut me some slack...
