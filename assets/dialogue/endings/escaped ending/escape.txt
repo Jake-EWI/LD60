@@ -1,0 +1,49 @@
+>changebg_Money
+
+; player
+I did. I made enough to leave.
+I have to go for the smuggle ship.
+Will I make it in time?
+
+>changebg_Beach
+
+;player
+Hey!
+Take me with you!
+
+;Captain
+Captain: You're lucky, last spot left.
+
+>changebg_SmuggleShip
+
+; player
+
+Now's the journey.
+I wouldn't have survived another day in there.
+The blood, the screaming, the sirens, the jets.
+It was hell on earth.
+It still is for everyone that is trapped there.
+We don't know where they came from, or what they want with us.
+But there's no way out.
+I'm only buying some temporary peace.
+But if that means I get to spend just one more moment with Tresha.
+I would never regret it.
+
+> changeBg_Sunlight
+; player
+Tresha... Moona...
+Wake up guys...
+It's time to go...
+We can't stay here for long, they're taking ground fast. The last stronghold is still 10 miles south.
+I'm sorry. I'm tired too.
+There should be food in the stronghold.
+We'll make it there today. I promise.
+Here, take this. It's a GameDude, something I used to play on when I was bored. It's nothing crazy, but old stuff like this still has a place too.
+Are you ready?
+
+> changeBg_Ruined
+
+
+; Old radio
+Radio: .....Ap...os..tle.....att..a....k.......rein....for....ce....nt......re.....que.....st..........
+
