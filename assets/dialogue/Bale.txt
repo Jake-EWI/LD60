@@ -1,0 +1,158 @@
+; Bale
+Bale: Yo.
+> shake 0.8 
+Bale: Here's stuff. Don't know what it is.
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Bale: [b]${price}[/b] seems right.
+> barter
+
+== accepted
+Bale: Excellent. [/shake].
+
+== countered
+> shake 0.5
+Bale: {price}.
+
+== left
+> shake 0.8
+Bale: Tch. Waste of time... 
+
+== stole
+> shake 0.8
+Bale: Get out your {item}.
+Bale: ...
+Bale: How much?
+
+== pass
+> shake 0.2
+Bale: Tch. Waste of time... 
+
+== chat
+Bale: ....What?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Bale: I'm listening, but I don't listen. I'm probably not the first person to tell you this, but there are more enemies than just the ones they tell you hate.
+Bale: The veil is falling.
+Bale: What shape do you think society will take in the future?
+Bale: I'm hoping for something a bit more... unitary.
+
+== chat_b
+Bale: The other night, I saw a skinned man; crucified. 
+Bale: It's scary what others will do in the name of their God.
+Bale: Sad to know it's all in vain.
+Bale: But delusion is what keeps people going. Everyone is high on something.
+
+== chat_c
+Bale: Yeah.
+Bale: I'd be surprised if it was real.
+Bale: Could be, though.
+
+== chat_d
+Bale: I'm just enjoying the time I've got left.
+Bale: You and I both know we won't be here for long.
+Bale: There's no way out for me. I'm stuck here.
+Bale: But maybe for you...
+Bale: There could be options.
+
+== buyer
+Bale: A {item}...
+> show_item
+Bale: Price?
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Bale: [b]${price}[/b]. 
+> barter
+
+== sold
+Bale: Best to stay aware.
+
+== spotted_fake
+> shake 0.8
+Bale: A fake?
+Bale: Honestly speaking, I don't care. For where I'm going, fake or not fake? Doesn't matter.
+
+== buyer_countered
+> shake 0.5
+Bale: ${price}.
+
+== buyer_left
+> shake 0.8
+Bale: Best to stay aware.
+
+== buyer_stole
+> shake 0.8
+Bale: Hey, I'm gonna steal this.
+Bale: [shake rate=40 level=20]I think I'll make better use of it than you.
+
+== pull_gun
+> shake 2
+Bale: [shake rate=40 level=20]You've got some balls.
+Bale: Hmm. I think I'd like to go on living for a little longer.
+Bale: I'd like to see where we end up.
+Bale: [shake rate=40 level=20]But I guess that's not up to me.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Bale: [shake rate=40 level=20]...?[/shake]
+Bale: Yeah.
+Bale: Care enough to have blood on your hands for it?
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Bale: [shake rate=40 level=20]...[/shake]
+> shoot
+
+== not_shoot
+Bale: ....
+Bale: Guess I'm sticking around for a while longer.
+> not_shoot
+
+
+== buyer_chat
+Bale: Hm?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Bale: Nothing really. I was always a hoarder, even in the old world. I like what I like. I don't care if it serves me any purpose.
+Bale: So?
+
+== buyer_chat_b
+Bale: Idiotic preacher gave it to me. 
+Bale: All I had to say was that I believed in his "Lord", and he gave me all this stuff.
+Bale: Pretty neat.
+Bale: So?
+
+== buyer_chat_c
+Bale: Probably true.
+Bale: I don't know what the hell it is, or what it's worth. I just want it.
+Bale: So?
+
+== buyer_chat_d
+Bale: Near Braus, there was cloaked people with flower crown on their heads. Running around some type of structure. Then they lit it on fire. 
+Bale: What do you think that means?
+Bale: All the freaks hidden in the past have no shame in being out and about now.
+Bale: So?
+
+== coa
+Bale: Probably.
+Bale: This?
+> show_coa
+
+== no_coa
+Bale: ...
+Bale: A what?
