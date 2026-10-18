@@ -97,6 +97,14 @@ Dolly: Hey, it's not real right? You had me there for a sec!
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Dolly: [shake rate=10 level=5]Is that real?![/shake]
+Dolly: Okay, okay! Was it the bag? It's the bag, isn't it? ...Wait, forget I said that.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Dolly: [shake rate=20 level=5]Steal? I've done it before, from a Galmart when I was younger.[/shake]
 Dolly: But I didn't take anything from you! At least I think I didn't...

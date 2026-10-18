@@ -103,6 +103,14 @@ Bale: [shake rate=40 level=20]But I guess that's not up to me.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Bale: [shake rate=40 level=20]Hm. Took you long enough.[/shake]
+Bale: Go on then. Make it worth it.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Bale: [shake rate=40 level=20]...?[/shake]
 Bale: Yeah.

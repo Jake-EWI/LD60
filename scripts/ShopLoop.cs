@@ -28,6 +28,7 @@ public partial class ShopLoop : Node
     [Export] public int JailDays {get; set;} = 3;
     [Export] public float CaughtForMurderChance { get; set; } = 0.75f;
     [Export(PropertyHint.File, "*.txt")] public string ExpertDialoguePath {get; set;} = "res://assets/dialogue/Expert.txt";
+    [Export(PropertyHint.File, "*.txt")] public string TheftDialoguePath {get; set;} = "res://assets/dialogue/Theft.txt";
 
     //ui elements
     [Export] public DialogueRunner Runner { get; set; }
@@ -64,6 +65,7 @@ public partial class ShopLoop : Node
     private RandomNumberGenerator rng;
     private ItemDefinition itemStolenOnEntrance;
     private bool expertCalling;
+    private bool theftNoticed;
     private bool guiltyOfMurder = false;
     private bool hasCoa = false;
     private int mysteryDay;
@@ -92,7 +94,7 @@ public partial class ShopLoop : Node
         BarterPanel.OfferMade += OnOfferPressed;
 
         CustomerImage.Entered += () => Runner.Start(customer.DialoguePath, startSection);
-        CustomerImage.Left += NextCustomer;
+        CustomerImage.Left += OnCustomerLeft;
 
         ActionsMenu.RejectButtonPressed += OnRejectPressed;
         ActionsMenu.InventoryPressed += OnInventoryPressed;
@@ -168,6 +170,18 @@ public partial class ShopLoop : Node
         DayScreen.ShowDayScreen(fromDay, gm.Day, profitLoss, Rent, gm.Money);
         bgmPlayer.Stop();
         CheckForEndings();
+    }
+
+    private void OnCustomerLeft()
+    {
+        if (itemStolenOnEntrance == null)
+        {
+            NextCustomer();
+            return;
+        }
+        itemStolenOnEntrance = null;
+        theftNoticed = true;
+        Runner.Start(TheftDialoguePath);
     }
 
     public void NextCustomer()
@@ -409,6 +423,13 @@ public partial class ShopLoop : Node
 
     public void OnDialogueEnded()
     {
+        if (theftNoticed)
+        {
+            theftNoticed = false;
+            NextCustomer();
+            return;
+        }
+
         if (expertCalling)
         {
             expertCalling = false;
@@ -603,7 +624,7 @@ public partial class ShopLoop : Node
         HideBarter();
         ActionsMenu.Visible = false;
         await GunPOV.ShowGun();
-        Runner.Play("pull_gun");
+        Runner.Play(itemStolenOnEntrance != null && Runner.HasSection("pull_gun_stole") ? "pull_gun_stole" : "pull_gun");
     }
 
     public void OnExpertPressed()

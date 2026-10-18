@@ -96,6 +96,14 @@ Couple: Maybe this is for the best, Barlin...
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Couple: [shake rate=40 level=20]Barlin, I told you this was a bad idea...[/shake]
+Couple: Please... we have nothing left. Nothing but what's in this bag.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Couple: [shake rate=40 level=20]Stole...?[/shake]
 Couple: The world has gone to hell, but one thing we will never resort to is stealing or hurting others. 

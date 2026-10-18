@@ -98,6 +98,14 @@ Mixon: Do it then. This whole happy go-lucky thing is a bad farce, anyway.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Mixon: [shake rate=40 level=20]Took you long enough.[/shake]
+Mixon: I was starting to think nobody actually counts their shelves around here.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Mixon: [shake rate=40 level=20]Ha...[/shake]
 Mixon: [shake rate=40 level=20]HA HA HA HA HA....[/shake]

@@ -98,6 +98,14 @@ R.E.M: Won't promise that what's underneath is any better though.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+R.E.M: [shake rate=40 level=20]Woah, okay! Okay.[/shake]
+R.E.M: Is this about the... no. No, what would this be about? Nothing. It's the mask, right?
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 R.E.M: [shake rate=40 level=20]Oh... stole?[/shake]
 R.E.M: Never done such a thing in my life. Even in the old world.

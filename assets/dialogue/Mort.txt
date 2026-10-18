@@ -97,6 +97,14 @@ Mort: [shake rate=40 level=20] You've got 5 seconds put that shit down..
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Mort: [shake rate=40 level=20]Ah, shit.[/shake]
+Mort: ...Listen, you don't wanna do this over some junk.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Mort: [shake rate=40 level=20]Oh boy...[/shake]
 Mort: I didn't steal shit.

@@ -93,6 +93,14 @@ Z-Nu: Please do not shoot me Human. This meat fortress is squishy.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Z-Nu: [shake rate=40 level=20]GLORP!!![/shake]
+Z-Nu: The object inside this meat fortress was... already inside. It was born there, Human.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Z-Nu: [shake rate=40 level=20]GLORP.....[/shake]
 Z-Nu: I plead my 5th Human Amendment right to not speak.

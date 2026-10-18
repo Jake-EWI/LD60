@@ -95,6 +95,14 @@ Exton: Why the rush? Do something you didn't like?
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Exton: [shake rate=40 level=20]Damn.....[/shake]
+Exton: Inventory day, huh? Always hated inventory day.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Exton: [shake rate=40 level=20]Ha...[/shake]
 Exton: I haven't taken anything that I didn't walk in here with.

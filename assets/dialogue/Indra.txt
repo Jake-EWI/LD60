@@ -98,6 +98,14 @@ Indra: [shake rate=40 level=20]YOU'RE DOING ME A GREAT FAVOR.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Indra: [shake rate=40 level=20]You noticed.[/shake]
+Indra: It does not matter. The vessel has already been taken. It belongs to the metamorphosis now.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Indra: [shake rate=40 level=20]...?[/shake]
 Indra: Are you perceptive enough to tell? Test your senses.

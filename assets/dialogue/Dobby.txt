@@ -96,6 +96,14 @@ Dobby: D-don't s-shoot! P-please!
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Dobby: [shake rate=40 level=20]AHHH! I-I'm s-sorry!![/shake]
+Dobby: W-wait, n-no, I m-mean... s-sorry for c-coming in! Y-yeah!
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Dobby: [shake rate=40 level=20]S-stole...?[/shake]
 Dobby: I w-w-would never d-do such a t-thing. I have m-m-morals you k-k-know. Even in t-t-this w-world....

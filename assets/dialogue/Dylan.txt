@@ -102,6 +102,14 @@ Dylan: [shake rate=10 level=5]Woah dude...[/shake] Take a chill pill...
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Dylan: [shake rate=10 level=5]Woah dude...[/shake] Okay so, like, hypothetically...
+Dylan: Hypothetically, if something fell into my pocket. Would that be a shooting thing?
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Dylan: [shake rate=20 level=5] Stole....?[/shake] Bro, look at me. I'm like 6 foot 3, do you really think I'd be able to slip past you unnoticed? I mean, I CAN be pretty stealthy...
 Dylan: But it wasn't me!

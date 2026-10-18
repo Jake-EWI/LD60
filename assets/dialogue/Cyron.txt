@@ -96,6 +96,14 @@ Cyron: There's still time to repent.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Cyron: [shake rate=40 level=20]The Lord... the Lord provides for his servants.[/shake]
+Cyron: And sometimes He provides through others. Unknowingly.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Cyron: [shake rate=40 level=20]An agent of the Lord? Stealing? Preposterous.
 Cyron: If there is one thing you can count on, it is that I am a honest, ethical, moral and Godly man!

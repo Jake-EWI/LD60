@@ -96,6 +96,14 @@ Dyer: My trigger finger is faster than yours. Promise.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Dyer: [shake rate=40 level=20]Sharper than you look.[/shake]
+Dyer: Still. My trigger finger is faster than yours.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Dyer: [shake rate=40 level=20]Something go missing?[/shake]
 Dyer: I've got not obligation to tell you. It's a dog eat dog world, you should know that better than anyone.

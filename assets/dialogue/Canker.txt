@@ -96,6 +96,14 @@ Canker: If you put it down now, I'll forget this ever happened.
 * Shoot -> shoot
 * Put gun down -> not_shoot
 
+== pull_gun_stole
+> shake 2
+Canker: [shake rate=40 level=20]Whoa, whoa! Easy![/shake]
+Canker: Look, whatever you think I did, we can work something out. Business is business, right?
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
 == ask_if_stole
 Canker: [shake rate=40 level=20]This is what this is about?[/shake]
 Canker: I may have, I mean I walked in here saying I'm selling stolen goods. Pretty dumb question, loser.
