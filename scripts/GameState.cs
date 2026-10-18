@@ -21,6 +21,8 @@ public partial class GameState : Node
     {
         Money = startingMoney;
         Day = 1;
+        GoodKarma = 0;
+        BadKarma = 0;
         EmitSignal(SignalName.MoneyChanged, Money);
     }
 
