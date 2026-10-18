@@ -2,10 +2,10 @@
 I have enough to leave...
 Oh, yeah. This tape.
 
->changebg_VHSTape
+> changebg_VHSTape
 Some entertainment to wind down before I leave...
 Sounds good.
->changebg_BlankTV
+> changebg_BlankTV
 
 ...
 ...
@@ -16,13 +16,13 @@ Why do I...
 [shake rate=20 level=20]What's wrong with my-
 [shake rate=40 level=20]AGHHHHHHH
 
->changebg_Pain
+> changebg_Pain
 [shake rate=40 level=20]Hah...
 [shake rate=40 level=20]Hah...
 [shake rate=40 level=20]AHHHHHHHHHHHHHHHHHHHHHHHHHHHGGGGGGHHHHHHHHHHHH. 
 
->changebg_Black
->changebg_Entity
+> changebg_Black
+> changebg_Entity
 
 ???: Welcome. 
 ???: I ferry the boundary between life and death.
@@ -37,7 +37,7 @@ Why do I...
 ???: You cannot come back here.
 ???: Farewell for now.
 
->changebg_black
+> changebg_Black
 ; player
 I turned into those things...?
 
