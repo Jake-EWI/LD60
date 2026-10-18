@@ -475,7 +475,7 @@ public partial class ShopLoop : Node
     private void ShowBarter()
     {
         BarterPanel.Visible = true;
-        BarterPanel.Open(negotiation.AskingPrice, customerBuying ? offeredItem.Item.BaseValue * 3 : gm.Money);
+        BarterPanel.Open(negotiation.AskingPrice, customerBuying ? offeredItem.Item.BaseValue * 3 : gm.Money, customerBuying);
     }
 
     private void HideBarter()

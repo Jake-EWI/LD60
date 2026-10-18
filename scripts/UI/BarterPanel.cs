@@ -15,10 +15,11 @@ public partial class BarterPanel : Control
         offerButton.Pressed += () => EmitSignal(SignalName.OfferMade, (int)offerInput.Value);
     }
 
-    public void Open(int askingPrice, int money)
+    public void Open(int askingPrice, int money, bool selling)
     {
         offerInput.MaxValue = money;
         offerInput.Value = askingPrice;
+        offerButton.Text = selling ? "Offer to Sell" : "Offer to Buy";
     }
 
 }

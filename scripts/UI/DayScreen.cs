@@ -39,7 +39,7 @@ public partial class DayScreen : Control
         await ToSignal(GetTree().CreateTimer(2f), "timeout");
         totalLabel.Visible = true;
         totalLabel.Text = $"Total: {Money(total)}";
-        await ToSignal(GetTree().CreateTimer(10f), "timeout");
+        await ToSignal(GetTree().CreateTimer(5f), "timeout");
         Hide();
         EmitSignal(SignalName.DayScreenFinished);
     }
