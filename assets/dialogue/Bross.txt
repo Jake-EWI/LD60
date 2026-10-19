@@ -1,11 +1,14 @@
-; Bross
+; bross
 Bross: How're you?
 > shake 0.8 
 Bross: You've got some stuff on the back burner. I can see it from here.
 Bross: I'll take it all off your hands right now. But for half price.
+* Deal. (${price}) -> accepted
+* No thanks. -> pass
 
 == accepted
-Bross: Good doing business. Safe travels. I hear the waters are rough this time of year. [/shake]
+> sell_all_half
+Bross: Good doing business. Safe travels. I hear the waters are rough this time of year. 
 
 ; player
 How did he...?

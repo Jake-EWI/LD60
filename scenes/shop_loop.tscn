@@ -40,6 +40,11 @@
 [ext_resource type="Resource" uid="uid://yn20d5ge2ayv" path="res://assets/customers/mysterious_man.tres" id="14_cl03r"]
 [ext_resource type="Resource" uid="uid://73144b5lk467" path="res://assets/customers/mort.tres" id="14_nyrg5"]
 [ext_resource type="Resource" uid="uid://b3mgenknf5ncp" path="res://assets/customers/rem.tres" id="15_1ektr"]
+[ext_resource type="Resource" uid="uid://b4lrx7kq2mw1a" path="res://assets/customers/laroux.tres" id="50_laroux"]
+[ext_resource type="Resource" uid="uid://c6lfa3np8ts2b" path="res://assets/customers/leafa.tres" id="51_leafa"]
+[ext_resource type="Resource" uid="uid://d7pe30jha1ck" path="res://assets/customers/mickey.tres" id="52_mickey"]
+[ext_resource type="Resource" uid="uid://6vv74l4kr3el" path="res://assets/customers/bross.tres" id="53_bross"]
+[ext_resource type="AudioStream" uid="uid://8aixyeh5teyg" path="res://assets/audio/music/Day Track.wav" id="54_daytrack"]
 [ext_resource type="Resource" uid="uid://cup1ftdam37v0" path="res://assets/items/boom_box.tres" id="15_srn1w"]
 [ext_resource type="Resource" uid="uid://b7frp1kv42rrc" path="res://assets/items/harddrive.tres" id="16_c6a8c"]
 [ext_resource type="PackedScene" uid="uid://baimfom2iekii" path="res://scenes/ui/end_day_screen.tscn" id="16_mrmbw"]
@@ -102,12 +107,14 @@ stereo = true
 
 [node name="ShopLoop" type="Node" unique_id=1651459755 node_paths=PackedStringArray("Runner", "BarterPanel", "CustomerImage", "OfferedItemImage", "ActionsMenu", "InventoryPanel", "DayScreen", "GunPOV", "ObservationPanel", "CoaPanel", "UpgradePanel")]
 script = ExtResource("1_cx0yy")
-CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple"), ExtResource("9_lqmhv"), ExtResource("10_w2lu8"), ExtResource("12_ci2oq"), ExtResource("12_4am4y"), ExtResource("13_nyrg5"), ExtResource("14_nyrg5"), ExtResource("15_1ektr"), ExtResource("16_s73c7"), ExtResource("17_kfu7c"), ExtResource("18_kfu7c")]
+CustomerPool = [ExtResource("2_e55af"), ExtResource("3_553ca"), ExtResource("4_0cwmy"), ExtResource("5_g0mg2"), ExtResource("6_ascam"), ExtResource("7_quegl"), ExtResource("42_couple"), ExtResource("9_lqmhv"), ExtResource("10_w2lu8"), ExtResource("12_ci2oq"), ExtResource("12_4am4y"), ExtResource("13_nyrg5"), ExtResource("14_nyrg5"), ExtResource("15_1ektr"), ExtResource("16_s73c7"), ExtResource("17_kfu7c"), ExtResource("18_kfu7c"), ExtResource("50_laroux"), ExtResource("51_leafa"), ExtResource("52_mickey")]
 PoliceOfficer = ExtResource("5_ewqmb")
 OfficerEvent = ExtResource("18_kfu7c")
 MysteryCustomer = ExtResource("14_cl03r")
 Rauz = ExtResource("11_w2lu8")
 Tutorial = ExtResource("9_1ups1")
+FinalDayCustomer = ExtResource("53_bross")
+DayTracks = [SubResource("AudioStreamWAV_eqi3r"), ExtResource("54_daytrack")]
 Rent = 10
 RunLength = 10
 BribeCost = 25

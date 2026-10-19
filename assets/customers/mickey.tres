@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://d7pe30jha1ck"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bcxd2eslse8ib" path="res://assets/art/Characters/Mickey.png" id="2_image"]
+
+[resource]
+script = ExtResource("1_script")
+CustomerName = "Mickey"
+BuyerChance = 0.5
+FakeChance = 0.35
+Greed = 0.2
+Savvy = 0.25
+Patience = 90.0
+StealChance = 0.2
+CoaChance = 0.2
+DialoguePath = "res://assets/dialogue/Mickey.txt"
+CharacterImage = ExtResource("2_image")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

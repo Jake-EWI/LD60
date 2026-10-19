@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CustomerDefinition" format=3 uid="uid://c6lfa3np8ts2b"]
+
+[ext_resource type="Script" uid="uid://di27tjorfh0n3" path="res://scripts/Definitions/CustomerDefinition.cs" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://d2iaokhfx8swt" path="res://assets/art/Characters/Leafa.png" id="2_image"]
+
+[resource]
+script = ExtResource("1_script")
+CustomerName = "Leafa"
+BuyerChance = 0.55
+FakeChance = 0.3
+Greed = 0.15
+Savvy = 0.45
+Patience = 85.0
+StealChance = 0.15
+CoaChance = 0.3
+DialoguePath = "res://assets/dialogue/Leafa.txt"
+CharacterImage = ExtResource("2_image")
+metadata/_custom_type_script = "uid://di27tjorfh0n3"

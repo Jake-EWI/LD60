@@ -1,4 +1,4 @@
-; Mickey
+; mickey
 Mickey: Greetings! Hello! Konnichiwa!
 > shake 0.8 
 Mickey: You buy stuff too, right?
@@ -68,6 +68,11 @@ Mickey: Rock on dude.
 
 == fake_refused
 Mickey: But it's such a good deal man!
+
+== accused_fake_flee
+> shake 0.8
+Mickey: Bruh, you got me.
+Mickey: Sayonara!
 
 == accused_real
 > shake 0.8

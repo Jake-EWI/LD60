@@ -1,4 +1,4 @@
-; Mixon
+; mixon
 Mixon: Salutations! Mind If indulge in your business endeavors?
 > shake 0.8 
 Mixon: I've got quite the array of items...

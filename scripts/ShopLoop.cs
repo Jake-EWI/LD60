@@ -2,6 +2,7 @@ using Godot;
 using System;
 using LD60.Dialogue;
 using System.Collections.Generic;
+using System.Linq;
 
 public enum ShopPhase { Intro, Barter, Closing, Shot, Mystery }
 public enum Ending { Broke, Rauz, MurderEnd, Mystery, NormalEnd }
@@ -13,6 +14,8 @@ public partial class ShopLoop : Node
     [Export] public CustomerDefinition MysteryCustomer { get; set; } = null;
     [Export] public CustomerDefinition Rauz { get; set; } = null;
     [Export] public CustomerDefinition Tutorial { get; set; } = null;
+    [Export] public CustomerDefinition FinalDayCustomer { get; set; } = null;
+    [Export] public AudioStream[] DayTracks { get; set; } = [];
     private List<CustomerDefinition> liveCustomerPool { get; set; } = [];
     [Export] int MaxCustomers {get; set;} = 6;
     [Export] int MinCustomers {get; set;} = 4;
@@ -167,9 +170,13 @@ public partial class ShopLoop : Node
 
         if (gm.Day == rauzEncounterDay)
             customerQueue.Enqueue(Rauz);
+
+        if (gm.Day == RunLength)
+            customerQueue.Enqueue(FinalDayCustomer);
             
         
         moneyAtStartOfDay = gm.Money;
+        bgmPlayer.Stream = DayTracks[rng.RandiRange(0, DayTracks.Length - 1)];
         bgmPlayer.Play();
         NextCustomer();
         
@@ -222,6 +229,23 @@ public partial class ShopLoop : Node
             customerBuying = false;
             startSection = "start";
             phase = ShopPhase.Intro;
+            CustomerImage.Visible = true;
+            CustomerImage.Enter(customer.CharacterImage);
+            return;
+        }
+
+        if (customer == FinalDayCustomer)
+        {
+            if (gm.Inventory.Count == 0)
+            {
+                NextCustomer();
+                return;
+            }
+            itemStolenOnEntrance = null;
+            customerBuying = false;
+            startSection = "start";
+            phase = ShopPhase.Intro;
+            Runner.SetVariable("price", gm.Inventory.Sum(i => i.Item.BaseValue / 2));
             CustomerImage.Visible = true;
             CustomerImage.Enter(customer.CharacterImage);
             return;
@@ -450,6 +474,10 @@ public partial class ShopLoop : Node
                 break;
             case "take_fake_bribe":
                 gm.AddMoney(fakeBribe);
+                break;
+            case "sell_all_half":
+                gm.AddMoney(gm.Inventory.Sum(i => i.Item.BaseValue / 2));
+                gm.Inventory.Clear();
                 break;
         }
     }
