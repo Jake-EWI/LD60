@@ -37,7 +37,7 @@ Couple: Is there something you want to know?
 * What brings you here? -> chat_d
 
 == chat_a
-Couple: We have them on constantly. When I think about the peace we'll find from our country's protectors, it makes this turmoil worth it.  | Yes. We have full faith in our protectors. We are heading North to get shelter and food! 
+Couple: We have them on constantly. When I think about the peace we'll find from our country's protectors, it makes this turmoil worth it. | Yes. We have full faith in our protectors. We are heading North to get shelter and food! 
 Couple: What..? Don't believe everything we hear? What does that mean?
 Couple: Okay... so are you gonna buy it?
 
@@ -179,5 +179,5 @@ Cyron: A COA? Yes, we do have one...
 > show_coa
 
 == no_coa
-Cyron: I'm sorry. we.. we don't have one. We promise that it is real, if our words mean anything to you. 
+Couple: I'm sorry. we.. we don't have one. We promise that it is real, if our words mean anything to you. 
 

@@ -37,7 +37,7 @@ Wren: I'm not big on questions...
 * What brings you here? -> chat_d
 
 == chat_a
-Wren: Only every now and again. You can only tune into the government station, that stuff is always just bad news. | Yeah, I actually had an encounter with one of those cloaked guys! She told me I could "become a new ruler" or something ... 
+Wren: Only every now and again. You can only tune into the government station, that stuff is always just bad news. | Yeah, I actually had an encounter with one of those cloaked guys! She told me I could "become a new ruler" or something... 
 Wren: Now that I think about it, isn't it a bit strange that only the government has a working frequency?
 Wren: So, you feeling it?
 
@@ -80,7 +80,7 @@ Wren: You know, sometimes I think... actually, never mind.
 Wren: So, you feeling it?
 
 == buyer
-Wren: Oh my.. you have the {item} ?
+Wren: Oh my.. you have the {item}?
 > show_item
 Wren: How much would you want for it? 
 * Let's talk price. -> sell
@@ -162,7 +162,7 @@ Wren: I'm day trading to get to the Braus Settlement, it's east of Acre Point. |
 Wren: Sooo.. how much?
 
 == buyer_chat_b
-Wren: Sold my husband and I's wedding bands for it... It's okay. He would've understood. [/shake]
+Wren: Sold my husband and I's wedding bands for it... It's okay. He would've understood.
 Wren: Sooo.. how much?
 
 == buyer_chat_c
@@ -170,7 +170,7 @@ Wren: You're smarter than you look dude...
 Wren: Sooo.. how much?
 
 == buyer_chat_d
-Wren: Near the Livera Ocean, I saw people in cloaks incase something in a casket, then push it off into the ocean... | On the outskirts of Hock, before it was blown to smithereens. I saw them...  they had something to do with it.
+Wren: Near the Livera Ocean, I saw people in cloaks incase something in a casket, then push it off into the ocean... | On the outskirts of Hock, before it was blown to smithereens. I saw them... they had something to do with it.
 Wren: How much for it then?
 
 == coa

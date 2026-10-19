@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://cr6rlq7d8x6ro"]
 
 [ext_resource type="Script" uid="uid://bdkn6ngqtukb5" path="res://scripts/UI/BarterPanel.cs" id="1_sg8il"]
+[ext_resource type="FontFile" uid="uid://bc5nk0336na24" path="res://assets/fonts/Chrysanthemum-Bold.otf" id="2_jilxx"]
+
+[sub_resource type="Theme" id="Theme_dcnwv"]
+default_font = ExtResource("2_jilxx")
+default_font_size = 16
+
+[sub_resource type="Theme" id="Theme_afvep"]
+default_font = ExtResource("2_jilxx")
+default_font_size = 23
 
 [node name="BarterPanel" type="Control" unique_id=1715091026]
 layout_mode = 3
@@ -31,6 +40,7 @@ offset_left = 19.0
 offset_top = 12.0
 offset_right = 127.0
 offset_bottom = 71.0
+theme = SubResource("Theme_dcnwv")
 
 [node name="OfferButton" type="Button" parent="Panel" unique_id=880815842]
 layout_mode = 0
@@ -38,4 +48,5 @@ offset_left = 138.0
 offset_top = 11.0
 offset_right = 257.0
 offset_bottom = 72.0
+theme = SubResource("Theme_afvep")
 text = "Offer"

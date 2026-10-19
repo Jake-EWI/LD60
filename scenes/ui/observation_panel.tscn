@@ -141,19 +141,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GoBackButton" type="Button" parent="." unique_id=99489758]
-layout_mode = 0
-offset_left = 735.0
-offset_top = 64.0
-offset_right = 806.0
-offset_bottom = 95.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 159.0
+offset_top = -260.0
+offset_right = 230.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Go Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=770603159]
-layout_mode = 0
-offset_left = 199.0
-offset_top = 107.0
-offset_right = 354.0
-offset_bottom = 287.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.0
+offset_top = -217.0
+offset_right = -222.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WeighButton" type="TextureButton" parent="VBoxContainer" unique_id=1627729044]
 custom_minimum_size = Vector2(155, 55)
@@ -230,11 +244,15 @@ vertical_alignment = 1
 [node name="ThumpSFX" type="AudioStreamPlayer" parent="." unique_id=524116815]
 
 [node name="ReferenceSheet" type="TextureRect" parent="." unique_id=1027560716]
-layout_mode = 0
-offset_left = 845.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 269.0
 offset_top = 392.0
-offset_right = 1105.0
+offset_right = 529.0
 offset_bottom = 744.0
+grow_horizontal = 2
 texture = ExtResource("8_7iqua")
 flip_v = true
 

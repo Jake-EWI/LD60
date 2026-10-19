@@ -5,11 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="3_7qey3"]
 [ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="4_lfubd"]
 [ext_resource type="AudioStream" uid="uid://c8fgr1kg65mj2" path="res://assets/audio/music/Sacrifice Endings.wav" id="5_1ouok"]
+[ext_resource type="Texture2D" uid="uid://yhenahbwn5ds" path="res://assets/art/Environment/Background.png" id="6_bg"]
+[ext_resource type="PackedScene" uid="uid://bdb0v1jr2itvn" path="res://scenes/ui/customer.tscn" id="7_cust"]
+[ext_resource type="Texture2D" uid="uid://dpga5okwpq2ma" path="res://assets/art/Environment/Table Overlay.png" id="8_counter"]
+[ext_resource type="Resource" uid="uid://yn20d5ge2ayv" path="res://assets/customers/mysterious_man.tres" id="9_myst"]
 
-[node name="RauzEnding" type="Node" unique_id=628339096 node_paths=PackedStringArray("Runner", "Background")]
+[node name="RauzEnding" type="Node" unique_id=628339096 node_paths=PackedStringArray("Runner", "Background", "Stage", "CustomerImage")]
 script = ExtResource("1_1ecn6")
 Runner = NodePath("DialogueRunner")
 Background = NodePath("CanvasLayer/TextureRect")
+Stage = NodePath("CanvasLayer/Stage")
+CustomerImage = NodePath("CanvasLayer/Stage/Customer")
+Mystery = ExtResource("9_myst")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1576970420]
 
@@ -25,11 +32,37 @@ color = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 3.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch_mode = 6
 texture = ExtResource("2_1ouok")
+expand_mode = 1
+
+[node name="Stage" type="AspectRatioContainer" parent="CanvasLayer" unique_id=1739204415]
+modulate = Color(0.12, 0.12, 0.16, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+ratio = 1.7778
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stage" unique_id=1739204416]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_bg")
+expand_mode = 1
+
+[node name="Customer" parent="CanvasLayer/Stage" unique_id=1739204417 instance=ExtResource("7_cust")]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CounterText" type="TextureRect" parent="CanvasLayer/Stage" unique_id=1739204418]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("8_counter")
 expand_mode = 1
 
 [node name="DialogueBox" parent="CanvasLayer" unique_id=1885510638 instance=ExtResource("3_7qey3")]

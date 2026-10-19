@@ -11,7 +11,7 @@ Dylan: Mind taking a look at some of my stuff?
 * Get out of my store. -> pass
 == buy
 > show_item
-Dylan: What d'ya think about[b]${price}[/b]?
+Dylan: What d'ya think about [b]${price}[/b]?
 > barter
 
 == accepted
@@ -86,7 +86,10 @@ Dylan: What do you mean it won't make a difference?
 Dylan: Buying anything off me?
 
 == buyer
-Dylan: Dude, wicked {item}!
+; dylan_evil
+Dylan: [shake rate=40 level=20]*Cough*[/shake]
+; dylan
+Dylan: My bad dude. Didn't mean to cough on this wicked {item}
 > show_item
 Dylan: How much for it??
 * Let's talk price. -> sell
@@ -167,7 +170,7 @@ Dylan: There's a dude down the road with a totally sick hat. I mean come on, you
 Dylan: How much for it?
 
 == buyer_chat_b
-Dylan: Look at where you keep your change...[/shake]
+Dylan: Look at where you keep your change...
 Dylan: Just kiddin!
 Dylan: It's left overs from when I sold my wedding band for a copy of Rii Sports. Totally worth.
 Dylan: How much for it?

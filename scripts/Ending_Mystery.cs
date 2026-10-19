@@ -20,6 +20,8 @@ public partial class Ending_Mystery : Node
 
     private void OnCommand(string name, string[] args)
     {
+        if (name == "changebg_Black")
+            Background.Texture = null;
         if (name == "changebg_Crucified")
             Background.Texture = (Texture2D)GD.Load("res://assets/dialogue/endings/partial mystery ending/BGCrucified.png");
         if (name == "changebg_MysteriousMan")

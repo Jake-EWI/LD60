@@ -34,11 +34,16 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.29411766)
 
 [node name="GoBackButton" type="Button" parent="." unique_id=1842431871]
-layout_mode = 0
-offset_left = 666.0
-offset_top = 120.0
-offset_right = 737.0
-offset_bottom = 151.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48900002
+anchor_top = 0.60400003
+anchor_right = 0.48900002
+anchor_bottom = 0.60400003
+offset_left = 102.672
+offset_top = -271.392
+offset_right = 173.672
+offset_bottom = -240.392
 text = "Go Back"
 
 [node name="CoaTexture" type="TextureRect" parent="." unique_id=1187794728]

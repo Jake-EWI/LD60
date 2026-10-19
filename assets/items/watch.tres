@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_j8shx")
 ItemName = "Watch"
-BaseValue = 65
+BaseValue = 100
 Icon = ExtResource("1_0lef6")
 Weight = 0.12
 Thermal = 1

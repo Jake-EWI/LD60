@@ -165,7 +165,7 @@ Rauz: Metamorphosis
 Rauz: How much?
 
 == buyer_chat_b
-Rauz: Selling.[/shake]
+Rauz: Selling.
 Rauz: How much?
 
 == buyer_chat_c

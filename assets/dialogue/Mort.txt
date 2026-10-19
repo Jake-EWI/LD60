@@ -10,7 +10,7 @@ Mort: It's [b]${price}[/b].
 > barter
 
 == accepted
-Mort: Good shit. [/shake].
+Mort: Good shit.
 
 == countered
 > shake 0.5
@@ -18,7 +18,7 @@ Mort: {price}.
 
 == left
 > shake 0.8
-Mort:  Fuck off. 
+Mort: Fuck off. 
 
 == stole
 > shake 0.8

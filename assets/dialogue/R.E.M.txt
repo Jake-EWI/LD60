@@ -10,7 +10,7 @@ R.E.M: Can you do [b]${price}[/b]?
 > barter
 
 == accepted
-R.E.M: Good stuff. [/shake].
+R.E.M: Good stuff.
 
 == countered
 > shake 0.5
@@ -18,7 +18,7 @@ R.E.M: {price}.
 
 == left
 > shake 0.8
-R.E.M:  I think I'm gonna head out... 
+R.E.M: I think I'm gonna head out... 
 
 == stole
 > shake 0.8

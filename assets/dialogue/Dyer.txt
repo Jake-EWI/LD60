@@ -10,7 +10,7 @@ Dyer: Take [b]${price}[/b]. No more, no less.
 > barter
 
 == accepted
-Dyer: You've done me a great deed. Take care. [/shake].
+Dyer: You've done me a great deed. Take care.
 
 == countered
 > shake 0.5
@@ -42,7 +42,7 @@ Dyer: Billions of years of evolution leads us to this. I wonder if this is the "
 Dyer: Take it. Or I'll leave.
 
 == chat_b
-Dyer: Passed a couple bodies on the way here. People dropping left and right. No food, water, shelter, or company.  Makes for free loot, though.
+Dyer: Passed a couple bodies on the way here. People dropping left and right. No food, water, shelter, or company. Makes for free loot, though.
 Dyer: I wouldn't mind living like this if we weren't at risked of being blown to bits. Or being executed for saying anything against our so called "leaders".
 Dyer: Take it. Or I'll leave.
 

@@ -32,9 +32,12 @@ grow_vertical = 2
 script = ExtResource("1_upgrade")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1535123451]
-layout_mode = 0
-offset_right = 1114.0
-offset_bottom = 579.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.967
+anchor_bottom = 0.8935
 color = Color(0, 0.23921569, 0.29411766, 1)
 
 [node name="Title" type="Label" parent="." unique_id=542254524]
@@ -70,13 +73,11 @@ alignment = 1
 
 [node name="DateLabel" type="Label" parent="." unique_id=477146956]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 727.0
-offset_top = 88.0
-offset_right = -243.0
-offset_bottom = 120.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_left = 0.6311
+anchor_top = 0.1358
+anchor_right = 0.7891
+anchor_bottom = 0.1852
 text = "October 4th, 2046"
 label_settings = SubResource("LabelSettings_yih1u")
 horizontal_alignment = 1
@@ -102,16 +103,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_bfdir")
 
 [node name="ContinueButton" type="Button" parent="." unique_id=1889398471]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 398.0
-offset_top = -635.0
-offset_right = 558.0
-offset_bottom = -583.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = -1
+anchor_left = 0.8455
+anchor_top = 0.0201
+anchor_right = 0.9844
+anchor_bottom = 0.1003
 theme = SubResource("Theme_lcbry")
 text = "Start Day"

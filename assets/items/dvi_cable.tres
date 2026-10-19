@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://db3yg6i748fjj"]
+
+[ext_resource type="Texture2D" uid="uid://3iwab2leub13" path="res://assets/art/Old Tech/Old Tech DVI cable.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="2_def"]
+
+[resource]
+script = ExtResource("2_def")
+ItemName = "DVI Cable"
+BaseValue = 8
+Icon = ExtResource("1_icon")
+Weight = 0.2
+SerialPrefix = "AV"
+metadata/_custom_type_script = "uid://cv4540x8541k6"

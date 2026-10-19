@@ -89,7 +89,7 @@ Ghina: How much? Don't high ball.
 * Not for sale. -> pass
 
 == sell
-Ghina: I like[b]${price}[/b].
+Ghina: I like [b]${price}[/b].
 > barter
 
 == sold
@@ -170,7 +170,7 @@ Ghina: You should look into repurposing some of this stuff too. Your shop has 3 
 Ghina: Now then, down to business.
 
 == buyer_chat_b
-Ghina: I'd say 60% is from killing, but the other 40% is usually business. 20% of that business didn't involve a threat![/shake]
+Ghina: I'd say 60% is from killing, but the other 40% is usually business. 20% of that business didn't involve a threat!
 Ghina: Which side of the coin are you gonna fall on, sir?
 Ghina: Now then, down to business.
 

@@ -27,11 +27,18 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.29411766)
 
 [node name="GoBackButton" type="Button" parent="." unique_id=841127381]
-layout_mode = 0
-offset_left = 784.0
-offset_top = 86.0
-offset_right = 876.0
-offset_bottom = 121.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 208.0
+offset_top = -238.0
+offset_right = 300.0
+offset_bottom = -203.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Go Back"
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=2060784329]

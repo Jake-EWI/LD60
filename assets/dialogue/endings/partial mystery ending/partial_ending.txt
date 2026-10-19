@@ -1,53 +1,61 @@
 ; player
-I have enough to leave...
-I can see her again..
-**knock**
-?
-???:...
-???:...
-???: [shake rate=40 level=20]You have failed the task.
-???: [shake rate=40 level=20]For this, you will be punished.
+It's enough. I have enough to leave.
+I can finally see Tresha and Moona again...
+[i]knock knock[/i]
+...Who's knocking this late?
+
+; mystery
+> slow
+???: ...
+???: [shake rate=1 level=30]You were given a task.[/shake]
+???: [shake rate=1 level=30]The item never reached deliverance.[/shake]
+???: [shake rate=40 level=20]You. Have. Failed.[/shake]
+???: [shake rate=40 level=20]For this, you will be punished.[/shake]
+> normal
 
 ; player
-...
+Wait-
 ...
 ...
 
+
+> changebg_Black
+; player
+...
+Where... am I?
+I can't move my arms...
 > changebg_Crucified
-
-; player
-...
-What have you done?
-Agh!
+[shake rate=40 level=20]Agh![/shake]
 
 > changebg_MysteriousMan
-; ???
-???: You have failed our people. For that, you must be sacrificed.
-???: Worry not. This is the most sacred of rituals.
-???: You will not become one of us, but your blood will serve well.
+; mystery
+> slow
+???: You have failed our people. For that, you will be sacrificed.
+???: Do not fear. This is the most sacred of rituals.
+???: You will never become one of us. \n But your blood will serve us well.
+> normal
 
 ; player
-Why are you doing this!?
+[shake rate=20 level=20]Why are you doing this!?[/shake]
 
-;???
+; mystery
 ???: Why?
-???: It is necessary, for our survival. 
-???: No, not our survival.
+???: It is necessary. For our survival.
+???: No... not survival.
 ???: For our evolution.
-???: WE ARE IN THE FINAL STAGES OF HUMAN EXISTENCE! DO YOU NOT SEE?
-???: OUR GOD WILL BRING US SALVATION.
-???: YOU ARE A STEPPING STONE INTO THE NEXT STAGES OF EXISTENCE.
-???: BE PROUD. YOU. ARE. THE. SACRIFICE.
-???:
-???: Goodbye.
+> slow
+???: [shake rate=40 level=20]WE ARE IN THE FINAL STAGES OF HUMAN EXISTENCE! DO YOU NOT SEE?[/shake]
+???: [shake rate=40 level=20]OUR GOD WILL BRING US SALVATION.[/shake]
+???: [shake rate=40 level=20]YOU ARE A STEPPING STONE INTO THE NEXT STAGE OF EXISTENCE.[/shake]
+???: [shake rate=40 level=30]BE PROUD. YOU. ARE. THE. SACRIFICE.[/shake]
+> normal
 
 ; player
 Please... don't...
+Tresha...
 
 > changebg_ForestFire
 
-
 ; radio
 Radio: .....fi...re.....Pris...b...e.....area.....cloa...k....ed........fi..gu..r.....near....
-
-
+Radio: .....one.....bo...dy.....re...cov...ered.....

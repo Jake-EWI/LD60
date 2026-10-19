@@ -10,7 +10,7 @@ Bale: [b]${price}[/b] seems right.
 > barter
 
 == accepted
-Bale: Excellent. [/shake].
+Bale: Excellent.
 
 == countered
 > shake 0.5

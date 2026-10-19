@@ -162,7 +162,7 @@ Dolly: Nothing in particular, I just like buying and selling. Ooh, maybe I shoul
 Dolly: How much for it then?
 
 == buyer_chat_b
-Dolly: Some leftovers from before my house caught fire! Safe's are really useful, they actually don't let fire through! [/shake]
+Dolly: Some leftovers from before my house caught fire! Safe's are really useful, they actually don't let fire through!
 Dolly: How much for it then?
 
 == buyer_chat_c

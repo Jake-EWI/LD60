@@ -10,7 +10,7 @@ Indra: [b]${price}[/b] should be sufficient...
 > barter
 
 == accepted
-Indra: Excellent. [/shake].
+Indra: Excellent.
 
 == countered
 > shake 0.5

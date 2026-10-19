@@ -10,7 +10,7 @@ Mixon: I was thinking [b]${price}[/b]!
 > barter
 
 == accepted
-Mixon: Well bend me over and call me a horse! I'll be comfortable tonight! [/shake].
+Mixon: Well bend me over and call me a horse! I'll be comfortable tonight!
 
 == countered
 > shake 0.5

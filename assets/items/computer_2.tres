@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://de2y6n1uy26f2"]
+
+[ext_resource type="Texture2D" uid="uid://c6b458y867du6" path="res://assets/art/Old Tech/Old Tech PC 2.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://cv4540x8541k6" path="res://scripts/Definitions/ItemDefinition.cs" id="2_def"]
+
+[resource]
+script = ExtResource("2_def")
+ItemName = "Computer"
+BaseValue = 120
+Icon = ExtResource("1_icon")
+Weight = 15.8
+Thermal = 2
+SerialPrefix = "PA"
+metadata/_custom_type_script = "uid://cv4540x8541k6"

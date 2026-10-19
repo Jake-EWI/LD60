@@ -1,47 +1,62 @@
+; mystery
+> slow
+???: [shake rate=1 level=30]Hello again.[/shake]
+> mystery_enter_scene
+???: [shake rate=1 level=30]You did as you were told.[/shake]
+???: [shake rate=1 level=30]The item found its way to the right hands.[/shake]
+???: [shake rate=40 level=20]For this, you have earned the blessing. \n The blessing to metamorphose.[/shake]
+???: [shake rate=40 level=20]A gift. Watch it when you are alone.[/shake]
+> mystery_leave
+> normal
+
+> changebg_Black
 ; player
-I have enough to leave...
-Oh, yeah. This tape.
+...He's gone.
+And he left a tape on the counter.
 
 > changebg_VHSTape
-Some entertainment to wind down before I leave...
-Sounds good.
-> changebg_BlankTV
+I guess I deserve a little entertainment to wind down before I leave... \n Sounds good.
 
+> changebg_BlankTV
 ...
+Just static.
 ...
-What is this?
-Why do I...
-[shake rate=5 level=5]My head..
-[shake rate=10 level=10]Wait...
-[shake rate=20 level=20]What's wrong with my-
-[shake rate=40 level=20]AGHHHHHHH
+Why can't I look away?
+[shake rate=5 level=5]My head...[/shake]
+[shake rate=10 level=10]Wait...[/shake]
+[shake rate=20 level=20]What's wrong with my-[/shake]
+[shake rate=40 level=20]AGHHHHHHH[/shake]
 
 > changebg_Pain
-[shake rate=40 level=20]Hah...
-[shake rate=40 level=20]Hah...
-[shake rate=40 level=20]AHHHHHHHHHHHHHHHHHHHHHHHHHHHGGGGGGHHHHHHHHHHHH. 
+[shake rate=40 level=20]Hah...[/shake]
+[shake rate=40 level=20]Hah...[/shake]
+[shake rate=40 level=20]AHHHHHHHHHHHHHHHHHHHHHHHHHGGGGGGHHHHHHHHHHHH[/shake]
 
 > changebg_Black
-> changebg_Entity
+...
 
-???: Welcome. 
+> changebg_Entity
+; mystery
+> slow
+???: Welcome.
 ???: I ferry the boundary between life and death.
-???: But you remain neither.
+???: But you belong to neither.
 ???: You have been transformed.
-???: It is the cycle of life. The old is replaced with the new.
-???: You will now roam the Earth for eternity. Caught between world of the living, and the realm of the dead.
-???: An apostle.
+???: It is the cycle of all things. The old is replaced with the new.
+???: You will walk the Earth for eternity. \n Caught between the world of the living and the realm of the dead.
+???: An Apostle.
 ???: A blessing, or a curse?
 ???: ...
-???: You decide.
-???: You cannot come back here.
-???: Farewell for now.
+???: That is for you to decide.
+???: You cannot return here.
+???: Farewell. For now.
+> normal
 
 > changebg_Black
 ; player
-I turned into those things...?
+The cloaked ones... the attacks... the Apostles...
+All this time, I was helping them.
 
 ; radio
-Radio: .....at....ack...on..a...re...po...int....civi..ian.....ca...sua..l....y.....
-
-
+Radio: .....at....ack...on..a...re...po...int....civi..ian.....ca...sua..l....ties.....
+Radio: .....witness...es...re...port.....a...new.....fig...ure.....

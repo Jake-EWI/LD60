@@ -15,10 +15,9 @@ Runner = NodePath("DialogueRunner")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 3.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch_mode = 6
 texture = ExtResource("2_i2l1n")
 expand_mode = 1
 
