@@ -1,0 +1,15 @@
+; Bross
+Bross: How're you!
+> shake 0.8 
+Bross: You've got some stuff on the back burner. I can see it from here.
+Bross: I'll take it all off your hands right now. But for half price.
+
+== accepted
+Bross: Good doing business. Safe travels. I hear the waters are rough this time of year. [/shake]
+
+; player
+How did he...?
+
+== pass
+> shake 0.2
+Bross: Your loss. Going luck catching that ship. I hear word of its location was leaked. 

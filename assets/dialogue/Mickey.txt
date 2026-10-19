@@ -1,0 +1,186 @@
+; Mickey
+Mickey: Greetings! Hello! Konnichiwa!
+> shake 0.8 
+Mickey: You buy stuff too, right?
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Mickey: [b]${price}[/b] sounds pretty epic...
+> barter
+
+== accepted
+Mickey: I'll have a blast with this! [/shake]
+
+== countered
+> shake 0.5
+Mickey: {price}.
+
+== left
+> shake 0.8
+Mickey: Aw man... 
+
+== stole
+> shake 0.8
+Mickey: Oh damn! a {item}.
+Mickey: How much for it?
+
+== pass
+> shake 0.2
+Mickey: Aw man... 
+
+== chat
+Mickey: What's good?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* ?inspected This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Mickey: Nah. I'm pretty dumb, but not dumb enough to fall for the garbage they spew on there.
+Mickey: I wish they would bring back FM 107.9...
+Mickey: I know it was just country music man, that was my jam...
+Mickey: You're just a hater...
+
+== chat_b
+Mickey: It's wicked man! The other night I had a concert on that big rock behind your place, and no one showed! Bummer.
+Mickey: Can you show up to my next one? It's literally right there.
+Mickey: Like 100 steps total man.
+Mickey: Or you can keep hating. 
+
+== chat_c
+Mickey: Pshhhhhhh....
+Mickey: Totally real dude.
+Mickey: Like... I'll do a backflip right here right now if it's fake.
+> accuse
+
+== accused_fake
+> shake 0.8
+Mickey: Bruh...
+Mickey: Alright.
+Mickey: ${fakeBribe} and we forget about it. Cool?
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Mickey: Rock on dude.
+
+== fake_refused
+Mickey: But it's such a good deal man!
+
+== accused_real
+> shake 0.8
+Mickey: ...
+Mickey: Alright, you got me. I fold under pressure. Sorry.
+
+== chat_d
+Mickey: Travelling musician... You know the vibes.
+Mickey: No more college, I can chase my hopes and dreams! 
+Mickey: I guess there's no one here to really help me though..
+Mickey: Except you!
+Mickey: You're good? Oh... okay.
+
+== buyer
+Mickey: Holy mother of pearl! A {item}!
+> show_item
+Mickey: Price for it?
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Mickey: [b]${price}[/b]. 
+> barter
+
+== sold
+Mickey: Wicked dude. Tonight will be lit.
+
+== spotted_fake
+> shake 0.8
+Mickey: What in the...
+Mickey: There's no way...
+Mickey: It couldn't be...
+Mickey: I mean, what're the chances?
+Mickey: In this economy?
+Mickey: Can you get away with that...?
+Mickey: It's actually kind of smart
+Mickey: Oh.
+Mickey: My bad dude. This is totally a sham!
+Mickey: But it's actually kind of smart. I mean someone slightly dumber than me wouldn't have noticed.
+Mickey: I won't tell anyone though, I'm not a narc.
+
+== buyer_countered
+> shake 0.5
+Mickey: ${price}. Anything else is not epic.
+
+== buyer_left
+> shake 0.8
+Mickey: Stay safe. I'll be performing out back. Pull up!
+
+== buyer_stole
+> shake 0.8
+Mickey: Bro I've gotta take that off your hands.
+Mickey: I don't have cash for it, so I'm just gonna yoink it. Thanks! Peace and love.
+
+== pull_gun
+> shake 2
+Mickey: [shake rate=40 level=20]Dude....
+Mickey: Is that a real shotty?
+Mickey: My dad and I used to saw some off back in the day!
+Mickey: That's so sick!
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Mickey: [shake rate=40 level=20]Bro..[/shake]
+Mickey: Ooooh, I'm being threatened. That's my bad.
+Mickey: I didn't steal anything... 
+Mickey: Ok, I did, I'm sorry. There was just a really cool looking rock at floor of the store.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Mickey: [shake rate=40 level=20]Haven't taken a shot to the chest since the day my brother died....[/shake]
+> shoot
+
+== not_shoot
+Mickey: I didn't think you were actually threatening me dude. Not cool.
+Mickey: Thought you just wanted to show off your gun...
+> not_shoot
+
+
+== buyer_chat
+Mickey: What's good?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Mickey: This will make my live sets go crazy dude. Like, at least 5 people will show up kind of crazy.
+Mickey: How much for it?
+
+== buyer_chat_b
+Mickey: This is my bank from live shows, baby. 
+Mickey: The headcount is always bonkers.
+Mickey: Like I can count three from on stage. Those are severed though.
+Mickey: How much for it?
+
+== buyer_chat_c
+Mickey: I mean you're the expert...
+Mickey: How much for it?
+
+== buyer_chat_d
+Mickey: When I'm performing sometimes, I swear the heads are looking at me bro..
+Mickey: Like obviously I want that to happen, but like, most of them are dead.. so........
+Mickey: How much for it?
+
+
+== coa
+Mickey: The cost of this artifact? 
+Mickey: Ohhhhh, the certificate?
+> show_coa
+
+== no_coa
+Mickey: Don't have one. But I can play my new song for you instead!
