@@ -11,7 +11,7 @@ public sealed record ChoiceStep(List<DialogueChoice> Choices) : DialogueStep;
 public sealed record JumpStep(string Target) : DialogueStep;
 public sealed record CommandStep(string Name, string[] Args) : DialogueStep;
 public sealed record ChangeVoice(string Path) : DialogueStep;
-public sealed record DialogueChoice(string Text, string Target);
+public sealed record DialogueChoice(string Text, string Target, string Condition);
 
 public static partial class DialogueParser
 {
@@ -47,10 +47,18 @@ public static partial class DialogueParser
                 if (target != null)
                     targets.Add((target, i));
 
+                string condition = null;
+                if (text.StartsWith('?'))
+                {
+                    var parts = text[1..].Split(' ', 2, StringSplitOptions.TrimEntries);
+                    condition = parts[0];
+                    text = parts[1];
+                }
+
                 if (current.Count > 0 && current[^1] is ChoiceStep menu)
-                    menu.Choices.Add(new DialogueChoice(text, target));
+                    menu.Choices.Add(new DialogueChoice(text, target, condition));
                 else
-                    current.Add(new ChoiceStep(new() { new DialogueChoice(text, target) }));
+                    current.Add(new ChoiceStep(new() { new DialogueChoice(text, target, condition) }));
             }
             else if (line.StartsWith("->"))
             {

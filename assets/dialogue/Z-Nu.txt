@@ -50,7 +50,7 @@ Z-Nu: Glorp. That's too bad.
 Z-Nu: Yes Human brother?
 * Why are you talking like that? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What do you make of the conflict? -> chat_d
 
 == chat_a
@@ -63,9 +63,27 @@ Z-Nu: Do you prefer a dryer climate, Human? Or are you perhaps more cold-blooded
 Z-Nu: Well Human? Want it or not?
 
 == chat_c
-Z-Nu: [shake rate=40 level=20] How dare you?!?![/shake] This is my Human mothers prized possession.
-Z-Nu: You may not touch unless you plan to purchase, Human. It is very valuable. | You may call upon the Professional, if you would so choose. Glorp.
-Z-Nu: Well Human? Want it or not?
+> accuse
+
+== accused_fake
+> shake 0.8
+Z-Nu: [shake rate=40 level=20]Glorp![/shake] My Human mother... deceived me?
+Z-Nu: This is a most un-Earthly feeling.
+Z-Nu: I offer you ${fakeBribe} Human currency. You will forget this exchange of goods. Glorp.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Z-Nu: A fine Earth deal. Farewell, Human.
+
+== fake_refused
+Z-Nu: Very well, Human. Glorp.
+
+== accused_real
+> shake 0.8
+Z-Nu: [shake rate=40 level=20]How dare you?!?![/shake] This is my Human mother's prized possession.
+Z-Nu: I will exchange goods elsewhere, Human.
 
 == chat_d
 Z-Nu: What I think about the feud on this planet? Human matters are of little importance to me, Human.

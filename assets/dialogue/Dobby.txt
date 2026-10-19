@@ -33,7 +33,7 @@ Dobby: O-oh. T-that's o-okay. I can g-go another n-night w-without f-f-food.
 Dobby: Is there s-s-something you n-need?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Dobby: T-t-these trinkets b-b-bring me back t-to happier t-t-times.
 Dobby: W-will you buy it?
 
 == chat_c
-Dobby: W-W-WHAT???. [shake rate=40 level=20] O-of-of course not...
-Dobby: There m-m-must be a w-w-way for you to c-c-check, r-right?| I-I promise it's t-t-the real t-thing...
-Dobby: W-will you buy it?
+> accuse
+
+== accused_fake
+> shake 0.8
+Dobby: [shake rate=40 level=20]N-n-no! I-I didn't know![/shake]
+Dobby: P-please... I-I need t-to trade it s-somewhere...
+Dobby: I-I c-can give you ${fakeBribe}... j-just let me k-keep it? P-please?
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Dobby: T-thank you! I-I won't t-tell anyone!
+
+== fake_refused
+Dobby: O-okay... s-sorry for w-w-wasting your t-time...
+
+== accused_real
+> shake 0.8
+Dobby: W-W-WHAT??? [shake rate=40 level=20]I-it's r-real![/shake]
+Dobby: I-I thought y-you were n-nice... I'm g-going.
 
 == chat_d
 Dobby: J-just scrounging for s-some s-scraps. I-I haven't eaten in a-a-a couple days, y-you know?

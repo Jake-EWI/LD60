@@ -42,6 +42,11 @@ public partial class ActionsMenu : Control
         rejectButton.Visible = show;
     }
 
+    public void ShowCoaButton(bool show)
+    {
+        coaButton.Visible = show;
+    }
+
     public void SetAllButtonsVisible(bool visible)
     {
         foreach (var button in new[] { inventoryButton, gunButton, observeButton, coaButton, expertButton, rejectButton, talkButton })

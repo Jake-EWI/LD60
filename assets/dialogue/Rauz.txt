@@ -45,7 +45,7 @@ Rauz: Goodbye.
 Rauz: What?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -59,9 +59,27 @@ Rauz: A normal person if you're lucky.
 Rauz: Buying?
 
 == chat_c
-Rauz: Could be. Don't know.
-Rauz: No guarantees from me.
-Rauz: Buying?
+> accuse
+
+== accused_fake
+> shake 0.8
+Rauz: Could be.
+Rauz: Doesn't matter.
+Rauz: ${fakeBribe}. I keep it.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Rauz: Good.
+
+== fake_refused
+Rauz: Fine.
+
+== accused_real
+> shake 0.8
+Rauz: No.
+Rauz: Leaving.
 
 == chat_d
 Rauz: None of your business. 

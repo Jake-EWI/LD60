@@ -24,6 +24,8 @@ public partial class ShopLoop : Node
     [Export] public int ExpertCost {get; set;} = 15;
     [Export] public int ExpertPriceCheckCost {get; set;} = 5;
     [Export] public int BribeCost {get; set;} = 40;
+    [Export] public float FakeBribeMin {get; set;} = 0.3f;
+    [Export] public float FakeBribeMax {get; set;} = 0.8f;
     private int ExpertPrice => Mathf.RoundToInt(ExpertCost * (1 - gm.GetBonus(UpgradeType.ExpertDiscount)));
     private int PriceCheckPrice => Mathf.RoundToInt(ExpertPriceCheckCost * (1 - gm.GetBonus(UpgradeType.ExpertDiscount)));
     private int BribePrice => Mathf.RoundToInt(BribeCost * (1 - gm.GetBonus(UpgradeType.BribeDiscount)));
@@ -65,7 +67,7 @@ public partial class ShopLoop : Node
     private ItemInstance offeredItem;
     private int moneyAtStartOfDay;
     private RandomNumberGenerator rng;
-    private ItemDefinition itemStolenOnEntrance;
+    private ItemInstance itemStolenOnEntrance;
     private bool expertCalling;
     private bool theftNoticed;
     private bool guiltyOfMurder = false;
@@ -76,6 +78,10 @@ public partial class ShopLoop : Node
     private string startSection;
     private bool rauzTookItem;
     private int secretSteps = 0;
+    private int fakeBribe;
+    private int buyersToday;
+    private bool forceBuyer;
+    private bool arrestedToday;
 
     public override void _Ready()
     {
@@ -133,8 +139,12 @@ public partial class ShopLoop : Node
     public void StartDay()
     {
         customerQueue.Clear();
+        buyersToday = 0;
+        arrestedToday = false;
         Runner.SetVariable("bribeCost", BribePrice);
         liveCustomerPool = new List<CustomerDefinition>(CustomerPool);
+        if (gm.Day <= 3)
+            liveCustomerPool.Remove(OfficerEvent);
         int customersPerDay = rng.RandiRange(MinCustomers, MaxCustomers) + (int)gm.GetBonus(UpgradeType.ExtraCustomers);
         customersPerDay = Math.Min(customersPerDay, liveCustomerPool.Count);
 
@@ -156,6 +166,7 @@ public partial class ShopLoop : Node
 
         if (gm.Day == rauzEncounterDay)
             customerQueue.Enqueue(Rauz);
+            
         
         moneyAtStartOfDay = gm.Money;
         bgmPlayer.Play();
@@ -188,11 +199,21 @@ public partial class ShopLoop : Node
 
     public void NextCustomer()
     {
+        if (rauzItem != null && !gm.Inventory.Contains(rauzItem))
+            rauzItem = null;
+
         if (!customerQueue.TryDequeue(out customer))
         {
-            EndDay();
-            return;
+            if (buyersToday > 0 || gm.Inventory.Count == 0 || arrestedToday)
+            {
+                EndDay();
+                return;
+            }
+            var pool = (liveCustomerPool.Count > 0 ? liveCustomerPool : new List<CustomerDefinition>(CustomerPool)).FindAll(c => c != OfficerEvent);
+            customer = pool[rng.RandiRange(0, pool.Count - 1)];
+            forceBuyer = true;
         }
+        Runner.Flags.Remove("inspected");
 
         if (customer == PoliceOfficer || customer == OfficerEvent)
         {
@@ -243,12 +264,15 @@ public partial class ShopLoop : Node
         //determine if customer steals an item on entrance
         if (rng.Randf() < customer.StealChance * 0.5f - (gm.GetKarma() * 0.01f) - gm.GetBonus(UpgradeType.StealProtection) && gm.Inventory.Count > 0)
         {
-            itemStolenOnEntrance = gm.Inventory[rng.RandiRange(0, gm.Inventory.Count - 1)].Item;
-            gm.Inventory.Remove(gm.Inventory.Find(i => i.Item == itemStolenOnEntrance));
+            itemStolenOnEntrance = gm.Inventory[rng.RandiRange(0, gm.Inventory.Count - 1)];
+            gm.Inventory.Remove(itemStolenOnEntrance);
         }
 
         //determine buying or selling
-        customerBuying = gm.Inventory.Count > 0 && rng.Randf() < customer.BuyerChance;
+        customerBuying = gm.Inventory.Count > 0 && (forceBuyer || rng.Randf() < customer.BuyerChance);
+        forceBuyer = false;
+        if (customerBuying)
+            buyersToday++;
         startSection = customerBuying ? "buyer" : "start";
 
         //determine if customer has a coa
@@ -306,6 +330,7 @@ public partial class ShopLoop : Node
                     break;
                 }
                 gm.AddMoney(-ExpertPrice);
+                Runner.Flags.Add("inspected");
                 Runner.Play("buy");
                 break;
             case "check_if_fake":
@@ -336,6 +361,8 @@ public partial class ShopLoop : Node
                     Runner.Play("broke_price");
                     break;
                 }
+                gm.AddMoney(-PriceCheckPrice);
+                Runner.Flags.Add("inspected");
                 Runner.Play("buy_check_price");
                 break;
             case "check_bribe":
@@ -356,6 +383,7 @@ public partial class ShopLoop : Node
                 break;
             case "arrest":
                 customerQueue.Clear();
+                arrestedToday = true;
                 phase = ShopPhase.Closing;
                 break;
             case "tut_show_haggle":
@@ -399,7 +427,24 @@ public partial class ShopLoop : Node
                 break;
             case "show_coa":
                 HideBarter();
+                Runner.Flags.Add("inspected");
                 CoaPanel.OpenCoa(offeredItem.Coa);
+                break;
+            case "accuse":
+                phase = ShopPhase.Closing;
+                if (offeredItem.IsFake)
+                {
+                    fakeBribe = Mathf.RoundToInt(offeredItem.Item.BaseValue * rng.RandfRange(FakeBribeMin, FakeBribeMax));
+                    Runner.SetVariable("fakeBribe", fakeBribe);
+                    Runner.Play("accused_fake");
+                } else
+                {
+                    gm.BadKarma++;
+                    Runner.Play("accused_real");
+                }
+                break;
+            case "take_fake_bribe":
+                gm.AddMoney(fakeBribe);
                 break;
         }
     }
@@ -454,6 +499,7 @@ public partial class ShopLoop : Node
                 ShowBarter();
                 ActionsMenu.Visible = true;
                 ActionsMenu.ShowRejectButton(true);
+                ActionsMenu.ShowCoaButton(!customerBuying);
                 break;
             case ShopPhase.Mystery:
                 ShowBarter();
@@ -610,6 +656,7 @@ public partial class ShopLoop : Node
             return;
         }
 
+        Runner.Flags.Add("inspected");
         ObservationPanel.OpenObservation(offeredItem);
     }
 
@@ -661,7 +708,7 @@ public partial class ShopLoop : Node
         });
         if(itemStolenOnEntrance != null)
         {
-            gm.Inventory.Add(new ItemInstance(itemStolenOnEntrance));
+            gm.Inventory.Add(itemStolenOnEntrance);
             itemStolenOnEntrance = null;
             gm.BadKarma++;
         } else

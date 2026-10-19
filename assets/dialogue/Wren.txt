@@ -33,7 +33,7 @@ Wren: That stinks. Meh, I'll try what that preacher guy is on about.
 Wren: I'm not big on questions...
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Wren: Maybe this is just what it was like to live millions of years ago...
 Wren: So, you feeling it?
 
 == chat_c
-Wren: I'm going to be honest with you, I have no idea.
-Wren: They're always saying be on the lookout for the counterfeit stuff, but I don't know the eye for it! Is there a way to check? | Can you check right quick? I mean, you're a pro, right?
-Wren: So, you feeling it?
+> accuse
+
+== accused_fake
+> shake 0.8
+Wren: Oh no. I really don't have the eye for it, huh?
+Wren: Ugh, I traded good stuff for this...
+Wren: Could I give you ${fakeBribe} and just keep it? I might be able to trade it off to someone.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Wren: Thanks, seriously. You're a pro.
+
+== fake_refused
+Wren: Yeah, that's fair. I'll go.
+
+== accused_real
+> shake 0.8
+Wren: Fake? Come on, I may not have the eye but I know this one's real.
+Wren: I'm gonna head out.
 
 == chat_d
 Wren: Looking for a place to call home. I lost my family back in the initial strikes. It's just been me since then..

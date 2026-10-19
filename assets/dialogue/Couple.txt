@@ -33,7 +33,7 @@ Couple: Oh.. that's okay. Thanks anyway.
 Couple: Is there something you want to know?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Couple: I can't wait to be able to sleep in a soft bed again...
 Couple: Okay... so are you gonna buy it?
 
 == chat_c
-Couple: H-how could you!? [shake rate=40 level=20] This is all we have left, and you call it fake?!
-Couple: Who's in charge here? Surely they will see it for what it is!| Though we're struggling, we would never resort to selling a fraudulent item....
-Couple: Okay... so are you gonna buy it?
+> accuse
+
+== accused_fake
+> shake 0.8
+Couple: [shake rate=40 level=20]W-we didn't know![/shake] We traded our last rations for it...
+Couple: Please... don't tell anyone. We still need to eat.
+Couple: We can give you ${fakeBribe}. It's all we can spare. Just let us keep it and go.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Couple: Thank you... thank you. We'll find another way.
+
+== fake_refused
+Couple: We understand... we'll go.
+
+== accused_real
+> shake 0.8
+Couple: H-how could you!? [shake rate=40 level=20]This is all we have left, and you call it fake?![/shake]
+Couple: We'll take it somewhere that treats people with decency.
 
 == chat_d
 Couple: Truth be told, we have been aimlessly wandering for weeks. From one shop to the next. It's our only source of cover, and interaction with another person. | We are doing as the government says, and heading north. There we might have a semblance of a normal life again...

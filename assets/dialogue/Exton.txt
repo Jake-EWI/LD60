@@ -32,7 +32,7 @@ Exton: Keep up with that attitude and you won't sell a thing.
 Exton: Looks like ya got something on your mind.
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -46,9 +46,27 @@ Exton: Hey, just a piece of advice. Don't go asking too many questions, some qui
 Exton: So, you buyin?
 
 == chat_c
-Exton: [shake rate=40 level=20] You messin with me?[/shake] This meant more to me than anything. Watch yourself.
-Exton: Call that friend of yours if you want to verify it. I've nothing to hide. | Passing this up would be a pretty stupid for your little shop here. And for you.
-Exton: So, you buyin?
+> accuse
+
+== accused_fake
+> shake 0.8
+Exton: [shake rate=40 level=20]...[/shake]
+Exton: You got a good eye. That's dangerous for you.
+Exton: Here's ${fakeBribe}. I walk, you forget my face. That's the deal.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Exton: Smart. Real smart.
+
+== fake_refused
+Exton: Mistake. Watch yourself.
+
+== accused_real
+> shake 0.8
+Exton: [shake rate=40 level=20]You messin with me?[/shake] This meant more to me than anything.
+Exton: I'll remember this, shopkeep.
 
 == chat_d
 Exton: Me? Don't worry about me, my friend. But I appreciate you trying get to know me... | I'm no one special, just another wanderer in the hellscape that our planet has become.

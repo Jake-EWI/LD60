@@ -33,7 +33,7 @@ Dolly: Awh, oh well. Be careful out here!
 Dolly: Got a question for me?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Dolly: Sometimes it's hard to sleep at night though...
 Dolly: So, ya interested in it??
 
 == chat_c
-Dolly: A fake!? I mean, if it is, I have no idea! I got it from some guy in a moving stall a couple days ago. Do you think I got scammed?
-Dolly: Is there any way for us to check if it's real or not? Now I'm curious... | Can you check if it's real? You're good at this stuff? Right?
-Dolly: So, ya interested in it??
+> accuse
+
+== accused_fake
+> shake 0.8
+Dolly: Nooo! I totally got scammed! That moving stall guy!
+Dolly: Ugh, but I already told my friends it was real...
+Dolly: Okay okay, ${fakeBribe} and you pretend you never saw this? Pinky promise?
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Dolly: Yay! Our little secret!
+
+== fake_refused
+Dolly: Aw, fine. Byeee.
+
+== accused_real
+> shake 0.8
+Dolly: Fake?! I paid a lot for this, it's totally real! Hmph!
+Dolly: I'm gonna go find a nicer shop.
 
 == chat_d
 Dolly: Just going about my day! Everyone's so doom and gloom, you know. It wouldn't hurt to get out and live once in a while.

@@ -12,12 +12,17 @@ public partial class BarterPanel : Control
     {
         offerInput = GetNode<SpinBox>("Panel/OfferInput");
         offerButton = GetNode<Button>("Panel/OfferButton");
-        offerButton.Pressed += () => EmitSignal(SignalName.OfferMade, (int)offerInput.Value);
+        offerButton.Pressed += () =>
+        {
+            offerInput.Apply();
+            EmitSignal(SignalName.OfferMade, (int)offerInput.Value);
+        };
     }
 
     public void Open(int askingPrice, int money, bool selling)
     {
-        offerInput.MaxValue = money;
+        offerInput.MaxValue = selling ? money : Mathf.Min(money, askingPrice);
+        offerInput.MinValue = selling ? askingPrice : 0;
         offerInput.Value = askingPrice;
         offerButton.Text = selling ? "Offer to Sell" : "Offer to Buy";
     }

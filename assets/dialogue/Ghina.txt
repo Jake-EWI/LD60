@@ -33,7 +33,7 @@ Ghina: You wouldn't know a good deal if it smacked yous across the face!
 Ghina: Ugh, ask away I guess...
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,10 +47,27 @@ Ghina: You ever wonder what human tastes like?
 Ghina: Enough talk, we doing business?
 
 == chat_c
-Ghina: Listen dude...
-Ghina: Are you seriously pulling this bull right now? It's the literal end of the world, who cares about authenticity? Leave your morals back in the old world.
-Ghina: Feel free to check if you want to, I couldn't care less.
-Ghina: Enough talk, we doing business?
+> accuse
+
+== accused_fake
+> shake 0.8
+Ghina: Yeah, and? It's the literal end of the world.
+Ghina: Authenticity died with the old one.
+Ghina: Tell you what. ${fakeBribe}, I keep it, and you go back to pretending you have morals.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Ghina: See? Business.
+
+== fake_refused
+Ghina: Your loss, dude.
+
+== accused_real
+> shake 0.8
+Ghina: Are you seriously pulling this bull right now? It's real.
+Ghina: Whatever. I'm out.
 
 == chat_d
 Ghina: I'm making things. Tech, clothes, other stuff...

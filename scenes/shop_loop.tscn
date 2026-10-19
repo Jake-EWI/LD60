@@ -196,7 +196,9 @@ Box = NodePath("../CanvasLayer/DialogueBox")
 stream = SubResource("AudioStreamWAV_eqi3r")
 volume_db = -19.621
 autoplay = true
+bus = &"Music"
 
 [node name="MysteryAmbience" type="AudioStreamPlayer" parent="." unique_id=1283621485]
 stream = SubResource("AudioStreamWAV_w2lu8")
 volume_db = -11.886
+bus = &"Music"

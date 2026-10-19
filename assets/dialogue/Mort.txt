@@ -33,7 +33,7 @@ Mort: Fuck off.
 Mort: Looks like you've got a question?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Mort: One thing you can't get rid of is stench of blood though. God, I hate that
 Mort: The bodies rotting the sun also smell like shit.
 
 == chat_c
-Mort: Fuck off, dude.
-Mort: This is an old world item. I bought it from Galmart before the world went to shit.
-Mort: Say some stupid shit again. I dare you.
+> accuse
+
+== accused_fake
+> shake 0.8
+Mort: Shit.
+Mort: Galmart sold fakes? Figures.
+Mort: ${fakeBribe} and you shut your mouth about it. Deal?
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Mort: Good. Don't be weird about it.
+
+== fake_refused
+Mort: Fuck you then.
+
+== accused_real
+> shake 0.8
+Mort: Fuck off, dude. It's real.
+Mort: I'm out of this dump.
 
 == chat_d
 Mort: Stocking up for the trek south.
