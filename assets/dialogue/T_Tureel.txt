@@ -25,7 +25,7 @@ T. Tureel: You can observe the item's these scumbags are trying to sell ya, if y
 T. Tureel: [i]Buying customers[/i] don't take buying fake items too fondly, but if you want to push your luck, sometimes they won't notice.
 >tut_show_coa
 T. Tureel: A [i]Certificate of Authenticity[/i] is another good way to spot a fake. But some legit sellers may not even have one.
-T. Tureel: I've also heard rumors on the streets that some [i]counterfeit[/i] COA's might be in circulation. So make sure all the info checks out.
+T. Tureel: I've also heard rumors on the streets that some [i]counterfeit[/i] COA's might be in circulation. So make sure to check that all of the details look right.
 >tut_show_expert
 T. Tureel: If you're really strugglin' to figure out a fake. I'll leave you my buddies number. He's an expert at spotting fakes.
 >tut_show_inventory
@@ -34,6 +34,6 @@ T. Tureel: Oh. One last thing. The worst of the worst of these scumbags might tr
 T. Tureel: If you catch a thief, you can give them a... [i]slap on the wrist[/i]... if you catch my drift.
 T. Tureel: You can keep whatever you find on the suckers body too, just make sure you got the right guy.
 >tut_hide_all
-T. Tureel: Rent is $15, due at the end of each day. Make sure you're holding on to enough liquid, or I'll have no choice but to evict you from the store.
+T. Tureel: Rent is $10, due at the end of each day. Make sure you're holding on to enough liquid, or I'll have no choice but to evict you from the store.
 T. Tureel: That about does it for me bud. That ain't all there is to it though, but I think I'll let you find out on your own.
 >tut_finish
