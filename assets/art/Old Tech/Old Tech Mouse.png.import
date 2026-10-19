@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://toj1fp4ao2kw"
-path="res://.godot/imported/Polaroid.png-c08e63e789a9677a4d34745a5a66dedb.ctex"
+uid="uid://b2achrrg8hglg"
+path="res://.godot/imported/Old Tech Mouse.png-98031ba978b485a38b416794f1392c8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Old Tech/Polaroid.png"
-dest_files=["res://.godot/imported/Polaroid.png-c08e63e789a9677a4d34745a5a66dedb.ctex"]
+source_file="res://assets/art/Old Tech/Old Tech Mouse.png"
+dest_files=["res://.godot/imported/Old Tech Mouse.png-98031ba978b485a38b416794f1392c8a.ctex"]
 
 [params]
 
