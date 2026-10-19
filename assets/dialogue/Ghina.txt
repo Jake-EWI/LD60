@@ -76,7 +76,7 @@ Ghina: Whatever. I'm out.
 
 == chat_d
 Ghina: I'm making things. Tech, clothes, other stuff...
-Ghina: Anyone ever tell you you ask too many questions?
+Ghina: Anyone ever tell you ask too many questions?
 Ghina: But if your ever interested in some... firepower... let me know. I know a person. 
 Ghina: It's not me, by the way.
 Ghina: Enough talk, we doing business?
@@ -93,7 +93,7 @@ Ghina: I like [b]${price}[/b].
 > barter
 
 == sold
-Ghina: I'll be make quick use of this. | Neat, now I can finish my bomb.
+Ghina: Neat, now I can finish my bomb.
 Ghina: Oh... slip of the tongue. I meant... actually, whatever.
 
 == spotted_fake
