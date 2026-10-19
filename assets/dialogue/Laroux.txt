@@ -69,6 +69,11 @@ Laroux: You run a good business.
 == fake_refused
 Laroux: Good on you. Perhaps business is in better hands in this new world...
 
+== accused_fake_flee
+> shake 0.8
+Laroux: Sharp eyes. Too sharp.
+Laroux: I can't afford to get caught. Not before the broadcast.
+
 == accused_real
 > shake 0.8
 Laroux: ...

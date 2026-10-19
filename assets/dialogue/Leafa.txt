@@ -68,9 +68,14 @@ Leafa: Peace to ya!
 == fake_refused
 Leafa: I'm really not made for this whole scamming thing...
 
+== accused_fake_flee
+> shake 0.8
+Leafa: Eep! You saw right through me!
+Leafa: Byeee!
+
 == accused_real
 > shake 0.8
-Leafa: It is in fact not a 100% real authentic item!
+Leafa: It is in fact a 100% real authentic item!
 
 == chat_d
 Leafa: I'm exploring the new world!
