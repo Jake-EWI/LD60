@@ -6,6 +6,13 @@
 [resource]
 script = ExtResource("1_script")
 CustomerName = "Laroux"
+BuyerChance = 0.65
+FakeChance = 0.2
+Greed = 0.4
+Savvy = 0.75
+Patience = 55.0
+StealChance = 0.2
+CoaChance = 0.8
 DialoguePath = "res://assets/dialogue/Laroux.txt"
 CharacterImage = ExtResource("2_image")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"

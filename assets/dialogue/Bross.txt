@@ -8,7 +8,7 @@ Bross: I'll take it all off your hands right now. But for half price.
 
 == accepted
 > sell_all_half
-Bross: Good doing business. Safe travels. I hear the waters are rough this time of year. [/shake]
+Bross: Good doing business. Safe travels. I hear the waters are rough this time of year. 
 
 ; player
 How did he...?

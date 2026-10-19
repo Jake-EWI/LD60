@@ -6,6 +6,13 @@
 [resource]
 script = ExtResource("1_script")
 CustomerName = "Leafa"
+BuyerChance = 0.55
+FakeChance = 0.3
+Greed = 0.15
+Savvy = 0.45
+Patience = 85.0
+StealChance = 0.15
+CoaChance = 0.3
 DialoguePath = "res://assets/dialogue/Leafa.txt"
 CharacterImage = ExtResource("2_image")
 metadata/_custom_type_script = "uid://di27tjorfh0n3"
