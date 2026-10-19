@@ -33,7 +33,7 @@ Cyron: The Lord scoffs at your greed...
 Cyron: Is there something you want to know?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Cyron: Fear not friend, all you have to do is believe, and you will be saved. Th
 Cyron: The Lord asks if you will be purchasing this item?
 
 == chat_c
-Cyron: Gnahh!! [shake rate=40 level=20] FAKE? You dare insinuate that an item from the LORD is a fake?
-Cyron: Ahem! Excuse me! Of course, this item has been procured by me, with oversight from the Lord! There is no fake here.
-Cyron: The Lord asks if you will be purchasing this item?
+> accuse
+
+== accused_fake
+> shake 0.8
+Cyron: Gnahh!! [shake rate=40 level=20]The Lord tests us both today![/shake]
+Cyron: Clearly a heathen swapped my blessed item with this imitation!
+Cyron: The Lord asks that you accept a tithe of ${fakeBribe} and let this matter rest.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Cyron: Bless you, child. The Lord sees your mercy. And your silence.
+
+== fake_refused
+Cyron: The Lord will remember this. Good day!
+
+== accused_real
+> shake 0.8
+Cyron: [shake rate=40 level=20]BLASPHEMY![/shake] You call an item from the LORD a fake?
+Cyron: I shall pray for your soul. ELSEWHERE!
 
 == chat_d
 Cyron: I am on a sacred pilgrimage, led by our Lord! At the ends of the Earth, the Lord guides his devout followers to their final resting place, where we may earn eternal peace! | The Lord told me to arrive at your establishment. You must have something I need, or do you need something from me!? The Lord works in mysterious ways!

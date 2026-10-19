@@ -19,6 +19,8 @@ public partial class DialogueRunner : Node
 
     public Dictionary<string, string> Variables { get; } = new();
 
+    public HashSet<string> Flags { get; } = new();
+
     public RandomNumberGenerator Rng { get; set; } = new();
 
     [GeneratedRegex(@"\{(\w+)\}")]
@@ -173,7 +175,9 @@ public partial class DialogueRunner : Node
         Stop();
     }
 
-    private void ShowChoices() => Box.ShowChoices(_choice.Choices.Select(c => Fill(c.Text)).ToArray());
+    private List<DialogueChoice> VisibleChoices() => _choice.Choices.Where(c => c.Condition == null || Flags.Contains(c.Condition)).ToList();
+
+    private void ShowChoices() => Box.ShowChoices(VisibleChoices().Select(c => Fill(c.Text)).ToArray());
 
     private string Fill(string text) => VariablePattern().Replace(text, match =>
     {
@@ -210,7 +214,7 @@ public partial class DialogueRunner : Node
 
     private void OnChoiceSelected(int index)
     {
-        var picked = _choice.Choices[index];
+        var picked = VisibleChoices()[index];
         _choice = null;
         if (picked.Target == null)
             Continue();

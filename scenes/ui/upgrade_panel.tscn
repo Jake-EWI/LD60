@@ -13,6 +13,8 @@ font_size = 50
 [sub_resource type="Theme" id="Theme_epw2j"]
 default_font = ExtResource("3_naqhr")
 
+[sub_resource type="LabelSettings" id="LabelSettings_yih1u"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfdir"]
 texture = ExtResource("2_jgoho")
 
@@ -65,6 +67,20 @@ grow_vertical = 2
 theme = SubResource("Theme_epw2j")
 theme_override_constants/separation = 24
 alignment = 1
+
+[node name="DateLabel" type="Label" parent="." unique_id=477146956]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 727.0
+offset_top = 88.0
+offset_right = -243.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "October 4th, 2046"
+label_settings = SubResource("LabelSettings_yih1u")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=641303991]
 layout_mode = 0

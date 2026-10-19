@@ -33,7 +33,7 @@ Indra: I thought you'd be worthy...
 Indra: What may be on your mind?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,7 +47,27 @@ Indra: So, we will assimilate into the new order.
 Indra: It is only worth looking when what you see is the whole unadulterated truth.
 
 == chat_c
+> accuse
+
+== accused_fake
+> shake 0.8
 Indra: ...
+Indra: ...I see.
+Indra: ${fakeBribe}. For your silence.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Indra: ...
+
+== fake_refused
+Indra: ...Very well.
+
+== accused_real
+> shake 0.8
+Indra: ...
+Indra: You are mistaken. Goodbye.
 
 == chat_d
 Indra: You.

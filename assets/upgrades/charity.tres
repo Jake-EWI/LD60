@@ -8,5 +8,5 @@ UpgradeName = "Charity Donation"
 Description = "Give back to the community. Improves your karma."
 Type = 8
 Amount = 3.0
-Cost = 20
+Cost = 10
 MaxLevel = 99

@@ -8,6 +8,7 @@ public partial class UpgradePanel : Control
     [Export] public int MaxOffers { get; set; } = 3;
     private HBoxContainer cards;
     private Button continueButton;
+    private Label dateLabel;
     private GameState gm;
     private List<UpgradeDefinition> offers = [];
     private bool purchasedFreeUpgradeThisDay;
@@ -17,6 +18,7 @@ public partial class UpgradePanel : Control
         gm = GetNode<GameState>("/root/GameState");
         cards = GetNode<HBoxContainer>("Cards");
         continueButton = GetNode<Button>("ContinueButton");
+        dateLabel = GetNode<Label>("DateLabel");
         continueButton.Pressed += () =>
         {
             Hide();
@@ -28,6 +30,10 @@ public partial class UpgradePanel : Control
     public void Open(UpgradeDefinition[] pool, RandomNumberGenerator rng)
     {
         offers.Clear();
+        purchasedFreeUpgradeThisDay = false;
+        var date = gm.CurrentDate;
+        string suffix = date.Day is 11 or 12 or 13 ? "th" : (date.Day % 10) switch { 1 => "st", 2 => "nd", 3 => "rd", _ => "th" };
+        dateLabel.Text = $"{date:MMMM} {date.Day}{suffix}, {date.Year}";
         var alwaysPool = new List<UpgradeDefinition>();
         var randomPool = new List<UpgradeDefinition>();
         foreach (var upgrade in pool)

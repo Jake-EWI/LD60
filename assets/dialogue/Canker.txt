@@ -33,7 +33,7 @@ Canker: What's with everyone passing? Maybe I should steal something shinier nex
 Canker: What? Your staring a hole into me.
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Canker: Don't agree? I don't remember asking you.
 Canker: You gonna buy it or what?
 
 == chat_c
-Canker: HA! You're funny. [shake rate=40 level=20] Keep toying with me and you wont be able to find out if its fake or not.
-Canker: Who's the loser that verifies this stuff? Isn't he nearby? Call him. Now. | I'm feeling generous. It's a good day! I'll brush that one off. For both of our sakes.
-Canker: You gonna buy it or what?
+> accuse
+
+== accused_fake
+> shake 0.8
+Canker: [shake rate=40 level=20]Heh.[/shake] Sharp eyes. Annoying, but sharp.
+Canker: Guy I took it off must've been a fraud too. Funny world.
+Canker: Here's ${fakeBribe}. I walk out with this, you never saw me. Smart choice is obvious.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Canker: Pleasure doing business. Don't get any bright ideas.
+
+== fake_refused
+Canker: Your loss. I'll find a dumber shop.
+
+== accused_real
+> shake 0.8
+Canker: [shake rate=40 level=20]Fake?[/shake] I stole it off a rich guy. It's real, idiot.
+Canker: I'm taking my business somewhere with a brain.
 
 == chat_d
 Canker: I need some money to fill up on, you know. The good stuff.

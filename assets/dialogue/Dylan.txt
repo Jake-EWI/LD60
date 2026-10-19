@@ -39,7 +39,7 @@ Dylan: Ahhh shoot. Well, see you man.
 Dylan: What?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * Wat's with the mask? -> chat_d
 
 == chat_a
@@ -53,9 +53,27 @@ Dylan: Trust me, I'm looking pristine under here.
 Dylan: Buying anything off me?
 
 == chat_c
-Dylan: A fake?? Dunno dude, could be. I bought it off some random preaching dude a while back. He seemed pretty legit to me.
-Dylan: He seemed pretty legit to me.
-Dylan: Buying anything off me?
+> accuse
+
+== accused_fake
+> shake 0.8
+Dylan: Whoa, seriously? That preacher dude played me.
+Dylan: Bummer, man.
+Dylan: Hey, how about ${fakeBribe} and we just keep this between us? I can still flip it to someone.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Dylan: Righteous. Catch you later, dude.
+
+== fake_refused
+Dylan: No worries. I'm out.
+
+== accused_real
+> shake 0.8
+Dylan: Not cool, dude. That thing's legit.
+Dylan: Bad vibes in here. Later.
 
 == chat_d
 Dylan: Oh this? Bro, the air out there is not safe to breathe, but I couldn't find any masks.... this was all I had left...

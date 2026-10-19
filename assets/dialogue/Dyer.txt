@@ -33,7 +33,7 @@ Dyer: Quit wasting my time.
 Dyer: What may be on your mind?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Dyer: I wouldn't mind living like this if we weren't at risked of being blown to
 Dyer: Take it. Or I'll leave.
 
 == chat_c
-Dyer: Sigh [shake rate=40 level=20] Don't give me this bull.
-Dyer: I know you have your buddy on speed dial. Feel free to check. It's as real as the man standing in front of you.| You know what, I get it. It's tough times. You're trying to get your coin. Do what you have to do to verify it.
-Dyer: Take it. Or I'll leave.
+> accuse
+
+== accused_fake
+> shake 0.8
+Dyer: Sigh. [shake rate=40 level=20]Of course it is.[/shake]
+Dyer: Nothing's what it used to be. Not even the junk.
+Dyer: Look, take ${fakeBribe}. I keep the thing, and we never talk about it.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Dyer: Thanks. Keep your head down out there.
+
+== fake_refused
+Dyer: Fine. I'll go.
+
+== accused_real
+> shake 0.8
+Dyer: Don't give me this bull. It's as real as the man standing in front of you.
+Dyer: I'm done here.
 
 == chat_d
 Dyer: Not much of a conversationalist. I'm just trying to get by like everyone else. Taking apart old tech, taking what's important and leaving the rest. | I'm on the trail of the government. Been taking out higher-ups for the last couple months. 

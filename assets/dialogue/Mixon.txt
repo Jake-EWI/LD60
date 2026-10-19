@@ -33,7 +33,7 @@ Mixon: What a shame! Oh well! Back to scrounging the trash bins!
 Mixon: What may be on your mind?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -47,9 +47,27 @@ Mixon: In a way, living like this is quite freeing! The potential of getting blo
 Mixon: Will you be willing to purchase?
 
 == chat_c
-Mixon: What are you implying!? [shake rate=40 level=20] This is of course, the real deal!
-Mixon: There are many experts in regards to this item! Check your sources!| I am a man of ethics! I would never do such a thing as sell counterfeit items that I procured from a dumpster!
-Mixon: Will you be willing to purchase?
+> accuse
+
+== accused_fake
+> shake 0.8
+Mixon: [shake rate=40 level=20]What!?[/shake] Preposterous! I- well... perhaps the dumpster was not as reputable as I'd believed.
+Mixon: This is most embarrassing for a man of ethics such as myself.
+Mixon: Might I propose a gentleman's agreement? ${fakeBribe}, and this conversation never took place.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Mixon: Splendid! A pleasure, as always.
+
+== fake_refused
+Mixon: Hmph! I shall take my business elsewhere!
+
+== accused_real
+> shake 0.8
+Mixon: What are you implying!? [shake rate=40 level=20]This is, of course, the real deal![/shake]
+Mixon: I have never been so insulted! Good day!
 
 == chat_d
 Mixon: Refuge, my friend, refuge! And money! The body needs gas! Like cars! Oh! Do you remember cars!? | I go wherever the wind may take me, my friend. Right now, they lead north! Towards Acre Point!

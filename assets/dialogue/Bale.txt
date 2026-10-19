@@ -34,7 +34,7 @@ Bale: Tch. Waste of time...
 Bale: ....What?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -50,9 +50,27 @@ Bale: Sad to know it's all in vain.
 Bale: But delusion is what keeps people going. Everyone is high on something.
 
 == chat_c
-Bale: Yeah.
-Bale: I'd be surprised if it was real.
-Bale: Could be, though.
+> accuse
+
+== accused_fake
+> shake 0.8
+Bale: Huh. Figured.
+Bale: Not my problem though.
+Bale: I keep it, you get ${fakeBribe}. We both forget this.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Bale: Cool. Later.
+
+== fake_refused
+Bale: Whatever.
+
+== accused_real
+> shake 0.8
+Bale: It's real, man.
+Bale: Not wasting my time here.
 
 == chat_d
 Bale: I'm just enjoying the time I've got left.

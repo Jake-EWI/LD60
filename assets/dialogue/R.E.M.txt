@@ -33,7 +33,7 @@ R.E.M: Meh.
 R.E.M: Looks like you've got a question?
 * Have you heard the broadcasts lately? -> chat_a
 * What's it like out there? -> chat_b
-* This isn't fake, is it? -> chat_c
+* ?inspected This is fake, isn't it? -> chat_c
 * What brings you here? -> chat_d
 
 == chat_a
@@ -48,9 +48,27 @@ R.E.M: Shoddy mud huts, clothes made of wool and straw when our old clothes tear
 R.E.M: Idea: Start selling clothes in here. You'd basically monopolize the whole market!
 
 == chat_c
-R.E.M: I'm like 95% sure it's authentic.
-R.E.M: Got it from a house that burnt down, this was the only thing that made it under some rubble.
-R.E.M: No promises on the other 5%.
+> accuse
+
+== accused_fake
+> shake 0.8
+R.E.M: Huh. Guess it was the other 5%.
+R.E.M: Scavenging's a gamble, you know?
+R.E.M: How about ${fakeBribe} and I keep it? Maybe someone less picky wants it.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+R.E.M: Fair trade. Stay safe out there.
+
+== fake_refused
+R.E.M: No hard feelings. See you around.
+
+== accused_real
+> shake 0.8
+R.E.M: Nah, I'm like 95% sure it's real. You're wrong on this one.
+R.E.M: I'll find someone who appreciates it.
 
 == chat_d
 R.E.M: My superior needs some more goods.
