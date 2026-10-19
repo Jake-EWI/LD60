@@ -1,5 +1,5 @@
 ; Bross
-Bross: How're you!
+Bross: How're you?
 > shake 0.8 
 Bross: You've got some stuff on the back burner. I can see it from here.
 Bross: I'll take it all off your hands right now. But for half price.

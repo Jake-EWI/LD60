@@ -1,0 +1,173 @@
+; Laroux
+Laroux: A shop?
+> shake 0.8 
+Laroux: In this economy?
+Laroux: Capitalism stops at nothing, I guess...
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Laroux: [b]${price}[/b] and all is well.
+> barter
+
+== accepted
+Laroux: Glad to see businesses thriving. [/shake]
+
+== countered
+> shake 0.5
+Laroux: {price} at least.
+
+== left
+> shake 0.8
+Laroux: This the type of business you run? Shame. 
+
+== stole
+> shake 0.8
+Laroux: You've have a {item}.
+Laroux: That... would be helpful.
+
+== pass
+> shake 0.2
+Laroux: Remember that providence is luminous. 
+
+== chat
+Laroux: What, a question?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* ?inspected This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Laroux: You're not one of them right?
+Laroux: Good.
+Laroux: I tune in to try and overwrite their frequency. 
+Laroux: When I figure it out, I'm broadcasting a message that exposes their lies.
+Laroux: People are impressionable right now. When's a better time to spark a little revolution?
+
+== chat_b
+Laroux: What else would it be? It's hell on earth. 
+Laroux: I'm surprised you even got a place like this running, but I guess someone always needs something.
+
+== chat_c
+Laroux: You're questioning its authenticity?
+Laroux: That's fair. I won't protest. But do you have ways to back up your accusations, correct?
+
+> accuse
+
+== accused_fake
+> shake 0.8
+Laroux: You've got good intuition.
+Laroux: That'll keep you alive.
+Laroux: ${fakeBribe} and we'll both go on with our lives.
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Laroux: You run a good business.
+
+== fake_refused
+Laroux: Good on you. Perhaps business is in better hands in this new world...
+
+== accused_real
+> shake 0.8
+Laroux: ...
+Laroux: Yeah, it's real. But I understand. No harm no foul.
+
+== chat_d
+Laroux: I'm gathering tech, new and old!
+Laroux: I plan on combining myself with it in order to become a strong enough to bring down government members.
+Laroux: Sounds unrealistic? 
+Laroux: Look at the world we live in right now. That sounded pretty unrealistic not too long ago, didn't it?
+
+== buyer
+Laroux: I see you have a {item}.
+> show_item
+Laroux: Tell me the price.
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Laroux: Take [b]${price}[/b].
+> barter
+
+== sold
+Laroux: This business is in good hands. Thanks.
+
+== spotted_fake
+> shake 0.8
+Laroux: A dud? Seriously?
+Laroux: Sigh... I don't know what I was expecting. It's a pawn shop during the apocalypse.
+Laroux: If cops weren't still around, I'd just kill you and take all your stuff.
+
+== buyer_countered
+> shake 0.5
+Laroux: ${price}.
+
+== buyer_left
+> shake 0.8
+Laroux: I'll be going now!
+
+== buyer_stole
+> shake 0.8
+Laroux: I'm taking this from you.
+Laroux: Think of as a donation. Fighting for a just cause. 
+
+== pull_gun
+> shake 2
+Laroux: [shake rate=40 level=20]Alright.
+Laroux: Figures...
+Laroux: I mean, you could just shoot and sweep it all under the rug.
+Laroux: Be warned, this is bulletproof tech I've got on. It might even ricochet, heh.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Laroux: [shake rate=40 level=20]...[/shake]
+Laroux: Nothing in this dump is worth stealing.
+Laroux: If I REALLY wanted something in here, I would've just shot you through that conveniently placed window.
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Laroux: [shake rate=40 level=20]My tech, failed me...?[/shake]
+> shoot
+
+== not_shoot
+Laroux: A shitty owner for a shitty business.
+Laroux: You won't last long.
+> not_shoot
+
+
+== buyer_chat
+Laroux: Watcha got for me?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Laroux: I'm turning myself into a war machine. I'm going to be the one that takes down our corrupted government. Maybe even the Apostles while I'm at it. 
+Laroux: How much is it?
+
+== buyer_chat_b
+Laroux: I've been planning this whole government takedown thing since before the world ended. 
+Laroux: All of this? Hard work. Stored and kept safe until it needed to be used.
+Laroux: How much is it?
+
+== buyer_chat_c
+Laroux: Do you really think you're more familiar with this than I would be?
+Laroux: Fine... how much do YOU think it is?
+
+== buyer_chat_d
+Laroux: I caught a glimpse of one of those creatures. 
+Laroux: They don't seem to like the sun very much. You shouldn't go out at night.
+Laroux: How much is it?
+
+== coa
+Laroux: Of course, I keep one on my person.
+> show_coa
+
+== no_coa
+Laroux: I am your COA. I can verify anything and everything about this in a instant.

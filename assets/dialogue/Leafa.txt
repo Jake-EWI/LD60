@@ -1,0 +1,173 @@
+; Leafa
+Leafa: Hello stranger!
+> shake 0.8 
+Leafa: Such a cutesy shop!
+Leafa: Care to take an item or two off me?
+* I'll take a look. -> buy
+* Get out of my store. -> pass
+== buy
+> show_item
+Leafa: [b]${price}[/b] smells right for this one...
+> barter
+
+== accepted
+Leafa: Yay! Thank you! [/shake]
+
+== countered
+> shake 0.5
+Leafa: {price} make me feel more at ease...
+
+== left
+> shake 0.8
+Leafa: Shucks... better luck next time I guess... 
+
+== stole
+> shake 0.8
+Leafa: Golly! Is that a {item}?
+Leafa: How much ya wanting for it?
+
+== pass
+> shake 0.2
+Leafa: Shucks... better luck next time I guess... 
+
+== chat
+Leafa: Oh! Something bothering ya?
+* Have you heard the broadcasts lately? -> chat_a
+* What's it like out there? -> chat_b
+* ?inspected This isn't fake, is it? -> chat_c
+* What brings you here? -> chat_d
+
+== chat_a
+Leafa: Nope! I stopped listening after week 2.
+Leafa: It's all the same stuff! I told myself I wouldn't surround myself with negative energy any longer.
+Leafa: I doubt anything news worthy is going on now anyway... besides the obvious.
+
+== chat_b
+Leafa: Some call it the end of the world, but I call it a new beginning! 
+Leafa: Even if I wont be around to see it, this is just the cycle of mother nature. The new replaces the old!
+Leafa: I will be a little sad when my time comes though...
+
+== chat_c
+Leafa: What???? Nooooo.....
+Leafa: 100% real and authentic item!
+
+> accuse
+
+== accused_fake
+> shake 0.8
+Leafa: I guess I'm a bad liar.
+Leafa: Alright.
+Leafa: ${fakeBribe} and I'll take off, no problems. Okay?
+* Deal. -> fake_deal
+* Get out of my store. -> fake_refused
+
+== fake_deal
+> take_fake_bribe
+Leafa: Peace to ya!
+
+== fake_refused
+Leafa: I'm really not made for this whole scamming thing...
+
+== accused_real
+> shake 0.8
+Leafa: It is in fact not a 100% real authentic item!
+
+== chat_d
+Leafa: I'm exploring the new world!
+Leafa: A lot of it is the same so far though... 
+Leafa: It gets kind of old seeing another vulture chow down on some dude's guts, you slurping up what I'm spewing out?
+
+== buyer
+Leafa: Well I'll be! You have a {item}!
+> show_item
+Leafa: So! What ya asking?
+* Let's talk price. -> sell
+* Not for sale. -> pass
+
+== sell
+Leafa: How bouts [b]${price}[/b]?
+> barter
+
+== sold
+Leafa: Yippie! Maybe tonight won't be so bad after all.
+
+== spotted_fake
+> shake 0.8
+Leafa: You know...
+Leafa: This is totally not real...
+Leafa: Did you check it when you got it? The serial number is totally wrong!
+Leafa: That's okay. I'm sure some stuff even slips past a pro like you every now again.
+
+== buyer_countered
+> shake 0.5
+Leafa: ${price} and I'll take it right now!
+
+== buyer_left
+> shake 0.8
+Leafa: Stay safe. I'll be performing out back. Pull up!
+
+== buyer_stole
+> shake 0.8
+Leafa: Oooh! Shiny!
+Leafa: Totally have to nab that from ya. Sorry! 
+
+== pull_gun
+> shake 2
+Leafa: [shake rate=40 level=20]Woah okay....
+Leafa: I'm sorry.
+Leafa: What it is that I did, I'm sorry!
+Leafa: I'll leave! I'm begging! Don't shoot.
+* Did you take something? -> ask_if_stole
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== ask_if_stole
+Leafa: [shake rate=40 level=20]...[/shake]
+Leafa: I've never stolen anything.
+Leafa: Just because the world has changed doesn't mean I have to!
+* Shoot -> shoot
+* Put gun down -> not_shoot
+
+== shoot
+Leafa: [shake rate=40 level=20]Don't do i-[/shake]
+> shoot
+
+== not_shoot
+Leafa: Ok. Thank you. I'm sorry.
+Leafa: I'll leave now.
+> not_shoot
+
+
+== buyer_chat
+Leafa: Watcha got for me?
+* What do you need it for? -> buyer_chat_a
+* Where'd you get that cash? -> buyer_chat_b
+* That's worth way more than that. -> buyer_chat_c
+* Seen anything interesting out there? -> buyer_chat_d
+
+== buyer_chat_a
+Leafa: I just want interesting stuff to mess around with! I can be a little of a tinkerer sometimes. 
+Leafa: How much for ya?
+
+== buyer_chat_b
+Leafa: This was my life savings before everything started blowing up! 
+Leafa: I've got enough to last me a while. I even hid the extras somewhere secret!
+Leafa: You didn't hear that last part...
+Leafa: How much for ya?
+
+== buyer_chat_c
+Leafa: Ya really think so? I thought I was familiar with this stuff...
+Leafa: How much for ya?
+
+== buyer_chat_d
+Leafa: About 5 miles north west of here, there's a singular tree that's managed to survive the turmoil.
+Leafa: It's kind of beautiful. To me, it represents the resilience of the spirit. It always starts with one, and the roots spread, building something stronger than itself.
+Leafa: How much for ya?
+
+== coa
+Leafa: Ermmmm, you're a total nerd dude! 
+Leafa: But yeah, I have one.
+> show_coa
+
+== no_coa
+Leafa: I don't even know what that is!
