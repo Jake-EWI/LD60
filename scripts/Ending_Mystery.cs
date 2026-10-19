@@ -5,6 +5,7 @@ public partial class Ending_Mystery : Node
 {
     [Export] public DialogueRunner Runner { get; set; }
     [Export] public TextureRect Background { get; set; }
+    [Export] public AudioStreamPlayer RadioSFX { get; set; }
 
     public override void _Ready()
     {
@@ -28,5 +29,9 @@ public partial class Ending_Mystery : Node
             Background.Texture = (Texture2D)GD.Load("res://assets/art/Characters/scary guy.png");
         if (name == "changebg_ForestFire")
             Background.Texture = (Texture2D)GD.Load("res://assets/dialogue/endings/partial mystery ending/BG_ForestFire.png");
+        if (name == "start_radio_sfx")
+            RadioSFX.Play();
+        if (name == "end_radio_sfx")
+            RadioSFX.Stop();
     }
 }

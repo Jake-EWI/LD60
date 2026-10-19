@@ -1,7 +1,10 @@
 ; player
 It's frightening to think about how fast things change.
+>start_radio_sfx
 ; radio
 Radio: .....able-bodied citize....eport to...enlistment station...non-essential pers...be relocated...
+>end_radio_sfx
 ; player
-Two weeks. I have two weeks to make enough money to get out of here.
+Ten days. I have ten days to make enough money to get out of here.
+> end radio_sfx
 >end_intro

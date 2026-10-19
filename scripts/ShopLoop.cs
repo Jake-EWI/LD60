@@ -122,7 +122,7 @@ public partial class ShopLoop : Node
 
         //in game event init
         mysteryDay = rng.RandiRange(5, 7);
-        rauzEncounterDay = rng.RandiRange(9, 11);
+        rauzEncounterDay = rng.RandiRange(mysteryDay + 2, RunLength);
         
         //run init
         int startingItemAmount = rng.RandiRange(MinStartingItems, MaxStartingItems);
@@ -573,7 +573,11 @@ public partial class ShopLoop : Node
                         gm.BadKarma++;
                 }
                 else if(customer == Rauz && secretSteps == 1)
+                {
                     rauzTookItem = true;
+                    gm.Inventory.Remove(offeredItem);
+                    Runner.Play("sold");
+                }
                 else if (offeredItem.IsFake && rng.Randf() < customer.Savvy + (gm.BadKarma / 100f))
                 {
                     Runner.Play("spotted_fake");
@@ -803,16 +807,16 @@ public partial class ShopLoop : Node
 
     private void CheckForEndings()
     {
-        if(gm.Day == RunLength && gm.Money < EscapeCost)
+        if(gm.Day > RunLength && gm.Money < EscapeCost)
         {
             PlayEnding(Ending.Broke);
-        } else if(rauzTookItem && gm.Day == RunLength)
+        } else if(rauzTookItem && gm.Day > RunLength)
         {
             PlayEnding(Ending.Rauz);
-        } else if(rauzItem != null && gm.Day == RunLength)
+        } else if(rauzItem != null && gm.Day > RunLength)
         {
             PlayEnding(Ending.Mystery);
-        } else if(gm.Day == RunLength)
+        } else if(gm.Day > RunLength)
         {
             PlayEnding(Ending.NormalEnd);
         } else if(gm.Money <= 0)

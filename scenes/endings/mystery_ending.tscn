@@ -1,14 +1,16 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://yt0ultkov1hj"]
 
-[ext_resource type="Script" path="res://scripts/Ending_Mystery.cs" id="1_1ecn6"]
+[ext_resource type="Script" uid="uid://cs6uxpkb5saoq" path="res://scripts/Ending_Mystery.cs" id="1_1ecn6"]
 [ext_resource type="Texture2D" uid="uid://dany38hqsgiwm" path="res://assets/art/UI/Broke Ending.png" id="2_1ouok"]
 [ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="3_7qey3"]
 [ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="4_lfubd"]
+[ext_resource type="AudioStream" uid="uid://v162y1fa0k83" path="res://assets/audio/sfx/radio_sfx.wav" id="5_radio"]
 
-[node name="MysteryEnding" type="Node" unique_id=628339096 node_paths=PackedStringArray("Runner", "Background")]
+[node name="MysteryEnding" type="Node" unique_id=628339096 node_paths=PackedStringArray("Runner", "Background", "RadioSFX")]
 script = ExtResource("1_1ecn6")
 Runner = NodePath("DialogueRunner")
 Background = NodePath("CanvasLayer/TextureRect")
+RadioSFX = NodePath("RadioSFX")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1576970420]
 
@@ -26,9 +28,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch_mode = 6
 texture = ExtResource("2_1ouok")
 expand_mode = 1
+stretch_mode = 6
 
 [node name="DialogueBox" parent="CanvasLayer" unique_id=1885510638 instance=ExtResource("3_7qey3")]
 
@@ -37,3 +39,7 @@ script = ExtResource("4_lfubd")
 Box = NodePath("../CanvasLayer/DialogueBox")
 ScriptPath = "res://assets/dialogue/endings/partial mystery ending/partial_ending.txt"
 AutoStart = true
+
+[node name="RadioSFX" type="AudioStreamPlayer" parent="." unique_id=1196481969]
+stream = ExtResource("5_radio")
+volume_db = -16.0

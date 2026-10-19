@@ -4,6 +4,7 @@ using LD60.Dialogue;
 public partial class Intro : Node
 {
     [Export] public DialogueRunner Runner { get; set; }
+    [Export] public AudioStreamPlayer RadioSFX { get; set; }
 
     public override void _Ready()
     {
@@ -12,7 +13,17 @@ public partial class Intro : Node
 
     private void OnCommand(string name, string[] args)
     {
-        if (name == "end_intro")
-            GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/shop_loop.tscn");
+        switch (name)
+        {
+            case "start_radio_sfx":
+                RadioSFX.Play();
+                break;
+            case "end_radio_sfx":
+                RadioSFX.Stop();
+                break;
+            case "end_intro":
+                GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://scenes/shop_loop.tscn");
+                break;
+        }
     }
 }

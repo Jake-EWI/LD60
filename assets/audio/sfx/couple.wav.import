@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cevikw3ndbh4g"
-path="res://.godot/imported/radio.wav-cb3ebe14533eb7af49a1ba7b5f7e70aa.sample"
+uid="uid://bwdpehyts5g5s"
+path="res://.godot/imported/couple.wav-24725a5370cb86e0492f1e05d7a991ee.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/radio.wav"
-dest_files=["res://.godot/imported/radio.wav-cb3ebe14533eb7af49a1ba7b5f7e70aa.sample"]
+source_file="res://assets/audio/sfx/couple.wav"
+dest_files=["res://.godot/imported/couple.wav-24725a5370cb86e0492f1e05d7a991ee.sample"]
 
 [params]
 

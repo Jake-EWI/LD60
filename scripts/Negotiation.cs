@@ -41,14 +41,14 @@ public class Negotiation
             return HaggleResult.Accepted;
 
         bool withinLimit = buying ? offer <= limit : offer >= limit;
-        if (withinLimit && rng.Randf() < 0.75f)
+        if (withinLimit && rng.Randf() < Mathf.InverseLerp(limit, AskingPrice, offer))
         {
             AskingPrice = offer;
             return HaggleResult.Accepted;
         }
 
         float insult = Mathf.Abs(offer - AskingPrice) / (float)Mathf.Max(offer, AskingPrice);
-        Patience -= insult >= 0.5f ? Patience : Mathf.RoundToInt(insult * 100);
+        Patience -= insult >= 0.6f ? Patience : Mathf.RoundToInt(insult * 50);
         if (Patience <= 0)
         {
             float badRoll = rng.RandfRange(0, 1);

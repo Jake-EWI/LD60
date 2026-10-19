@@ -5,6 +5,7 @@ public partial class Ending_Broke : Node
 {
     [Export] public DialogueRunner Runner { get; set; }
     [Export] public TextureRect Background { get; set; }
+    [Export] public AudioStreamPlayer RadioSFX { get; set; }
 
     public override void _Ready()
     {
@@ -24,5 +25,9 @@ public partial class Ending_Broke : Node
             Background.Texture = (Texture2D)GD.Load("res://assets/dialogue/endings/broke ending/Broke-Ending2.png");
         if (name == "changebg_bgexplosion")
             Background.Texture = (Texture2D)GD.Load("res://assets/dialogue/endings/broke ending/bgexplosion.png");
+        if (name == "start_radio_sfx")
+            RadioSFX.Play();
+        if (name == "end_radio_sfx")
+            RadioSFX.Stop();
     }
 }

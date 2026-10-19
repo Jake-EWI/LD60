@@ -22,6 +22,9 @@ T. Tureel: It's hard times out there, and these scumbags will try to trick you w
 T. Tureel: Using the actions menu, you can try to determine the authenticity of these items.
 >tut_show_observe
 T. Tureel: You can observe the item's these scumbags are trying to sell ya, if you notice anything off, there's a chance it could be fake.
+>tut_show_show
+T. Tureel: If you think one of them's hustlin' ya, take 'em up for a chat and let them know. Assuming they it is a fake, that should scare 'em off.
+T. Tureel: It's also good to build some repore by chattin' with them. We're all about our customer service here.
 T. Tureel: [i]Buying customers[/i] don't take buying fake items too fondly, but if you want to push your luck, sometimes they won't notice.
 >tut_show_coa
 T. Tureel: A [i]Certificate of Authenticity[/i] is another good way to spot a fake. But some legit sellers may not even have one.

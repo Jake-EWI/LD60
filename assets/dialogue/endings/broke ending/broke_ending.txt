@@ -14,5 +14,7 @@ Wherever you are, I hope you have found peace. \n As much peace as the world we 
 Take care of our little girl. She is our only hope. \n I'm always thinking of you. \n All my love.
 
 > changebg_bgexplosion
+> start_radio_sfx
 ; radio
 Radio: .....fa....al......stri..ke......in...ou....nd..f......Prisb...e....are.........
+> end_radio_sfx

@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="1_4bx60"]
 [ext_resource type="Texture2D" uid="uid://kt6jp5ymy0sc" path="res://assets/art/UI/Background 4.png" id="2_i2l1n"]
 [ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="3_wfs7u"]
-[ext_resource type="Script" path="res://scripts/Intro.cs" id="4_intro"]
+[ext_resource type="Script" uid="uid://cxavlldittv73" path="res://scripts/Intro.cs" id="4_intro"]
+[ext_resource type="AudioStream" uid="uid://v162y1fa0k83" path="res://assets/audio/sfx/radio_sfx.wav" id="5_radio"]
 
-[node name="Intro" type="Node" unique_id=628339096 node_paths=PackedStringArray("Runner")]
+[node name="Intro" type="Node" unique_id=628339096 node_paths=PackedStringArray("Runner", "RadioSFX")]
 script = ExtResource("4_intro")
 Runner = NodePath("DialogueRunner")
+RadioSFX = NodePath("RadioSFX")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1576970420]
 
@@ -17,9 +19,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch_mode = 6
 texture = ExtResource("2_i2l1n")
 expand_mode = 1
+stretch_mode = 6
 
 [node name="DialogueBox" parent="CanvasLayer" unique_id=1885510638 instance=ExtResource("3_wfs7u")]
 
@@ -28,3 +30,7 @@ script = ExtResource("1_4bx60")
 Box = NodePath("../CanvasLayer/DialogueBox")
 ScriptPath = "res://assets/dialogue/intro.txt"
 AutoStart = true
+
+[node name="RadioSFX" type="AudioStreamPlayer" parent="." unique_id=1229911303]
+stream = ExtResource("5_radio")
+volume_db = -16.0

@@ -8,6 +8,7 @@ public partial class Ending_Rauz : Node
     [Export] public Control Stage { get; set; }
     [Export] public CustomerImage CustomerImage { get; set; }
     [Export] public CustomerDefinition Mystery { get; set; }
+    [Export] public AudioStreamPlayer RadioSFX { get; set; }
     [Export] public float MysteryRiseTime { get; set; } = 4f;
 
     public override void _Ready()
@@ -54,5 +55,9 @@ public partial class Ending_Rauz : Node
             Background.Texture = (Texture2D)GD.Load("res://assets/dialogue/endings/full mystery ending/Entity.png");
         if (name == "changebg_Black")
             Background.Texture = null;
+        if (name == "start_radio_sfx")
+            RadioSFX.Play();
+        if (name == "end_radio_sfx")
+            RadioSFX.Stop();
     }
 }

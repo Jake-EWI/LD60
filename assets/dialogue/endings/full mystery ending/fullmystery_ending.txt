@@ -56,7 +56,8 @@ Why can't I look away?
 ; player
 The cloaked ones... the attacks... the Apostles...
 All this time, I was helping them.
-
+> start_radio_sfx
 ; radio
 Radio: .....at....ack...on..a...re...po...int....civi..ian.....ca...sua..l....ties.....
 Radio: .....witness...es...re...port.....a...new.....fig...ure.....
+> end_radio_sfx
