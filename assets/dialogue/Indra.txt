@@ -1,4 +1,4 @@
-; Indra
+; indra
 Indra: Hello.
 > shake 0.8 
 Indra: I have an assortment for you to look at.

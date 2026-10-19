@@ -1,4 +1,4 @@
-; Laroux
+; laroux
 Laroux: A shop?
 > shake 0.8 
 Laroux: In this economy?

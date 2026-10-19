@@ -1,4 +1,4 @@
-; Mort
+; mort
 Mort: Hey.
 > shake 0.8 
 Mort: Buy my shit.

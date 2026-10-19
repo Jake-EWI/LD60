@@ -1,4 +1,4 @@
-; Mickey
+; mickey
 Mickey: Greetings! Hello! Konnichiwa!
 > shake 0.8 
 Mickey: You buy stuff too, right?

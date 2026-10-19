@@ -1,4 +1,4 @@
-; Couple
+; couple
 Couple: Please buy this from us. We need food.
 > shake 0.8 
 Couple: We have other things. too...
