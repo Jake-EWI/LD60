@@ -1,4 +1,4 @@
-; Dolly
+; dolly
 Dolly: Hiya hiya! I saw your shop from back there, got anything cool?
 > shake 0.8 
 Dolly: Oh! I've got a couple cool things too.
@@ -63,6 +63,11 @@ Dolly: Yay! Our little secret!
 
 == fake_refused
 Dolly: Aw, fine. Byeee.
+
+== accused_fake_flee
+> shake 0.8
+Dolly: Nooo! That moving stall guy!
+Dolly: Okay, bye bye, gotta run!
 
 == accused_real
 > shake 0.8

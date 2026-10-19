@@ -65,6 +65,11 @@ R.E.M: Fair trade. Stay safe out there.
 == fake_refused
 R.E.M: No hard feelings. See you around.
 
+== accused_fake_flee
+> shake 0.8
+R.E.M: Huh. Guess it was the other 5%.
+R.E.M: Welp, I'll be going now.
+
 == accused_real
 > shake 0.8
 R.E.M: Nah, I'm like 95% sure it's real. You're wrong on this one.

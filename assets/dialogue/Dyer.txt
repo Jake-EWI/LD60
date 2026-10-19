@@ -64,6 +64,11 @@ Dyer: Thanks. Keep your head down out there.
 == fake_refused
 Dyer: Fine. I'll go.
 
+== accused_fake_flee
+> shake 0.8
+Dyer: Sigh. [shake rate=40 level=20]Of course it is.[/shake]
+Dyer: I'm not sticking around for the lecture.
+
 == accused_real
 > shake 0.8
 Dyer: Don't give me this bull. It's as real as the man standing in front of you.

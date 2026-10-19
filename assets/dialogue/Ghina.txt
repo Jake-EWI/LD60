@@ -64,6 +64,11 @@ Ghina: See? Business.
 == fake_refused
 Ghina: Your loss, dude.
 
+== accused_fake_flee
+> shake 0.8
+Ghina: Yeah, and? It's the literal end of the world.
+Ghina: I'm not paying you for a lecture. Bye.
+
 == accused_real
 > shake 0.8
 Ghina: Are you seriously pulling this bull right now? It's real.

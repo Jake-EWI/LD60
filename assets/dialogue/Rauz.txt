@@ -76,6 +76,11 @@ Rauz: Good.
 == fake_refused
 Rauz: Fine.
 
+== accused_fake_flee
+> shake 0.8
+Rauz: Could be.
+Rauz: Leaving.
+
 == accused_real
 > shake 0.8
 Rauz: No.

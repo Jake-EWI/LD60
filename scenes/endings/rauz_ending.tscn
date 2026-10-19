@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dany38hqsgiwm" path="res://assets/art/UI/Broke Ending.png" id="2_1ouok"]
 [ext_resource type="PackedScene" uid="uid://c2kii7hp3pkq2" path="res://scenes/ui/dialogue_box.tscn" id="3_7qey3"]
 [ext_resource type="Script" uid="uid://dsexbgegqwilq" path="res://scripts/Dialogue/DialogueRunner.cs" id="4_lfubd"]
+[ext_resource type="AudioStream" uid="uid://c8fgr1kg65mj2" path="res://assets/audio/music/Sacrifice Endings.wav" id="5_1ouok"]
 
 [node name="RauzEnding" type="Node" unique_id=628339096 node_paths=PackedStringArray("Runner", "Background")]
 script = ExtResource("1_1ecn6")
@@ -38,3 +39,7 @@ script = ExtResource("4_lfubd")
 Box = NodePath("../CanvasLayer/DialogueBox")
 ScriptPath = "res://assets/dialogue/endings/full mystery ending/fullmystery_ending.txt"
 AutoStart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1983182296]
+stream = ExtResource("5_1ouok")
+autoplay = true

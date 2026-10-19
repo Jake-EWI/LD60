@@ -64,6 +64,11 @@ Mort: Good. Don't be weird about it.
 == fake_refused
 Mort: Fuck you then.
 
+== accused_fake_flee
+> shake 0.8
+Mort: Shit.
+Mort: I'm outta here.
+
 == accused_real
 > shake 0.8
 Mort: Fuck off, dude. It's real.

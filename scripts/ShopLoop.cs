@@ -26,6 +26,7 @@ public partial class ShopLoop : Node
     [Export] public int BribeCost {get; set;} = 40;
     [Export] public float FakeBribeMin {get; set;} = 0.3f;
     [Export] public float FakeBribeMax {get; set;} = 0.8f;
+    [Export] public float FakeBribeChance {get; set;} = 0.4f;
     private int ExpertPrice => Mathf.RoundToInt(ExpertCost * (1 - gm.GetBonus(UpgradeType.ExpertDiscount)));
     private int PriceCheckPrice => Mathf.RoundToInt(ExpertPriceCheckCost * (1 - gm.GetBonus(UpgradeType.ExpertDiscount)));
     private int BribePrice => Mathf.RoundToInt(BribeCost * (1 - gm.GetBonus(UpgradeType.BribeDiscount)));
@@ -432,7 +433,11 @@ public partial class ShopLoop : Node
                 break;
             case "accuse":
                 phase = ShopPhase.Closing;
-                if (offeredItem.IsFake)
+                if (offeredItem.IsFake && rng.Randf() >= FakeBribeChance)
+                {
+                    Runner.Play("accused_fake_flee");
+                }
+                else if (offeredItem.IsFake)
                 {
                     fakeBribe = Mathf.RoundToInt(offeredItem.Item.BaseValue * rng.RandfRange(FakeBribeMin, FakeBribeMax));
                     Runner.SetVariable("fakeBribe", fakeBribe);

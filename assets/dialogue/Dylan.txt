@@ -70,6 +70,11 @@ Dylan: Righteous. Catch you later, dude.
 == fake_refused
 Dylan: No worries. I'm out.
 
+== accused_fake_flee
+> shake 0.8
+Dylan: Whoa, seriously?
+Dylan: Uh... gotta bounce, man!
+
 == accused_real
 > shake 0.8
 Dylan: Not cool, dude. That thing's legit.

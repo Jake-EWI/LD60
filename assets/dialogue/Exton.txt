@@ -63,6 +63,11 @@ Exton: Smart. Real smart.
 == fake_refused
 Exton: Mistake. Watch yourself.
 
+== accused_fake_flee
+> shake 0.8
+Exton: [shake rate=40 level=20]...[/shake]
+Exton: You never saw me.
+
 == accused_real
 > shake 0.8
 Exton: [shake rate=40 level=20]You messin with me?[/shake] This meant more to me than anything.

@@ -64,6 +64,11 @@ Canker: Pleasure doing business. Don't get any bright ideas.
 == fake_refused
 Canker: Your loss. I'll find a dumber shop.
 
+== accused_fake_flee
+> shake 0.8
+Canker: [shake rate=40 level=20]Heh.[/shake] Sharp eyes.
+Canker: Too sharp. I'm gone.
+
 == accused_real
 > shake 0.8
 Canker: [shake rate=40 level=20]Fake?[/shake] I stole it off a rich guy. It's real, idiot.

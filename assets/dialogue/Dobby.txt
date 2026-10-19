@@ -64,6 +64,11 @@ Dobby: T-thank you! I-I won't t-tell anyone!
 == fake_refused
 Dobby: O-okay... s-sorry for w-w-wasting your t-time...
 
+== accused_fake_flee
+> shake 0.8
+Dobby: [shake rate=40 level=20]N-n-no![/shake]
+Dobby: I-I-I have to g-go!
+
 == accused_real
 > shake 0.8
 Dobby: W-W-WHAT??? [shake rate=40 level=20]I-it's r-real![/shake]

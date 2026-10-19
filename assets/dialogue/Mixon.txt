@@ -64,6 +64,11 @@ Mixon: Splendid! A pleasure, as always.
 == fake_refused
 Mixon: Hmph! I shall take my business elsewhere!
 
+== accused_fake_flee
+> shake 0.8
+Mixon: [shake rate=40 level=20]What!?[/shake] Preposterous!
+Mixon: I shan't stand here and be slandered! Good day!
+
 == accused_real
 > shake 0.8
 Mixon: What are you implying!? [shake rate=40 level=20]This is, of course, the real deal![/shake]

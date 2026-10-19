@@ -80,6 +80,11 @@ Z-Nu: A fine Earth deal. Farewell, Human.
 == fake_refused
 Z-Nu: Very well, Human. Glorp.
 
+== accused_fake_flee
+> shake 0.8
+Z-Nu: [shake rate=40 level=20]Glorp![/shake] Detected!
+Z-Nu: Initiating Earthly retreat. Glorp!
+
 == accused_real
 > shake 0.8
 Z-Nu: [shake rate=40 level=20]How dare you?!?![/shake] This is my Human mother's prized possession.

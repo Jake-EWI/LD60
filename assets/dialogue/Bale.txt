@@ -67,6 +67,11 @@ Bale: Cool. Later.
 == fake_refused
 Bale: Whatever.
 
+== accused_fake_flee
+> shake 0.8
+Bale: Huh. Figured.
+Bale: Yeah, I'm out.
+
 == accused_real
 > shake 0.8
 Bale: It's real, man.

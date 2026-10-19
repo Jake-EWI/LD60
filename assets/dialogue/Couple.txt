@@ -64,6 +64,11 @@ Couple: Thank you... thank you. We'll find another way.
 == fake_refused
 Couple: We understand... we'll go.
 
+== accused_fake_flee
+> shake 0.8
+Couple: [shake rate=40 level=20]W-we didn't know![/shake]
+Couple: We have to go. Now!
+
 == accused_real
 > shake 0.8
 Couple: H-how could you!? [shake rate=40 level=20]This is all we have left, and you call it fake?![/shake]

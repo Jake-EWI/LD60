@@ -64,6 +64,11 @@ Cyron: Bless you, child. The Lord sees your mercy. And your silence.
 == fake_refused
 Cyron: The Lord will remember this. Good day!
 
+== accused_fake_flee
+> shake 0.8
+Cyron: Gnahh!! [shake rate=40 level=20]Heresy![/shake]
+Cyron: The Lord commands that I flee this den of accusers!
+
 == accused_real
 > shake 0.8
 Cyron: [shake rate=40 level=20]BLASPHEMY![/shake] You call an item from the LORD a fake?

@@ -64,6 +64,11 @@ Indra: ...
 == fake_refused
 Indra: ...Very well.
 
+== accused_fake_flee
+> shake 0.8
+Indra: ...
+Indra: ...Goodbye.
+
 == accused_real
 > shake 0.8
 Indra: ...

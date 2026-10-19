@@ -64,6 +64,11 @@ Wren: Thanks, seriously. You're a pro.
 == fake_refused
 Wren: Yeah, that's fair. I'll go.
 
+== accused_fake_flee
+> shake 0.8
+Wren: Oh no. I really don't have the eye for it, huh?
+Wren: Sorry! I-I'll just go!
+
 == accused_real
 > shake 0.8
 Wren: Fake? Come on, I may not have the eye but I know this one's real.
