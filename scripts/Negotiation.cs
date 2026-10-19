@@ -48,7 +48,7 @@ public class Negotiation
         }
 
         float insult = Mathf.Abs(offer - AskingPrice) / (float)Mathf.Max(offer, AskingPrice);
-        Patience -= Mathf.RoundToInt(insult * 100);
+        Patience -= insult >= 0.5f ? Patience : Mathf.RoundToInt(insult * 100);
         if (Patience <= 0)
         {
             float badRoll = rng.RandfRange(0, 1);
